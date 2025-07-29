@@ -1129,7 +1129,7 @@ jr_01e_443b:
     ld bc, $0199
     rra
     ld b, $a0
-    ld [$0150], sp
+    ld [Start], sp
     sbc c
     ld bc, $061f
     and b
@@ -1158,7 +1158,7 @@ jr_01e_451a:
     ld bc, $0199
     rra
     ld b, $a0
-    ld [$0150], sp
+    ld [Start], sp
     sbc c
     ld bc, $061f
     and b
@@ -6908,7 +6908,7 @@ jr_01e_5d57:
     ld b, $c8
     inc bc
     ld b, d
-    ld [$0150], sp
+    ld [Start], sp
     sbc c
     ld bc, $061f
     ld de, $1001

@@ -3447,7 +3447,7 @@ jr_007_4e1f:
     nop
     sub h
     nop
-    jp c, Boot
+    jp c, Logo
 
     nop
     or c
@@ -4255,7 +4255,7 @@ jr_007_51bf:
     nop
     ld [hl], d
     nop
-    jp c, Boot
+    jp c, Logo
 
     nop
     ld h, b
@@ -8315,9 +8315,9 @@ jr_007_62cd:
 
 
     nop
-    call nz, Boot
+    call nz, Logo
     nop
-    call nz, Boot
+    call nz, Logo
     nop
     jp c, $fe00
 

@@ -1089,7 +1089,7 @@ Jump_006_4414:
     and e
     ld [hl], d
     ld [bc], a
-    jp c, Boot
+    jp c, Logo
 
     or c
     sub d

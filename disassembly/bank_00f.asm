@@ -11367,7 +11367,7 @@ jr_00f_7d73:
     rrca
     rrca
     inc bc
-    ld de, $0322
+    ld de, LCDCInterruptHandler
     ld [hl+], a
     sbc a
     db $f4

@@ -13022,7 +13022,7 @@ jr_00c_7b65:
     nop
     ld b, b
     nop
-    jp c, Boot
+    jp c, Logo
 
     nop
     ld [hl-], a

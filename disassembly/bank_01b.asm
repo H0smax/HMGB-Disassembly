@@ -3572,7 +3572,7 @@ jr_01b_4f0a:
     db $10
     ld [hl], e
     ld b, b
-    ld bc, $0150
+    ld bc, Start
     reti
 
 
@@ -3688,7 +3688,7 @@ jr_01b_4f0a:
     db $10
     ld [hl], e
     ld b, b
-    ld bc, $0150
+    ld bc, Start
     reti
 
 

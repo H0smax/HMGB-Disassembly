@@ -119,7 +119,7 @@ Jump_000_003c:
     rst $38
 
 VBlankInterrupt::
-    call Call_000_02e4
+    call VBlankInterruptHandler
     reti
 
 
@@ -142,7 +142,7 @@ LCDCInterrupt::
     rst $38
 
 TimerOverflowInterrupt::
-    jp Jump_000_330a
+    jp TimerOverflowInterruptHandler
 
 
     rst $38
@@ -152,7 +152,7 @@ TimerOverflowInterrupt::
     rst $38
 
 SerialTransferCompleteInterrupt::
-    jp Jump_000_3319
+    jp SerialTransferCompleteInterruptHandler
 
 
     rst $38
@@ -364,9 +364,9 @@ Call_000_00ff:
 Jump_000_00ff:
     rst $38
 
-Boot::
+Logo::
     nop
-    jp Jump_000_0150
+    jp Start
 
 
 HeaderLogo::
@@ -407,7 +407,7 @@ HeaderComplementCheck::
 HeaderGlobalChecksum::
     db $6a, $a7
 
-Jump_000_0150:
+Start::
     nop
 
 Jump_000_0151:
@@ -710,7 +710,7 @@ Call_000_02b8:
     ret
 
 
-Call_000_02e4:
+VBlankInterruptHandler::
     push af
     push bc
     push de
@@ -751,6 +751,8 @@ Jump_000_0304:
     jr nc, jr_000_0326
 
     ld a, [$c0a9]
+
+LCDCInterruptHandler::
     inc a
     ld [$c0a9], a
 
@@ -6354,7 +6356,7 @@ jr_000_1e54:
     ld a, [hl]
     ld e, $86
     ld e, $40
-    ld bc, $0150
+    ld bc, Start
     ld h, b
     ld bc, $0170
     nop
@@ -10868,7 +10870,7 @@ jr_000_3303:
     ret
 
 
-Jump_000_330a:
+TimerOverflowInterruptHandler::
     push af
     ld a, $02
     ldh [rTAC], a
@@ -10880,7 +10882,7 @@ Jump_000_330a:
     reti
 
 
-Jump_000_3319:
+SerialTransferCompleteInterruptHandler::
     push af
     push bc
     push de
