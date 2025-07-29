@@ -1,0 +1,13 @@
+; To avoid leaking ROM
+*.gb
+*.sgb
+*.gbc
+*.sav
+
+; Build or compressed items
+build/
+*.zip
+
+; Dissasembly tools
+mgbdis
+tools/
