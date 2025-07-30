@@ -10497,7 +10497,7 @@ Call_01d_722d:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_01d_7254:
@@ -10558,7 +10558,7 @@ jr_01d_728a:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_01d_72aa:
@@ -10601,7 +10601,7 @@ jr_01d_72c5:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_01d_72e5:
@@ -11118,7 +11118,7 @@ Call_01d_75c1:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_01d_75e2:

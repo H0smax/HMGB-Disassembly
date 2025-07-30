@@ -2026,7 +2026,7 @@ jr_00b_489f:
     ret nz
 
     push de
-    call nz, Call_000_04f5
+    call nz, $04f5
     ld l, $a6
     ld c, [hl]
     rst $38
@@ -5109,7 +5109,7 @@ jr_00b_55dd:
     ret nz
 
     push de
-    call nz, Call_000_04f5
+    call nz, $04f5
     ld l, $a6
     ld c, [hl]
     rst $38
@@ -8185,7 +8185,7 @@ jr_00b_631a:
     ret nz
 
     push de
-    call nz, Call_000_04f5
+    call nz, $04f5
     ld l, $a6
     ld c, [hl]
     rst $38
@@ -11164,7 +11164,7 @@ jr_00b_6fd8:
     ret nz
 
     push de
-    call nz, Call_000_04f5
+    call nz, $04f5
     ld l, $a6
     ld c, [hl]
     rst $38

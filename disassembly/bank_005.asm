@@ -9339,7 +9339,7 @@ jr_005_7275:
     ld h, d
     ld d, $00
     ld a, [hl-]
-    call nz, Call_000_0638
+    call nz, $0638
     ld a, [de]
     add hl, de
     rst $38

@@ -10942,7 +10942,7 @@ jr_01e_7008:
 jr_01e_7071:
     ld hl, sp-$47
     add hl, bc
-    jp nz, Jump_000_0508
+    jp nz, $0508
 
     ld d, a
     ld l, a

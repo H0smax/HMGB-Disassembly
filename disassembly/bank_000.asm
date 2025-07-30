@@ -847,7 +847,7 @@ Call_000_0491:
     ld h, $00
     add hl, hl
     add hl, hl
-    ld de, $04ea
+    ld de, UD4
     add hl, de
     ld a, [hl+]
     ld [$b916], a
@@ -893,89 +893,20 @@ Call_000_04c0:
     ret
 
 
-    ld e, $3e
-    xor a
-    ld a, [bc]
-    ld e, $3e
-    xor a
-    dec bc
-    ld e, $3e
-    xor a
-
-Call_000_04f5:
-    inc c
-    ld e, $3e
-    xor a
-    dec c
-
-Call_000_04fa:
-    ld e, $3e
-    xor a
-    ld c, $1e
-    ld a, $af
-    rrca
-    ld e, $3e
-    xor a
-    ld a, [de]
-    ld e, $3e
-
-Jump_000_0508:
-    xor a
-    dec de
-    ld e, $3e
-    xor a
-    inc e
-    ld e, $3e
-    xor a
-    dec e
-    ld e, $3e
-    dec bc
-    ld a, [bc]
-    ld e, $3e
-    dec bc
-    dec bc
-    ld c, e
-    ld a, $af
-    ld a, [bc]
-    ld c, e
-    ld a, $af
-    dec bc
-    ld c, e
-    ld a, $af
-    inc c
-    ld c, e
-    ld a, $af
-    dec c
-    ld c, e
-    ld a, $af
-    ld c, $4b
-    ld a, $af
-    rrca
-    ld c, e
-    ld a, $af
-    ld a, [de]
-    ld c, e
-    ld a, $af
-    dec de
-    ld c, e
-    ld a, $af
-    inc e
-    ld c, e
-    ld a, $af
-    dec e
-    ld c, e
-    ld a, $0b
-    ld a, [bc]
-    ld c, e
-    ld a, $0b
-    dec bc
+UD4::
+    db $1e, $3e, $af, $0a, $1e, $3e, $af, $0b, $1e, $3e, $af, $0c, $1e, $3e, $af, $0d
+    db $1e, $3e, $af, $0e, $1e, $3e, $af, $0f, $1e, $3e, $af, $1a, $1e, $3e, $af, $1b
+    db $1e, $3e, $af, $1c, $1e, $3e, $af, $1d, $1e, $3e, $0b, $0a, $1e, $3e, $0b, $0b
+    db $4b, $3e, $af, $0a, $4b, $3e, $af, $0b, $4b, $3e, $af, $0c, $4b, $3e, $af, $0d
+    db $4b, $3e, $af, $0e, $4b, $3e, $af, $0f, $4b, $3e, $af, $1a, $4b, $3e, $af, $1b
+    db $4b, $3e, $af, $1c, $4b, $3e, $af, $1d, $4b, $3e, $0b, $0a, $4b, $3e, $0b, $0b
 
 Call_000_054a:
     ld a, [$b883]
     ld l, a
     ld h, $00
     add hl, hl
-    ld de, $05a6
+    ld de, UD5
     add hl, de
     ld a, [hl+]
     ld [$b914], a
@@ -1031,70 +962,19 @@ Jump_000_05a1:
     sbc d
     sbc e
     sbc h
-    ld a, [bc]
-    dec bc
-    ld a, [bc]
-    inc c
-    ld a, [bc]
-    dec c
-    ld a, [bc]
-    ld c, $0a
-    rrca
-    ld a, [bc]
-    ld a, [de]
-    ld a, [bc]
-    dec de
-    ld a, [bc]
-    inc e
-    ld a, [bc]
-    dec e
-    dec bc
-    ld a, [bc]
-    dec bc
-    dec bc
-    dec bc
-    inc c
-    dec bc
-    dec c
-    dec bc
-    ld c, $0b
-    rrca
-    dec bc
-    ld a, [de]
-    dec bc
-    dec de
-    dec bc
-    inc e
-    dec bc
-    dec e
-    inc c
-    ld a, [bc]
-    inc c
-    dec bc
-    inc c
-    inc c
-    inc c
-    dec c
-    inc c
-    ld c, $0c
-    rrca
-    inc c
-    ld a, [de]
-    inc c
-    dec de
-    inc c
-    inc e
-    inc c
-    dec e
-    dec c
-    ld a, [bc]
+
+UD5::
+    db $0a, $0b, $0a, $0c, $0a, $0d, $0a, $0e, $0a, $0f, $0a, $1a, $0a, $1b, $0a, $1c
+    db $0a, $1d, $0b, $0a, $0b, $0b, $0b, $0c, $0b, $0d, $0b, $0e, $0b, $0f, $0b, $1a
+    db $0b, $1b, $0b, $1c, $0b, $1d, $0c, $0a, $0c, $0b, $0c, $0c, $0c, $0d, $0c, $0e
+    db $0c, $0f, $0c, $1a, $0c, $1b, $0c, $1c, $0c, $1d, $0d, $0a
 
 Call_000_05e2:
     ld a, [$b884]
     ld l, a
     ld h, $00
     add hl, hl
-    ld de, $05f6
+    ld de, UD6
     add hl, de
     ld a, [hl+]
     ld [$b912], a
@@ -1103,29 +983,9 @@ Call_000_05e2:
     ret
 
 
-    ld d, b
-    add d
-    ld b, b
-    ld [hl-], a
-    nop
-    ld de, $7152
-    push af
-    push bc
-    push de
-
-Call_000_0601:
-    push hl
-    call Call_000_060a
-    pop hl
-    pop de
-    pop bc
-    pop af
-    ret
-
-
-Call_000_060a:
-    ret
-
+UD6::
+    db $50, $82, $40, $32, $00, $11, $52, $71, $f5, $c5, $d5, $e5, $cd, $0a, $06, $e1
+    db $d1, $c1, $f1, $c9, $c9
 
 Call_000_060b:
     ldh a, [$ff99]
@@ -1149,10 +1009,8 @@ jr_000_061b:
     ret
 
 
-    ld hl, $ffa4
-    ld bc, $0014
-    jp ClearMem
-
+UD7::
+    db $21, $a4, $ff, $01, $14, $00, $c3, $99, $20
 
 Call_000_0629:
     ld hl, $c500
@@ -1165,20 +1023,10 @@ Call_000_0629:
     ret
 
 
-Call_000_0635:
-    ld de, $c500
-
-Call_000_0638:
-    ldh a, [$ff97]
-    rst $30
-    ret
-
-
-    set 7, e
-    jr jr_000_0640
+UD8::
+    db $11, $00, $c5, $f0, $97, $f7, $c9, $cb, $fb, $18, $00
 
 Call_000_0640:
-jr_000_0640:
     call Call_000_0629
     ld a, b
     ld [hl+], a
@@ -1207,98 +1055,14 @@ Call_000_0656:
     ret
 
 
-Call_000_0661:
-    ld a, [$4000]
-    push af
-    ld a, d
-    ld [$2100], a
-    call Call_000_0699
-    pop af
-    ld [$2100], a
-    ret
-
-
-Call_000_0671:
-    ld a, [$4000]
-    push af
-    ld a, d
-    ld [$2100], a
-    call Call_000_0681
-    pop af
-    ld [$2100], a
-    ret
-
-
-Call_000_0681:
-    ld a, c
-    ld b, h
-    ld c, l
-    ld h, $00
-    ld l, a
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    add hl, bc
-    push hl
-    ld h, $00
-    ld l, e
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    ld de, $9000
-    jr jr_000_06af
-
-Call_000_0699:
-    ld a, c
-    ld b, h
-    ld c, l
-    ld h, $00
-    ld l, a
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    add hl, bc
-    push hl
-    ld h, $00
-    ld l, e
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    add hl, hl
-    ld de, $8000
-
-jr_000_06af:
-    add hl, de
-    ld d, h
-    ld e, l
-    call Call_000_0629
-
-Jump_000_06b5:
-    ld a, d
-    ld [hl+], a
-    ld a, e
-    ld [hl+], a
-    ld a, $10
-    ld [hl+], a
-    pop de
-    ld b, $10
-
-jr_000_06bf:
-    ld a, [de]
-    ld [hl+], a
-    inc de
-    dec b
-    jr nz, jr_000_06bf
-
-    ld [hl], $00
-    ldh a, [$ff97]
-    add $13
-    ldh [$ff97], a
-    ret
-
+UD9::
+    db $fa, $00, $40, $f5, $7a, $ea, $00, $21, $cd, $99, $06, $f1, $ea, $00, $21, $c9
+    db $fa, $00, $40, $f5, $7a, $ea, $00, $21, $cd, $81, $06, $f1, $ea, $00, $21, $c9
+    db $79, $44, $4d, $26, $00, $6f, $29, $29, $29, $29, $09, $e5, $26, $00, $6b, $29
+    db $29, $29, $29, $11, $00, $90, $18, $16, $79, $44, $4d, $26, $00, $6f, $29, $29
+    db $29, $29, $09, $e5, $26, $00, $6b, $29, $29, $29, $29, $11, $00, $80, $19, $54
+    db $5d, $cd, $29, $06, $7a, $22, $7b, $22, $3e, $10, $22, $d1, $06, $10, $1a, $22
+    db $13, $05, $20, $fa, $36, $00, $f0, $97, $c6, $13, $e0, $97, $c9
 
 Call_000_06ce:
     push de

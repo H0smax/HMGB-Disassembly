@@ -7,6 +7,20 @@
 00:0322 LCDCInterruptHandler
 00:037A UD3
 00:037A .data:79
+00:04EA UD4
+00:04EA .data:60
+00:05A6 UD5
+00:05A6 .data:3C
+00:05F6 UD6
+00:05F6 .data:15
+00:0620 UD7
+00:0620 .data:9
+00:0635 UD8
+00:0635 .data:B
+00:0661 UD9
+00:0661 .data:6D
+
+
 00:2099 ClearMem
 
 00:330A TimerOverflowInterruptHandler

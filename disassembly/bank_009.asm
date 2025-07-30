@@ -8073,7 +8073,7 @@ jr_009_6803:
     ld a, [hl+]
     ld b, a
     push bc
-    call Call_000_0635
+    call $0635
     call Call_000_210f
     pop bc
     ldh a, [$ff97]

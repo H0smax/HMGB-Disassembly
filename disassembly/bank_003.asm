@@ -702,7 +702,7 @@ Call_003_4443:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_448e:
@@ -763,7 +763,7 @@ jr_003_44ca:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_44ec:
@@ -815,7 +815,7 @@ jr_003_450a:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_4539:
@@ -991,7 +991,7 @@ jr_003_45fc:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_4628:
@@ -1045,7 +1045,7 @@ jr_003_464c:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_467b:
@@ -1098,7 +1098,7 @@ jr_003_469c:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_46cb:
@@ -1151,7 +1151,7 @@ jr_003_46ec:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_471b:
@@ -1204,7 +1204,7 @@ jr_003_473c:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_476b:
@@ -1286,7 +1286,7 @@ jr_003_47c3:
     adc h
     ld h, a
     ld b, $06
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_003_47fb:

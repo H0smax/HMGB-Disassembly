@@ -1862,7 +1862,7 @@ Call_00e_4b42:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 Jump_00e_4b7d:
@@ -1910,7 +1910,7 @@ jr_00e_4b98:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
     jr jr_00e_4b7d
 
@@ -1927,7 +1927,7 @@ jr_00e_4b98:
     ld e, a
     add hl, de
     ld c, $06
-    call Call_000_0635
+    call $0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2024,7 +2024,7 @@ jr_00e_4c12:
     ld e, a
     add hl, de
     ld c, $06
-    call Call_000_0635
+    call $0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2077,7 +2077,7 @@ jr_00e_4c91:
     ld e, a
     add hl, de
     ld c, $06
-    call Call_000_0635
+    call $0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2133,7 +2133,7 @@ jr_00e_4ce5:
     adc h
     ld h, a
     ld c, $06
-    call Call_000_0635
+    call $0635
     ld b, c
 
 jr_00e_4d1f:
@@ -2200,7 +2200,7 @@ jr_00e_4d3a:
     adc h
     ld h, a
     ld c, $06
-    call Call_000_0635
+    call $0635
     ld b, c
 
 jr_00e_4d8a:
@@ -2247,7 +2247,7 @@ jr_00e_4da8:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
     jp Jump_00e_4b7d
 
@@ -2261,7 +2261,7 @@ jr_00e_4da8:
     ld e, a
     add hl, de
     ld c, $06
-    call Call_000_0635
+    call $0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2318,7 +2318,7 @@ jr_00e_4e1c:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_00e_4e3c:
@@ -2361,7 +2361,7 @@ jr_00e_4e59:
     adc h
     ld h, a
     ld b, $08
-    call Call_000_0635
+    call $0635
     ld c, b
 
 jr_00e_4e79:

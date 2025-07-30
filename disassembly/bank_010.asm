@@ -10101,7 +10101,7 @@ jr_010_6ef6:
     ret nz
 
     push de
-    call nz, Call_000_04f5
+    call nz, $04f5
     ld l, $a6
     ld c, [hl]
     rst $38

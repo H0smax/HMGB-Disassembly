@@ -2563,7 +2563,7 @@ Call_01f_4cb2:
     ld a, [hl+]
     ld b, a
     push bc
-    call Call_000_0635
+    call $0635
     call Call_000_210f
     pop bc
     ldh a, [$ff97]
@@ -3044,7 +3044,7 @@ jr_01f_4ed5:
     ld h, a
 
 jr_01f_4f2b:
-    call Call_000_0635
+    call $0635
     ld b, $0f
     call Call_000_210f
     ldh a, [$ff97]
@@ -3269,7 +3269,7 @@ jr_01f_5048:
     ld h, a
 
 jr_01f_5055:
-    call Call_000_0635
+    call $0635
     ld b, $08
     call Call_000_210f
     ldh a, [$ff97]
@@ -3333,7 +3333,7 @@ jr_01f_5065:
     ld a, $00
     adc h
     ld h, a
-    call Call_000_0635
+    call $0635
     ld b, $0a
     call Call_000_210f
     ldh a, [$ff97]
@@ -3345,7 +3345,7 @@ jr_01f_5065:
 
 jr_01f_50c2:
     ld hl, $50d5
-    call Call_000_0635
+    call $0635
     ld b, $11
     call Call_000_210f
     ldh a, [$ff97]
@@ -3428,7 +3428,7 @@ jr_01f_50c2:
     ld a, $00
     adc h
     ld h, a
-    call Call_000_0635
+    call $0635
     ld b, $08
     call Call_000_210f
     ldh a, [$ff97]
@@ -3474,7 +3474,7 @@ Call_01f_5157:
     adc $af
     adc $bb
     adc $c5
-    call Call_000_0635
+    call $0635
     ld hl, $519a
     ld b, $03
     call Call_000_210f

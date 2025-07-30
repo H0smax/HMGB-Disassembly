@@ -3225,7 +3225,7 @@ jr_019_4e2c:
     inc c
     jp c, $ba0c
 
-    call z, Call_000_04fa
+    call z, $04fa
     ccf
     ret c
 

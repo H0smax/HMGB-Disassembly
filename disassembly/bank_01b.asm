@@ -73,7 +73,7 @@ jr_01b_4044:
     ld [$cd6e], a
     ld hl, $4001
     ld d, $11
-    call Call_000_0661
+    call $0661
     pop af
     ld b, a
     ld de, $99c2
@@ -152,7 +152,7 @@ jr_01b_40b3:
     push hl
     ld hl, $4001
     ld d, $11
-    call Call_000_0661
+    call $0661
     pop hl
     ld e, [hl]
     inc hl
@@ -4389,7 +4389,7 @@ jr_01b_5362:
     call Call_01b_4a20
     cp c
     ld [hl], c
-    call Call_000_0601
+    call $0601
     ld l, c
     ld hl, $7140
     call $8020
@@ -9584,7 +9584,7 @@ jr_01b_6a81:
     ld [$cd6e], a
     ld hl, $4001
     ld d, $11
-    call Call_000_0671
+    call $0671
     pop af
     ld b, a
     ld de, $99c2
@@ -10317,7 +10317,7 @@ jr_01b_6d4d:
     ret c
 
     ld de, $3472
-    jp nz, Jump_000_06b5
+    jp nz, $06b5
 
     ld b, l
     ld a, d
