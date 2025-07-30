@@ -168,7 +168,7 @@ JoypadTransitionInterrupt::
 
 
 Call_000_0061:
-    ld a, [$c0a7]
+    ld a, [MapLocation]
 
 Jump_000_0064:
     or a
@@ -489,7 +489,7 @@ Call_000_01d5:
     xor a
     ld [$4000], a
     ld a, $20
-    ld [$c0a7], a
+    ld [MapLocation], a
     call Call_000_2071
     push hl
     push af
@@ -575,7 +575,7 @@ Jump_000_024d:
 
 
 Call_000_0258:
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     or a
     rst $08
     dec d
@@ -712,7 +712,7 @@ Jump_000_036a:
     jr jr_000_0365
 
 Call_000_0375:
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     or a
     rst $08
 
@@ -800,9 +800,9 @@ jr_000_0448:
     xor a
     ld [CurrentTime], a
     call Call_000_0491
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
-    ld [$b883], a
+    ld [NextDay], a
     cp $1e
     jr nc, jr_000_0461
 
@@ -813,7 +813,7 @@ jr_000_0448:
 
 jr_000_0461:
     xor a
-    ld [$b883], a
+    ld [NextDay], a
     ld a, [$b884]
     inc a
     ld [$b884], a
@@ -902,7 +902,7 @@ UD4::
     db $4b, $3e, $af, $1c, $4b, $3e, $af, $1d, $4b, $3e, $0b, $0a, $4b, $3e, $0b, $0b
 
 Call_000_054a:
-    ld a, [$b883]
+    ld a, [NextDay]
     ld l, a
     ld h, $00
     add hl, hl
@@ -915,7 +915,7 @@ Call_000_054a:
     ld a, [$b884]
     ld c, $1e
     call Call_000_071e
-    ld a, [$b883]
+    ld a, [NextDay]
     add l
     ld l, a
     ld a, $00
@@ -2215,7 +2215,7 @@ Jump_000_0bc3:
     ld [$cb4e], a
 
 jr_000_0bce:
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     jr nz, jr_000_0bf6
 
@@ -2429,12 +2429,12 @@ jr_000_0cbc:
 
 Call_000_0cc0:
     ld a, [$cb50]
-    ld [$c0a7], a
+    ld [MapLocation], a
     ld a, $01
     ld [$c0a6], a
 
 jr_000_0ccb:
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     jr nz, jr_000_0cf3
 
@@ -2587,7 +2587,7 @@ Call_000_0d6a:
     ld a, $06
     ld [CurrentTime], a
     ld a, $ff
-    ld [$b883], a
+    ld [NextDay], a
     ld a, $80
     ld [$b892], a
     ld [$b89b], a
@@ -2698,12 +2698,12 @@ Call_000_0e68:
     ld [$cb5f], a
     ld a, $01
     ld [$cb81], a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $ff
     ret nz
 
     xor a
-    ld [$b883], a
+    ld [NextDay], a
     call Call_000_054a
 
 Jump_000_0ec5:
@@ -3066,7 +3066,7 @@ jr_000_107a:
 Call_000_10a0:
     ld a, [CurrentMoneyH]
     cp $ff
-    jr z, jr_000_10d7
+    jr z, ResetMoney
 
     ld a, [CurrentMoneyH]
     cp $02
@@ -3097,7 +3097,7 @@ jr_000_10c6:
     ld [CurrentMoneyH], a
     jr jr_000_10e1
 
-jr_000_10d7:
+ResetMoney::
     xor a
     ld [CurrentMoneyL], a
     ld [CurrentMoneyM], a
@@ -4077,7 +4077,7 @@ jr_000_1626:
 
 Call_000_1634:
     push af
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $02
     jr z, jr_000_1640
 
@@ -4102,7 +4102,7 @@ jr_000_1640:
 
 Call_000_164f:
     push af
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $02
     jr z, jr_000_165b
 
@@ -4689,7 +4689,7 @@ Call_000_1925:
     or a
     ret nz
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     ret nz
 
@@ -4723,7 +4723,7 @@ jr_000_194c:
 
 
 Call_000_1960:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add b
     ld l, a
     ld h, $00
@@ -4793,11 +4793,11 @@ Jump_000_19af:
 
     xor a
     ld [$cb89], a
-    ld a, [$c7a0]
+    ld a, [GrabbingDog?]
     or a
     ret z
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add d
     ld b, a
     ld a, [$c7aa]
@@ -5499,7 +5499,7 @@ jr_000_1c7d:
     xor a
 
 Call_000_1c81:
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $26
     ret z
 
@@ -5521,7 +5521,7 @@ jr_000_1c87:
     call Call_000_1ec2
     ld hl, $ba35
     call Call_000_1ec2
-    ld a, [$b93c]
+    ld a, [CurrentTool2]
     ld hl, $1cd0
     call Call_000_0743
     ld d, h
@@ -6721,7 +6721,7 @@ jr_000_21b6:
     pop de
     ld a, [$4000]
     ld b, a
-    ld a, [$cb60]
+    ld a, [GrabbingDog2?]
     add $18
     ld [$2100], a
     ld c, $10
@@ -9316,7 +9316,7 @@ Jump_000_2dde:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [$cb60], a
+    ld [GrabbingDog2?], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9373,7 +9373,7 @@ Jump_000_2e0c:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [$cb60], a
+    ld [GrabbingDog2?], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9435,7 +9435,7 @@ jr_000_2e62:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [$cb60], a
+    ld [GrabbingDog2?], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9493,7 +9493,7 @@ Jump_000_2ed1:
 Call_000_2edc:
     ld [$cb61], a
     ld a, [hl+]
-    ld [$cb60], a
+    ld [GrabbingDog2?], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -10262,7 +10262,7 @@ Jump_000_3222:
     push bc
     push de
     push hl
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     ld e, a
     add a
     add e
@@ -12534,7 +12534,7 @@ Call_000_3cce:
     or a
     jr nz, jr_000_3d06
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jr nz, jr_000_3d06
 

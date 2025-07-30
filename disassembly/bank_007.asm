@@ -11311,7 +11311,7 @@ Jump_007_7200:
 
     inc a
     ld [$c611], a
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     ld bc, $ffff
     call Call_000_0a27
     ret
@@ -11324,7 +11324,7 @@ Jump_007_7216:
 
     inc a
     ld [$c611], a
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     ld bc, $ffff
     call Call_000_0a27
     ld a, [$c90d]
@@ -11343,7 +11343,7 @@ Jump_007_7235:
 
     inc a
     ld [$c611], a
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     ld bc, $ffff
     call Call_000_0a27
     ret
@@ -11520,7 +11520,7 @@ Call_007_7340:
     ld a, $01
     ld [$c60d], a
     ld a, $e0
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, $28
     ld [$c60b], a
     ld a, $1f
@@ -11559,7 +11559,7 @@ Call_007_7396:
     ld a, $03
     ld [$c60d], a
     ld a, $50
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, $58
     ld [$c60b], a
     xor a
@@ -11607,7 +11607,7 @@ Call_007_73e1:
     ld a, $03
     ld [$c60d], a
     ld a, $50
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, $58
     ld [$c60b], a
     xor a
@@ -12355,7 +12355,7 @@ jr_007_7775:
     ld bc, $0400
     call ClearMem
     ld hl, $79fc
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     jr z, jr_007_77fa
 
@@ -12417,7 +12417,7 @@ jr_007_7825:
     call Call_000_21f3
     call Call_000_222e
     pop hl
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $20
     jr z, jr_007_78b8
 

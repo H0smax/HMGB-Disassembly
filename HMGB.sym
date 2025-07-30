@@ -22,9 +22,35 @@
 
 ; TODO: Check bank?
 00:B882 CurrentTime
+00:B88B CurrentDay
+
+; To be confirmed
+00:B883 NextDay
+
 00:B8EF CurrentMoneyL
 00:B8F0 CurrentMoneyM
 00:B8F1 CurrentMoneyH
+
+; To be confirmed
+00:C0A7 MapLocation
+
+; To be confirmed, pet related (dog)
+00:C7A0 GrabbingDog?
+00:CB60 GrabbingDog2?
+00:CB8B GrabbingDog3?
+
+00:C60A PlayerXPosition
+00:C606 CameraXPosition
+
+; To be confirmed
+00:C608 PlayerOrCameraYPosition
+
+; To be confirmed
+00:C622 CurrentTool
+00:B93C CurrentTool2
+
+
+00:10D7 ResetMoney
 
 00:2099 ClearMem
 

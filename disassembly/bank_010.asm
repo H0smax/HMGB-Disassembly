@@ -153,9 +153,9 @@ Jump_010_4101:
     and $01
     ret nz
 
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
     ld hl, $c800
     ld a, $0a
@@ -427,7 +427,7 @@ jr_010_4297:
 jr_010_42ae:
     ld hl, $c60b
     inc [hl]
-    ld hl, $c608
+    ld hl, PlayerOrCameraYPosition
     inc [hl]
     ret
 
@@ -454,10 +454,10 @@ jr_010_42c2:
     cp $40
     jr z, jr_010_42f2
 
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
     dec [hl]
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
     dec [hl]
     ld a, [$c603]
@@ -520,9 +520,9 @@ jr_010_4327:
     and $01
     ret nz
 
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
     ret
 
@@ -671,9 +671,9 @@ jr_010_4347:
     and $01
     ret nz
 
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
     ld hl, $c800
     ld a, $0a
@@ -3052,7 +3052,7 @@ jr_010_4f2d:
     ld [$c720], a
     ld [$c740], a
     ld [$c760], a
-    ld [$c7a0], a
+    ld [GrabbingDog?], a
     ld [$c800], a
     ld [$c820], a
     ld [$c800], a

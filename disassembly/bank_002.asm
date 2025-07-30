@@ -69,7 +69,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld hl, $9822
     call Call_002_41d1
     ld hl, $9826
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
     call Call_002_41ec
     ld a, [CurrentTime]
@@ -77,7 +77,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     call Call_002_41ff
     ld a, [$b884]
     ld [$cbde], a
-    ld a, [$b883]
+    ld a, [NextDay]
     ld [$cbdf], a
     ld a, [CurrentTime]
     ld [$cbe0], a
@@ -124,7 +124,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld hl, $98a2
     call Call_002_41d1
     ld hl, $98a6
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
     call Call_002_41ec
     ld a, [CurrentTime]
@@ -537,9 +537,9 @@ Call_002_4370:
     ld a, $18
     call Call_000_06ce
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     add l
-    ld [$b883], a
+    ld [NextDay], a
     ld a, [CurrentTime]
     add b
     ld [CurrentTime], a
@@ -548,17 +548,17 @@ Call_002_4370:
 
     sub $18
     ld [CurrentTime], a
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
-    ld [$b883], a
+    ld [NextDay], a
 
 jr_002_439f:
-    ld a, [$b883]
+    ld a, [NextDay]
     ld l, a
     ld h, $00
     ld a, $1e
     call Call_000_06ce
-    ld [$b883], a
+    ld [NextDay], a
     ld a, [$b884]
     add l
     ld [$b884], a
@@ -594,7 +594,7 @@ Call_002_43d5:
     cp $03
     ret nz
 
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1d
     ret nz
 
@@ -609,7 +609,7 @@ jr_002_43f3:
     ld hl, $02d0
     call Call_000_099f
     push hl
-    ld a, [$b883]
+    ld a, [NextDay]
     ld c, $18
     call Call_000_071e
     pop de
@@ -639,7 +639,7 @@ jr_002_43f3:
     ld a, $03
     ld [$b884], a
     ld a, $1d
-    ld [$b883], a
+    ld [NextDay], a
     ld a, $06
     ld [CurrentTime], a
     xor a
@@ -699,7 +699,7 @@ jr_002_4477:
 
     ld a, [$b8eb]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     ret c
 
@@ -716,7 +716,7 @@ Call_002_44a4:
     cp $03
     ret nz
 
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1d
     ret nz
 
@@ -1034,7 +1034,7 @@ jr_002_4650:
 jr_002_465c:
     ld a, [$b8a2]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     jr z, jr_002_4675
 
@@ -1044,7 +1044,7 @@ jr_002_465c:
 
 
 jr_002_4669:
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1d
     ret nz
 
@@ -1120,7 +1120,7 @@ jr_002_46d2:
 jr_002_46e8:
     ld a, [$b8a1]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     jr z, jr_002_470b
 
@@ -1130,7 +1130,7 @@ jr_002_46e8:
 
 
 jr_002_46f5:
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1d
     ret nz
 
@@ -1182,14 +1182,14 @@ jr_002_4735:
 jr_002_4744:
     ld a, [$ba4c]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     ret z
 
     ld a, [$ba4c]
     inc a
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     jr z, jr_002_475a
 
@@ -1217,13 +1217,13 @@ jr_002_4760:
 jr_002_477b:
     ld a, [$ba4d]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     ret z
 
     ld a, [$ba4c]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     jr z, jr_002_478f
 
@@ -3259,9 +3259,9 @@ jr_002_519d:
 
     dec a
     ld [$c60b], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     dec a
-    ld [$c608], a
+    ld [PlayerOrCameraYPosition], a
 
 jr_002_51b7:
     ld a, [$cb73]
@@ -3274,9 +3274,9 @@ jr_002_51b7:
     ld h, a
     ld a, [hl]
     ld b, a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add b
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, b
     or a
     ret z
@@ -3284,7 +3284,7 @@ jr_002_51b7:
     ld a, b
     ld c, a
     ld b, $ff
-    ld hl, $c606
+    ld hl, CameraXPosition
     call Call_000_0a27
     ret
 
@@ -3292,16 +3292,16 @@ jr_002_51b7:
 jr_002_51dc:
     ld a, $53
     call Call_000_152f
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $ff
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, [$c60b]
     add $f3
     ld [$c60b], a
-    ld hl, $c606
+    ld hl, CameraXPosition
     ld bc, $ffff
     call Call_000_0a27
-    ld hl, $c608
+    ld hl, PlayerOrCameraYPosition
     ld bc, $fff3
     call Call_000_0a27
     ret
@@ -3318,9 +3318,9 @@ jr_002_5204:
     ld h, a
     ld a, [hl]
     ld b, a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add b
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, b
     or a
     ret z
@@ -3328,7 +3328,7 @@ jr_002_5204:
     ld a, b
     ld c, a
     ld b, $ff
-    ld hl, $c606
+    ld hl, CameraXPosition
     call Call_000_0a27
     ret
 
@@ -3342,7 +3342,7 @@ Jump_002_5229:
     ld [$c910], a
     ld a, $01
     ld [$c60d], a
-    ld a, [$b883]
+    ld a, [NextDay]
     ld [$b901], a
     ld a, [CurrentTime]
     ld [$b902], a
@@ -3656,7 +3656,7 @@ jr_002_541a:
     cp $02
     jp z, Jump_002_54ef
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jp nz, Jump_002_5300
 
@@ -3696,7 +3696,7 @@ jr_002_5466:
 
 
 Jump_002_546d:
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jp nz, Jump_002_52ba
 
@@ -3736,7 +3736,7 @@ jr_002_54a7:
 
 
 Jump_002_54ae:
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jp nz, Jump_002_5346
 
@@ -3776,7 +3776,7 @@ jr_002_54e8:
 
 
 Jump_002_54ef:
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jp nz, Jump_002_538c
 
@@ -3874,11 +3874,11 @@ Jump_002_5569:
 Call_002_557c:
     xor a
     ld [$c90e], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     cp $83
     jr nc, jr_002_55a4
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     cp $5c
     jr nc, jr_002_5590
 
@@ -3891,7 +3891,7 @@ jr_002_5590:
     inc [hl]
 
 jr_002_5598:
-    ld hl, $c608
+    ld hl, PlayerOrCameraYPosition
     inc [hl]
     ret
 
@@ -3913,7 +3913,7 @@ jr_002_55a4:
     ld [$c911], a
     xor a
     ld [$c90f], a
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     ret z
 
@@ -3933,15 +3933,15 @@ jr_002_55bf:
 Call_002_55ca:
     xor a
     ld [$c90e], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     cp $0e
     ret c
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     cp $5d
     jr nc, jr_002_55e4
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     cp $08
     jr c, jr_002_55f1
 
@@ -3954,7 +3954,7 @@ jr_002_55e4:
     dec [hl]
 
 jr_002_55ec:
-    ld hl, $c608
+    ld hl, PlayerOrCameraYPosition
     dec [hl]
     ret
 
@@ -3970,7 +3970,7 @@ jr_002_55f1:
 Call_002_55f8:
     xor a
     ld [$c90e], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $18
     ret c
 
@@ -3981,7 +3981,7 @@ Call_002_55f8:
     cp $01
     jr z, jr_002_563f
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $b9
     jr nc, jr_002_562f
 
@@ -3989,7 +3989,7 @@ Call_002_55f8:
     cp $00
     jr nz, jr_002_5622
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $59
     jr c, jr_002_562f
 
@@ -4000,13 +4000,13 @@ jr_002_5622:
     dec [hl]
 
 jr_002_562a:
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
     ret
 
 
 jr_002_562f:
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
     jr jr_002_562a
 
@@ -4014,15 +4014,15 @@ jr_002_562f:
 
 
 jr_002_5636:
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
     ret
 
 
 jr_002_563f:
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $99
     jr nc, jr_002_565d
 
@@ -4030,7 +4030,7 @@ jr_002_563f:
     cp $00
     jr nz, jr_002_5654
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $59
     jr c, jr_002_565d
 
@@ -4039,13 +4039,13 @@ jr_002_5654:
     dec [hl]
 
 jr_002_5658:
-    ld hl, $c606
+    ld hl, CameraXPosition
     dec [hl]
     ret
 
 
 jr_002_565d:
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     dec [hl]
     jr jr_002_5658
 
@@ -4055,7 +4055,7 @@ jr_002_565d:
 Call_002_5664:
     xor a
     ld [$c90e], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $f8
     ret nc
 
@@ -4066,11 +4066,11 @@ Call_002_5664:
     cp $01
     jr z, jr_002_56a4
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $b8
     jr nc, jr_002_5694
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $58
     jr c, jr_002_5694
 
@@ -4080,13 +4080,13 @@ Call_002_5664:
     inc [hl]
 
 jr_002_568f:
-    ld hl, $c606
+    ld hl, CameraXPosition
     inc [hl]
     ret
 
 
 jr_002_5694:
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     inc [hl]
     jr jr_002_568f
 
@@ -4094,19 +4094,19 @@ jr_002_5694:
 
 
 jr_002_569b:
-    ld hl, $c606
+    ld hl, CameraXPosition
     inc [hl]
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     inc [hl]
     ret
 
 
 jr_002_56a4:
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $98
     jr nc, jr_002_56bb
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     cp $58
     jr c, jr_002_56bb
 
@@ -4114,13 +4114,13 @@ jr_002_56a4:
     inc [hl]
 
 jr_002_56b6:
-    ld hl, $c606
+    ld hl, CameraXPosition
     inc [hl]
     ret
 
 
 jr_002_56bb:
-    ld hl, $c60a
+    ld hl, PlayerXPosition
     inc [hl]
     jr jr_002_56b6
 
@@ -4190,7 +4190,7 @@ jr_002_570f:
     ld [$c910], a
     xor a
     ld [$c911], a
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     ret z
 
@@ -4229,7 +4229,7 @@ Call_002_5757:
     or a
     ret nz
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     ret nz
 
@@ -4569,18 +4569,18 @@ jr_002_589e:
 
 Call_002_592e:
     call Call_002_5a54
-    ld a, [$b883]
-    ld [$b88b], a
+    ld a, [NextDay]
+    ld [CurrentDay], a
     ld a, [$b884]
     ld [$b88a], a
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
-    ld [$b88b], a
+    ld [CurrentDay], a
     cp $1e
     jr nz, jr_002_5955
 
     xor a
-    ld [$b88b], a
+    ld [CurrentDay], a
     ld a, [$b88a]
     inc a
     and $03
@@ -4604,7 +4604,7 @@ jr_002_5965:
 
     ld a, [$b8a2]
     ld b, a
-    ld a, [$b88b]
+    ld a, [CurrentDay]
     cp b
     jr nz, jr_002_597c
 
@@ -4616,7 +4616,7 @@ jr_002_5965:
 jr_002_597c:
     ld a, [$b8a2]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     jr nz, jr_002_598c
 
@@ -4668,13 +4668,13 @@ Jump_002_59b3:
 Jump_002_59c8:
     ld a, [$b8a1]
     ld b, a
-    ld a, [$b88b]
+    ld a, [CurrentDay]
     cp b
     jr nz, jr_002_59e3
 
     ld a, $03
     ld [$b89f], a
-    ld a, [$b883]
+    ld a, [NextDay]
     ld [$ba4d], a
     ld a, $80
     ld [$b8a1], a
@@ -4732,7 +4732,7 @@ Call_002_5a0d:
 
 
 jr_002_5a29:
-    ld a, [$b88b]
+    ld a, [CurrentDay]
     cp $13
     jr z, jr_002_5a46
 
@@ -4740,7 +4740,7 @@ jr_002_5a29:
 
 
 jr_002_5a31:
-    ld a, [$b88b]
+    ld a, [CurrentDay]
     cp $09
     jr z, jr_002_5a46
 
@@ -4752,7 +4752,7 @@ jr_002_5a39:
     or a
     ret nz
 
-    ld a, [$b88b]
+    ld a, [CurrentDay]
     cp $13
     jr z, jr_002_5a46
 
@@ -4778,10 +4778,10 @@ Call_002_5a54:
     or a
     ret nz
 
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1b
     call z, Call_002_5a6b
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1c
     call z, Call_002_5a81
     ret
@@ -6318,7 +6318,7 @@ Call_002_624e:
     or a
     jr nz, jr_002_628a
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jr nz, jr_002_628a
 
@@ -6327,7 +6327,7 @@ Call_002_624e:
     jr z, jr_002_6275
 
     ld hl, $622e
-    ld de, $c7a0
+    ld de, GrabbingDog?
     ld b, $20
     call Call_000_210f
     ld a, [$c7ad]
@@ -6339,7 +6339,7 @@ Call_002_624e:
 
 jr_002_6275:
     ld hl, $620e
-    ld de, $c7a0
+    ld de, GrabbingDog?
     ld b, $20
     call Call_000_210f
     ld a, [$c7ad]
@@ -6351,7 +6351,7 @@ jr_002_6275:
 
 jr_002_628a:
     xor a
-    ld [$c7a0], a
+    ld [GrabbingDog?], a
     ret
 
 
@@ -6496,7 +6496,7 @@ jr_002_631f:
     ld a, [$b89b]
     add $03
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     ret nz
 
@@ -6747,7 +6747,7 @@ Call_002_64c1:
     cp $00
     ret nz
 
-    ld a, [$b883]
+    ld a, [NextDay]
     ld b, a
     ld a, [$b8a2]
     cp b
@@ -6769,13 +6769,13 @@ jr_002_64f8:
     inc a
     inc a
     ldh [$ff93], a
-    ld hl, $c606
+    ld hl, CameraXPosition
     ld bc, $0002
     call Call_000_0a27
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     inc a
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld hl, $c7a6
     ld bc, $0002
     call Call_000_0a27
@@ -6796,11 +6796,11 @@ jr_002_6537:
     dec a
     dec a
     ldh [$ff93], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     dec a
     dec a
-    ld [$c60a], a
-    ld hl, $c606
+    ld [PlayerXPosition], a
+    ld hl, CameraXPosition
     ld bc, $fffe
     call Call_000_0a27
     ld hl, $c7a6
@@ -6939,7 +6939,7 @@ Call_002_655c:
     ld [$b8fd], a
     ld a, [$b884]
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     or b
     jr z, jr_002_6626
 
@@ -7160,9 +7160,9 @@ jr_002_6736:
     ld a, $06
     ld [CurrentTime], a
     call Call_000_0491
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
-    ld [$b883], a
+    ld [NextDay], a
     cp $1e
     jr nc, jr_002_676c
 
@@ -7172,7 +7172,7 @@ jr_002_6736:
 
 jr_002_676c:
     xor a
-    ld [$b883], a
+    ld [NextDay], a
     ld a, [$b884]
     inc a
     ld [$b884], a
@@ -8147,7 +8147,7 @@ jr_002_6bad:
     cp $01
     jr nz, jr_002_6bbb
 
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $13
     jr c, jr_002_6bbf
 
@@ -8162,7 +8162,7 @@ jr_002_6bbf:
     ld a, [$b893]
     or a
     call nz, Call_002_6d01
-    ld a, [$b883]
+    ld a, [NextDay]
     ld b, a
     ld a, [$b8a2]
     cp b
@@ -8188,17 +8188,17 @@ jr_002_6bbf:
 
 
 Call_002_6c08:
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $00
     call z, Call_002_6e70
     call Call_002_6cad
     ld a, [$b91a]
     cp $9b
     call z, Call_002_6cf2
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $09
     call z, Call_002_6d54
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $0e
     call z, Call_002_6db6
     ret
@@ -8213,20 +8213,20 @@ Call_002_6c2c:
 
 
 Call_002_6c38:
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $00
     call z, Call_002_6dc3
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $09
     call z, Call_002_6d22
     ret
 
 
 Call_002_6c49:
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $13
     call z, Call_002_6d30
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $1d
     call z, Call_002_6e23
     ret
@@ -8297,11 +8297,11 @@ Call_002_6cad:
     or a
     ret nz
 
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $09
     ret c
 
-    ld a, [$b883]
+    ld a, [NextDay]
     cp $13
     ret nc
 
@@ -8327,7 +8327,7 @@ Call_002_6cca:
     or a
     ret z
 
-    ld a, [$b883]
+    ld a, [NextDay]
     ld b, a
     ld a, [$b8eb]
     cp b
@@ -8343,7 +8343,7 @@ Call_002_6cca:
 
 
 Call_002_6cf2:
-    ld a, [$b883]
+    ld a, [NextDay]
     add $07
     cp $1e
     ret c
@@ -8355,7 +8355,7 @@ Call_002_6cf2:
 
 
 Call_002_6d01:
-    ld a, [$b883]
+    ld a, [NextDay]
     ld b, a
     ld a, [$b894]
     cp b
@@ -8518,7 +8518,7 @@ Call_002_6dda:
     ld a, [$b89b]
     add $03
     ld b, a
-    ld a, [$b883]
+    ld a, [NextDay]
     cp b
     ret nz
 

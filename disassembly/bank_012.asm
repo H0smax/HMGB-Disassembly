@@ -10527,7 +10527,7 @@ jr_012_7130:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -10541,7 +10541,7 @@ jr_012_7130:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -10575,7 +10575,7 @@ jr_012_7130:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -10614,7 +10614,7 @@ jr_012_7130:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -10630,7 +10630,7 @@ jr_012_7130:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $1f
     ld l, a
     ld a, [$c607]
@@ -10663,7 +10663,7 @@ jr_012_7130:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $18
     ld l, a
     ld a, [$c607]
@@ -10701,7 +10701,7 @@ jr_012_7130:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -10717,7 +10717,7 @@ jr_012_7130:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $1e
     ld l, a
     ld a, [$c607]
@@ -10750,7 +10750,7 @@ jr_012_7130:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $17
     ld l, a
     ld a, [$c607]
@@ -10788,7 +10788,7 @@ jr_012_7130:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -10802,7 +10802,7 @@ jr_012_7130:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0a
     ld l, a
     ld a, [$c609]
@@ -10838,7 +10838,7 @@ jr_012_7130:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0a
     ld l, a
     ld a, [$c609]
@@ -12395,7 +12395,7 @@ jr_012_7adb:
     jr nc, jr_012_7b29
 
     inc [hl]
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $00
     ld [$c62a], a
     ld a, [$c60b]
@@ -12411,7 +12411,7 @@ jr_012_7af5:
     jr nc, jr_012_7b29
 
     inc [hl]
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $10
     ld [$c62a], a
     ld a, [$c60b]
@@ -12427,7 +12427,7 @@ jr_012_7b0f:
     jr nc, jr_012_7b29
 
     inc [hl]
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $10
     ld [$c62a], a
     ld a, [$c60b]
@@ -12437,7 +12437,7 @@ jr_012_7b0f:
 
 
 jr_012_7b29:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [$c62a], a
     ld a, [$c90d]
@@ -12515,7 +12515,7 @@ Jump_012_7b7c:
 
 
 jr_012_7b8b:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c62a], a
     ld a, [$c60b]
@@ -12525,7 +12525,7 @@ jr_012_7b8b:
 
 
 jr_012_7b9c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $10
     ld [$c62a], a
     ld a, [$c60b]
@@ -12535,7 +12535,7 @@ jr_012_7b9c:
     cp $01
     ret z
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c62a], a
     ret

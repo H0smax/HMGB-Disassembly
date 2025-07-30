@@ -8875,7 +8875,7 @@ Call_01f_6b14:
     ld [$ccd3], a
     ld a, [$b884]
     ld [$ccd4], a
-    ld a, [$b883]
+    ld a, [NextDay]
     ld [$ccd5], a
     ld a, $01
     ld [$ccd6], a
@@ -9130,7 +9130,7 @@ jr_01f_6d9d:
     ld a, [$ccd4]
     ld [$b884], a
     ld a, [$ccd5]
-    ld [$b883], a
+    ld [NextDay], a
     call Call_000_054a
     call Call_000_05e2
     ld hl, $d400

@@ -634,9 +634,9 @@ jr_009_436c:
     xor a
     ld [CurrentTime], a
     call Call_000_0491
-    ld a, [$b883]
+    ld a, [NextDay]
     inc a
-    ld [$b883], a
+    ld [NextDay], a
     cp $1e
     jr nc, jr_009_4382
 
@@ -646,7 +646,7 @@ jr_009_436c:
 
 jr_009_4382:
     xor a
-    ld [$b883], a
+    ld [NextDay], a
     call Call_000_054a
     ld a, [$b884]
     inc a
@@ -3370,7 +3370,7 @@ jr_009_5076:
     ld a, [$b884]
     ld c, $1e
     call Call_000_071e
-    ld a, [$b883]
+    ld a, [NextDay]
     add l
     ld l, a
     ld a, $00
@@ -7955,7 +7955,7 @@ jr_009_6690:
     ld [$c910], a
     ld [$c0a6], a
     inc a
-    ld [$c0a7], a
+    ld [MapLocation], a
     pop hl
     ret
 

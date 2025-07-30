@@ -4273,7 +4273,7 @@ jr_006_5333:
     ld a, [$b884]
     ld c, $1e
     call Call_000_071e
-    ld a, [$b883]
+    ld a, [NextDay]
     add l
     ld l, a
     ld a, $00
@@ -6050,7 +6050,7 @@ jr_006_5a5f:
     or a
     jr nz, jr_006_5aa4
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jr nz, jr_006_5ab6
 
@@ -6103,7 +6103,7 @@ jr_006_5ace:
     or a
     jr nz, jr_006_5aeb
 
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     jr nz, jr_006_5afd
 
@@ -6383,7 +6383,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6392,7 +6392,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $00
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6407,7 +6407,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6416,7 +6416,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $01
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6431,7 +6431,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6440,7 +6440,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $02
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6455,7 +6455,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6464,7 +6464,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $03
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6479,7 +6479,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6488,7 +6488,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $04
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6503,7 +6503,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6512,7 +6512,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $05
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6527,7 +6527,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6536,7 +6536,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $06
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6551,7 +6551,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6560,7 +6560,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $07
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6575,7 +6575,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6584,7 +6584,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $08
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6599,7 +6599,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6608,7 +6608,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $09
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6623,7 +6623,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $08
     ld [hl+], a
     ld a, [$c60b]
@@ -6632,7 +6632,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0a
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6647,7 +6647,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6656,7 +6656,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0b
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6671,7 +6671,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $07
     ld [hl+], a
     ld a, [$c60b]
@@ -6680,7 +6680,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0c
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6695,7 +6695,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6704,7 +6704,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0d
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6719,7 +6719,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6728,7 +6728,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0e
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6743,22 +6743,22 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $0f
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6773,7 +6773,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6782,7 +6782,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $10
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6797,7 +6797,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6806,7 +6806,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $11
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6821,7 +6821,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6830,7 +6830,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $12
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6845,7 +6845,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -6854,7 +6854,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $13
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6869,7 +6869,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $07
     ld [hl+], a
     ld a, [$c60b]
@@ -6878,7 +6878,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0c
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6893,7 +6893,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $07
     ld [hl+], a
     ld a, [$c60b]
@@ -6902,7 +6902,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $15
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6917,7 +6917,7 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $07
     ld [hl+], a
     ld a, [$c60b]
@@ -6926,7 +6926,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $16
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6941,22 +6941,22 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $17
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6999,22 +6999,22 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $18
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7031,22 +7031,22 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $19
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7061,22 +7061,22 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $1a
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7091,22 +7091,22 @@ jr_006_5b6c:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $1b
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7144,7 +7144,7 @@ jr_006_5b6c:
     cp $02
     jr z, jr_006_620b
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7154,7 +7154,7 @@ jr_006_5b6c:
 
 
 jr_006_61ea:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7164,7 +7164,7 @@ jr_006_61ea:
 
 
 jr_006_61fa:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7174,7 +7174,7 @@ jr_006_61fa:
 
 
 jr_006_620b:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7211,7 +7211,7 @@ jr_006_620b:
     cp $02
     jr z, jr_006_6289
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7221,7 +7221,7 @@ jr_006_620b:
 
 
 jr_006_6268:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7231,7 +7231,7 @@ jr_006_6268:
 
 
 jr_006_6278:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7241,7 +7241,7 @@ jr_006_6278:
 
 
 jr_006_6289:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7278,7 +7278,7 @@ jr_006_6289:
     cp $02
     jr z, jr_006_6307
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7288,7 +7288,7 @@ jr_006_6289:
 
 
 jr_006_62e6:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7298,7 +7298,7 @@ jr_006_62e6:
 
 
 jr_006_62f6:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7308,7 +7308,7 @@ jr_006_62f6:
 
 
 jr_006_6307:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7345,7 +7345,7 @@ jr_006_6307:
     cp $02
     jr z, jr_006_6385
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7355,7 +7355,7 @@ jr_006_6307:
 
 
 jr_006_6364:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7365,7 +7365,7 @@ jr_006_6364:
 
 
 jr_006_6374:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7375,7 +7375,7 @@ jr_006_6374:
 
 
 jr_006_6385:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7389,22 +7389,22 @@ jr_006_6385:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $1f
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7442,7 +7442,7 @@ jr_006_6385:
     cp $02
     jr z, jr_006_643a
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7452,7 +7452,7 @@ jr_006_6385:
 
 
 jr_006_6419:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7462,7 +7462,7 @@ jr_006_6419:
 
 
 jr_006_6429:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7472,7 +7472,7 @@ jr_006_6429:
 
 
 jr_006_643a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7486,22 +7486,22 @@ jr_006_643a:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $21
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7539,7 +7539,7 @@ jr_006_643a:
     cp $02
     jr z, jr_006_64ef
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7549,7 +7549,7 @@ jr_006_643a:
 
 
 jr_006_64ce:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7559,7 +7559,7 @@ jr_006_64ce:
 
 
 jr_006_64de:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7569,7 +7569,7 @@ jr_006_64de:
 
 
 jr_006_64ef:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7583,22 +7583,22 @@ jr_006_64ef:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $23
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7636,7 +7636,7 @@ jr_006_64ef:
     cp $02
     jr z, jr_006_65a4
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7646,7 +7646,7 @@ jr_006_64ef:
 
 
 jr_006_6583:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7656,7 +7656,7 @@ jr_006_6583:
 
 
 jr_006_6593:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7666,7 +7666,7 @@ jr_006_6593:
 
 
 jr_006_65a4:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7680,22 +7680,22 @@ jr_006_65a4:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $25
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7733,7 +7733,7 @@ jr_006_65a4:
     cp $02
     jr z, jr_006_6659
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7743,7 +7743,7 @@ jr_006_65a4:
 
 
 jr_006_6638:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7753,7 +7753,7 @@ jr_006_6638:
 
 
 jr_006_6648:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7763,7 +7763,7 @@ jr_006_6648:
 
 
 jr_006_6659:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7777,22 +7777,22 @@ jr_006_6659:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $27
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7830,7 +7830,7 @@ jr_006_6659:
     cp $02
     jr z, jr_006_670e
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7840,7 +7840,7 @@ jr_006_6659:
 
 
 jr_006_66ed:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7850,7 +7850,7 @@ jr_006_66ed:
 
 
 jr_006_66fd:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7860,7 +7860,7 @@ jr_006_66fd:
 
 
 jr_006_670e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7874,22 +7874,22 @@ jr_006_670e:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $29
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7929,7 +7929,7 @@ jr_006_670e:
     cp $02
     jr z, jr_006_67c7
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -7939,7 +7939,7 @@ jr_006_670e:
 
 
 jr_006_67a6:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -7949,7 +7949,7 @@ jr_006_67a6:
 
 
 jr_006_67b6:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7959,7 +7959,7 @@ jr_006_67b6:
 
 
 jr_006_67c7:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -7968,7 +7968,7 @@ jr_006_67c7:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -8000,7 +8000,7 @@ jr_006_67c7:
     cp $02
     jr z, jr_006_684b
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8010,7 +8010,7 @@ jr_006_67c7:
 
 
 jr_006_682a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8020,7 +8020,7 @@ jr_006_682a:
 
 
 jr_006_683a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8030,7 +8030,7 @@ jr_006_683a:
 
 
 jr_006_684b:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8039,7 +8039,7 @@ jr_006_684b:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -8071,7 +8071,7 @@ jr_006_684b:
 
     ld a, $2f
     ld [$c642], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8083,7 +8083,7 @@ jr_006_684b:
 jr_006_68ae:
     ld a, $2c
     ld [$c642], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8095,7 +8095,7 @@ jr_006_68ae:
 jr_006_68c3:
     ld a, $2d
     ld [$c642], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $08
     ld [$c64a], a
     ld a, [$c60b]
@@ -8107,7 +8107,7 @@ jr_006_68c3:
 jr_006_68d9:
     ld a, $2e
     ld [$c642], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $08
     ld [$c64a], a
     ld a, [$c60b]
@@ -8153,7 +8153,7 @@ jr_006_68d9:
     cp $02
     jr z, jr_006_695f
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8163,7 +8163,7 @@ jr_006_68d9:
 
 
 jr_006_693e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8173,7 +8173,7 @@ jr_006_693e:
 
 
 jr_006_694e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8183,7 +8183,7 @@ jr_006_694e:
 
 
 jr_006_695f:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8220,7 +8220,7 @@ jr_006_695f:
     cp $02
     jr z, jr_006_69dd
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8230,7 +8230,7 @@ jr_006_695f:
 
 
 jr_006_69bc:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8240,7 +8240,7 @@ jr_006_69bc:
 
 
 jr_006_69cc:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $10
     ld [$c64a], a
     ld a, [$c60b]
@@ -8250,7 +8250,7 @@ jr_006_69cc:
 
 
 jr_006_69dd:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $10
     ld [$c64a], a
     ld a, [$c60b]
@@ -8285,7 +8285,7 @@ jr_006_69dd:
     cp $02
     jr z, jr_006_6a56
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8295,7 +8295,7 @@ jr_006_69dd:
 
 
 jr_006_6a35:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8305,7 +8305,7 @@ jr_006_6a35:
 
 
 jr_006_6a45:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8315,7 +8315,7 @@ jr_006_6a45:
 
 
 jr_006_6a56:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8352,7 +8352,7 @@ jr_006_6a56:
     cp $02
     jr z, jr_006_6ad4
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8362,7 +8362,7 @@ jr_006_6a56:
 
 
 jr_006_6ab3:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8372,7 +8372,7 @@ jr_006_6ab3:
 
 
 jr_006_6ac3:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8382,7 +8382,7 @@ jr_006_6ac3:
 
 
 jr_006_6ad4:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8419,7 +8419,7 @@ jr_006_6ad4:
     cp $02
     jr z, jr_006_6b52
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8429,7 +8429,7 @@ jr_006_6ad4:
 
 
 jr_006_6b31:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8439,7 +8439,7 @@ jr_006_6b31:
 
 
 jr_006_6b41:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8449,7 +8449,7 @@ jr_006_6b41:
 
 
 jr_006_6b52:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8458,7 +8458,7 @@ jr_006_6b52:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -8490,7 +8490,7 @@ jr_006_6b52:
     cp $02
     jr z, jr_006_6bd6
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8500,7 +8500,7 @@ jr_006_6b52:
 
 
 jr_006_6bb5:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8510,7 +8510,7 @@ jr_006_6bb5:
 
 
 jr_006_6bc5:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $10
     ld [$c64a], a
     ld a, [$c60b]
@@ -8520,7 +8520,7 @@ jr_006_6bc5:
 
 
 jr_006_6bd6:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $10
     ld [$c64a], a
     ld a, [$c60b]
@@ -8529,7 +8529,7 @@ jr_006_6bd6:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -8551,7 +8551,7 @@ jr_006_6bd6:
     ld [$c650], a
     ld [$c645], a
     ld [$c644], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8587,7 +8587,7 @@ jr_006_6bd6:
     cp $02
     jr z, jr_006_6c94
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8597,7 +8597,7 @@ jr_006_6bd6:
 
 
 jr_006_6c73:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8607,7 +8607,7 @@ jr_006_6c73:
 
 
 jr_006_6c83:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $0c
     ld [$c64a], a
     ld a, [$c60b]
@@ -8617,7 +8617,7 @@ jr_006_6c83:
 
 
 jr_006_6c94:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $0c
     ld [$c64a], a
     ld a, [$c60b]
@@ -8643,22 +8643,22 @@ jr_006_6c94:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $3c
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8696,7 +8696,7 @@ jr_006_6c94:
     cp $02
     jr z, jr_006_6d4d
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8706,7 +8706,7 @@ jr_006_6c94:
 
 
 jr_006_6d2c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8716,7 +8716,7 @@ jr_006_6d2c:
 
 
 jr_006_6d3c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8726,7 +8726,7 @@ jr_006_6d3c:
 
 
 jr_006_6d4d:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8740,22 +8740,22 @@ jr_006_6d4d:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $3e
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8770,22 +8770,22 @@ jr_006_6d4d:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $3f
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8800,22 +8800,22 @@ jr_006_6d4d:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $40
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8852,7 +8852,7 @@ jr_006_6d4d:
     cp $02
     jr z, jr_006_6e6d
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -8862,7 +8862,7 @@ jr_006_6d4d:
 
 
 jr_006_6e4c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -8872,7 +8872,7 @@ jr_006_6e4c:
 
 
 jr_006_6e5c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8882,7 +8882,7 @@ jr_006_6e5c:
 
 
 jr_006_6e6d:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -8976,22 +8976,22 @@ jr_006_6e6d:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $48
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9029,7 +9029,7 @@ jr_006_6e6d:
     cp $02
     jr z, jr_006_6fce
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9039,7 +9039,7 @@ jr_006_6e6d:
 
 
 jr_006_6fad:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9049,7 +9049,7 @@ jr_006_6fad:
 
 
 jr_006_6fbd:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9059,7 +9059,7 @@ jr_006_6fbd:
 
 
 jr_006_6fce:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9101,7 +9101,7 @@ jr_006_6fce:
     cp $02
     jr z, jr_006_704b
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9111,7 +9111,7 @@ jr_006_6fce:
 
 
 jr_006_702a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9121,7 +9121,7 @@ jr_006_702a:
 
 
 jr_006_703a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9131,7 +9131,7 @@ jr_006_703a:
 
 
 jr_006_704b:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9167,7 +9167,7 @@ jr_006_704b:
     cp $02
     jr z, jr_006_70c6
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9177,7 +9177,7 @@ jr_006_704b:
 
 
 jr_006_70a5:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9187,7 +9187,7 @@ jr_006_70a5:
 
 
 jr_006_70b5:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9197,7 +9197,7 @@ jr_006_70b5:
 
 
 jr_006_70c6:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9211,7 +9211,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9220,7 +9220,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $4e
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9235,7 +9235,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9244,7 +9244,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $4f
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9259,7 +9259,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9268,7 +9268,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $50
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9283,7 +9283,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9292,7 +9292,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $51
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9302,7 +9302,7 @@ jr_006_70c6:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -9311,7 +9311,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $07
     ld [hl+], a
     ld a, [$c60b]
@@ -9320,7 +9320,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $52
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9335,7 +9335,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9344,7 +9344,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $53
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9359,7 +9359,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9368,7 +9368,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $54
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9383,7 +9383,7 @@ jr_006_70c6:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -9392,7 +9392,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $55
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9429,7 +9429,7 @@ jr_006_70c6:
     cp $02
     jr z, jr_006_72a7
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9439,7 +9439,7 @@ jr_006_70c6:
 
 
 jr_006_7286:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9449,7 +9449,7 @@ jr_006_7286:
 
 
 jr_006_7296:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9459,7 +9459,7 @@ jr_006_7296:
 
 
 jr_006_72a7:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9495,7 +9495,7 @@ jr_006_72a7:
     cp $02
     jr z, jr_006_7322
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9505,7 +9505,7 @@ jr_006_72a7:
 
 
 jr_006_7301:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9515,7 +9515,7 @@ jr_006_7301:
 
 
 jr_006_7311:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
 
 Call_006_7314:
     sub $18
@@ -9527,7 +9527,7 @@ Call_006_7314:
 
 
 jr_006_7322:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9539,7 +9539,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -9558,7 +9558,7 @@ jr_006_7322:
     xor a
     ld [$c645], a
     ld [$c644], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     ld a, [$c60b]
     sub $10
@@ -9566,7 +9566,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $01
     ret nz
 
@@ -9595,7 +9595,7 @@ jr_006_7322:
     cp $02
     jr z, jr_006_73d9
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9605,7 +9605,7 @@ jr_006_7322:
 
 
 jr_006_73b8:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9615,7 +9615,7 @@ jr_006_73b8:
 
 
 jr_006_73c8:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $10
     ld [$c64a], a
     ld a, [$c60b]
@@ -9625,7 +9625,7 @@ jr_006_73c8:
 
 
 jr_006_73d9:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $10
     ld [$c64a], a
     ld a, [$c60b]
@@ -9662,7 +9662,7 @@ jr_006_73d9:
     cp $02
     jr z, jr_006_7457
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9672,7 +9672,7 @@ jr_006_73d9:
 
 
 jr_006_7436:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9682,7 +9682,7 @@ jr_006_7436:
 
 
 jr_006_7446:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9692,7 +9692,7 @@ jr_006_7446:
 
 
 jr_006_7457:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9729,7 +9729,7 @@ jr_006_7457:
     cp $02
     jr z, jr_006_74d5
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9739,7 +9739,7 @@ jr_006_7457:
 
 
 jr_006_74b4:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9749,7 +9749,7 @@ jr_006_74b4:
 
 
 jr_006_74c4:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9759,7 +9759,7 @@ jr_006_74c4:
 
 
 jr_006_74d5:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9796,7 +9796,7 @@ jr_006_74d5:
     cp $02
     jr z, jr_006_7553
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9806,7 +9806,7 @@ jr_006_74d5:
 
 
 jr_006_7532:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9816,7 +9816,7 @@ jr_006_7532:
 
 
 jr_006_7542:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9826,7 +9826,7 @@ jr_006_7542:
 
 
 jr_006_7553:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9863,7 +9863,7 @@ jr_006_7553:
     cp $02
     jr z, jr_006_75d1
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9873,7 +9873,7 @@ jr_006_7553:
 
 
 jr_006_75b0:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9883,7 +9883,7 @@ jr_006_75b0:
 
 
 jr_006_75c0:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9893,7 +9893,7 @@ jr_006_75c0:
 
 
 jr_006_75d1:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9930,7 +9930,7 @@ jr_006_75d1:
     cp $02
     jr z, jr_006_764f
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -9940,7 +9940,7 @@ jr_006_75d1:
 
 
 jr_006_762e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -9950,7 +9950,7 @@ jr_006_762e:
 
 
 jr_006_763e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9960,7 +9960,7 @@ jr_006_763e:
 
 
 jr_006_764f:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -9997,7 +9997,7 @@ jr_006_764f:
     cp $02
     jr z, jr_006_76cd
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -10007,7 +10007,7 @@ jr_006_764f:
 
 
 jr_006_76ac:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -10017,7 +10017,7 @@ jr_006_76ac:
 
 
 jr_006_76bc:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10027,7 +10027,7 @@ jr_006_76bc:
 
 
 jr_006_76cd:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10041,7 +10041,7 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -10050,7 +10050,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $61
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10065,7 +10065,7 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -10074,7 +10074,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $62
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10089,7 +10089,7 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -10098,7 +10098,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $63
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10113,7 +10113,7 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -10122,7 +10122,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $64
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10137,7 +10137,7 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -10146,7 +10146,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $65
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10161,7 +10161,7 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $06
     ld [hl+], a
     ld a, [$c60b]
@@ -10170,7 +10170,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $66
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10185,22 +10185,22 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $69
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10215,22 +10215,22 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $6a
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10245,22 +10245,22 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $6b
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10275,22 +10275,22 @@ jr_006_76cd:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $6c
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10328,7 +10328,7 @@ jr_006_76cd:
     cp $02
     jr z, jr_006_792f
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -10338,7 +10338,7 @@ jr_006_76cd:
 
 
 jr_006_790e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -10348,7 +10348,7 @@ jr_006_790e:
 
 
 jr_006_791e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10358,7 +10358,7 @@ jr_006_791e:
 
 
 jr_006_792f:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10395,7 +10395,7 @@ jr_006_792f:
     cp $02
     jr z, jr_006_79ad
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -10405,7 +10405,7 @@ jr_006_792f:
 
 
 jr_006_798c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -10415,7 +10415,7 @@ jr_006_798c:
 
 
 jr_006_799c:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10425,7 +10425,7 @@ jr_006_799c:
 
 
 jr_006_79ad:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10462,7 +10462,7 @@ jr_006_79ad:
     cp $02
     jr z, jr_006_7a2b
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -10472,7 +10472,7 @@ jr_006_79ad:
 
 
 jr_006_7a0a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -10482,7 +10482,7 @@ jr_006_7a0a:
 
 
 jr_006_7a1a:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10492,7 +10492,7 @@ jr_006_7a1a:
 
 
 jr_006_7a2b:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10529,7 +10529,7 @@ jr_006_7a2b:
     cp $02
     jr z, jr_006_7aa9
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -10539,7 +10539,7 @@ jr_006_7a2b:
 
 
 jr_006_7a88:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -10549,7 +10549,7 @@ jr_006_7a88:
 
 
 jr_006_7a98:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10559,7 +10559,7 @@ jr_006_7a98:
 
 
 jr_006_7aa9:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10573,22 +10573,22 @@ jr_006_7aa9:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $71
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10626,7 +10626,7 @@ jr_006_7aa9:
     cp $02
     jr z, jr_006_7b5e
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     ld [$c64a], a
     inc a
     ld a, [$c60b]
@@ -10636,7 +10636,7 @@ jr_006_7aa9:
 
 
 jr_006_7b3d:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     inc a
     ld [$c64a], a
     ld a, [$c60b]
@@ -10646,7 +10646,7 @@ jr_006_7b3d:
 
 
 jr_006_7b4d:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10656,7 +10656,7 @@ jr_006_7b4d:
 
 
 jr_006_7b5e:
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add $18
     ld [$c64a], a
     ld a, [$c60b]
@@ -10670,22 +10670,22 @@ jr_006_7b5e:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $73
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10700,22 +10700,22 @@ jr_006_7b5e:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $74
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10730,22 +10730,22 @@ jr_006_7b5e:
     ld b, $20
     call Call_000_210f
     ld hl, $c626
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $01
     ld [hl+], a
     ld a, [$c60b]
     sub $1a
     ld [hl+], a
     ld a, $75
-    ld hl, $c622
+    ld hl, CurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a

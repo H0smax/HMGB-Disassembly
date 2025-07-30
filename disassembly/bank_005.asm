@@ -7,7 +7,7 @@ SECTION "ROM Bank $005", ROMX[$4000], BANK[$5]
 
     dec b
     xor a
-    ld [$c7a0], a
+    ld [GrabbingDog?], a
     ld [$c780], a
     ld [$c820], a
     ld [$b88d], a
@@ -377,7 +377,7 @@ jr_005_426d:
     ld a, b
     call $16e3
     ld hl, $c62a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     sub $00
     ld [hl+], a
     ld a, [$c60b]
@@ -549,14 +549,14 @@ Call_005_433d:
 
     ld a, $20
     ld [$c911], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     and $f8
     or $08
-    ld [$c606], a
-    ld a, [$c608]
+    ld [CameraXPosition], a
+    ld a, [PlayerOrCameraYPosition]
     and $f8
     or $08
-    ld [$c608], a
+    ld [PlayerOrCameraYPosition], a
     ld a, $02
     ld [$c910], a
     ld a, $01
@@ -3595,7 +3595,7 @@ jr_005_517e:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $07
     ld l, a
     ld a, [$c607]
@@ -3611,7 +3611,7 @@ jr_005_517e:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $07
     ld l, a
     ld a, [$c607]
@@ -3627,7 +3627,7 @@ jr_005_517e:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -3641,7 +3641,7 @@ jr_005_517e:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -3721,7 +3721,7 @@ jr_005_517e:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $07
     ld l, a
     ld a, [$c607]
@@ -3737,7 +3737,7 @@ jr_005_517e:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $07
     ld l, a
     ld a, [$c607]
@@ -3753,7 +3753,7 @@ jr_005_517e:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -3767,7 +3767,7 @@ jr_005_517e:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -3846,7 +3846,7 @@ jr_005_517e:
     ld a, [$cb4a]
     or a
     call nz, Call_005_535f
-    ld a, [$cb8b]
+    ld a, [GrabbingDog3?]
     or a
     call nz, Call_005_5399
     ret
@@ -3937,7 +3937,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $03
     ld l, a
     ld a, [$c609]
@@ -3953,7 +3953,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0f
     ld l, a
     ld a, [$c609]
@@ -3969,7 +3969,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -3985,7 +3985,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $09
     ld l, a
     ld a, [$c607]
@@ -4068,7 +4068,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $03
     ld l, a
     ld a, [$c609]
@@ -4084,7 +4084,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0f
     ld l, a
     ld a, [$c609]
@@ -4100,7 +4100,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -4116,7 +4116,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $08
     ld l, a
     ld a, [$c607]
@@ -4199,7 +4199,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $07
     ld l, a
     ld a, [$c607]
@@ -4215,7 +4215,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $07
     ld l, a
     ld a, [$c607]
@@ -4231,7 +4231,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -4245,7 +4245,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     sub $08
     add $02
     ld l, a
@@ -4322,7 +4322,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $07
     ld l, a
     ld a, [$c607]
@@ -4338,7 +4338,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $07
     ld l, a
     ld a, [$c607]
@@ -4354,7 +4354,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -4368,7 +4368,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -4449,7 +4449,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -4465,7 +4465,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0f
     ld l, a
     ld a, [$c609]
@@ -4481,7 +4481,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -4497,7 +4497,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $11
     ld l, a
     ld a, [$c607]
@@ -4580,7 +4580,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -4596,7 +4596,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0f
     ld l, a
     ld a, [$c609]
@@ -4612,7 +4612,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -4628,7 +4628,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa6], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $10
     ld l, a
     ld a, [$c607]
@@ -4711,7 +4711,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -4725,7 +4725,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0d
     ld l, a
     ld a, [$c609]
@@ -4767,7 +4767,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $07
     ld l, a
     ld a, [$c607]
@@ -4783,7 +4783,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $07
     ld l, a
     ld a, [$c607]
@@ -4799,7 +4799,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -4859,7 +4859,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $06
     ld l, a
     ld a, [$c607]
@@ -4875,7 +4875,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $06
     ld l, a
     ld a, [$c607]
@@ -4891,7 +4891,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -4955,7 +4955,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $03
     ld l, a
     ld a, [$c609]
@@ -4971,7 +4971,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0f
     ld l, a
     ld a, [$c609]
@@ -4987,7 +4987,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $08
     ld l, a
     ld a, [$c607]
@@ -5052,7 +5052,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $03
     ld l, a
     ld a, [$c609]
@@ -5068,7 +5068,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $0f
     ld l, a
     ld a, [$c609]
@@ -5084,7 +5084,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa5], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $08
     ld l, a
     ld a, [$c607]
@@ -5164,7 +5164,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -5178,7 +5178,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -5212,7 +5212,7 @@ jr_005_53b6:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -5251,7 +5251,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -5267,7 +5267,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $18
     ld l, a
     ld a, [$c607]
@@ -5300,7 +5300,7 @@ jr_005_53b6:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $11
     ld l, a
     ld a, [$c607]
@@ -5338,7 +5338,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -5354,7 +5354,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $17
     ld l, a
     ld a, [$c607]
@@ -5387,7 +5387,7 @@ jr_005_53b6:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $10
     ld l, a
     ld a, [$c607]
@@ -5425,7 +5425,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -5439,7 +5439,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -5475,7 +5475,7 @@ jr_005_53b6:
     ld e, a
     add hl, de
     push hl
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -5529,7 +5529,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -5543,7 +5543,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -5579,7 +5579,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -5595,7 +5595,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     sub $28
     ld l, a
     ld a, [$c607]
@@ -5630,7 +5630,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $08
     ld l, a
     ld a, [$c609]
@@ -5646,7 +5646,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     add $27
     ld l, a
     ld a, [$c607]
@@ -5681,7 +5681,7 @@ jr_005_53b6:
     ret
 
 
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -5695,7 +5695,7 @@ jr_005_53b6:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     add $02
     ld l, a
     ld a, [$c609]
@@ -5823,7 +5823,7 @@ Jump_005_6082:
     ld l, a
     ld a, [$c767]
     ld h, a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld c, a
     ld a, [$c607]
     ld b, a
@@ -5833,7 +5833,7 @@ Jump_005_6082:
     ld a, h
     sbc b
     ld b, a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add c
     ld c, a
     ld a, $00
@@ -5872,7 +5872,7 @@ jr_005_60bb:
     ld h, a
     ld bc, $fff8
     add hl, bc
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld c, a
     ld a, [$c609]
     ld b, a
@@ -6066,7 +6066,7 @@ Call_005_61e0:
     ld l, a
     ld a, [$c767]
     ld h, a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld c, a
     ld a, [$c607]
     ld b, a
@@ -6076,7 +6076,7 @@ Call_005_61e0:
     ld a, h
     sbc b
     ld b, a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add c
     ld c, a
     ld a, $00
@@ -6113,7 +6113,7 @@ jr_005_6216:
     ld h, a
     ld bc, $fff8
     add hl, bc
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld c, a
     ld a, [$c609]
     ld b, a
@@ -6209,7 +6209,7 @@ jr_005_6299:
     ld l, a
     ld a, [$c807]
     ld h, a
-    ld a, [$c606]
+    ld a, [CameraXPosition]
     ld c, a
     ld a, [$c607]
     ld b, a
@@ -6219,7 +6219,7 @@ jr_005_6299:
     ld a, h
     sbc b
     ld b, a
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     add c
     ld c, a
     ld a, $00
@@ -6258,7 +6258,7 @@ jr_005_62d2:
     ld h, a
     ld bc, $0000
     add hl, bc
-    ld a, [$c608]
+    ld a, [PlayerOrCameraYPosition]
     ld c, a
     ld a, [$c609]
     ld b, a

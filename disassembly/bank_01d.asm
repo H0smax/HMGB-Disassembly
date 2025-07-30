@@ -584,7 +584,7 @@ jr_01d_42ff:
     xor a
     ld [$cb56], a
     ld a, $11
-    ld [$c0a7], a
+    ld [MapLocation], a
     ld a, $01
     ld [$c0a6], a
     ld a, [$c0a2]
@@ -1025,7 +1025,7 @@ jr_01d_4532:
     ld a, $27
 
 jr_01d_4534:
-    ld [$c0a7], a
+    ld [MapLocation], a
     ret
 
 
@@ -1041,7 +1041,7 @@ jr_01d_4534:
     inc a
     ld [$c0a6], a
     ld a, $12
-    ld [$c0a7], a
+    ld [MapLocation], a
     ld a, $01
     ld [$cb92], a
     ret
@@ -4132,7 +4132,7 @@ jr_01d_52c0:
 
 Call_01d_5401:
     push bc
-    ld a, [$c0a7]
+    ld a, [MapLocation]
     cp $1d
     jr z, jr_01d_544a
 
@@ -10369,13 +10369,13 @@ jr_01d_7177:
     ret
 
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     cp $b0
     jr z, jr_01d_7192
 
     inc a
     inc a
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, $02
     ld [$c60d], a
     ld a, $02
@@ -10398,13 +10398,13 @@ jr_01d_7192:
     ret
 
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     cp $58
     jr z, jr_01d_71c6
 
     dec a
     dec a
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, $01
     ld [$c60d], a
     ld a, $02
@@ -11016,12 +11016,12 @@ jr_01d_74e8:
     ret
 
 
-    ld a, [$c60a]
+    ld a, [PlayerXPosition]
     cp $60
     jr z, jr_01d_7551
 
     dec a
-    ld [$c60a], a
+    ld [PlayerXPosition], a
     ld a, $01
     ld [$c60d], a
     ld a, $01
