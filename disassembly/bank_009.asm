@@ -1412,7 +1412,7 @@ Call_009_46ef:
     bit 5, a
     ret z
 
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld de, $ccca
     ld a, [hl+]
     ld [de], a
@@ -4616,7 +4616,7 @@ Call_009_576e:
     ld de, $9822
     ld b, $04
     call Call_000_210f
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld de, $ccca
     ld b, $03
     call Call_000_210f

@@ -834,7 +834,7 @@ Call_00e_4503:
     call $16e3
     ld a, $1e
     ld [$c912], a
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld bc, $0064
     call Call_000_0a14
     call Call_000_10a0

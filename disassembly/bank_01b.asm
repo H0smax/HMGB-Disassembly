@@ -1428,7 +1428,7 @@ Call_01b_469d:
 
 Call_01b_46a8:
     push bc
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld a, [hl+]
     sub e
     ld a, [hl+]
@@ -1442,7 +1442,7 @@ Call_01b_46a8:
 Call_01b_46b5:
     push bc
     ld b, $00
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld a, [hl]
     sub e
     ld [hl+], a
@@ -9346,13 +9346,13 @@ jr_01b_68f5:
 Call_01b_6949:
     ld b, h
     ld c, l
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     call Call_000_0a14
     ld a, [$b8f1]
     or a
     ret z
 
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9365,9 +9365,9 @@ Call_01b_6949:
 
     ld hl, $869f
     ld a, l
-    ld [$b8ef], a
+    ld [CurrentMoneyL], a
     ld a, h
-    ld [$b8f0], a
+    ld [CurrentMoneyH], a
     ret
 
 

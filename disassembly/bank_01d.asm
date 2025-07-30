@@ -4174,7 +4174,7 @@ jr_01d_544a:
     ld de, $1388
     push bc
     ld b, $00
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld a, [hl]
     sub e
     ld [hl+], a

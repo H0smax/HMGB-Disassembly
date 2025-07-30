@@ -166,14 +166,14 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     call Call_000_05e2
     ld a, [$ccc2]
     ld b, a
-    ld a, [$b8ef]
+    ld a, [CurrentMoneyL]
     add b
-    ld [$b8ef], a
+    ld [CurrentMoneyL], a
     ld a, [$ccc3]
     ld b, a
-    ld a, [$b8f0]
+    ld a, [CurrentMoneyH]
     adc b
-    ld [$b8f0], a
+    ld [CurrentMoneyH], a
     ld a, [$ccc4]
     ld b, a
     ld a, [$b8f1]
@@ -2649,7 +2649,7 @@ jr_002_4e24:
     ld c, a
     ld a, [$b93e]
     ld b, a
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     call Call_000_0a14
     xor a
     ld [$b93d], a
@@ -4352,7 +4352,7 @@ jr_002_5805:
 
     ld a, $01
     ld [$b8ff], a
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld bc, $03e8
     call Call_000_0a14
     call Call_000_10a0
@@ -6919,13 +6919,13 @@ Call_002_655c:
     call Call_002_6b19
     xor a
     ld [$b900], a
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld a, [$b8fc]
     ld c, a
     ld a, [$b8fd]
     ld b, a
     call Call_000_0a14
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld a, [$b93d]
     ld c, a
     ld a, [$b93e]

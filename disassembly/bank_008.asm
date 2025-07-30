@@ -7796,7 +7796,7 @@ jr_008_6a8f:
 
 
 jr_008_6aa7:
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld bc, $0032
     call Call_000_0a14
     call Call_000_10a0
@@ -7819,7 +7819,7 @@ jr_008_6ac9:
 
 
 jr_008_6acf:
-    ld hl, $b8ef
+    ld hl, CurrentMoneyL
     ld bc, $0064
     call Call_000_0a14
     call Call_000_10a0
