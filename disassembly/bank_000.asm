@@ -132,7 +132,7 @@ Jump_000_0045:
     rst $38
 
 LCDCInterrupt::
-    jp Jump_000_3222
+    jp LCDCInterruptHandler
 
 
     rst $38
@@ -656,8 +656,6 @@ Jump_000_0304:
     jr nc, jr_000_0326
 
     ld a, [$c0a9]
-
-LCDCInterruptHandler::
     inc a
     ld [$c0a9], a
 
@@ -10257,7 +10255,7 @@ Call_000_3215:
     jp Jump_000_3179
 
 
-Jump_000_3222:
+LCDCInterruptHandler::
     push af
     push bc
     push de

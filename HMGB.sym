@@ -4,7 +4,7 @@
 00:02E4 VBlankInterruptHandler
 00:0280 UD2
 00:0280 .data:64
-00:0322 LCDCInterruptHandler
+00:3222 LCDCInterruptHandler
 00:037A UD3
 00:037A .data:79
 00:04EA UD4
