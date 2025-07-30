@@ -53,12 +53,12 @@ Call_01f_4020:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     xor a
     ldh [$ff91], a
     ldh [$ff93], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $22
     call Call_000_23cf
     ld a, $83
@@ -88,7 +88,7 @@ Call_01f_4092:
 
 
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -8871,11 +8871,11 @@ Call_01f_6b14:
     ldh [$ff91], a
     ld [$ccd2], a
     ld [$cb68], a
-    ld a, [$b885]
+    ld a, [CurrentYear]
     ld [$ccd3], a
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld [$ccd4], a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$ccd5], a
     ld a, $01
     ld [$ccd6], a
@@ -9126,11 +9126,11 @@ jr_01f_6d9d:
     xor a
     ld [$c911], a
     ld a, [$ccd3]
-    ld [$b885], a
+    ld [CurrentYear], a
     ld a, [$ccd4]
-    ld [$b884], a
+    ld [CurrentSeason], a
     ld a, [$ccd5]
-    ld [NextDay], a
+    ld [CurrentDay], a
     call Call_000_054a
     call Call_000_05e2
     ld hl, $d400

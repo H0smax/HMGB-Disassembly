@@ -1075,7 +1075,7 @@ jr_01e_443b:
     and b
     inc b
     and l
-    ld bc, $0432
+    ld bc, NextHour
     ld b, a
     ld [$0846], sp
     ld b, a
@@ -1102,7 +1102,7 @@ jr_01e_443b:
     and b
     inc b
     and l
-    ld bc, $0432
+    ld bc, NextHour
     ld b, a
     ld [$0846], sp
     ld b, h
@@ -3840,7 +3840,7 @@ jr_01e_5060:
     pop bc
     ld d, b
     inc sp
-    ld [$0432], sp
+    ld [NextHour], sp
     jr nc, jr_01e_50a7
 
     dec h
@@ -7329,7 +7329,7 @@ jr_01e_5fe6:
     dec c
     nop
     ld [de], a
-    ld bc, $0414
+    ld bc, NextTimerMinute
     and b
     inc bc
 
@@ -11222,7 +11222,7 @@ jr_01e_711b:
     pop af
     and b
     and e
-    ld bc, $03f9
+    ld bc, CheckTime
     jr nz, jr_01e_71d9
 
 jr_01e_71d9:

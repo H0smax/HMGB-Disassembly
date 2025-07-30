@@ -10358,7 +10358,7 @@ jr_007_6b87:
     ld [$cb53], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10381,7 +10381,7 @@ jr_007_6b87:
     ld [$cb53], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10423,7 +10423,7 @@ jr_007_6c20:
     ld [$cb53], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10457,7 +10457,7 @@ jr_007_6c55:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10506,7 +10506,7 @@ jr_007_6c9f:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10963,7 +10963,7 @@ jr_007_6f84:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -11064,7 +11064,7 @@ Jump_007_705b:
     ld [$cb53], a
     ld [$cb55], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     jr jr_007_7090
 
     ret
@@ -11102,7 +11102,7 @@ jr_007_7098:
     ld [$cb53], a
     ld [$cb55], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ret
 
 
@@ -11122,7 +11122,7 @@ jr_007_70cd:
 
 
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ret
 
 
@@ -11149,7 +11149,7 @@ jr_007_70cd:
     ld [$c800], a
     ld [$c880], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $478a
     ld c, $0b
     ld de, $8800
@@ -11275,7 +11275,7 @@ Call_007_71cc:
 
 
 Call_007_71d4:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -12370,7 +12370,7 @@ jr_007_7775:
 
 jr_007_77fa:
     ld hl, $7af8
-    ld a, [$b884]
+    ld a, [CurrentSeason]
 
 jr_007_7800:
     ld c, l
@@ -13133,7 +13133,7 @@ jr_007_7b3a:
     ld l, l
     and e
     push hl
-    ld bc, $0403
+    ld bc, NextTimerSecond
     and c
     ld [bc], a
     push af

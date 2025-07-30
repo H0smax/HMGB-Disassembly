@@ -65,25 +65,25 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld de, $99e2
     call Call_002_41c7
     call Call_002_4896
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld hl, $9822
     call Call_002_41d1
     ld hl, $9826
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     inc a
     call Call_002_41ec
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     ld hl, $9829
     call Call_002_41ff
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld [$cbde], a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$cbdf], a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     ld [$cbe0], a
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     ld [$cbe1], a
-    ld a, [$b885]
+    ld a, [CurrentYear]
     ld [$cbdd], a
     call Call_002_4370
     call Call_000_0a2e
@@ -120,14 +120,14 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     call Call_002_45f5
     call Call_002_427b
     call Call_002_42e3
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld hl, $98a2
     call Call_002_41d1
     ld hl, $98a6
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     inc a
     call Call_002_41ec
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     ld hl, $98a9
     call Call_002_41ff
     call Call_002_496f
@@ -401,7 +401,7 @@ jr_002_42c2:
     ld a, $18
     call Call_000_06ce
     ld b, a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     jr c, jr_002_42dd
 
@@ -445,7 +445,7 @@ jr_002_42f9:
     ld a, $18
     call Call_000_06ce
     ld b, a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     jr c, jr_002_4314
 
@@ -537,84 +537,84 @@ Call_002_4370:
     ld a, $18
     call Call_000_06ce
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     add l
-    ld [NextDay], a
-    ld a, [CurrentTime]
+    ld [CurrentDay], a
+    ld a, [CurrentHour]
     add b
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     cp $18
     jr c, jr_002_439f
 
     sub $18
-    ld [CurrentTime], a
-    ld a, [NextDay]
+    ld [CurrentHour], a
+    ld a, [CurrentDay]
     inc a
-    ld [NextDay], a
+    ld [CurrentDay], a
 
 jr_002_439f:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld l, a
     ld h, $00
     ld a, $1e
     call Call_000_06ce
-    ld [NextDay], a
-    ld a, [$b884]
+    ld [CurrentDay], a
+    ld a, [CurrentSeason]
     add l
-    ld [$b884], a
+    ld [CurrentSeason], a
     ld l, a
     ld h, $00
     ld a, $04
     call Call_000_06ce
-    ld [$b884], a
-    ld a, [$b885]
+    ld [CurrentSeason], a
+    ld a, [CurrentYear]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, l
-    ld [$b885], a
+    ld [CurrentYear], a
     cp $63
     ret c
 
     ld a, $63
-    ld [$b885], a
+    ld [CurrentYear], a
     ret
 
 
 Call_002_43d5:
     ld a, [$cbdd]
     ld b, a
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp b
     jr nz, jr_002_43f3
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1d
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret c
 
     jr jr_002_4446
 
 jr_002_43f3:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld hl, $02d0
     call Call_000_099f
     push hl
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld c, $18
     call Call_000_071e
     pop de
     add hl, de
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     sub $06
     add l
     ld l, a
@@ -633,23 +633,23 @@ jr_002_43f3:
     ld a, [$cbe4]
     sbc h
     ld [$cbe4], a
-    ld a, [$b885]
+    ld a, [CurrentYear]
     dec a
-    ld [$b885], a
+    ld [CurrentYear], a
     ld a, $03
-    ld [$b884], a
+    ld [CurrentSeason], a
     ld a, $1d
-    ld [NextDay], a
+    ld [CurrentDay], a
     ld a, $06
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     xor a
-    ld [$b881], a
-    ld [$b880], a
+    ld [TimerMinutes], a
+    ld [TimerSeconds], a
     ret
 
 
 jr_002_4446:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     sub $06
     ld b, a
     ld a, [$cbe5]
@@ -659,10 +659,10 @@ jr_002_4446:
     sbc $00
     ld [$cbe4], a
     ld a, $06
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     xor a
-    ld [$b881], a
-    ld [$b880], a
+    ld [TimerMinutes], a
+    ld [TimerSeconds], a
     ret
 
 
@@ -679,7 +679,7 @@ Call_002_4468:
 
 
 jr_002_4477:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp $00
     ret nz
 
@@ -690,7 +690,7 @@ jr_002_4477:
     cp $01
     ret nz
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     ret z
 
@@ -699,7 +699,7 @@ jr_002_4477:
 
     ld a, [$b8eb]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     ret c
 
@@ -712,15 +712,15 @@ jr_002_4499:
 
 
 Call_002_44a4:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1d
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret c
 
@@ -997,15 +997,15 @@ Call_002_45f5:
 
 
 Call_002_4627:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     jr nz, jr_002_4695
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     jr z, jr_002_4695
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jr z, jr_002_4695
 
@@ -1017,14 +1017,14 @@ Call_002_4627:
     cp $ff
     jr z, jr_002_4650
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     ret z
 
     jr jr_002_465c
 
 jr_002_4650:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jr z, jr_002_4669
 
@@ -1034,7 +1034,7 @@ jr_002_4650:
 jr_002_465c:
     ld a, [$b8a2]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     jr z, jr_002_4675
 
@@ -1044,7 +1044,7 @@ jr_002_465c:
 
 
 jr_002_4669:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1d
     ret nz
 
@@ -1083,11 +1083,11 @@ jr_002_4695:
 
 
 Call_002_46ae:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     jr z, jr_002_472f
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jr z, jr_002_472f
 
@@ -1099,14 +1099,14 @@ Call_002_46ae:
     cp $ff
     jr z, jr_002_46d2
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     ret z
 
     jr jr_002_46e8
 
 jr_002_46d2:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jr z, jr_002_46f5
 
@@ -1120,7 +1120,7 @@ jr_002_46d2:
 jr_002_46e8:
     ld a, [$b8a1]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     jr z, jr_002_470b
 
@@ -1130,7 +1130,7 @@ jr_002_46e8:
 
 
 jr_002_46f5:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1d
     ret nz
 
@@ -1182,21 +1182,21 @@ jr_002_4735:
 jr_002_4744:
     ld a, [$ba4c]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     ret z
 
     ld a, [$ba4c]
     inc a
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     jr z, jr_002_475a
 
     jr jr_002_4760
 
 jr_002_475a:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret c
 
@@ -1217,13 +1217,13 @@ jr_002_4760:
 jr_002_477b:
     ld a, [$ba4d]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     ret z
 
     ld a, [$ba4c]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     jr z, jr_002_478f
 
@@ -1231,7 +1231,7 @@ jr_002_477b:
 
 
 jr_002_478f:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret c
 
@@ -2625,7 +2625,7 @@ Call_002_4e01:
     cp $18
     jr nc, jr_002_4e24
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     jr c, jr_002_4e1e
 
@@ -2827,7 +2827,7 @@ jr_002_4ef1:
 
 
 Call_002_4ef4:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jr z, jr_002_4efc
 
@@ -2849,7 +2849,7 @@ jr_002_4efc:
 
 
 Call_002_4f09:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     jr nz, jr_002_4f50
 
@@ -2857,7 +2857,7 @@ Call_002_4f09:
 
 
 Call_002_4f11:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     jp nz, Jump_002_4f50
 
@@ -2865,7 +2865,7 @@ Call_002_4f11:
 
 
 Call_002_4f1a:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jp nz, Jump_002_4f50
 
@@ -2873,7 +2873,7 @@ Call_002_4f1a:
 
 
 Call_002_4f23:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jp nz, Jump_002_4f50
 
@@ -2881,7 +2881,7 @@ Call_002_4f23:
 
 
 Call_002_4f2c:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     jp nz, Jump_002_4f50
 
@@ -2889,7 +2889,7 @@ Call_002_4f2c:
 
 
 Call_002_4f35:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     jp nz, Jump_002_4f50
 
@@ -2897,7 +2897,7 @@ Call_002_4f35:
 
 
 Call_002_4f3e:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jp nz, Jump_002_4f50
 
@@ -2905,7 +2905,7 @@ Call_002_4f3e:
 
 
 Call_002_4f47:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jp nz, Jump_002_4f50
 
@@ -3001,7 +3001,7 @@ jr_002_4f7c:
     ld [$cb5d], a
     ld [$cb5e], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb52], a
     ld [$cb76], a
     ld [$cb78], a
@@ -3024,7 +3024,7 @@ jr_002_4f7c:
     ld a, [$b911]
     ld [$cbe8], a
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ld a, [$cbe8]
     cp $00
     jr z, jr_002_504c
@@ -3065,7 +3065,7 @@ jr_002_5064:
     ld a, $68
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $ff
     ld [$cb77], a
     call Call_000_120c
@@ -3082,7 +3082,7 @@ jr_002_5064:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     call Call_000_3d18
@@ -3342,17 +3342,17 @@ Jump_002_5229:
     ld [$c910], a
     ld a, $01
     ld [$c60d], a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$b901], a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     ld [$b902], a
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     ld [$b903], a
     ret
 
 
 Call_002_5250:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -3360,7 +3360,7 @@ Call_002_5250:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -4241,7 +4241,7 @@ Call_002_5757:
     and $02
     ret z
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -4321,7 +4321,7 @@ jr_002_57ce:
 
 
 jr_002_57d9:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     inc a
     ld l, a
     ld h, $00
@@ -4569,18 +4569,18 @@ jr_002_589e:
 
 Call_002_592e:
     call Call_002_5a54
-    ld a, [NextDay]
-    ld [CurrentDay], a
-    ld a, [$b884]
+    ld a, [CurrentDay]
+    ld [DayRelated], a
+    ld a, [CurrentSeason]
     ld [$b88a], a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     inc a
-    ld [CurrentDay], a
+    ld [DayRelated], a
     cp $1e
     jr nz, jr_002_5955
 
     xor a
-    ld [CurrentDay], a
+    ld [DayRelated], a
     ld a, [$b88a]
     inc a
     and $03
@@ -4604,7 +4604,7 @@ jr_002_5965:
 
     ld a, [$b8a2]
     ld b, a
-    ld a, [CurrentDay]
+    ld a, [DayRelated]
     cp b
     jr nz, jr_002_597c
 
@@ -4616,7 +4616,7 @@ jr_002_5965:
 jr_002_597c:
     ld a, [$b8a2]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     jr nz, jr_002_598c
 
@@ -4668,13 +4668,13 @@ Jump_002_59b3:
 Jump_002_59c8:
     ld a, [$b8a1]
     ld b, a
-    ld a, [CurrentDay]
+    ld a, [DayRelated]
     cp b
     jr nz, jr_002_59e3
 
     ld a, $03
     ld [$b89f], a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$ba4d], a
     ld a, $80
     ld [$b8a1], a
@@ -4732,7 +4732,7 @@ Call_002_5a0d:
 
 
 jr_002_5a29:
-    ld a, [CurrentDay]
+    ld a, [DayRelated]
     cp $13
     jr z, jr_002_5a46
 
@@ -4740,7 +4740,7 @@ jr_002_5a29:
 
 
 jr_002_5a31:
-    ld a, [CurrentDay]
+    ld a, [DayRelated]
     cp $09
     jr z, jr_002_5a46
 
@@ -4748,11 +4748,11 @@ jr_002_5a31:
 
 
 jr_002_5a39:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     ret nz
 
-    ld a, [CurrentDay]
+    ld a, [DayRelated]
     cp $13
     jr z, jr_002_5a46
 
@@ -4774,14 +4774,14 @@ jr_002_5a4d:
 
 
 Call_002_5a54:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     or a
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1b
     call z, Call_002_5a6b
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1c
     call z, Call_002_5a81
     ret
@@ -4791,7 +4791,7 @@ Call_002_5a54:
 
 
 Call_002_5a6b:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     ret nz
 
@@ -6496,7 +6496,7 @@ jr_002_631f:
     ld a, [$b89b]
     add $03
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     ret nz
 
@@ -6727,27 +6727,27 @@ Call_002_64c1:
     or a
     jr nz, jr_002_64f8
 
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     ret nz
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $00
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld b, a
     ld a, [$b8a2]
     cp b
@@ -6937,9 +6937,9 @@ Call_002_655c:
     ld [$b93e], a
     ld [$b8fc], a
     ld [$b8fd], a
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     or b
     jr z, jr_002_6626
 
@@ -7155,14 +7155,14 @@ jr_002_6736:
     jr c, jr_002_6794
 
     xor a
-    ld [$b880], a
-    ld [$b881], a
+    ld [TimerSeconds], a
+    ld [TimerMinutes], a
     ld a, $06
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     call Call_000_0491
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     inc a
-    ld [NextDay], a
+    ld [CurrentDay], a
     cp $1e
     jr nc, jr_002_676c
 
@@ -7172,13 +7172,13 @@ jr_002_6736:
 
 jr_002_676c:
     xor a
-    ld [NextDay], a
-    ld a, [$b884]
+    ld [CurrentDay], a
+    ld a, [CurrentSeason]
     inc a
-    ld [$b884], a
+    ld [CurrentSeason], a
     call Call_000_054a
     call Call_000_05e2
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $04
     jr nc, jr_002_6785
 
@@ -7187,20 +7187,20 @@ jr_002_676c:
 
 jr_002_6785:
     xor a
-    ld [$b884], a
+    ld [CurrentSeason], a
     call Call_000_05e2
-    ld a, [$b885]
+    ld a, [CurrentYear]
     inc a
-    ld [$b885], a
+    ld [CurrentYear], a
     ret
 
 
 jr_002_6794:
     xor a
-    ld [$b880], a
-    ld [$b881], a
+    ld [TimerSeconds], a
+    ld [TimerMinutes], a
     ld a, $06
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     call Call_000_0491
     xor a
     ld [$ba40], a
@@ -7258,7 +7258,7 @@ jr_002_67d8:
 
 
 Call_002_67db:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jp z, Jump_002_67f1
 
@@ -7294,7 +7294,7 @@ Jump_002_67f1:
 
 
 Call_002_67fe:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     jp nz, Jump_002_6869
 
@@ -7529,7 +7529,7 @@ Jump_002_6869:
     nop
 
 Call_002_68f4:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     jp nz, Jump_002_6869
 
@@ -7624,7 +7624,7 @@ jr_002_693a:
 
 
 Call_002_695f:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jp nz, Jump_002_6869
 
@@ -7686,7 +7686,7 @@ jr_002_699f:
 
 
 Call_002_69a2:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jp nz, Jump_002_6869
 
@@ -7748,7 +7748,7 @@ jr_002_69e2:
 
 
 Call_002_69e5:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     jp nz, Jump_002_6869
 
@@ -7810,7 +7810,7 @@ jr_002_6a25:
 
 
 Call_002_6a28:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     jp nz, Jump_002_6869
 
@@ -7872,7 +7872,7 @@ jr_002_6a68:
 
 
 Call_002_6a6b:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jp nz, Jump_002_6869
 
@@ -7934,7 +7934,7 @@ jr_002_6aab:
 
 
 Call_002_6aae:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     jp nz, Jump_002_6869
 
@@ -8121,10 +8121,10 @@ jr_002_6b83:
 
 Jump_002_6b8d:
     ld a, $06
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     xor a
-    ld [$b881], a
-    ld [$b880], a
+    ld [TimerMinutes], a
+    ld [TimerSeconds], a
     ret
 
 
@@ -8133,7 +8133,7 @@ Call_002_6b9a:
     cp $03
     jr nz, jr_002_6bad
 
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp $02
     ret nz
 
@@ -8147,7 +8147,7 @@ jr_002_6bad:
     cp $01
     jr nz, jr_002_6bbb
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $13
     jr c, jr_002_6bbf
 
@@ -8162,21 +8162,21 @@ jr_002_6bbf:
     ld a, [$b893]
     or a
     call nz, Call_002_6d01
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld b, a
     ld a, [$b8a2]
     cp b
     call z, Call_002_6d29
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     call z, Call_002_6c08
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     call z, Call_002_6c2c
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $02
     call z, Call_002_6c38
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     call z, Call_002_6c49
     call Call_002_6c5a
@@ -8188,17 +8188,17 @@ jr_002_6bbf:
 
 
 Call_002_6c08:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $00
     call z, Call_002_6e70
     call Call_002_6cad
     ld a, [$b91a]
     cp $9b
     call z, Call_002_6cf2
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $09
     call z, Call_002_6d54
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $0e
     call z, Call_002_6db6
     ret
@@ -8213,20 +8213,20 @@ Call_002_6c2c:
 
 
 Call_002_6c38:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $00
     call z, Call_002_6dc3
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $09
     call z, Call_002_6d22
     ret
 
 
 Call_002_6c49:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $13
     call z, Call_002_6d30
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $1d
     call z, Call_002_6e23
     ret
@@ -8293,15 +8293,15 @@ Call_002_6c90:
 
 
 Call_002_6cad:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $09
     ret c
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $13
     ret nc
 
@@ -8315,11 +8315,11 @@ Call_002_6cad:
 
 
 Call_002_6cca:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     ret nz
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     ret nz
 
@@ -8327,7 +8327,7 @@ Call_002_6cca:
     or a
     ret z
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld b, a
     ld a, [$b8eb]
     cp b
@@ -8343,7 +8343,7 @@ Call_002_6cca:
 
 
 Call_002_6cf2:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     add $07
     cp $1e
     ret c
@@ -8355,13 +8355,13 @@ Call_002_6cf2:
 
 
 Call_002_6d01:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld b, a
     ld a, [$b894]
     cp b
     ret nz
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld b, a
     ld a, [$b895]
     cp b
@@ -8391,7 +8391,7 @@ Call_002_6d29:
 
 
 Call_002_6d30:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     or a
     ret nz
 
@@ -8402,7 +8402,7 @@ Call_002_6d30:
 
 
 Call_002_6d3c:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp $02
     ret nz
 
@@ -8485,7 +8485,7 @@ jr_002_6da8:
 
 
 Call_002_6db6:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp $01
     ret nz
 
@@ -8496,7 +8496,7 @@ Call_002_6db6:
 
 
 Call_002_6dc3:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp $02
     ret nz
 
@@ -8518,7 +8518,7 @@ Call_002_6dda:
     ld a, [$b89b]
     add $03
     ld b, a
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp b
     ret nz
 
@@ -8629,11 +8629,11 @@ jr_002_6e68:
 
 
 Call_002_6e70:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     cp $00
     ret z
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     ret nz
 

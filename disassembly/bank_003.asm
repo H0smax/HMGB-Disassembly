@@ -35,7 +35,7 @@ SECTION "ROM Bank $003", ROMX[$4000], BANK[$3]
     ld [$cb5e], a
     xor a
     ld [$c911], a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $44
     ldh [$ff91], a
     ld a, $20
@@ -45,7 +45,7 @@ SECTION "ROM Bank $003", ROMX[$4000], BANK[$3]
     ld a, $68
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $22
     ld [$b90c], a
     xor a
@@ -290,7 +290,7 @@ jr_003_414d:
 
 
 Call_003_4275:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -341,7 +341,7 @@ jr_003_42ba:
 
 
 Call_003_42c7:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -1376,7 +1376,7 @@ jr_003_4873:
 
 
 Call_003_4889:
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -2849,7 +2849,7 @@ jr_003_515e:
     ret z
 
 Call_003_519a:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -2857,7 +2857,7 @@ Call_003_519a:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -8215,26 +8215,26 @@ jr_003_71ce:
     ld [hl], c
     rst $38
     ld [hl], c
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     ret z
 
     cp $02
     ret z
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $0e
     ret nz
 
     jr jr_003_720b
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $0e
     ret nz
 
     jr jr_003_720b
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $00
     jr z, jr_003_720b
 
@@ -8754,7 +8754,7 @@ jr_003_74cd:
 
 
 Call_003_74d2:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret c
 

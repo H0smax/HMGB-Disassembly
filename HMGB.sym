@@ -21,11 +21,35 @@
 00:0661 .data:6D
 
 ; TODO: Check bank?
-00:B882 CurrentTime
-00:B88B CurrentDay
+; To be confirmed, not related to real seconds and minutes
+00:B880 TimerSeconds
+00:B881 TimerMinutes
+
+00:B882 CurrentHour
+00:B883 CurrentDay
+00:B884 CurrentSeason
+00:B885 CurrentYear
+
+; Inside house or at shops
+00:CB81 OutsideFarm
+00:CB56 TimePaused
+
+00:03F9 CheckTime
 
 ; To be confirmed
-00:B883 NextDay
+00:CB4E TransitionRelated
+
+; To be confirmed
+00:0403 NextTimerSecond
+00:0414 NextTimerMinute
+00:0432 NextHour
+00:0448 NextDay
+
+00:0461 NextSeason
+00:047A NextYear
+
+; To be confirmed
+00:B88B DayRelated
 
 00:B8EF CurrentMoneyL
 00:B8F0 CurrentMoneyM

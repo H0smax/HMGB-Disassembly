@@ -6014,7 +6014,7 @@ Call_00f_62dd:
     ld bc, $020f
     rst $38
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     xor a
     ld [$cbe8], a
     ld [$ccb7], a
@@ -6051,7 +6051,7 @@ Call_00f_62dd:
     ld de, $9800
     call Call_000_2f41
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -6096,7 +6096,7 @@ Call_00f_62dd:
     ld [$cb55], a
     xor a
     ld [$b88c], a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     call Call_000_3d18
@@ -6133,7 +6133,7 @@ Call_00f_6499:
 
 Call_00f_64a1:
     call Call_00f_6780
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -6151,7 +6151,7 @@ Call_00f_64a1:
     cp $ff
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -6614,7 +6614,7 @@ Jump_00f_6777:
 
 
 Call_00f_6780:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -6640,7 +6640,7 @@ Call_00f_6780:
     cp $f8
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     jr z, jr_00f_67cc
 
@@ -6653,7 +6653,7 @@ jr_00f_67b0:
     cp $e0
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     jr z, jr_00f_67cc
 
@@ -6666,7 +6666,7 @@ jr_00f_67bf:
     cp $18
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -6702,7 +6702,7 @@ jr_00f_67ee:
     and $01
     jr z, jr_00f_6800
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     jr nz, jr_00f_6800
 
@@ -6725,20 +6725,20 @@ jr_00f_6807:
     ld [$cb4f], a
     xor a
     ld [$c910], a
-    ld [$b880], a
-    ld [$b881], a
+    ld [TimerSeconds], a
+    ld [TimerMinutes], a
     ld a, [$ccb8]
     cp $00
     jr z, jr_00f_682a
 
     ld a, $15
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     ret
 
 
 jr_00f_682a:
     ld a, $12
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     ret
 
 
@@ -7508,7 +7508,7 @@ jr_00f_6bf7:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$ccb9], a
     call Call_00f_6d94
@@ -7545,7 +7545,7 @@ jr_00f_6bf7:
 
 
 Call_00f_6cd2:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b

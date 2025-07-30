@@ -135,12 +135,12 @@ jr_001_40ff:
     ld [$cb5e], a
     xor a
     ld [$cb79], a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     xor a
     ldh [$ff93], a
     ldh [$ff91], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $07
     ldh [$ff96], a
     ld a, $68
@@ -177,7 +177,7 @@ jr_001_40ff:
 
 jr_001_416a:
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ld [$cb7a], a
     ld [$cb7b], a
     ld [$cb7c], a
@@ -246,7 +246,7 @@ Call_001_41e7:
     ret z
 
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ld a, [$c911]
     dec a
     ld [$c911], a
@@ -485,7 +485,7 @@ Jump_001_4381:
 
 
 Call_001_43a3:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -493,7 +493,7 @@ Call_001_43a3:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -3000,7 +3000,7 @@ Call_001_547e:
     or a
     ret z
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -4538,7 +4538,7 @@ jr_001_5d8b:
     call Call_000_23d8
     ld a, $01
     ld [$cb80], a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $11
     jr nc, jr_001_5da7
 
@@ -4577,7 +4577,7 @@ jr_001_5dc3:
     ld [$cb7e], a
     ld a, h
     ld [$cb7f], a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $11
     ret nc
 
@@ -6655,7 +6655,7 @@ Call_001_6985:
 
 
 Call_001_69b2:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -6663,7 +6663,7 @@ Call_001_69b2:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -6708,7 +6708,7 @@ Call_001_69f0:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -6883,7 +6883,7 @@ jr_001_6ae9:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     ld a, $06
@@ -6898,11 +6898,11 @@ jr_001_6ae9:
 
 
 Call_001_6b16:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     jr c, jr_001_6b23
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     ret c
 
@@ -8058,15 +8058,15 @@ Call_001_715a:
 
 
 jr_001_7180:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $00
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
@@ -8540,11 +8540,11 @@ jr_001_747f:
     ld [$b88d], a
     ld [$cbf6], a
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     xor a
-    ld [$b881], a
+    ld [TimerMinutes], a
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     ld a, [$b88c]
     cp $01
     jp z, Jump_001_74f8
@@ -8608,7 +8608,7 @@ Jump_001_74f8:
     ld [$b8ea], a
     call Call_001_6c75
     call Call_001_7653
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$b8eb], a
     ret
 
@@ -8630,7 +8630,7 @@ Jump_001_751a:
     add $24
     call Call_000_153c
     call Call_001_7653
-    ld a, [CurrentDay]
+    ld a, [DayRelated]
     ld [$b894], a
     ld a, [$b88a]
     ld [$b895], a
@@ -8727,11 +8727,11 @@ Jump_001_75bd:
     add $14
     call Call_000_153c
     call Call_001_7653
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$ba3b], a
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld [$ba3c], a
-    ld a, [$b885]
+    ld a, [CurrentYear]
     ld [$ba3d], a
     ret
 
@@ -8766,7 +8766,7 @@ Jump_001_75ff:
     add $0c
     call Call_000_153c
     call Call_001_7653
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld [$b89b], a
     ret
 
@@ -8824,39 +8824,39 @@ Call_001_7653:
 
 
 Call_001_7675:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $0c
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $00
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     ld [$cb90], a
     ret
 
 
 Call_001_7690:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $00
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     xor a
     ld [$b890], a
     ld [$b891], a
@@ -8877,76 +8877,76 @@ Call_001_7690:
 
 
 Call_001_76cc:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $11
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $00
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     ld a, $03
     ld [$cb90], a
     ret
 
 
 Call_001_76e9:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $01
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $13
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $01
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     ld a, $04
     ld [$cb90], a
     ret
 
 
 Call_001_7712:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $03
     ret nz
 
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     cp $17
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $01
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     ld a, $05
     ld [$cb90], a
     ret
@@ -9116,7 +9116,7 @@ Call_001_7841:
     ret z
 
     ld a, $01
-    ld [$b880], a
+    ld [TimerSeconds], a
     ld a, [$b88c]
     cp $01
     jr z, jr_001_78a7
@@ -9187,7 +9187,7 @@ jr_001_78a7:
     ld [$c911], a
     call Call_001_41e7
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ret
 
 
@@ -9210,7 +9210,7 @@ jr_001_78c6:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9234,7 +9234,7 @@ Jump_001_78f1:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9258,7 +9258,7 @@ Jump_001_791c:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9285,7 +9285,7 @@ Jump_001_7947:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9300,7 +9300,7 @@ jr_001_7975:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9324,7 +9324,7 @@ Jump_001_798e:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9346,7 +9346,7 @@ Jump_001_79b9:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9368,7 +9368,7 @@ Jump_001_79e2:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9390,7 +9390,7 @@ Jump_001_7a0b:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9412,7 +9412,7 @@ Jump_001_7a34:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9434,7 +9434,7 @@ Jump_001_7a5d:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9456,7 +9456,7 @@ Jump_001_7a86:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9491,7 +9491,7 @@ jr_001_7ad1:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9520,7 +9520,7 @@ Jump_001_7af7:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9542,7 +9542,7 @@ Jump_001_7b20:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9564,7 +9564,7 @@ Jump_001_7b49:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_3e54
     ret
 

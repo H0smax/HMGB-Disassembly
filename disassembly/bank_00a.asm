@@ -5573,7 +5573,7 @@ jr_00a_579c:
     add e
     nop
     ld b, e
-    ld bc, $0403
+    ld bc, NextTimerSecond
     db $10
     ld de, $0023
     db $db
@@ -5582,7 +5582,7 @@ jr_00a_579c:
     adc e
     nop
     db $10
-    ld de, $0403
+    ld de, NextTimerSecond
     jr nz, jr_00a_57d2
 
     nop

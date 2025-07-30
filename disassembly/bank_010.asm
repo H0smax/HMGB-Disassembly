@@ -63,7 +63,7 @@ jr_010_4056:
     ld [$c840], a
     ld [$c860], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     call Call_010_4472
     ld a, $01
     call Call_000_166a
@@ -114,7 +114,7 @@ jr_010_40b9:
     cp c
     call Call_000_0ae9
     call Call_000_2b71
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3025,7 +3025,7 @@ Call_010_4ebd:
     rla
     nop
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ld a, [$ba49]
     or a
     jr nz, jr_010_4f2d
@@ -3076,7 +3076,7 @@ jr_010_4f2d:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     call Call_010_5590
     call Call_010_55b7
     ld a, $83
@@ -3119,7 +3119,7 @@ jr_010_4f2d:
 
 
 Call_010_4fee:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3480,7 +3480,7 @@ jr_010_519c:
     ld a, $1d
     ld [$cb4f], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $01
     ld [$c910], a
     xor a
@@ -4051,7 +4051,7 @@ jr_010_549e:
     ld a, $1d
     ld [$cb4f], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $02

@@ -13,7 +13,7 @@ SECTION "ROM Bank $005", ROMX[$4000], BANK[$5]
     ld [$b88d], a
     ld [$b88c], a
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     call Call_000_0f81
     call Call_000_20a1
     call Call_000_20b0
@@ -45,7 +45,7 @@ SECTION "ROM Bank $005", ROMX[$4000], BANK[$5]
     ldh [$ff95], a
     ld [$c820], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $22
     ld [$b90c], a
     xor a
@@ -93,7 +93,7 @@ SECTION "ROM Bank $005", ROMX[$4000], BANK[$5]
 
 
 Call_005_40d2:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -101,7 +101,7 @@ Call_005_40d2:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -5937,7 +5937,7 @@ Jump_005_60fc:
 
 
 Jump_005_6121:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     cp $0c
     ret nc
 
@@ -8133,7 +8133,7 @@ jr_005_6d22:
     cp $06
     nop
     inc b
-    call nz, Call_000_0403
+    call nz, NextTimerSecond
     rst $38
     db $10
     ld h, $4c

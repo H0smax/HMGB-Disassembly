@@ -47,7 +47,7 @@ SECTION "ROM Bank $00e", ROMX[$4000], BANK[$e]
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -133,7 +133,7 @@ jr_00e_40e9:
     ret nz
 
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     xor a
     ld [$cc98], a
     ld [$cc99], a
@@ -145,7 +145,7 @@ jr_00e_40e9:
     or a
     jr z, jr_00e_4134
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     jr nz, jr_00e_4134
 
@@ -196,15 +196,15 @@ Call_00e_417d:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $05
     ret nz
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $0e
     ret nz
 
@@ -259,7 +259,7 @@ Call_00e_41de:
     ret z
 
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ld a, [$c911]
     dec a
     ld [$c911], a
@@ -304,13 +304,13 @@ jr_00e_4213:
 
 
 Call_00e_422c:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -724,7 +724,7 @@ jr_00e_4480:
 
 
 Call_00e_4487:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3371,7 +3371,7 @@ Call_00e_537c:
 
 
 Call_00e_5385:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3424,10 +3424,10 @@ jr_00e_53aa:
     ret nz
 
     ld a, $12
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     xor a
-    ld [$b881], a
-    ld [$b880], a
+    ld [TimerMinutes], a
+    ld [TimerSeconds], a
     ld [$c910], a
     ld a, $02
     ld [$cb50], a
@@ -3454,7 +3454,7 @@ Call_00e_53fb:
     bit 1, a
     jr z, jr_00e_5418
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -3655,7 +3655,7 @@ jr_00e_54e4:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -3721,13 +3721,13 @@ jr_00e_55be:
 
 
 Call_00e_55dd:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -3819,7 +3819,7 @@ jr_00e_5647:
 
 
 Call_00e_5675:
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -4631,7 +4631,7 @@ jr_00e_5aa8:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -4687,7 +4687,7 @@ jr_00e_5aa8:
     or a
     jr z, jr_00e_5bba
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     jr nz, jr_00e_5bba
 
@@ -4723,13 +4723,13 @@ jr_00e_5bca:
 
 
 Call_00e_5bef:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -5687,7 +5687,7 @@ Call_00e_6121:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -5776,13 +5776,13 @@ Call_00e_6270:
 
 
 Call_00e_6281:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -6493,7 +6493,7 @@ jr_00e_6647:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cc96], a
     ld [$cc76], a

@@ -45,7 +45,7 @@ SECTION "ROM Bank $009", ROMX[$4000], BANK[$9]
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, [$cd2a]
     cp $08
     jr c, jr_009_4066
@@ -73,7 +73,7 @@ jr_009_4066:
     ld [$cd69], a
     ld [$cd2b], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $c000
     ld bc, $00a0
     call ClearMem
@@ -107,7 +107,7 @@ jr_009_4066:
     ccf
     ld b, c
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -466,7 +466,7 @@ jr_009_4267:
     ld a, $00
     adc h
     ld h, a
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp [hl]
     jr c, jr_009_4239
 
@@ -515,27 +515,27 @@ Jump_009_42a5:
 
     push bc
     call Call_000_0fe5
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $05
     jr z, jr_009_430b
 
     cp $10
     call z, Call_009_4310
     call Call_009_435d
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $05
     jr nz, jr_009_42cf
 
-    ld a, [$b881]
+    ld a, [TimerMinutes]
     cp $0e
     jr nz, jr_009_42f6
 
     dec a
-    ld [$b881], a
+    ld [TimerMinutes], a
     jr jr_009_42f6
 
 jr_009_42cf:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     jr nz, jr_009_42f6
 
@@ -556,7 +556,7 @@ jr_009_42cf:
 
 jr_009_42f6:
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $05
     ld [$c910], a
     ld a, $01
@@ -603,13 +603,13 @@ jr_009_4332:
 
     push bc
     ld a, $05
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     ld a, $0d
-    ld [$b881], a
+    ld [TimerMinutes], a
     call Call_000_0491
     pop hl
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $05
     ld [$c910], a
     ld a, $01
@@ -620,9 +620,9 @@ jr_009_4332:
 
 
 Call_009_435d:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     inc a
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     cp $18
     jr nc, jr_009_436c
 
@@ -632,11 +632,11 @@ Call_009_435d:
 
 jr_009_436c:
     xor a
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     call Call_000_0491
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     inc a
-    ld [NextDay], a
+    ld [CurrentDay], a
     cp $1e
     jr nc, jr_009_4382
 
@@ -646,11 +646,11 @@ jr_009_436c:
 
 jr_009_4382:
     xor a
-    ld [NextDay], a
+    ld [CurrentDay], a
     call Call_000_054a
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     inc a
-    ld [$b884], a
+    ld [CurrentSeason], a
     cp $04
     jr nc, jr_009_4398
 
@@ -660,11 +660,11 @@ jr_009_4382:
 
 jr_009_4398:
     xor a
-    ld [$b884], a
+    ld [CurrentSeason], a
     call Call_000_05e2
-    ld a, [$b885]
+    ld a, [CurrentYear]
     inc a
-    ld [$b885], a
+    ld [CurrentYear], a
     ret
 
 
@@ -1381,7 +1381,7 @@ Call_009_4698:
     ld b, d
     ld c, b
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -1941,7 +1941,7 @@ Call_009_494f:
 
 Call_009_4984:
     push hl
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld hl, $4995
     add l
     ld l, a
@@ -2531,7 +2531,7 @@ Jump_009_4c6b:
     sbc [hl]
     ld c, h
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -2775,7 +2775,7 @@ Call_009_4d7d:
     inc e
     bit 1, l
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -2996,7 +2996,7 @@ jr_009_4e8d:
 
 
     ld a, [bc]
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3351,7 +3351,7 @@ jr_009_503f:
 
 
 Call_009_5065:
-    ld a, [$b885]
+    ld a, [CurrentYear]
     ld hl, $0000
     or a
     jr z, jr_009_5076
@@ -3367,10 +3367,10 @@ jr_009_5072:
 jr_009_5076:
     ld d, h
     ld e, l
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld c, $1e
     call Call_000_071e
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     add l
     ld l, a
     ld a, $00
@@ -3396,7 +3396,7 @@ jr_009_5076:
     inc e
     add $50
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3657,7 +3657,7 @@ jr_009_5076:
     inc de
     ld d, d
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -4158,7 +4158,7 @@ Call_009_53c2:
     dec a
     ld [$cb1c], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $c000
     ld bc, $00a0
     call ClearMem
@@ -4224,7 +4224,7 @@ jr_009_54d0:
     ld a, $9f
     ld [$cd9a], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $557a
     ld a, l
     ld [$cd28], a
@@ -4255,7 +4255,7 @@ jr_009_54d0:
 
 
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -4358,7 +4358,7 @@ Call_009_5599:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     call Call_009_576e
     xor a
     ldh [$ff91], a
@@ -4368,7 +4368,7 @@ Call_009_5599:
     ld a, $60
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $22
     call Call_000_23cf
     ret
@@ -4376,7 +4376,7 @@ Call_009_5599:
 
     call Call_000_0ae9
     call Call_009_56ac
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -5341,7 +5341,7 @@ Jump_009_5b65:
     ld h, b
     ld l, c
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $02
     ld [$cb50], a
     ld a, $1d
@@ -6426,7 +6426,7 @@ jr_009_609b:
 
 
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -6768,7 +6768,7 @@ Call_009_61f1:
 
     ld e, c
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -6891,7 +6891,7 @@ jr_009_62c2:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     xor a
     ldh [$ff91], a
     ldh [$ff93], a
@@ -7030,7 +7030,7 @@ Call_009_636b:
     ld c, a
     nop
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -7950,7 +7950,7 @@ jr_009_6690:
     ld a, $00
     ldh [rSTAT], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     inc a
     ld [$c910], a
     ld [$c0a6], a

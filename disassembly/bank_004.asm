@@ -42,7 +42,7 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
     ld a, $68
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $22
     ld [$b90c], a
     xor a
@@ -132,7 +132,7 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
     call Call_004_4254
     call Call_004_4268
     call Call_004_427c
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -308,7 +308,7 @@ Call_004_427c:
 
 
 Call_004_4290:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -316,7 +316,7 @@ Call_004_4290:
     or a
     ret nz
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -7563,7 +7563,7 @@ jr_004_6e78:
     res 7, c
 
 Call_004_6e8c:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     ret c
 

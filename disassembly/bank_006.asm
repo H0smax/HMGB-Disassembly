@@ -3070,7 +3070,7 @@ jr_006_4c75:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     xor a
     ldh [$ff91], a
     ldh [$ff93], a
@@ -3079,7 +3079,7 @@ jr_006_4c75:
     ld a, $60
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $22
     call Call_000_23cf
     ld a, $e3
@@ -3099,7 +3099,7 @@ jr_006_4c75:
 
 
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -3794,7 +3794,7 @@ jr_006_507d:
     ld a, $1d
     ld [$cb4f], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $01
     ld [$c910], a
     ret
@@ -4254,7 +4254,7 @@ Call_006_531f:
     push hl
     push de
     push bc
-    ld a, [$b885]
+    ld a, [CurrentYear]
     ld hl, $0000
     or a
     jr z, jr_006_5333
@@ -4270,10 +4270,10 @@ jr_006_532f:
 jr_006_5333:
     ld d, h
     ld e, l
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld c, $1e
     call Call_000_071e
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     add l
     ld l, a
     ld a, $00

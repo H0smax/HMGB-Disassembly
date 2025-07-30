@@ -34,7 +34,7 @@ SECTION "ROM Bank $01d", ROMX[$4000], BANK[$1d]
     ld a, $70
     ldh [$ff91], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld a, $07
     ldh [$ff96], a
     ld a, $00
@@ -53,7 +53,7 @@ SECTION "ROM Bank $01d", ROMX[$4000], BANK[$1d]
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ld hl, $c000
     ld bc, $00a0
     call ClearMem
@@ -72,7 +72,7 @@ SECTION "ROM Bank $01d", ROMX[$4000], BANK[$1d]
     ret
 
 
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -582,7 +582,7 @@ jr_01d_42ff:
     ld a, $04
     ld [$cd62], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $11
     ld [MapLocation], a
     ld a, $01
@@ -681,7 +681,7 @@ Call_01d_433e:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ld hl, $443c
     ld a, l
     ld [$cd28], a
@@ -778,7 +778,7 @@ jr_01d_441a:
     ld c, $01
     ld c, $01
     ld c, $01
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
@@ -1037,7 +1037,7 @@ jr_01d_4534:
     ld a, $00
     ldh [rSTAT], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     inc a
     ld [$c0a6], a
     ld a, $12
@@ -1057,7 +1057,7 @@ jr_01d_4534:
     ldh [rSTAT], a
     di
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $03
     ld [$c910], a
     ld a, [$b90a]
@@ -1363,7 +1363,7 @@ jr_01d_4719:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $ad
     ld hl, $cd6b
     ld [hl+], a
@@ -1376,7 +1376,7 @@ jr_01d_4719:
     ld a, h
     ld [$cd29], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $c000
     ld bc, $00a0
     call ClearMem
@@ -1393,7 +1393,7 @@ jr_01d_4719:
     ret
 
 
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -2949,7 +2949,7 @@ Call_01d_4d97:
     dec c
     db $10
     add b
-    ld [$0403], sp
+    ld [NextTimerSecond], sp
     inc bc
     dec b
     inc bc
@@ -3917,7 +3917,7 @@ jr_01d_52c0:
     ld h, b
     ld l, c
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     inc a
     ld [$c910], a
     ld a, $0e
@@ -3950,7 +3950,7 @@ jr_01d_52c0:
 
 
     call Call_000_0ae9
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -4145,7 +4145,7 @@ Call_01d_5401:
     ld a, $01
     ld [$b89c], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $01
     ld [$cb50], a
     ld a, $1d
@@ -4278,7 +4278,7 @@ jr_01d_54c5:
     call Call_01d_4a6f
     pop hl
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $01
     ld [$cd2b], a
     ld a, $07
@@ -4780,7 +4780,7 @@ jr_01d_5717:
     jr z, jr_01d_57be
 
     xor a
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $5828
     ld a, l
     ld [$cd28], a
@@ -4794,7 +4794,7 @@ jr_01d_5717:
 
 jr_01d_57be:
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     ld hl, $581c
     ld a, l
     ld [$cd28], a
@@ -4815,7 +4815,7 @@ jr_01d_57d8:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     xor a
     ldh [$ff91], a
     ldh [$ff93], a
@@ -4835,7 +4835,7 @@ jr_01d_57d8:
     ret
 
 
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -7301,7 +7301,7 @@ jr_01d_62c8:
     dec e
     ld sp, hl
     ld e, $9f
-    ld bc, $0403
+    ld bc, NextTimerSecond
     rra
     ld [hl+], a
     inc hl
@@ -10137,7 +10137,7 @@ jr_01d_6f85:
     ld a, $68
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cb5a], a
     ld [$cb5b], a
@@ -10169,7 +10169,7 @@ jr_01d_6f85:
     ld a, $ff
     ld [$cb52], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb53], a
     ld [$cb54], a
     ld [$cb55], a
@@ -10187,7 +10187,7 @@ jr_01d_6f85:
 
 
 Call_01d_705d:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b
@@ -10888,7 +10888,7 @@ jr_01d_73b9:
     ld a, $68
     ldh [$ff95], a
     ld a, $1d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
     xor a
     ld [$cb4a], a
     ld [$c620], a
@@ -10922,7 +10922,7 @@ jr_01d_73b9:
     ld a, $ff
     ld [$cb52], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb53], a
     ld [$cb54], a
     ld [$cb55], a
@@ -10940,7 +10940,7 @@ jr_01d_73b9:
 
 
 Call_01d_74ca:
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     ld b, a
     ld a, [$cb4f]
     or b

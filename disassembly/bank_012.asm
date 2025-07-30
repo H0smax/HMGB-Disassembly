@@ -12331,7 +12331,7 @@ jr_012_7a7a:
     cp $05
     jr nz, jr_012_7a8d
 
-    ld a, [$cb56]
+    ld a, [TimePaused]
     cp $00
     ret nz
 

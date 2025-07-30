@@ -677,7 +677,7 @@ Call_000_0339:
 Jump_000_033d:
     ld a, [$cb5c]
     ld [$cb5d], a
-    call Call_000_03f9
+    call CheckTime
 
 jr_000_0346:
     call Call_000_0375
@@ -734,46 +734,46 @@ UD3::
     ret
 
 
-Call_000_03f9:
-    ld a, [$cb81]
+CheckTime::
+    ld a, [OutsideFarm]
 
 Jump_000_03fc:
     or a
     ret nz
 
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret nz
 
-Call_000_0403:
-    ld a, [$cb56]
+NextTimerSecond::
+    ld a, [TimePaused]
     or a
     ret nz
 
-    ld a, [$b880]
+    ld a, [TimerSeconds]
     inc a
-    ld [$b880], a
+    ld [TimerSeconds], a
 
 Jump_000_040f:
     cp $1e
-    jr nc, jr_000_0414
+    jr nc, NextTimerMinute
 
     ret
 
 
-jr_000_0414:
+NextTimerMinute::
     xor a
-    ld [$b880], a
-    ld a, [$b881]
+    ld [TimerSeconds], a
+    ld a, [TimerMinutes]
     inc a
-    ld [$b881], a
+    ld [TimerMinutes], a
     cp $0f
-    jr nc, jr_000_0432
+    jr nc, NextHour
 
     cp $0e
     ret nz
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $05
     ret nz
 
@@ -782,67 +782,67 @@ jr_000_0414:
     ret
 
 
-jr_000_0432:
+NextHour::
     xor a
-    ld [$b881], a
-    ld a, [CurrentTime]
+    ld [TimerMinutes], a
+    ld a, [CurrentHour]
     inc a
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     cp $18
-    jr nc, jr_000_0448
+    jr nc, NextDay
 
     call Call_000_0491
     call Call_000_0491
     ret
 
 
-jr_000_0448:
+NextDay::
     xor a
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     call Call_000_0491
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     inc a
-    ld [NextDay], a
+    ld [CurrentDay], a
     cp $1e
-    jr nc, jr_000_0461
+    jr nc, NextSeason
 
     call Call_000_054a
     call Call_000_05e2
     ret
 
 
-jr_000_0461:
+NextSeason::
     xor a
-    ld [NextDay], a
-    ld a, [$b884]
+    ld [CurrentDay], a
+    ld a, [CurrentSeason]
     inc a
-    ld [$b884], a
+    ld [CurrentSeason], a
     call Call_000_054a
     call Call_000_05e2
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $04
-    jr nc, jr_000_047a
+    jr nc, NextYear
 
     ret
 
 
-jr_000_047a:
+NextYear::
     xor a
-    ld [$b884], a
+    ld [CurrentSeason], a
     call Call_000_05e2
-    ld a, [$b885]
+    ld a, [CurrentYear]
     inc a
-    ld [$b885], a
+    ld [CurrentYear], a
     cp $63
     ret nz
 
     ld a, $62
-    ld [$b885], a
+    ld [CurrentYear], a
     ret
 
 
 Call_000_0491:
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     ld l, a
     ld h, $00
     add hl, hl
@@ -857,7 +857,7 @@ Call_000_0491:
     ld [$b918], a
     ld a, [hl+]
     ld [$b919], a
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -902,7 +902,7 @@ UD4::
     db $4b, $3e, $af, $1c, $4b, $3e, $af, $1d, $4b, $3e, $0b, $0a, $4b, $3e, $0b, $0b
 
 Call_000_054a:
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     ld l, a
     ld h, $00
     add hl, hl
@@ -912,10 +912,10 @@ Call_000_054a:
     ld [$b914], a
     ld a, [hl+]
     ld [$b915], a
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld c, $1e
     call Call_000_071e
-    ld a, [NextDay]
+    ld a, [CurrentDay]
     add l
     ld l, a
     ld a, $00
@@ -933,7 +933,7 @@ Jump_000_057b:
     ld h, a
     ld a, [hl]
     ld [$b91a], a
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret nz
 
@@ -970,7 +970,7 @@ UD5::
     db $0c, $0f, $0c, $1a, $0c, $1b, $0c, $1c, $0c, $1d, $0d, $0a
 
 Call_000_05e2:
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     ld l, a
     ld h, $00
     add hl, hl
@@ -2054,7 +2054,7 @@ Call_000_0b02:
     ld [$c910], a
     ld [$c90f], a
     ld [$c911], a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb57], a
     ld [$b88c], a
     ld a, $ff
@@ -2199,7 +2199,7 @@ Call_000_0bb8:
 Jump_000_0bb8:
     ld a, [$dd00]
     ld b, a
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     or a
     ret z
 
@@ -2212,24 +2212,24 @@ Jump_000_0bc3:
     jr nz, jr_000_0bce
 
     ld a, $0d
-    ld [$cb4e], a
+    ld [TransitionRelated], a
 
 jr_000_0bce:
     ld a, [MapLocation]
     cp $01
     jr nz, jr_000_0bf6
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     jr c, jr_000_0be3
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     jr c, jr_000_0bf6
 
 jr_000_0be3:
     ld hl, $0b9a
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     add l
     ld l, a
     ld a, $00
@@ -2242,7 +2242,7 @@ jr_000_0be3:
 
 jr_000_0bf6:
     ld hl, $0b40
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     add l
     ld l, a
     ld a, $00
@@ -2256,7 +2256,7 @@ Call_000_0c00:
 
 jr_000_0c07:
     ld hl, $0b5e
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     add l
     ld l, a
     ld a, $00
@@ -2266,7 +2266,7 @@ jr_000_0c07:
     ld hl, $c0a4
     ld [hl], a
     ld hl, $0b7c
-    ld a, [$cb4e]
+    ld a, [TransitionRelated]
     add l
     ld l, a
     ld a, $00
@@ -2275,7 +2275,7 @@ jr_000_0c07:
     ld a, [hl]
     ld hl, $c0a5
     ld [hl], a
-    ld hl, $cb4e
+    ld hl, TransitionRelated
     dec [hl]
     ret
 
@@ -2438,11 +2438,11 @@ jr_000_0ccb:
     cp $01
     jr nz, jr_000_0cf3
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $06
     jr c, jr_000_0ce0
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $12
     jr c, jr_000_0cf3
 
@@ -2582,12 +2582,12 @@ Call_000_0d6a:
     ld [$cb5f], a
     call Call_000_134b
     ld a, $01
-    ld [$cb81], a
+    ld [OutsideFarm], a
     ld [$c910], a
     ld a, $06
-    ld [CurrentTime], a
+    ld [CurrentHour], a
     ld a, $ff
-    ld [NextDay], a
+    ld [CurrentDay], a
     ld a, $80
     ld [$b892], a
     ld [$b89b], a
@@ -2686,7 +2686,7 @@ Call_000_0e68:
     ld [$c910], a
     ld [$c90f], a
     ld [$c911], a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb57], a
     ld a, $ff
     ld [$cb52], a
@@ -2697,13 +2697,13 @@ Call_000_0e68:
     ld [$cb55], a
     ld [$cb5f], a
     ld a, $01
-    ld [$cb81], a
-    ld a, [NextDay]
+    ld [OutsideFarm], a
+    ld a, [CurrentDay]
     cp $ff
     ret nz
 
     xor a
-    ld [NextDay], a
+    ld [CurrentDay], a
     call Call_000_054a
 
 Jump_000_0ec5:
@@ -2827,7 +2827,7 @@ Call_000_0f40:
     cp $03
     jr z, jr_000_0f7b
 
-    ld a, [$b884]
+    ld a, [CurrentSeason]
     cp $00
     jr z, jr_000_0f63
 
@@ -5510,7 +5510,7 @@ jr_000_1c87:
     cp $29
     ret z
 
-    ld a, [CurrentTime]
+    ld a, [CurrentHour]
     cp $11
     ret nc
 
@@ -11633,7 +11633,7 @@ jr_000_375c:
 
 
 Jump_000_3762:
-    ld a, [$cb56]
+    ld a, [TimePaused]
     or a
     ret z
 
@@ -12113,7 +12113,7 @@ jr_000_3a51:
     jr nz, jr_000_3a79
 
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb57], a
     call Call_000_3e2a
     ld a, [$b906]
@@ -12327,7 +12327,7 @@ Call_000_3b69:
 jr_000_3b92:
     call Call_000_3ed0
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb57], a
     call Call_000_3e2a
     ld a, $01
@@ -12360,7 +12360,7 @@ jr_000_3b92:
 jr_000_3bd7:
     call Call_000_3ed0
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb57], a
     call Call_000_3e2a
     ld a, $50
@@ -12430,7 +12430,7 @@ Call_000_3c38:
 
 Jump_000_3c3c:
 jr_000_3c3c:
-    ld a, [$cb56]
+    ld a, [TimePaused]
     cp $00
     jr z, jr_000_3ca0
 
@@ -12444,7 +12444,7 @@ jr_000_3c3c:
 
     call Call_000_3e2a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ld a, $01
     ld [$cb52], a
     ld [$cb57], a
@@ -12467,7 +12467,7 @@ Jump_000_3c69:
     ld a, $01
     ld [$cbf6], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cbeb], a
     ld [$cb78], a
     ld [$cb5f], a
@@ -12509,7 +12509,7 @@ jr_000_3ca0:
     ld a, $03
     ld [$c912], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ret
 
 
@@ -12823,7 +12823,7 @@ Call_000_3e54:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     ld a, [$b906]
     or a
@@ -12847,7 +12847,7 @@ Call_000_3e80:
     ld a, b
     ld [$cb52], a
     ld a, $01
-    ld [$cb56], a
+    ld [TimePaused], a
     ld [$cb5f], a
     ld [$cc1b], a
     call Call_000_3e39
