@@ -773,7 +773,7 @@ jr_000_0414:
     cp $0e
     ret nz
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $05
     ret nz
 
@@ -785,9 +785,9 @@ jr_000_0414:
 jr_000_0432:
     xor a
     ld [$b881], a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     inc a
-    ld [$b882], a
+    ld [CurrentTime], a
     cp $18
     jr nc, jr_000_0448
 
@@ -798,7 +798,7 @@ jr_000_0432:
 
 jr_000_0448:
     xor a
-    ld [$b882], a
+    ld [CurrentTime], a
     call Call_000_0491
     ld a, [$b883]
     inc a
@@ -842,7 +842,7 @@ jr_000_047a:
 
 
 Call_000_0491:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     ld l, a
     ld h, $00
     add hl, hl
@@ -2219,11 +2219,11 @@ jr_000_0bce:
     cp $01
     jr nz, jr_000_0bf6
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     jr c, jr_000_0be3
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $12
     jr c, jr_000_0bf6
 
@@ -2438,11 +2438,11 @@ jr_000_0ccb:
     cp $01
     jr nz, jr_000_0cf3
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     jr c, jr_000_0ce0
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $12
     jr c, jr_000_0cf3
 
@@ -2585,7 +2585,7 @@ Call_000_0d6a:
     ld [$cb81], a
     ld [$c910], a
     ld a, $06
-    ld [$b882], a
+    ld [CurrentTime], a
     ld a, $ff
     ld [$b883], a
     ld a, $80
@@ -5510,7 +5510,7 @@ jr_000_1c87:
     cp $29
     ret z
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $11
     ret nc
 

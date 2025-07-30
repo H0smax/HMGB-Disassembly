@@ -466,7 +466,7 @@ jr_009_4267:
     ld a, $00
     adc h
     ld h, a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp [hl]
     jr c, jr_009_4239
 
@@ -515,14 +515,14 @@ Jump_009_42a5:
 
     push bc
     call Call_000_0fe5
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $05
     jr z, jr_009_430b
 
     cp $10
     call z, Call_009_4310
     call Call_009_435d
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $05
     jr nz, jr_009_42cf
 
@@ -535,7 +535,7 @@ Jump_009_42a5:
     jr jr_009_42f6
 
 jr_009_42cf:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $12
     jr nz, jr_009_42f6
 
@@ -603,7 +603,7 @@ jr_009_4332:
 
     push bc
     ld a, $05
-    ld [$b882], a
+    ld [CurrentTime], a
     ld a, $0d
     ld [$b881], a
     call Call_000_0491
@@ -620,9 +620,9 @@ jr_009_4332:
 
 
 Call_009_435d:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     inc a
-    ld [$b882], a
+    ld [CurrentTime], a
     cp $18
     jr nc, jr_009_436c
 
@@ -632,7 +632,7 @@ Call_009_435d:
 
 jr_009_436c:
     xor a
-    ld [$b882], a
+    ld [CurrentTime], a
     call Call_000_0491
     ld a, [$b883]
     inc a

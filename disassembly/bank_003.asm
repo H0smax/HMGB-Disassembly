@@ -8754,7 +8754,7 @@ jr_003_74cd:
 
 
 Call_003_74d2:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret c
 

@@ -72,14 +72,14 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld a, [$b883]
     inc a
     call Call_002_41ec
-    ld a, [$b882]
+    ld a, [CurrentTime]
     ld hl, $9829
     call Call_002_41ff
     ld a, [$b884]
     ld [$cbde], a
     ld a, [$b883]
     ld [$cbdf], a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     ld [$cbe0], a
     ld a, [$b881]
     ld [$cbe1], a
@@ -127,7 +127,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld a, [$b883]
     inc a
     call Call_002_41ec
-    ld a, [$b882]
+    ld a, [CurrentTime]
     ld hl, $98a9
     call Call_002_41ff
     call Call_002_496f
@@ -401,7 +401,7 @@ jr_002_42c2:
     ld a, $18
     call Call_000_06ce
     ld b, a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     jr c, jr_002_42dd
 
@@ -445,7 +445,7 @@ jr_002_42f9:
     ld a, $18
     call Call_000_06ce
     ld b, a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     jr c, jr_002_4314
 
@@ -540,14 +540,14 @@ Call_002_4370:
     ld a, [$b883]
     add l
     ld [$b883], a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     add b
-    ld [$b882], a
+    ld [CurrentTime], a
     cp $18
     jr c, jr_002_439f
 
     sub $18
-    ld [$b882], a
+    ld [CurrentTime], a
     ld a, [$b883]
     inc a
     ld [$b883], a
@@ -598,7 +598,7 @@ Call_002_43d5:
     cp $1d
     ret nz
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret c
 
@@ -614,7 +614,7 @@ jr_002_43f3:
     call Call_000_071e
     pop de
     add hl, de
-    ld a, [$b882]
+    ld a, [CurrentTime]
     sub $06
     add l
     ld l, a
@@ -641,7 +641,7 @@ jr_002_43f3:
     ld a, $1d
     ld [$b883], a
     ld a, $06
-    ld [$b882], a
+    ld [CurrentTime], a
     xor a
     ld [$b881], a
     ld [$b880], a
@@ -649,7 +649,7 @@ jr_002_43f3:
 
 
 jr_002_4446:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     sub $06
     ld b, a
     ld a, [$cbe5]
@@ -659,7 +659,7 @@ jr_002_4446:
     sbc $00
     ld [$cbe4], a
     ld a, $06
-    ld [$b882], a
+    ld [CurrentTime], a
     xor a
     ld [$b881], a
     ld [$b880], a
@@ -720,7 +720,7 @@ Call_002_44a4:
     cp $1d
     ret nz
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret c
 
@@ -1196,7 +1196,7 @@ jr_002_4744:
     jr jr_002_4760
 
 jr_002_475a:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret c
 
@@ -1231,7 +1231,7 @@ jr_002_477b:
 
 
 jr_002_478f:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret c
 
@@ -2625,7 +2625,7 @@ Call_002_4e01:
     cp $18
     jr nc, jr_002_4e24
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     jr c, jr_002_4e1e
 
@@ -3344,7 +3344,7 @@ Jump_002_5229:
     ld [$c60d], a
     ld a, [$b883]
     ld [$b901], a
-    ld a, [$b882]
+    ld a, [CurrentTime]
     ld [$b902], a
     ld a, [$b881]
     ld [$b903], a
@@ -6735,7 +6735,7 @@ Call_002_64c1:
     cp $01
     ret nz
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret nz
 
@@ -7158,7 +7158,7 @@ jr_002_6736:
     ld [$b880], a
     ld [$b881], a
     ld a, $06
-    ld [$b882], a
+    ld [CurrentTime], a
     call Call_000_0491
     ld a, [$b883]
     inc a
@@ -7200,7 +7200,7 @@ jr_002_6794:
     ld [$b880], a
     ld [$b881], a
     ld a, $06
-    ld [$b882], a
+    ld [CurrentTime], a
     call Call_000_0491
     xor a
     ld [$ba40], a
@@ -8121,7 +8121,7 @@ jr_002_6b83:
 
 Jump_002_6b8d:
     ld a, $06
-    ld [$b882], a
+    ld [CurrentTime], a
     xor a
     ld [$b881], a
     ld [$b880], a

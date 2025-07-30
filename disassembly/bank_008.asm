@@ -422,7 +422,7 @@ jr_008_4193:
     cp $01
     jr z, jr_008_41d7
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     jr nz, jr_008_41e1
 

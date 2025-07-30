@@ -200,7 +200,7 @@ Call_00e_417d:
     or a
     ret nz
 
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $05
     ret nz
 
@@ -3424,7 +3424,7 @@ jr_00e_53aa:
     ret nz
 
     ld a, $12
-    ld [$b882], a
+    ld [CurrentTime], a
     xor a
     ld [$b881], a
     ld [$b880], a

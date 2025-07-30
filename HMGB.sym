@@ -20,6 +20,8 @@
 00:0661 UD9
 00:0661 .data:6D
 
+; TODO: Check bank?
+00:B882 CurrentTime 
 
 00:2099 ClearMem
 

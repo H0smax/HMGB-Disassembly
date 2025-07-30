@@ -6,6 +6,7 @@
 
 ; Build or compressed items
 build/
+*.2bpp
 *.zip
 
 ; Dissasembly tools

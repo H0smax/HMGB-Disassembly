@@ -7563,7 +7563,7 @@ jr_004_6e78:
     res 7, c
 
 Call_004_6e8c:
-    ld a, [$b882]
+    ld a, [CurrentTime]
     cp $06
     ret c
 

@@ -6732,13 +6732,13 @@ jr_00f_6807:
     jr z, jr_00f_682a
 
     ld a, $15
-    ld [$b882], a
+    ld [CurrentTime], a
     ret
 
 
 jr_00f_682a:
     ld a, $12
-    ld [$b882], a
+    ld [CurrentTime], a
     ret
 
 
