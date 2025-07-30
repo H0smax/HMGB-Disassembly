@@ -1,4 +1,4 @@
-; Disassembly of "HMGB.sgb"
+; Disassembly of "HMGB.gb"
 ; This file was created with:
 ; mgbdis v3.0 - Game Boy ROM disassembler by Matt Currie and contributors.
 ; https://github.com/mattcurrie/mgbdis
@@ -507,7 +507,7 @@ jr_006_41f6:
     db $10
     db $10
     add d
-    jp c, Jump_000_02ae
+    jp c, $02ae
 
     add c
     ld b, e
@@ -1022,7 +1022,7 @@ Jump_006_4414:
     add e
     add d
     or h
-    jp c, Jump_000_02af
+    jp c, $02af
 
     ld hl, $3144
     ld sp, $2174
@@ -4059,7 +4059,7 @@ Call_006_51fe:
 Call_006_520c:
     ld hl, $cd6f
     ld bc, $000a
-    call Call_000_2099
+    call ClearMem
     ret
 
 

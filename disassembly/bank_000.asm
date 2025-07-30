@@ -1,4 +1,4 @@
-; Disassembly of "HMGB.sgb"
+; Disassembly of "HMGB.gb"
 ; This file was created with:
 ; mgbdis v3.0 - Game Boy ROM disassembler by Matt Currie and contributors.
 ; https://github.com/mattcurrie/mgbdis
@@ -420,10 +420,10 @@ Jump_000_0151:
     ld sp, $dfef
     ld hl, $ff80
     ld bc, $007f
-    call Call_000_2099
+    call ClearMem
     ld hl, $dd00
     ld bc, $00ff
-    call Call_000_2099
+    call ClearMem
     call Call_000_2059
     xor a
     ldh [rBGP], a
@@ -468,7 +468,7 @@ Jump_000_01af:
     ld sp, $dfef
     ld hl, $ff80
     ld bc, $007f
-    call Call_000_2099
+    call ClearMem
     ld a, $02
     ldh [$ff8d], a
 
@@ -479,12 +479,12 @@ Call_000_01c1:
     ldh [rSCX], a
     ld hl, $8000
     ld bc, $1fff
-    call Call_000_2099
+    call ClearMem
     ld hl, $c000
 
 Call_000_01d5:
     ld bc, $1cff
-    call Call_000_2099
+    call ClearMem
     call Call_000_2059
     xor a
     ld [$4000], a
@@ -606,109 +606,14 @@ Jump_000_0270:
     ld c, $60
     ld h, c
 
-Jump_000_0280:
-    ld c, $5a
-    ld h, [hl]
-    ld c, $17
-    ld c, a
-    db $10
-    dec l
-    ld c, a
-    db $10
-    adc [hl]
-    ld h, e
-    rrca
-    ld bc, $1d40
-    ld d, b
-    ld b, e
-    dec e
-    add c
-    ld b, [hl]
-    dec e
-    ld bc, $0940
-    or h
-    ld b, [hl]
-    add hl, bc
-    ld h, e
-    ld c, h
-    add hl, bc
-    sub b
-    ld c, l
-    add hl, bc
-    sbc c
-    ld c, [hl]
-    add hl, bc
-
-Jump_000_02a5:
-    adc e
-    ld d, b
-    add hl, bc
-    adc a
-    ld d, c
-
-Call_000_02aa:
-    add hl, bc
-    push de
-    ld d, h
-    add hl, bc
-
-Jump_000_02ae:
-    add [hl]
-
-Jump_000_02af:
-    ld d, l
-    add hl, bc
-    rst $38
-    ld d, d
-    dec e
-    rst $38
-    ld d, d
-    dec e
-    dec d
-
-Call_000_02b8:
-    ld h, b
-    add hl, bc
-    inc c
-    ld h, d
-    add hl, bc
-    ld h, e
-    ld d, a
-    dec e
-    or h
-    ld h, d
-    add hl, bc
-    ld bc, $1f40
-    rst $38
-    ld d, d
-    dec e
-    add [hl]
-    ld d, d
-    dec e
-    dec l
-    ld l, h
-    rrca
-    jp c, Jump_000_0770
-
-    sbc c
-    ld l, a
-    dec e
-    ld bc, $0240
-    nop
-    ld [hl], h
-    dec e
-    ret
-
-
-    ret
-
-
-    push af
-    ld a, $f0
-    ldh [rBGP], a
-    pop af
-    ret
-
+UD2::
+    db $0e, $5a, $66, $0e, $17, $4f, $10, $2d, $4f, $10, $8e, $63, $0f, $01, $40, $1d
+    db $50, $43, $1d, $81, $46, $1d, $01, $40, $09, $b4, $46, $09, $63, $4c, $09, $90
+    db $4d, $09, $99, $4e, $09, $8b, $50, $09, $8f, $51, $09, $d5, $54, $09, $86, $55
+    db $09, $ff, $52, $1d, $ff, $52, $1d, $15, $60, $09, $0c, $62, $09, $63, $57, $1d
+    db $b4, $62, $09, $01, $40, $1f, $ff, $52, $1d, $86, $52, $1d, $2d, $6c, $0f, $da
+    db $70, $07, $99, $6f, $1d, $01, $40, $02, $00, $74, $1d, $c9, $c9, $f5, $3e, $f0
+    db $e0, $47, $f1, $c9
 
 VBlankInterruptHandler::
     push af
@@ -810,122 +715,17 @@ Call_000_0375:
     ld a, [$c0a7]
     or a
     rst $08
-    ld h, a
-    ld l, l
-    rra
-    or d
-    ld b, c
-    ld bc, $50cc
-    ld [bc], a
-    jr @+$43
 
-    inc bc
-    inc d
-    ld b, c
-    inc b
-    cp b
-    ld b, b
-    dec b
-    inc [hl]
-    ld c, l
-    ld b, $d7
-    ld b, b
-    db $10
-    inc e
-    ld b, c
-    ld c, $ab
-    ld d, l
-    ld c, $a2
-    ld e, e
-    ld c, $3e
-    ld h, d
-    ld c, $2d
-    ld h, a
-    ld c, $c9
-    ld c, a
-    db $10
-    db $dd
-    ld c, a
-    db $10
-    ld [hl], h
-    ld h, h
-    rrca
-    sub a
-    ld b, b
-    dec e
-    inc sp
-    ld b, h
-    dec e
-    and e
-    ld b, a
-    dec e
-    cp c
-    ld b, b
-    add hl, bc
-    add $46
-    add hl, bc
-    ld [hl], l
-    ld c, h
-    add hl, bc
-    and d
-    ld c, l
-    add hl, bc
-    xor e
-    ld c, [hl]
-    add hl, bc
-    sbc l
-    ld d, b
-    add hl, bc
-    ld [$0951], a
-    ld e, d
+UD3::
+    db $67, $6d, $1f, $b2, $41, $01, $cc, $50, $02, $18, $41, $03, $14, $41, $04, $b8
+    db $40, $05, $34, $4d, $06, $d7, $40, $10, $1c, $41, $0e, $ab, $55, $0e, $a2, $5b
+    db $0e, $3e, $62, $0e, $2d, $67, $0e, $c9, $4f, $10, $dd, $4f, $10, $74, $64, $0f
+    db $97, $40, $1d, $33, $44, $1d, $a3, $47, $1d, $b9, $40, $09, $c6, $46, $09, $75
+    db $4c, $09, $a2, $4d, $09, $ab, $4e, $09, $9d, $50, $09, $ea, $51, $09, $5a, $55
+    db $09, $4c, $56, $09, $28, $53, $1d, $28, $53, $1d, $a6, $60, $09, $56, $62, $09
+    db $0f, $58, $1d, $d0, $63, $09, $af, $40, $1f, $28, $53, $1d, $fe, $52, $1d, $bb
+    db $6c, $0f, $3f, $71, $07, $4d, $70, $1d, $64
 
-Jump_000_03c9:
-    ld d, l
-    add hl, bc
-    ld c, h
-
-Call_000_03cc:
-    ld d, [hl]
-    add hl, bc
-    jr z, jr_000_0423
-
-    dec e
-    jr z, jr_000_0426
-
-    dec e
-    and [hl]
-    ld h, b
-    add hl, bc
-    ld d, [hl]
-    ld h, d
-    add hl, bc
-    rrca
-    ld e, b
-    dec e
-    ret nc
-
-    ld h, e
-    add hl, bc
-    xor a
-    ld b, b
-    rra
-    jr z, @+$55
-
-    dec e
-    cp $52
-
-Call_000_03e8:
-    dec e
-    cp e
-    ld l, h
-    rrca
-    ccf
-    ld [hl], c
-    rlca
-    ld c, l
-    ld [hl], b
-    dec e
-    ld h, h
     ld b, c
     ld [bc], a
     cp d
@@ -970,11 +770,9 @@ jr_000_0414:
     cp $0f
     jr nc, jr_000_0432
 
-jr_000_0423:
     cp $0e
     ret nz
 
-jr_000_0426:
     ld a, [$b882]
     cp $05
     ret nz
@@ -1353,7 +1151,7 @@ jr_000_061b:
 
     ld hl, $ffa4
     ld bc, $0014
-    jp Jump_000_2099
+    jp ClearMem
 
 
 Call_000_0629:
@@ -1704,7 +1502,6 @@ Call_000_076e:
     push bc
     push hl
 
-Jump_000_0770:
 jr_000_0770:
     ld a, [de]
     inc de
@@ -2068,7 +1865,7 @@ Call_000_08ff:
     ld l, e
     ld e, a
     ld e, e
-    jp z, Jump_000_02a5
+    jp z, $02a5
 
     jr jr_000_092b
 
@@ -3007,7 +2804,7 @@ Call_000_0d6a:
     di
     ld hl, $a000
     ld bc, $1fff
-    call Call_000_2099
+    call ClearMem
     ld hl, $75d5
     ld a, $03
     call Call_000_1f96
@@ -6822,15 +6619,13 @@ Call_000_208a:
     ret
 
 
-Call_000_2099:
-Jump_000_2099:
-jr_000_2099:
+ClearMem::
     xor a
     ld [hl+], a
     dec bc
     ld a, c
     or b
-    jr nz, jr_000_2099
+    jr nz, ClearMem
 
     ret
 
@@ -10186,7 +9981,6 @@ jr_000_2fd8:
     rst $38
     rst $38
 
-Call_000_3000:
 Jump_000_3000:
     rst $38
 

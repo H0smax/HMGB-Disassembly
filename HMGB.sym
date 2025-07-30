@@ -2,6 +2,23 @@
 00:0150 Start
 
 00:02E4 VBlankInterruptHandler
+00:0280 UD2
+00:0280 .data:64
 00:0322 LCDCInterruptHandler
+00:037A UD3
+00:037A .data:79
+00:2099 ClearMem
+
 00:330A TimerOverflowInterruptHandler
 00:3319 SerialTransferCompleteInterruptHandler
+
+01:6CDE UD
+01:6CDE .data:64
+
+01:6D42 UF
+
+11:4000 DialogueCharacters
+11:4000 .image:1000:w128,pe4
+
+;1A:6600 Items
+;1A:6600 .image:200:w128,pe4

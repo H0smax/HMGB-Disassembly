@@ -1,4 +1,4 @@
-; Disassembly of "HMGB.sgb"
+; Disassembly of "HMGB.gb"
 ; This file was created with:
 ; mgbdis v3.0 - Game Boy ROM disassembler by Matt Currie and contributors.
 ; https://github.com/mattcurrie/mgbdis
@@ -7175,113 +7175,23 @@ jr_001_6c9b:
 
 Call_001_6cd0:
     ld hl, $9c00
-    ld de, $6cde
+    ld de, UD
     ld b, $14
     ld c, $05
     call Call_000_0767
     ret
 
 
-    and b
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and c
-    and d
-    ld sp, hl
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    and l
-    ld sp, hl
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    and l
-    ld sp, hl
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    xor b
-    and l
-    and e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    ld e, e
-    and h
+UD::
+    db $a0, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1
+    db $a1, $a1, $a1, $a2, $f9, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8
+    db $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a5, $f9, $a8, $a8, $a8, $a8, $a8, $a8, $a8
+    db $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a5, $f9, $a8, $a8, $a8
+    db $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a5
+    db $a3, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b
+    db $5b, $5b, $5b, $a4
+
+UF::
     ld a, [$cb14]
     or a
     jr nz, jr_001_6d67

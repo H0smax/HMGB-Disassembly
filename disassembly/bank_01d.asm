@@ -1,4 +1,4 @@
-; Disassembly of "HMGB.sgb"
+; Disassembly of "HMGB.gb"
 ; This file was created with:
 ; mgbdis v3.0 - Game Boy ROM disassembler by Matt Currie and contributors.
 ; https://github.com/mattcurrie/mgbdis
@@ -56,7 +56,7 @@ SECTION "ROM Bank $01d", ROMX[$4000], BANK[$1d]
     ld [$cb56], a
     ld hl, $c000
     ld bc, $00a0
-    call Call_000_2099
+    call ClearMem
     ld a, $00
     call Call_000_23cf
     ld a, $83
@@ -703,7 +703,7 @@ Call_01d_433e:
 jr_01d_43c4:
     ld hl, $c000
     ld bc, $00a0
-    call Call_000_2099
+    call ClearMem
     ld a, $00
     call Call_000_23cf
     ld a, $83
@@ -1379,7 +1379,7 @@ jr_01d_4719:
     ld [$cb4e], a
     ld hl, $c000
     ld bc, $00a0
-    call Call_000_2099
+    call ClearMem
     ld a, $04
     call Call_000_23cf
     ld a, $83
@@ -4821,7 +4821,7 @@ jr_01d_57d8:
     ldh [$ff93], a
     ld hl, $c000
     ld bc, $00a0
-    call Call_000_2099
+    call ClearMem
     ld a, $4d
     call Call_000_23cf
     ld a, $83
@@ -6343,7 +6343,7 @@ jr_01d_5ebc:
     nop
     rst $38
     dec [hl]
-    jp z, Jump_000_0280
+    jp z, $0280
 
     inc de
     nop
@@ -9960,7 +9960,7 @@ jr_01d_6e68:
     ld hl, $c760
     ld [bc], a
     ld [hl], d
-    jp c, Jump_000_03c9
+    jp c, $03c9
 
     adc a
     ld [bc], a

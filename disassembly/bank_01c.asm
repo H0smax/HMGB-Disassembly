@@ -1,4 +1,4 @@
-; Disassembly of "HMGB.sgb"
+; Disassembly of "HMGB.gb"
 ; This file was created with:
 ; mgbdis v3.0 - Game Boy ROM disassembler by Matt Currie and contributors.
 ; https://github.com/mattcurrie/mgbdis
@@ -5868,7 +5868,7 @@ jr_01c_596c:
     ld bc, $0120
     jr @+$78
 
-    call c, Call_000_02aa
+    call c, $02aa
     jr @+$03
 
     jr nz, jr_01c_59bb
