@@ -23,7 +23,8 @@
 ; TODO: Check bank?
 00:B882 CurrentTime
 00:B8EF CurrentMoneyL
-00:B8F0 CurrentMoneyH
+00:B8F0 CurrentMoneyM
+00:B8F1 CurrentMoneyH
 
 00:2099 ClearMem
 

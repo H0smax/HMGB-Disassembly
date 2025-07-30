@@ -10730,11 +10730,11 @@ jr_007_6e14:
     jr jr_007_6e81
 
 jr_007_6e3c:
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     cp $00
     jr nz, jr_007_6e95
 
-    ld a, [CurrentMoneyH]
+    ld a, [CurrentMoneyM]
     cp $14
     jr nc, jr_007_6e95
 
@@ -10759,11 +10759,11 @@ jr_007_6e57:
     jr jr_007_6e81
 
 jr_007_6e66:
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     cp $00
     jr nz, jr_007_6e95
 
-    ld a, [CurrentMoneyH]
+    ld a, [CurrentMoneyM]
     cp $0a
     jr nc, jr_007_6e95
 

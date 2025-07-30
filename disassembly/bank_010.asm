@@ -3834,7 +3834,7 @@ jr_010_53d9:
     cp $fa
     jr c, jr_010_5402
 
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     or a
     jr z, jr_010_5402
 
@@ -3886,7 +3886,7 @@ Call_010_5417:
     cp $fa
     jr c, jr_010_5446
 
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     or a
     jr z, jr_010_5446
 

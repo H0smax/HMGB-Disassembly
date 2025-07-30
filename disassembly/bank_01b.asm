@@ -9348,7 +9348,7 @@ Call_01b_6949:
     ld c, l
     ld hl, CurrentMoneyL
     call Call_000_0a14
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     or a
     ret z
 
@@ -9367,7 +9367,7 @@ Call_01b_6949:
     ld a, l
     ld [CurrentMoneyL], a
     ld a, h
-    ld [CurrentMoneyH], a
+    ld [CurrentMoneyM], a
     ret
 
 

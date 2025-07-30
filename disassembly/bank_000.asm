@@ -2630,9 +2630,9 @@ Call_000_0d6a:
     ld a, $f4
     ld [CurrentMoneyL], a
     ld a, $01
-    ld [CurrentMoneyH], a
+    ld [CurrentMoneyM], a
     xor a
-    ld [$b8f1], a
+    ld [CurrentMoneyH], a
     call Call_000_10a0
     call Call_000_0491
     call Call_000_054a
@@ -3064,18 +3064,18 @@ jr_000_107a:
 
 
 Call_000_10a0:
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     cp $ff
     jr z, jr_000_10d7
 
-    ld a, [$b8f1]
+    ld a, [CurrentMoneyH]
     cp $02
     jr nc, jr_000_10c6
 
     cp $01
     jr c, jr_000_10e1
 
-    ld a, [CurrentMoneyH]
+    ld a, [CurrentMoneyM]
     cp $87
     jr nc, jr_000_10c6
 
@@ -3092,21 +3092,21 @@ jr_000_10c6:
     ld a, $9f
     ld [CurrentMoneyL], a
     ld a, $86
-    ld [CurrentMoneyH], a
+    ld [CurrentMoneyM], a
     ld a, $01
-    ld [$b8f1], a
+    ld [CurrentMoneyH], a
     jr jr_000_10e1
 
 jr_000_10d7:
     xor a
     ld [CurrentMoneyL], a
+    ld [CurrentMoneyM], a
     ld [CurrentMoneyH], a
-    ld [$b8f1], a
 
 jr_000_10e1:
-    ld a, [$b8f1]
-    ld [$cccc], a
     ld a, [CurrentMoneyH]
+    ld [$cccc], a
+    ld a, [CurrentMoneyM]
     ld [$cccb], a
     ld a, [CurrentMoneyL]
     ld [$ccca], a

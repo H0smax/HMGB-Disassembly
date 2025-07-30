@@ -171,14 +171,14 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld [CurrentMoneyL], a
     ld a, [$ccc3]
     ld b, a
+    ld a, [CurrentMoneyM]
+    adc b
+    ld [CurrentMoneyM], a
+    ld a, [$ccc4]
+    ld b, a
     ld a, [CurrentMoneyH]
     adc b
     ld [CurrentMoneyH], a
-    ld a, [$ccc4]
-    ld b, a
-    ld a, [$b8f1]
-    adc b
-    ld [$b8f1], a
     call Call_000_10a0
     ld a, [$b88d]
     cp $13
