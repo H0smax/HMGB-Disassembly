@@ -39,13 +39,13 @@
 
 ; TODO: Check bank?
 ; To be confirmed, not related to real seconds and minutes
-00:B880 TimerSeconds
-00:B881 TimerMinutes
+00:B880 sTimerSeconds
+00:B881 sTimerMinutes
 
-00:B882 CurrentHour
-00:B883 CurrentDay
-00:B884 CurrentSeason
-00:B885 CurrentYear
+00:B882 sCurrentHour
+00:B883 sCurrentDay
+00:B884 sCurrentSeason
+00:B885 sCurrentYear
 
 ; To be confirmed, data block?
 00:C0A3 PaletteRelated
@@ -70,23 +70,30 @@
 00:047A NextYear
 
 ; To be confirmed
-00:B88B DayRelated
+00:B88B sDayRelated
 
-00:B8EF CurrentMoneyL
-00:B8F0 CurrentMoneyM
-00:B8F1 CurrentMoneyH
+00:B8EF sCurrentMoneyL
+00:B8F0 sCurrentMoneyM
+00:B8F1 sCurrentMoneyH
+
+00:CCCA wCurrentMoneyL
+00:CCCB wCurrentMoneyM
+00:CCCC wCurrentMoneyH
 
 ; To be confirmed
-00:C0A7 MapIndex
+00:10A0 CheckCurrentMoney
+
+; To be confirmed
+00:C0A7 wMapIndex
 
 ; To be confirmed
 00:0CC0 SetNextMapIndex
 
 ; To be confirmed
-00:CB50 NextMapIndex
+00:CB50 wNextMapIndex
 
 ; To be confirmed, suspicious transition related to maps
-00:C0A6 ActivateTransitionBetweenMaps
+00:C0A6 wActivateTransitionBetweenMaps
 
 00:41F7 MoveToHouse
 00:44b7 MoveToToolRoom
@@ -120,11 +127,12 @@
 00:FF96 WindowX
 
 ; To be confirmed
-00:C622 CurrentTool
-00:B93C CurrentTool2
+00:C622 wCurrentTool
+00:B93C sCurrentTool2
 
 
 00:10D7 ResetMoney
+00:10C6 LimitMoney
 
 00:2099 ClearMem
 

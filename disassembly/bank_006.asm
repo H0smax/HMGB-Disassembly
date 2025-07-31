@@ -3792,7 +3792,7 @@ jr_006_507d:
     dec hl
     dec hl
     ld a, $05
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -4256,7 +4256,7 @@ Call_006_531f:
     push hl
     push de
     push bc
-    ld a, [CurrentYear]
+    ld a, [sCurrentYear]
     ld hl, $0000
     or a
     jr z, jr_006_5333
@@ -4272,10 +4272,10 @@ jr_006_532f:
 jr_006_5333:
     ld d, h
     ld e, l
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld c, $1e
     call Call_000_071e
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     add l
     ld l, a
     ld a, $00
@@ -6394,7 +6394,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $00
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6418,7 +6418,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $01
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6442,7 +6442,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $02
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6466,7 +6466,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $03
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6490,7 +6490,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $04
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6514,7 +6514,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $05
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6538,7 +6538,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $06
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6562,7 +6562,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $07
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6586,7 +6586,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $08
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6610,7 +6610,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $09
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6634,7 +6634,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0a
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6658,7 +6658,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0b
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6682,7 +6682,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0c
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6706,7 +6706,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0d
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6730,7 +6730,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0e
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6760,7 +6760,7 @@ jr_006_5b6c:
     sub $1a
     ld [hl+], a
     ld a, $0f
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6784,7 +6784,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $10
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6808,7 +6808,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $11
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6832,7 +6832,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $12
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6856,7 +6856,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $13
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6880,7 +6880,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $0c
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6904,7 +6904,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $15
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6928,7 +6928,7 @@ jr_006_5b6c:
     ld a, $01
     ld [$c630], a
     ld a, $16
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -6958,7 +6958,7 @@ jr_006_5b6c:
     sub $1a
     ld [hl+], a
     ld a, $17
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7016,7 +7016,7 @@ jr_006_5b6c:
     sub $1a
     ld [hl+], a
     ld a, $18
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7048,7 +7048,7 @@ jr_006_5b6c:
     sub $1a
     ld [hl+], a
     ld a, $19
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7078,7 +7078,7 @@ jr_006_5b6c:
     sub $1a
     ld [hl+], a
     ld a, $1a
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7108,7 +7108,7 @@ jr_006_5b6c:
     sub $1a
     ld [hl+], a
     ld a, $1b
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7406,7 +7406,7 @@ jr_006_6385:
     sub $1a
     ld [hl+], a
     ld a, $1f
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7503,7 +7503,7 @@ jr_006_643a:
     sub $1a
     ld [hl+], a
     ld a, $21
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7600,7 +7600,7 @@ jr_006_64ef:
     sub $1a
     ld [hl+], a
     ld a, $23
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7697,7 +7697,7 @@ jr_006_65a4:
     sub $1a
     ld [hl+], a
     ld a, $25
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7794,7 +7794,7 @@ jr_006_6659:
     sub $1a
     ld [hl+], a
     ld a, $27
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7891,7 +7891,7 @@ jr_006_670e:
     sub $1a
     ld [hl+], a
     ld a, $29
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -7970,7 +7970,7 @@ jr_006_67c7:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -8041,7 +8041,7 @@ jr_006_684b:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -8460,7 +8460,7 @@ jr_006_6b52:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -8531,7 +8531,7 @@ jr_006_6bd6:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -8660,7 +8660,7 @@ jr_006_6c94:
     sub $1a
     ld [hl+], a
     ld a, $3c
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8757,7 +8757,7 @@ jr_006_6d4d:
     sub $1a
     ld [hl+], a
     ld a, $3e
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8787,7 +8787,7 @@ jr_006_6d4d:
     sub $1a
     ld [hl+], a
     ld a, $3f
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8817,7 +8817,7 @@ jr_006_6d4d:
     sub $1a
     ld [hl+], a
     ld a, $40
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -8993,7 +8993,7 @@ jr_006_6e6d:
     sub $1a
     ld [hl+], a
     ld a, $48
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9222,7 +9222,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $4e
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9246,7 +9246,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $4f
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9270,7 +9270,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $50
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9294,7 +9294,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $51
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9304,7 +9304,7 @@ jr_006_70c6:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -9322,7 +9322,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $52
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9346,7 +9346,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $53
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9370,7 +9370,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $54
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9394,7 +9394,7 @@ jr_006_70c6:
     ld a, $01
     ld [$c630], a
     ld a, $55
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -9541,7 +9541,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -9568,7 +9568,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -10052,7 +10052,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $61
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10076,7 +10076,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $62
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10100,7 +10100,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $63
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10124,7 +10124,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $64
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10148,7 +10148,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $65
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10172,7 +10172,7 @@ jr_006_76cd:
     ld a, $00
     ld [$c630], a
     ld a, $66
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10202,7 +10202,7 @@ jr_006_76cd:
     sub $1a
     ld [hl+], a
     ld a, $69
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10232,7 +10232,7 @@ jr_006_76cd:
     sub $1a
     ld [hl+], a
     ld a, $6a
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10262,7 +10262,7 @@ jr_006_76cd:
     sub $1a
     ld [hl+], a
     ld a, $6b
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10292,7 +10292,7 @@ jr_006_76cd:
     sub $1a
     ld [hl+], a
     ld a, $6c
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10590,7 +10590,7 @@ jr_006_7aa9:
     sub $1a
     ld [hl+], a
     ld a, $71
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10687,7 +10687,7 @@ jr_006_7b5e:
     sub $1a
     ld [hl+], a
     ld a, $73
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10717,7 +10717,7 @@ jr_006_7b5e:
     sub $1a
     ld [hl+], a
     ld a, $74
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a
@@ -10747,7 +10747,7 @@ jr_006_7b5e:
     sub $1a
     ld [hl+], a
     ld a, $75
-    ld hl, CurrentTool
+    ld hl, wCurrentTool
     ld [hl+], a
     ld a, $ff
     ld [hl+], a

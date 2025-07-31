@@ -467,7 +467,7 @@ jr_009_4267:
     ld a, $00
     adc h
     ld h, a
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp [hl]
     jr c, jr_009_4239
 
@@ -480,7 +480,7 @@ jr_009_4267:
     push hl
 
 Jump_009_427c:
-    call Call_000_10a0
+    call CheckCurrentMoney
     pop hl
     ld a, $42
     call Call_000_23d5
@@ -489,7 +489,7 @@ Jump_009_427c:
     jr nz, jr_009_4293
 
 jr_009_428a:
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -516,27 +516,27 @@ Jump_009_42a5:
 
     push bc
     call Call_000_0fe5
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $05
     jr z, jr_009_430b
 
     cp $10
     call z, Call_009_4310
     call Call_009_435d
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $05
     jr nz, jr_009_42cf
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $0e
     jr nz, jr_009_42f6
 
     dec a
-    ld [TimerMinutes], a
+    ld [sTimerMinutes], a
     jr jr_009_42f6
 
 jr_009_42cf:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     jr nz, jr_009_42f6
 
@@ -561,7 +561,7 @@ jr_009_42f6:
     ld a, $05
     ld [$c910], a
     ld a, $01
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     pop hl
@@ -604,9 +604,9 @@ jr_009_4332:
 
     push bc
     ld a, $05
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     ld a, $0d
-    ld [TimerMinutes], a
+    ld [sTimerMinutes], a
     call Call_000_0491
     pop hl
     xor a
@@ -614,16 +614,16 @@ jr_009_4332:
     ld a, $05
     ld [$c910], a
     ld a, $01
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
 
 
 Call_009_435d:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     inc a
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     cp $18
     jr nc, jr_009_436c
 
@@ -633,11 +633,11 @@ Call_009_435d:
 
 jr_009_436c:
     xor a
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     call Call_000_0491
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     inc a
-    ld [CurrentDay], a
+    ld [sCurrentDay], a
     cp $1e
     jr nc, jr_009_4382
 
@@ -647,11 +647,11 @@ jr_009_436c:
 
 jr_009_4382:
     xor a
-    ld [CurrentDay], a
+    ld [sCurrentDay], a
     call Call_000_054a
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     inc a
-    ld [CurrentSeason], a
+    ld [sCurrentSeason], a
     cp $04
     jr nc, jr_009_4398
 
@@ -661,11 +661,11 @@ jr_009_4382:
 
 jr_009_4398:
     xor a
-    ld [CurrentSeason], a
+    ld [sCurrentSeason], a
     call Call_000_05e2
-    ld a, [CurrentYear]
+    ld a, [sCurrentYear]
     inc a
-    ld [CurrentYear], a
+    ld [sCurrentYear], a
     ret
 
 
@@ -1415,8 +1415,8 @@ Call_009_46ef:
     bit 5, a
     ret z
 
-    ld hl, CurrentMoneyL
-    ld de, $ccca
+    ld hl, sCurrentMoneyL
+    ld de, wCurrentMoneyL
     ld a, [hl+]
     ld [de], a
     inc de
@@ -1944,7 +1944,7 @@ Call_009_494f:
 
 Call_009_4984:
     push hl
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld hl, $4995
     add l
     ld l, a
@@ -2510,7 +2510,7 @@ jr_009_4c34:
     ld h, b
     ld l, c
     ld a, $13
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -3354,7 +3354,7 @@ jr_009_503f:
 
 
 Call_009_5065:
-    ld a, [CurrentYear]
+    ld a, [sCurrentYear]
     ld hl, $0000
     or a
     jr z, jr_009_5076
@@ -3370,10 +3370,10 @@ jr_009_5072:
 jr_009_5076:
     ld d, h
     ld e, l
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld c, $1e
     call Call_000_071e
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     add l
     ld l, a
     ld a, $00
@@ -4619,8 +4619,8 @@ Call_009_576e:
     ld de, $9822
     ld b, $04
     call Call_000_210f
-    ld hl, CurrentMoneyL
-    ld de, $ccca
+    ld hl, sCurrentMoneyL
+    ld de, wCurrentMoneyL
     ld b, $03
     call Call_000_210f
     call Call_000_3179
@@ -5346,7 +5346,7 @@ Jump_009_5b65:
     xor a
     ld [TimePaused], a
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -7956,9 +7956,9 @@ jr_009_6690:
     ld [TimePaused], a
     inc a
     ld [$c910], a
-    ld [ActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps], a
     inc a
-    ld [MapIndex], a
+    ld [wMapIndex], a
     pop hl
     ret
 

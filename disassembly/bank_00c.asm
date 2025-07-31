@@ -13189,11 +13189,11 @@ jr_00c_7c8c:
 
 
     ld a, [$b941]
-    ld [$cccc], a
+    ld [wCurrentMoneyH], a
     ld a, [$b940]
-    ld [$cccb], a
+    ld [wCurrentMoneyM], a
     ld a, [$b93f]
-    ld [$ccca], a
+    ld [wCurrentMoneyL], a
     call Call_000_3179
     ld a, [$cccd]
     ld [$ccad], a

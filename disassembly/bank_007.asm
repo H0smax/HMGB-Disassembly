@@ -10732,18 +10732,18 @@ jr_007_6e14:
     jr jr_007_6e81
 
 jr_007_6e3c:
-    ld a, [CurrentMoneyH]
+    ld a, [sCurrentMoneyH]
     cp $00
     jr nz, jr_007_6e95
 
-    ld a, [CurrentMoneyM]
+    ld a, [sCurrentMoneyM]
     cp $14
     jr nc, jr_007_6e95
 
     cp $13
     jr c, jr_007_6e81
 
-    ld a, [CurrentMoneyL]
+    ld a, [sCurrentMoneyL]
     cp $88
     jr nc, jr_007_6e95
 
@@ -10761,18 +10761,18 @@ jr_007_6e57:
     jr jr_007_6e81
 
 jr_007_6e66:
-    ld a, [CurrentMoneyH]
+    ld a, [sCurrentMoneyH]
     cp $00
     jr nz, jr_007_6e95
 
-    ld a, [CurrentMoneyM]
+    ld a, [sCurrentMoneyM]
     cp $0a
     jr nc, jr_007_6e95
 
     cp $09
     jr c, jr_007_6e81
 
-    ld a, [CurrentMoneyL]
+    ld a, [sCurrentMoneyL]
     cp $c4
     jr nc, jr_007_6e95
 
@@ -10799,11 +10799,11 @@ jr_007_6e95:
     ld hl, $b938
     ld bc, $fed4
     call Call_000_0a27
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld bc, $ec78
     call Call_000_0a14
     call Call_000_0fe5
-    call Call_000_10a0
+    call CheckCurrentMoney
     ret
 
 
@@ -10811,11 +10811,11 @@ jr_007_6eba:
     ld hl, $b938
     ld bc, $ff9c
     call Call_000_0a27
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld bc, $f63c
     call Call_000_0a14
     call Call_000_0fe5
-    call Call_000_10a0
+    call CheckCurrentMoney
     ret
 
 
@@ -10954,10 +10954,10 @@ jr_007_6f84:
 
     ld a, $01
     ld [$b88e], a
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld bc, $004b
     call Call_000_0a14
-    call Call_000_10a0
+    call CheckCurrentMoney
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -11004,10 +11004,10 @@ jr_007_6ff4:
     ld a, $01
     xor a
     ld [$b88e], a
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld bc, $fffb
     call Call_000_0a14
-    call Call_000_10a0
+    call CheckCurrentMoney
     ld a, $14
     call Call_000_0fb9
     ret
@@ -11222,13 +11222,13 @@ jr_007_716d:
     ld a, $01
     ld [$c910], a
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ret
 
 
 jr_007_718e:
     ld a, $26
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $01
     ld [$c90b], a
     ret
@@ -11236,13 +11236,13 @@ jr_007_718e:
 
 jr_007_7199:
     ld a, $27
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ret
 
 
 jr_007_719f:
     ld a, $11
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -12357,7 +12357,7 @@ jr_007_7775:
     ld bc, $0400
     call ClearMem
     ld hl, $79fc
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     jr z, jr_007_77fa
 
@@ -12372,7 +12372,7 @@ jr_007_7775:
 
 jr_007_77fa:
     ld hl, $7af8
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
 
 jr_007_7800:
     ld c, l
@@ -12419,11 +12419,11 @@ jr_007_7825:
     call Call_000_21f3
     call Call_000_222e
     pop hl
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $20
     jr z, jr_007_78b8
 
-    ld a, [NextMapIndex]
+    ld a, [wNextMapIndex]
     cp $20
     jr z, jr_007_78b8
 

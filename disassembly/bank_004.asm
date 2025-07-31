@@ -1066,7 +1066,7 @@ jr_004_4687:
 jr_004_46a4:
     call Call_004_6e8c
     ld a, $01
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld a, $02
@@ -7565,7 +7565,7 @@ jr_004_6e78:
     res 7, c
 
 Call_004_6e8c:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $06
     ret c
 

@@ -330,7 +330,7 @@ jr_003_429e:
     and $0f
     ld [$b9a2], a
     ld a, $25
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
 
@@ -381,7 +381,7 @@ jr_003_42f0:
     and $0f
     ld [$b9a2], a
     ld a, $23
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
 
@@ -3689,7 +3689,7 @@ jr_003_562e:
     jr nz, jr_003_5648
 
     ld a, $01
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld a, $01
@@ -3699,7 +3699,7 @@ jr_003_562e:
 
 jr_003_5648:
     ld a, $07
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -8218,26 +8218,26 @@ jr_003_71ce:
     ld [hl], c
     rst $38
     ld [hl], c
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     cp $00
     ret z
 
     cp $02
     ret z
 
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     cp $0e
     ret nz
 
     jr jr_003_720b
 
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     cp $0e
     ret nz
 
     jr jr_003_720b
 
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     cp $00
     jr z, jr_003_720b
 
@@ -8757,7 +8757,7 @@ jr_003_74cd:
 
 
 Call_003_74d2:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $06
     ret c
 

@@ -586,9 +586,9 @@ jr_01d_42ff:
     xor a
     ld [TimePaused], a
     ld a, $11
-    ld [MapIndex], a
+    ld [wMapIndex], a
     ld a, $01
-    ld [ActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps], a
     ld a, [$c0a2]
     and $83
     ld [$c0a2], a
@@ -997,7 +997,7 @@ jr_01d_44f9:
     ld a, $00
     ldh [rSTAT], a
     ld a, $01
-    ld [ActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps], a
     xor a
     ld [$ccc1], a
     push hl
@@ -1029,7 +1029,7 @@ jr_01d_4532:
     ld a, $27
 
 jr_01d_4534:
-    ld [MapIndex], a
+    ld [wMapIndex], a
     ret
 
 
@@ -1043,9 +1043,9 @@ jr_01d_4534:
     xor a
     ld [TimePaused], a
     inc a
-    ld [ActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps], a
     ld a, $12
-    ld [MapIndex], a
+    ld [wMapIndex], a
     ld a, $01
     ld [$cb92], a
     ret
@@ -1069,7 +1069,7 @@ jr_01d_4534:
     jr nz, jr_01d_4580
 
     ld a, $28
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $02
     ld [TransitionRelated2], a
     ret
@@ -1077,7 +1077,7 @@ jr_01d_4534:
 
 jr_01d_4580:
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $02
     ld [TransitionRelated2], a
     ret
@@ -2067,7 +2067,7 @@ Call_01d_4a62:
     ld h, b
     ld l, c
     ld a, $24
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -2127,7 +2127,7 @@ Call_01d_4a98:
     ld a, $1d
     ld [TransitionRelated2], a
     ld a, $11
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ret
 
 
@@ -3925,7 +3925,7 @@ jr_01d_52c0:
     inc a
     ld [$c910], a
     ld a, $0e
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $02
     ld [TransitionRelated2], a
     ret
@@ -4136,7 +4136,7 @@ jr_01d_52c0:
 
 MoveToFarm::
     push bc
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $1d
     jr z, jr_01d_544a
 
@@ -4151,7 +4151,7 @@ MoveToFarm::
     xor a
     ld [TimePaused], a
     ld a, $01
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     pop hl
@@ -4167,7 +4167,7 @@ MoveToCowHouse::
     or $0f
     ld [$b9a1], a
     ld a, $03
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     pop hl
@@ -4178,7 +4178,7 @@ jr_01d_544a:
     ld de, $1388
     push bc
     ld b, $00
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld a, [hl]
     sub e
     ld [hl+], a
@@ -4288,7 +4288,7 @@ jr_01d_54c5:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -4964,7 +4964,7 @@ jr_01d_57d8:
     sbc [hl]
     ld e, b
     ld a, $10
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -10461,13 +10461,13 @@ Jump_01d_720e:
     jr z, jr_01d_721f
 
     ld a, $29
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ret
 
 
 jr_01d_721f:
     ld a, $11
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ret
 
 
@@ -11082,7 +11082,7 @@ Jump_01d_759d:
     jr z, jr_01d_75b3
 
     ld a, $26
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $02
     ld [$c90b], a
     ret
@@ -11090,7 +11090,7 @@ Jump_01d_759d:
 
 jr_01d_75b3:
     ld a, $11
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ret
 
 

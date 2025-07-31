@@ -320,14 +320,14 @@ jr_001_4200:
 jr_001_425e:
     ld a, [$c90f]
     ld b, a
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     add b
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
     ld [$c7c0], a
-    ld a, [NextMapIndex]
+    ld a, [wNextMapIndex]
     cp $02
     jr z, jr_001_4279
 
@@ -338,7 +338,7 @@ jr_001_4279:
 
 MoveToAnimalShop::
     ld a, $13
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -354,7 +354,7 @@ MoveToAnimalShop::
 
 MoveToHouse2?::
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -397,7 +397,7 @@ Jump_001_42e5:
     ld a, $1d
     ld [TransitionRelated2], a
     ld a, $1c
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     xor a
     ld [$c90f], a
     ld [$c911], a
@@ -414,7 +414,7 @@ Jump_001_4304:
     ld a, $01
     ld [$ccb8], a
     ld a, $0f
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -445,7 +445,7 @@ Jump_001_434a:
     ld a, $02
     ld [$ccb8], a
     ld a, $0f
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -470,7 +470,7 @@ Jump_001_4381:
     ld a, $00
     ld [$ccb8], a
     ld a, $0f
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -2641,7 +2641,7 @@ jr_001_5253:
     cp $ff
     jp nz, Jump_001_5ddd
 
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $02
     ret z
 
@@ -4538,7 +4538,7 @@ jr_001_5d8b:
     call Call_000_23d8
     ld a, $01
     ld [$cb80], a
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $11
     jr nc, jr_001_5da7
 
@@ -4577,7 +4577,7 @@ jr_001_5dc3:
     ld [$cb7e], a
     ld a, h
     ld [$cb7f], a
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $11
     ret nc
 
@@ -6898,11 +6898,11 @@ jr_001_6ae9:
 
 
 Call_001_6b16:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $06
     jr c, jr_001_6b23
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     ret c
 
@@ -7245,7 +7245,7 @@ jr_001_6d8a:
     ld hl, $80e0
     xor a
     ld [$cb16], a
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $03
     jr nz, jr_001_6dbb
 
@@ -7824,7 +7824,7 @@ Jump_001_6e03:
 
 
 Call_001_6fe4:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     ret nz
 
@@ -8058,15 +8058,15 @@ Call_001_715a:
 
 
 jr_001_7180:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $06
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $00
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     cp $00
     ret nz
 
@@ -8542,9 +8542,9 @@ jr_001_747f:
     ld a, $01
     ld [OutsideFarm], a
     xor a
-    ld [TimerMinutes], a
+    ld [sTimerMinutes], a
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     ld a, [$b88c]
     cp $01
     jp z, Jump_001_74f8
@@ -8608,7 +8608,7 @@ Jump_001_74f8:
     ld [$b8ea], a
     call Call_001_6c75
     call Call_001_7653
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     ld [$b8eb], a
     ret
 
@@ -8630,7 +8630,7 @@ Jump_001_751a:
     add $24
     call Call_000_153c
     call Call_001_7653
-    ld a, [DayRelated]
+    ld a, [sDayRelated]
     ld [$b894], a
     ld a, [$b88a]
     ld [$b895], a
@@ -8727,11 +8727,11 @@ Jump_001_75bd:
     add $14
     call Call_000_153c
     call Call_001_7653
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     ld [$ba3b], a
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld [$ba3c], a
-    ld a, [CurrentYear]
+    ld a, [sCurrentYear]
     ld [$ba3d], a
     ret
 
@@ -8766,7 +8766,7 @@ Jump_001_75ff:
     add $0c
     call Call_000_153c
     call Call_001_7653
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     ld [$b89b], a
     ret
 
@@ -8824,39 +8824,39 @@ Call_001_7653:
 
 
 Call_001_7675:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $0c
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $00
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     ld [$cb90], a
     ret
 
 
 Call_001_7690:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $00
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     xor a
     ld [$b890], a
     ld [$b891], a
@@ -8877,76 +8877,76 @@ Call_001_7690:
 
 
 Call_001_76cc:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $11
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $00
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     ld a, $03
     ld [$cb90], a
     ret
 
 
 Call_001_76e9:
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     cp $01
     ret nz
 
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     cp $13
     ret nz
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $01
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     ld a, $04
     ld [$cb90], a
     ret
 
 
 Call_001_7712:
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     cp $03
     ret nz
 
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     cp $17
     ret nz
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $01
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     cp $00
     ret nz
 
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     ld a, $05
     ld [$cb90], a
     ret
@@ -9116,7 +9116,7 @@ Call_001_7841:
     ret z
 
     ld a, $01
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
     ld a, [$b88c]
     cp $01
     jr z, jr_001_78a7

@@ -12049,7 +12049,7 @@ jr_00b_7331:
     rst $28
     or $8e
     ld sp, hl
-    ld hl, $10a0
+    ld hl, CheckCurrentMoney
     ld c, b
     sub a
     ld a, $ff

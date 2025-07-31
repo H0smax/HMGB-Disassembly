@@ -168,7 +168,7 @@ JoypadTransitionInterrupt::
 
 
 Call_000_0061:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
 
 Jump_000_0064:
     or a
@@ -489,7 +489,7 @@ Call_000_01d5:
     xor a
     ld [$4000], a
     ld a, $20
-    ld [MapIndex], a
+    ld [wMapIndex], a
     call Call_000_2071
     push hl
     push af
@@ -542,7 +542,7 @@ Jump_000_0214:
     pop af
     pop hl
     xor a
-    ld [ActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps], a
     xor a
     ldh [$ff8d], a
     xor a
@@ -566,7 +566,7 @@ Jump_000_0245:
     ei
 
 Jump_000_024d:
-    ld a, [ActivateTransitionBetweenMaps]
+    ld a, [wActivateTransitionBetweenMaps]
     or a
     or a
     jp z, Jump_000_024d
@@ -575,7 +575,7 @@ Jump_000_024d:
 
 
 Call_000_0258:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     or a
     rst $08
 
@@ -740,7 +740,7 @@ Jump_000_036a:
     jr jr_000_0365
 
 Call_000_0375:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     or a
     rst $08
 
@@ -779,9 +779,9 @@ NextTimerSecond::
     or a
     ret nz
 
-    ld a, [TimerSeconds]
+    ld a, [sTimerSeconds]
     inc a
-    ld [TimerSeconds], a
+    ld [sTimerSeconds], a
 
 Jump_000_040f:
     cp $1e
@@ -792,17 +792,17 @@ Jump_000_040f:
 
 NextTimerMinute::
     xor a
-    ld [TimerSeconds], a
-    ld a, [TimerMinutes]
+    ld [sTimerSeconds], a
+    ld a, [sTimerMinutes]
     inc a
-    ld [TimerMinutes], a
+    ld [sTimerMinutes], a
     cp $0f
     jr nc, NextHour
 
     cp $0e
     ret nz
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $05
     ret nz
 
@@ -813,10 +813,10 @@ NextTimerMinute::
 
 NextHour::
     xor a
-    ld [TimerMinutes], a
-    ld a, [CurrentHour]
+    ld [sTimerMinutes], a
+    ld a, [sCurrentHour]
     inc a
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     cp $18
     jr nc, NextDay
 
@@ -827,11 +827,11 @@ NextHour::
 
 NextDay::
     xor a
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     call Call_000_0491
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     inc a
-    ld [CurrentDay], a
+    ld [sCurrentDay], a
     cp $1e
     jr nc, NextSeason
 
@@ -842,13 +842,13 @@ NextDay::
 
 NextSeason::
     xor a
-    ld [CurrentDay], a
-    ld a, [CurrentSeason]
+    ld [sCurrentDay], a
+    ld a, [sCurrentSeason]
     inc a
-    ld [CurrentSeason], a
+    ld [sCurrentSeason], a
     call Call_000_054a
     call Call_000_05e2
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     cp $04
     jr nc, NextYear
 
@@ -857,21 +857,21 @@ NextSeason::
 
 NextYear::
     xor a
-    ld [CurrentSeason], a
+    ld [sCurrentSeason], a
     call Call_000_05e2
-    ld a, [CurrentYear]
+    ld a, [sCurrentYear]
     inc a
-    ld [CurrentYear], a
+    ld [sCurrentYear], a
     cp $63
     ret nz
 
     ld a, $62
-    ld [CurrentYear], a
+    ld [sCurrentYear], a
     ret
 
 
 Call_000_0491:
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     ld l, a
     ld h, $00
     add hl, hl
@@ -931,7 +931,7 @@ UD4::
     db $4b, $3e, $af, $1c, $4b, $3e, $af, $1d, $4b, $3e, $0b, $0a, $4b, $3e, $0b, $0b
 
 Call_000_054a:
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     ld l, a
     ld h, $00
     add hl, hl
@@ -941,10 +941,10 @@ Call_000_054a:
     ld [$b914], a
     ld a, [hl+]
     ld [$b915], a
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld c, $1e
     call Call_000_071e
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     add l
     ld l, a
     ld a, $00
@@ -991,7 +991,7 @@ UD5::
     db $0c, $0f, $0c, $1a, $0c, $1b, $0c, $1c, $0c, $1d, $0d, $0a
 
 Call_000_05e2:
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld l, a
     ld h, $00
     add hl, hl
@@ -2205,15 +2205,15 @@ Jump_000_0bc3:
     ld [TransitionRelated], a
 
 jr_000_0bce:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     jr nz, jr_000_0bf6
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $06
     jr c, jr_000_0be3
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     jr c, jr_000_0bf6
 
@@ -2418,21 +2418,21 @@ jr_000_0cbc:
     jr nz, jr_000_0ccb
 
 SetNextMapIndex::
-    ld a, [NextMapIndex]
-    ld [MapIndex], a
+    ld a, [wNextMapIndex]
+    ld [wMapIndex], a
     ld a, $01
-    ld [ActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps], a
 
 jr_000_0ccb:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $01
     jr nz, jr_000_0cf3
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $06
     jr c, jr_000_0ce0
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $12
     jr c, jr_000_0cf3
 
@@ -2575,9 +2575,9 @@ Call_000_0d6a:
     ld [OutsideFarm], a
     ld [$c910], a
     ld a, $06
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     ld a, $ff
-    ld [CurrentDay], a
+    ld [sCurrentDay], a
     ld a, $80
     ld [$b892], a
     ld [$b89b], a
@@ -2618,12 +2618,12 @@ Call_000_0d6a:
     ld a, $00
     ld [$b903], a
     ld a, $f4
-    ld [CurrentMoneyL], a
+    ld [sCurrentMoneyL], a
     ld a, $01
-    ld [CurrentMoneyM], a
+    ld [sCurrentMoneyM], a
     xor a
-    ld [CurrentMoneyH], a
-    call Call_000_10a0
+    ld [sCurrentMoneyH], a
+    call CheckCurrentMoney
     call Call_000_0491
     call Call_000_054a
     call Call_000_05e2
@@ -2654,7 +2654,7 @@ Call_000_0e5a:
     di
     xor a
     ld [$cb92], a
-    call Call_000_10a0
+    call CheckCurrentMoney
     call Call_000_0491
     call Call_000_054a
 
@@ -2688,12 +2688,12 @@ Call_000_0e68:
     ld [$cb5f], a
     ld a, $01
     ld [OutsideFarm], a
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     cp $ff
     ret nz
 
     xor a
-    ld [CurrentDay], a
+    ld [sCurrentDay], a
     call Call_000_054a
 
 Jump_000_0ec5:
@@ -2817,7 +2817,7 @@ Call_000_0f40:
     cp $03
     jr z, jr_000_0f7b
 
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     cp $00
     jr z, jr_000_0f63
 
@@ -2966,11 +2966,11 @@ jr_000_1003:
 
 Call_000_1004:
 Jump_000_1004:
-    ld [$cccc], a
+    ld [wCurrentMoneyH], a
     ld a, [$b938]
-    ld [$ccca], a
+    ld [wCurrentMoneyL], a
     ld a, [$b939]
-    ld [$cccb], a
+    ld [wCurrentMoneyM], a
     call Call_000_3179
     ld a, [$cccf]
     ld [$b92d], a
@@ -3038,11 +3038,11 @@ jr_000_1073:
 
 jr_000_107a:
     xor a
-    ld [$cccc], a
+    ld [wCurrentMoneyH], a
     ld a, [$b93a]
-    ld [$ccca], a
+    ld [wCurrentMoneyL], a
     ld a, [$b93b]
-    ld [$cccb], a
+    ld [wCurrentMoneyM], a
     call Call_000_3179
     ld a, [$cccf]
     ld [$b930], a
@@ -3053,53 +3053,53 @@ jr_000_107a:
     ret
 
 
-Call_000_10a0:
-    ld a, [CurrentMoneyH]
+CheckCurrentMoney::
+    ld a, [sCurrentMoneyH]
     cp $ff
     jr z, ResetMoney
 
-    ld a, [CurrentMoneyH]
+    ld a, [sCurrentMoneyH]
     cp $02
-    jr nc, jr_000_10c6
+    jr nc, LimitMoney
 
     cp $01
     jr c, jr_000_10e1
 
-    ld a, [CurrentMoneyM]
+    ld a, [sCurrentMoneyM]
     cp $87
-    jr nc, jr_000_10c6
+    jr nc, LimitMoney
 
     cp $86
     jr c, jr_000_10e1
 
-    ld a, [CurrentMoneyL]
+    ld a, [sCurrentMoneyL]
     cp $a0
-    jr nc, jr_000_10c6
+    jr nc, LimitMoney
 
     jr jr_000_10e1
 
-jr_000_10c6:
+LimitMoney::
     ld a, $9f
-    ld [CurrentMoneyL], a
+    ld [sCurrentMoneyL], a
     ld a, $86
-    ld [CurrentMoneyM], a
+    ld [sCurrentMoneyM], a
     ld a, $01
-    ld [CurrentMoneyH], a
+    ld [sCurrentMoneyH], a
     jr jr_000_10e1
 
 ResetMoney::
     xor a
-    ld [CurrentMoneyL], a
-    ld [CurrentMoneyM], a
-    ld [CurrentMoneyH], a
+    ld [sCurrentMoneyL], a
+    ld [sCurrentMoneyM], a
+    ld [sCurrentMoneyH], a
 
 jr_000_10e1:
-    ld a, [CurrentMoneyH]
-    ld [$cccc], a
-    ld a, [CurrentMoneyM]
-    ld [$cccb], a
-    ld a, [CurrentMoneyL]
-    ld [$ccca], a
+    ld a, [sCurrentMoneyH]
+    ld [wCurrentMoneyH], a
+    ld a, [sCurrentMoneyM]
+    ld [wCurrentMoneyM], a
+    ld a, [sCurrentMoneyL]
+    ld [wCurrentMoneyL], a
 
 Jump_000_10f3:
     call Call_000_3179
@@ -4067,7 +4067,7 @@ jr_000_1626:
 
 Call_000_1634:
     push af
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $02
     jr z, jr_000_1640
 
@@ -4092,7 +4092,7 @@ jr_000_1640:
 
 Call_000_164f:
     push af
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $02
     jr z, jr_000_165b
 
@@ -5489,7 +5489,7 @@ jr_000_1c7d:
     xor a
 
 Call_000_1c81:
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     cp $26
     ret z
 
@@ -5500,7 +5500,7 @@ jr_000_1c87:
     cp $29
     ret z
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $11
     ret nc
 
@@ -5511,7 +5511,7 @@ jr_000_1c87:
     call Call_000_1ec2
     ld hl, $ba35
     call Call_000_1ec2
-    ld a, [CurrentTool2]
+    ld a, [sCurrentTool2]
     ld hl, $1cd0
     call Call_000_0743
     ld d, h
@@ -10085,11 +10085,11 @@ jr_000_315e:
 
 Call_000_316d:
     ld a, h
-    ld [$cccb], a
+    ld [wCurrentMoneyM], a
     ld a, l
-    ld [$ccca], a
+    ld [wCurrentMoneyL], a
     xor a
-    ld [$cccc], a
+    ld [wCurrentMoneyH], a
 
 Call_000_3179:
 Jump_000_3179:
@@ -10100,12 +10100,12 @@ Jump_000_3179:
     ld [hl+], a
     ld [hl+], a
     ld [hl], a
-    ld hl, $ccca
+    ld hl, wCurrentMoneyL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
     ld de, $cccd
-    ld a, [$cccc]
+    ld a, [wCurrentMoneyH]
     or a
     jr z, jr_000_3199
 
@@ -10240,10 +10240,10 @@ Call_000_3211:
     dec e
 
 Call_000_3215:
-    ld [$ccca], a
+    ld [wCurrentMoneyL], a
     xor a
-    ld [$cccb], a
-    ld [$cccc], a
+    ld [wCurrentMoneyM], a
+    ld [wCurrentMoneyH], a
     jp Jump_000_3179
 
 
@@ -10252,7 +10252,7 @@ LCDCInterruptHandler::
     push bc
     push de
     push hl
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     ld e, a
     add a
     add e

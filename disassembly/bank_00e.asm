@@ -200,11 +200,11 @@ Call_00e_417d:
     or a
     ret nz
 
-    ld a, [CurrentHour]
+    ld a, [sCurrentHour]
     cp $05
     ret nz
 
-    ld a, [TimerMinutes]
+    ld a, [sTimerMinutes]
     cp $0e
     ret nz
 
@@ -274,7 +274,7 @@ Call_00e_41de:
 
 MoveToHouse::
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -291,9 +291,9 @@ MoveToHouse::
 jr_00e_4213:
     ld a, [$c90f]
     ld b, a
-    ld a, [MapIndex]
+    ld a, [wMapIndex]
     add b
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
@@ -766,42 +766,42 @@ MoveToToolRoom::
     ret nz
 
     ld a, $05
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44c3:
     ld a, $00
     ld [$cc7b], a
     ld a, $08
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44cf:
     ld a, $01
     ld [$cc7b], a
     ld a, $09
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44db:
     ld a, $02
     ld [$cc7b], a
     ld a, $0a
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44e7:
     ld a, $03
     ld [$cc7b], a
     ld a, $0b
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44f3:
     ld a, $04
     ld [$cc7b], a
     ld a, $0c
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
 
 jr_00e_44fd:
     ld a, $1d
@@ -834,10 +834,10 @@ Call_00e_4503:
     call $16e3
     ld a, $1e
     ld [$c912], a
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld bc, $0064
     call Call_000_0a14
-    call Call_000_10a0
+    call CheckCurrentMoney
     ld a, $00
     call Call_000_166a
     ret
@@ -3424,13 +3424,13 @@ jr_00e_53aa:
     ret nz
 
     ld a, $12
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     xor a
-    ld [TimerMinutes], a
-    ld [TimerSeconds], a
+    ld [sTimerMinutes], a
+    ld [sTimerSeconds], a
     ld [$c910], a
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld a, [$b899]

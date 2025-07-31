@@ -1341,7 +1341,7 @@ jr_01b_4648:
 
 
     ld a, $1d
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld h, b
@@ -1350,7 +1350,7 @@ jr_01b_4648:
 
 
     ld a, $1e
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld h, b
@@ -1359,7 +1359,7 @@ jr_01b_4648:
 
 
     ld a, $1f
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld h, b
@@ -1429,7 +1429,7 @@ Call_01b_469d:
 
 Call_01b_46a8:
     push bc
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld a, [hl+]
     sub e
     ld a, [hl+]
@@ -1443,7 +1443,7 @@ Call_01b_46a8:
 Call_01b_46b5:
     push bc
     ld b, $00
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld a, [hl]
     sub e
     ld [hl+], a
@@ -9347,13 +9347,13 @@ jr_01b_68f5:
 Call_01b_6949:
     ld b, h
     ld c, l
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     call Call_000_0a14
-    ld a, [CurrentMoneyH]
+    ld a, [sCurrentMoneyH]
     or a
     ret z
 
-    ld hl, CurrentMoneyL
+    ld hl, sCurrentMoneyL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9366,9 +9366,9 @@ Call_01b_6949:
 
     ld hl, $869f
     ld a, l
-    ld [CurrentMoneyL], a
+    ld [sCurrentMoneyL], a
     ld a, h
-    ld [CurrentMoneyM], a
+    ld [sCurrentMoneyM], a
     ret
 
 
@@ -9442,7 +9442,7 @@ Call_01b_699d:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -9453,7 +9453,7 @@ Call_01b_699d:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret

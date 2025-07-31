@@ -3974,7 +3974,7 @@ jr_01f_53c0:
     ld a, $04
     ld [$c910], a
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ret
@@ -8871,11 +8871,11 @@ Call_01f_6b14:
     ldh [CameraY], a
     ld [$ccd2], a
     ld [$cb68], a
-    ld a, [CurrentYear]
+    ld a, [sCurrentYear]
     ld [$ccd3], a
-    ld a, [CurrentSeason]
+    ld a, [sCurrentSeason]
     ld [$ccd4], a
-    ld a, [CurrentDay]
+    ld a, [sCurrentDay]
     ld [$ccd5], a
     ld a, $01
     ld [$ccd6], a
@@ -9118,7 +9118,7 @@ jr_01f_6d9d:
     ret z
 
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     ld a, $00
@@ -9126,11 +9126,11 @@ jr_01f_6d9d:
     xor a
     ld [$c911], a
     ld a, [$ccd3]
-    ld [CurrentYear], a
+    ld [sCurrentYear], a
     ld a, [$ccd4]
-    ld [CurrentSeason], a
+    ld [sCurrentSeason], a
     ld a, [$ccd5]
-    ld [CurrentDay], a
+    ld [sCurrentDay], a
     call Call_000_054a
     call Call_000_05e2
     ld hl, $d400

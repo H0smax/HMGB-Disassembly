@@ -3342,7 +3342,7 @@ jr_018_4e7c:
     or h
     xor $b4
     ld [hl], $cc
-    ld a, [$cccc]
+    ld a, [wCurrentMoneyH]
     jr nc, jr_018_4f08
 
     and b

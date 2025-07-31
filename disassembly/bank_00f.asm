@@ -6720,25 +6720,25 @@ jr_00f_6807:
     ret nz
 
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     xor a
     ld [$c910], a
-    ld [TimerSeconds], a
-    ld [TimerMinutes], a
+    ld [sTimerSeconds], a
+    ld [sTimerMinutes], a
     ld a, [$ccb8]
     cp $00
     jr z, jr_00f_682a
 
     ld a, $15
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     ret
 
 
 jr_00f_682a:
     ld a, $12
-    ld [CurrentHour], a
+    ld [sCurrentHour], a
     ret
 
 
@@ -7610,7 +7610,7 @@ jr_00f_6d18:
     jr nz, jr_00f_6d18
 
     ld a, $02
-    ld [NextMapIndex], a
+    ld [wNextMapIndex], a
     ld a, $1d
     ld [TransitionRelated2], a
     call Call_00f_6eb2
