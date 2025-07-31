@@ -6099,7 +6099,7 @@ jr_014_5b0e:
     ld e, l
     sub d
     ld e, [hl]
-    call nz, Call_000_025e
+    call nz, $025e
     ld e, l
     db $e3
     ld e, l

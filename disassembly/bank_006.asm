@@ -1732,7 +1732,7 @@ jr_006_4712:
     call nz, $9400
     ld hl, $da94
     xor [hl]
-    ld hl, $0272
+    ld hl, JumpTable_10
     or c
     sub d
     ld [bc], a
@@ -2324,7 +2324,7 @@ jr_006_493a:
     ld d, h
     cp [hl]
     ld b, c
-    ld hl, $0272
+    ld hl, JumpTable_10
     ld l, d
     xor a
     inc b
@@ -3074,12 +3074,12 @@ jr_006_4c75:
     ld a, $01
     ld [TimePaused], a
     xor a
-    ldh [$ff91], a
-    ldh [$ff93], a
+    ldh [CameraY], a
+    ldh [CameraX], a
     ld a, $07
-    ldh [$ff96], a
+    ldh [WindowX], a
     ld a, $60
-    ldh [$ff95], a
+    ldh [WindowY], a
     ld a, $1d
     ld [TransitionRelated], a
     ld a, $22
@@ -3103,7 +3103,7 @@ jr_006_4c75:
     call Call_000_0ae9
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -3794,7 +3794,7 @@ jr_006_507d:
     ld a, $05
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [TimePaused], a
     ld a, $01
@@ -5978,7 +5978,7 @@ jr_006_5a35:
 jr_006_5a46:
     xor a
     ld [$cd64], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ldh [rSCY], a
     ld a, $12
     ldh [rLYC], a

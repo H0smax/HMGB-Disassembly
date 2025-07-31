@@ -120,7 +120,7 @@ jr_00e_40e9:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
@@ -276,7 +276,7 @@ MoveToHouse::
     ld a, $02
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [$c90f], a
     ld [$c911], a
@@ -295,7 +295,7 @@ jr_00e_4213:
     add b
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [$c7c0], a
     ld [GrabbingDog?], a
@@ -306,7 +306,7 @@ jr_00e_4213:
 Call_00e_422c:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -590,7 +590,7 @@ Call_00e_43c8:
 jr_00e_43e0:
     ld hl, $cb5b
     dec [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     inc [hl]
 
 jr_00e_43e8:
@@ -633,7 +633,7 @@ Call_00e_43fa:
 jr_00e_4414:
     ld hl, $cb5b
     inc [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     dec [hl]
 
 jr_00e_441c:
@@ -672,7 +672,7 @@ Call_00e_4428:
 jr_00e_4447:
     ld hl, $cb5a
     inc [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     dec [hl]
 
 jr_00e_444f:
@@ -706,7 +706,7 @@ Call_00e_445b:
 
     ld hl, $cb5a
     dec [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     inc [hl]
 
 jr_00e_447b:
@@ -726,7 +726,7 @@ jr_00e_4480:
 Call_00e_4487:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -805,7 +805,7 @@ jr_00e_44f3:
 
 jr_00e_44fd:
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ret
 
 
@@ -1998,12 +1998,12 @@ jr_00e_4c12:
     ld a, [hl]
     ld [$c648], a
     ld hl, $c64a
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c646]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c648]
     sub b
@@ -2173,12 +2173,12 @@ jr_00e_4d3a:
     ld a, $20
     ld [$c648], a
     ld hl, $c64a
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c646]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c648]
     sub b
@@ -2938,30 +2938,30 @@ jr_00e_5158:
     ld a, a
     ld d, c
     ld a, $28
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $70
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
     ld a, $48
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $60
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
     ld a, $28
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $00
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
     ld a, $08
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $60
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
@@ -3152,12 +3152,12 @@ jr_00e_521c:
 
 Call_00e_5262:
     ld hl, $c82a
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c826]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c828]
     sub b
@@ -3373,7 +3373,7 @@ Call_00e_537c:
 Call_00e_5385:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -3432,7 +3432,7 @@ jr_00e_53aa:
     ld a, $02
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, [$b899]
     set 1, a
     ld [$b899], a
@@ -3685,7 +3685,7 @@ jr_00e_54e4:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
@@ -3723,7 +3723,7 @@ jr_00e_55be:
 Call_00e_55dd:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -3855,7 +3855,7 @@ Call_00e_5675:
 
     ld hl, $cb5a
     dec [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     inc [hl]
 
 jr_00e_56b2:
@@ -3890,7 +3890,7 @@ jr_00e_56be:
 
     ld hl, $cb5a
     inc [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     dec [hl]
 
 jr_00e_56dd:
@@ -4250,7 +4250,7 @@ Call_00e_58e2:
 jr_00e_58f3:
     ld hl, $cb5b
     dec [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     inc [hl]
 
 jr_00e_58fb:
@@ -4283,7 +4283,7 @@ Call_00e_5907:
 jr_00e_591b:
     ld hl, $cb5b
     inc [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     dec [hl]
 
 jr_00e_5923:
@@ -4322,7 +4322,7 @@ Call_00e_592f:
 jr_00e_594e:
     ld hl, $cb5a
     inc [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     dec [hl]
 
 jr_00e_5956:
@@ -4356,7 +4356,7 @@ Call_00e_5962:
 
     ld hl, $cb5a
     dec [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     inc [hl]
 
 jr_00e_5982:
@@ -4569,9 +4569,9 @@ jr_00e_5aa8:
     ld b, $10
     call Call_000_210f
     ld a, $08
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $40
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
@@ -4671,7 +4671,7 @@ jr_00e_5aa8:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
@@ -4725,7 +4725,7 @@ jr_00e_5bca:
 Call_00e_5bef:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -5042,7 +5042,7 @@ Call_00e_5dbb:
 jr_00e_5dd3:
     ld hl, $cb5b
     dec [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     inc [hl]
 
 jr_00e_5ddb:
@@ -5083,7 +5083,7 @@ Call_00e_5de8:
 jr_00e_5e02:
     ld hl, $cb5b
     inc [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     dec [hl]
 
 jr_00e_5e0a:
@@ -5611,9 +5611,9 @@ Call_00e_6121:
     ld b, $10
     call Call_000_210f
     ld a, $28
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $60
-    ldh [$ff91], a
+    ldh [CameraY], a
     ld hl, $6150
     ld de, $c820
     ld b, $10
@@ -5724,7 +5724,7 @@ Call_00e_6121:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
@@ -5778,7 +5778,7 @@ Call_00e_6270:
 Call_00e_6281:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -6054,7 +6054,7 @@ Call_00e_6416:
 jr_00e_6427:
     ld hl, $cb5b
     dec [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     inc [hl]
 
 jr_00e_642f:
@@ -6096,7 +6096,7 @@ Call_00e_6441:
 jr_00e_645b:
     ld hl, $cb5b
     inc [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     dec [hl]
 
 jr_00e_6463:
@@ -6131,7 +6131,7 @@ Call_00e_646f:
 jr_00e_6488:
     ld hl, $cb5a
     inc [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     dec [hl]
 
 jr_00e_6490:
@@ -6161,7 +6161,7 @@ Call_00e_649c:
 
     ld hl, $cb5a
     dec [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     inc [hl]
 
 jr_00e_64b6:
@@ -6396,9 +6396,9 @@ Call_00e_65f0:
     ld b, $10
     call Call_000_210f
     ld a, $58
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $70
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
@@ -6408,9 +6408,9 @@ jr_00e_6616:
     ld b, $10
     call Call_000_210f
     ld a, $28
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $00
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
@@ -6530,7 +6530,7 @@ jr_00e_6647:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
@@ -6564,9 +6564,9 @@ Call_00e_6756:
     ld b, $10
     call Call_000_210f
     ld a, $28
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $70
-    ldh [$ff91], a
+    ldh [CameraY], a
     ret
 
 
@@ -10073,7 +10073,7 @@ jr_00e_7c8c:
     jr nz, jr_00e_7c9d
 
     ld hl, $9800
-    ld de, $0266
+    ld de, JumpTable_6
     add hl, de
     call Call_00e_7e53
 
@@ -10103,7 +10103,7 @@ jr_00e_7cbf:
     jr nz, jr_00e_7cd0
 
     ld hl, $9800
-    ld de, $026c
+    ld de, JumpTable_8
     add hl, de
     call Call_00e_7e53
 
@@ -10133,7 +10133,7 @@ jr_00e_7cf2:
     jr nz, jr_00e_7d03
 
     ld hl, $9800
-    ld de, $0272
+    ld de, JumpTable_10
     add hl, de
     call Call_00e_7e53
 
@@ -10163,7 +10163,7 @@ jr_00e_7d25:
     jr nz, jr_00e_7d36
 
     ld hl, $9800
-    ld de, $0278
+    ld de, JumpTable_12
     add hl, de
     call Call_00e_7e53
 

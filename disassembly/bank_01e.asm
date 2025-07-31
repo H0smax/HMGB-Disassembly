@@ -6391,7 +6391,7 @@ jr_01e_5b11:
     rra
     db $10
     and b
-    ld [$0260], sp
+    ld [JumpTable_4], sp
     ld d, h
     ld [bc], a
     rra
@@ -6423,7 +6423,7 @@ jr_01e_5b11:
     rra
     db $10
     and b
-    ld [$0260], sp
+    ld [JumpTable_4], sp
     ld d, h
     ld [bc], a
     rra

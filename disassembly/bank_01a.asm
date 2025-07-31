@@ -6982,7 +6982,7 @@ jr_01a_5c8b:
     rlca
     inc bc
     inc bc
-    ld bc, $0275
+    ld bc, JumpTable_11
     ld e, e
     scf
     scf
@@ -10693,7 +10693,7 @@ jr_01a_6c86:
     ld e, l
     and d
     dec sp
-    call nz, Call_000_06f9
+    call nz, $06f9
     rrca
     nop
     ld a, [bc]
@@ -10827,7 +10827,7 @@ jr_01a_6cd3:
 
     rlca
     nop
-    jp nz, Jump_000_06fc
+    jp nz, $06fc
 
     ld hl, sp+$04
 

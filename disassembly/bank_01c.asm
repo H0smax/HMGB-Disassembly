@@ -3312,7 +3312,7 @@ jr_01c_4e03:
     ld [hl], a
     nop
     inc bc
-    ld a, [$0260]
+    ld a, [JumpTable_4]
     ld l, a
     rst $38
     ld b, e

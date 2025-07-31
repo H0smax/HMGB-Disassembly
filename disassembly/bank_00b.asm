@@ -5879,7 +5879,7 @@ jr_00b_5903:
     cp $05
     rra
     rrca
-    ldh a, [$ff95]
+    ldh a, [WindowY]
 
 jr_00b_5941:
     db $ec

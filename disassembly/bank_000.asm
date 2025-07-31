@@ -578,33 +578,63 @@ Call_000_0258:
     ld a, [MapIndex]
     or a
     rst $08
-    dec d
 
-Call_000_025e:
-    ld l, e
-    rra
-    ld bc, $0140
-    add d
+JumpTable_3::
+    db $15, $6b
 
-Call_000_0264:
-Jump_000_0264:
-    ld c, a
-    ld [bc], a
-    ld bc, $0340
-    ld bc, $0440
-    ld bc, $0540
-    add l
+    db $1f
 
-Jump_000_0270:
-    ld c, h
-    ld b, $01
-    ld b, b
+JumpTable_4::
+    db $01, $40
+
+    db $01
+
+JumpTable_5::
+    db $82, $4f
+
+    db $02
+
+JumpTable_6::
+    db $01, $40
+
+    db $03
+
+JumpTable_7::
+    db $01, $40
+
+    db $04
+
+JumpTable_8::
+    db $01, $40
+
+    db $05
+
+JumpTable_9::
+    db $85, $4c
+
+    db $06
+
+JumpTable_10::
+    db $01, $40
+
     db $10
-    ld bc, $0e40
-    ld [$0e54], a
-    add $5a
-    ld c, $60
-    ld h, c
+
+JumpTable_11::
+    db $01, $40
+
+    db $0e
+
+JumpTable_12::
+    db $ea, $54
+
+    db $0e
+
+JumpTable_13::
+    db $c6, $5a
+
+    db $0e
+
+    db $60, $61
 
 UD2::
     db $0e, $5a, $66, $0e, $17, $4f, $10, $2d, $4f, $10, $8e, $63, $0f, $01, $40, $1d
@@ -645,8 +675,8 @@ Jump_000_0304:
     xor a
     ldh [$ff97], a
     ld [$c500], a
-    call Call_000_0732
-    call Call_000_075a
+    call SetCameraAndWindow
+    call SetCurrentPalettes
     xor a
     ldh [$ff99], a
     call Call_000_2444
@@ -714,23 +744,24 @@ Call_000_0375:
     or a
     rst $08
 
+JumpTable_0::
+    db $67, $6d
+
+JumpTable_1::
+    db $1f, $b2
+
+JumpTable_2::
+    db $41, $01
+
 UD3::
-    db $67, $6d, $1f, $b2, $41, $01, $cc, $50, $02, $18, $41, $03, $14, $41, $04, $b8
-    db $40, $05, $34, $4d, $06, $d7, $40, $10, $1c, $41, $0e, $ab, $55, $0e, $a2, $5b
-    db $0e, $3e, $62, $0e, $2d, $67, $0e, $c9, $4f, $10, $dd, $4f, $10, $74, $64, $0f
-    db $97, $40, $1d, $33, $44, $1d, $a3, $47, $1d, $b9, $40, $09, $c6, $46, $09, $75
-    db $4c, $09, $a2, $4d, $09, $ab, $4e, $09, $9d, $50, $09, $ea, $51, $09, $5a, $55
-    db $09, $4c, $56, $09, $28, $53, $1d, $28, $53, $1d, $a6, $60, $09, $56, $62, $09
-    db $0f, $58, $1d, $d0, $63, $09, $af, $40, $1f, $28, $53, $1d, $fe, $52, $1d, $bb
-    db $6c, $0f, $3f, $71, $07, $4d, $70, $1d, $64
-
-    ld b, c
-    ld [bc], a
-    cp d
-    ld [hl], h
-    dec e
-    ret
-
+    db $cc, $50, $02, $18, $41, $03, $14, $41, $04, $b8, $40, $05, $34, $4d, $06, $d7
+    db $40, $10, $1c, $41, $0e, $ab, $55, $0e, $a2, $5b, $0e, $3e, $62, $0e, $2d, $67
+    db $0e, $c9, $4f, $10, $dd, $4f, $10, $74, $64, $0f, $97, $40, $1d, $33, $44, $1d
+    db $a3, $47, $1d, $b9, $40, $09, $c6, $46, $09, $75, $4c, $09, $a2, $4d, $09, $ab
+    db $4e, $09, $9d, $50, $09, $ea, $51, $09, $5a, $55, $09, $4c, $56, $09, $28, $53
+    db $1d, $28, $53, $1d, $a6, $60, $09, $56, $62, $09, $0f, $58, $1d, $d0, $63, $09
+    db $af, $40, $1f, $28, $53, $1d, $fe, $52, $1d, $bb, $6c, $0f, $3f, $71, $07, $4d
+    db $70, $1d, $64, $41, $02, $ba, $74, $1d, $c9
 
 CheckTime::
     ld a, [OutsideFarm]
@@ -951,15 +982,7 @@ Jump_000_057b:
     ret
 
 
-    adc h
-    adc l
-
-Jump_000_05a1:
-    adc [hl]
-    adc a
-    sbc d
-    sbc e
-    sbc h
+    db $8c, $8d, $8e, $8f, $9a, $9b, $9c
 
 UD5::
     db $0a, $0b, $0a, $0c, $0a, $0d, $0a, $0e, $0a, $0f, $0a, $1a, $0a, $1b, $0a, $1c
@@ -1053,14 +1076,68 @@ Call_000_0656:
     ret
 
 
-UD9::
-    db $fa, $00, $40, $f5, $7a, $ea, $00, $21, $cd, $99, $06, $f1, $ea, $00, $21, $c9
+Call_000_0661:
+    ld a, [$4000]
+    push af
+    ld a, d
+    ld [$2100], a
+    call Call_000_0699
+    pop af
+    ld [$2100], a
+    ret
+
+
     db $fa, $00, $40, $f5, $7a, $ea, $00, $21, $cd, $81, $06, $f1, $ea, $00, $21, $c9
     db $79, $44, $4d, $26, $00, $6f, $29, $29, $29, $29, $09, $e5, $26, $00, $6b, $29
-    db $29, $29, $29, $11, $00, $90, $18, $16, $79, $44, $4d, $26, $00, $6f, $29, $29
-    db $29, $29, $09, $e5, $26, $00, $6b, $29, $29, $29, $29, $11, $00, $80, $19, $54
-    db $5d, $cd, $29, $06, $7a, $22, $7b, $22, $3e, $10, $22, $d1, $06, $10, $1a, $22
-    db $13, $05, $20, $fa, $36, $00, $f0, $97, $c6, $13, $e0, $97, $c9
+    db $29, $29, $29, $11, $00, $90, $18, $16
+
+Call_000_0699:
+    ld a, c
+    ld b, h
+    ld c, l
+    ld h, $00
+    ld l, a
+    add hl, hl
+    add hl, hl
+    add hl, hl
+    add hl, hl
+    add hl, bc
+    push hl
+    ld h, $00
+    ld l, e
+    add hl, hl
+    add hl, hl
+    add hl, hl
+    add hl, hl
+    ld de, $8000
+    add hl, de
+    ld d, h
+    ld e, l
+    call Call_000_0629
+
+Jump_000_06b5:
+    ld a, d
+    ld [hl+], a
+    ld a, e
+    ld [hl+], a
+    ld a, $10
+    ld [hl+], a
+    pop de
+    ld b, $10
+
+jr_000_06bf:
+    ld a, [de]
+    ld [hl+], a
+    inc de
+    dec b
+    jr nz, jr_000_06bf
+
+    ld [hl], $00
+    ldh a, [$ff97]
+    add $13
+    ldh [$ff97], a
+    ret
+
 
 Call_000_06ce:
     push de
@@ -1088,95 +1165,10 @@ jr_000_06dc:
     ret
 
 
-    push de
-    ld d, $08
-    ld e, a
-    xor a
-
-jr_000_06e6:
-    add hl, hl
-    rla
-    jr c, jr_000_06ed
-
-    cp e
-    jr c, jr_000_06ef
-
-jr_000_06ed:
-    sub e
-    inc l
-
-jr_000_06ef:
-    dec d
-    jr nz, jr_000_06e6
-
-    pop de
-    ret
-
-
-    push de
-    ld d, $18
-    ld e, a
-
-Call_000_06f8:
-    xor a
-
-Call_000_06f9:
-jr_000_06f9:
-    add hl, hl
-    ld b, a
-    ld a, c
-
-Jump_000_06fc:
-    adc c
-
-Call_000_06fd:
-    ld c, a
-    ld a, b
-    rla
-
-Jump_000_0700:
-    jr c, jr_000_0705
-
-Call_000_0702:
-    cp e
-    jr c, jr_000_0707
-
-jr_000_0705:
-    sub e
-
-Call_000_0706:
-    inc l
-
-Jump_000_0707:
-jr_000_0707:
-    dec d
-    jr nz, jr_000_06f9
-
-    pop de
-
-Call_000_070b:
-    ret
-
-
-    ld de, $0000
-
-Call_000_070f:
-jr_000_070f:
-    ld e, a
-    sub $0a
-    jr c, jr_000_0717
-
-    inc d
-    jr jr_000_070f
-
-Call_000_0717:
-jr_000_0717:
-    ld a, e
-    ldh [$ffa4], a
-    ld a, d
-    ldh [$ffa5], a
-    ret
-
+    db $d5, $16, $08, $5f, $af, $29, $17, $38, $03, $bb, $38, $02, $93, $2c, $15, $20
+    db $f4, $d1, $c9, $d5, $16, $18, $5f, $af, $29, $47, $79, $89, $4f, $78, $17, $38
+    db $03, $bb, $38, $02, $93, $2c, $15, $20, $ef, $d1, $c9, $11, $00, $00, $5f, $d6
+    db $0a, $38, $03, $14, $18, $f8, $7b, $e0, $a4, $7a, $e0, $a5, $c9
 
 Call_000_071e:
     push de
@@ -1200,14 +1192,14 @@ jr_000_0729:
     ret
 
 
-Call_000_0732:
-    ldh a, [$ff91]
+SetCameraAndWindow::
+    ldh a, [CameraY]
     ldh [rSCY], a
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ldh [rSCX], a
-    ldh a, [$ff95]
+    ldh a, [WindowY]
     ldh [rWY], a
-    ldh a, [$ff96]
+    ldh a, [WindowX]
     ldh [rWX], a
     ret
 
@@ -1240,8 +1232,8 @@ Jump_000_074c:
     ret
 
 
-Call_000_075a:
-    ld hl, $c0a3
+SetCurrentPalettes::
+    ld hl, PaletteRelated
     ld a, [hl+]
     ldh [rBGP], a
     ld a, [hl+]
@@ -2234,7 +2226,7 @@ jr_000_0be3:
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, $c0a3
+    ld hl, PaletteRelated
     ld [hl], a
     jr jr_000_0c07
 
@@ -2249,7 +2241,7 @@ Call_000_0c00:
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, $c0a3
+    ld hl, PaletteRelated
     ld [hl], a
 
 jr_000_0c07:
@@ -2408,7 +2400,7 @@ jr_000_0c9a:
 Call_000_0ca6:
     ld a, [$dd00]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or a
     ret z
 
@@ -2419,7 +2411,7 @@ Call_000_0ca6:
     jr nz, jr_000_0cbc
 
     ld a, $07
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
 
 jr_000_0cbc:
     cp $01
@@ -2447,14 +2439,14 @@ jr_000_0ccb:
 Call_000_0ce0:
 jr_000_0ce0:
     ld hl, $0c88
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, $c0a3
+    ld hl, PaletteRelated
 
 Call_000_0cf0:
     ld [hl], a
@@ -2464,19 +2456,19 @@ jr_000_0cf3:
     ld hl, $0c2e
 
 Call_000_0cf6:
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, $c0a3
+    ld hl, PaletteRelated
     ld [hl], a
 
 jr_000_0d04:
     ld hl, $0c4c
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     add l
     ld l, a
     ld a, $00
@@ -2486,7 +2478,7 @@ jr_000_0d04:
     ld hl, $c0a4
     ld [hl], a
     ld hl, $0c6a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     add l
     ld l, a
     ld a, $00
@@ -2497,7 +2489,7 @@ Call_000_0d1f:
     ld a, [hl]
     ld hl, $c0a5
     ld [hl], a
-    ld hl, $cb4f
+    ld hl, TransitionRelated2
     dec [hl]
     ret
 
@@ -4725,7 +4717,7 @@ Call_000_1960:
     add b
     ld l, a
     ld h, $00
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld e, a
     ldh a, [$ff94]
     ld d, a
@@ -4741,7 +4733,7 @@ jr_000_196e:
     add c
     ld l, a
     ld h, $00
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld e, a
     ldh a, [$ff92]
     ld d, a
@@ -12799,9 +12791,9 @@ jr_000_3e35:
 Call_000_3e39:
     call Call_000_393d
     ld a, $07
-    ldh [$ff96], a
+    ldh [WindowX], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     call Call_000_0d2b
     ld a, $e3
     ld [$c0a2], a

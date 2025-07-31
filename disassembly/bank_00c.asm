@@ -2376,7 +2376,7 @@ jr_00c_4aec:
     add b
     call nc, $1400
     nop
-    call nc, Call_000_06f8
+    call nc, $06f8
     nop
     db $ec
     ld hl, sp-$5c
@@ -2401,7 +2401,7 @@ jr_00c_4aec:
     add b
     call c, $1400
     nop
-    call c, Call_000_06f8
+    call c, $06f8
     nop
     db $f4
     ld hl, sp-$5c
@@ -3986,7 +3986,7 @@ jr_00c_5283:
     sub a
     jr nz, jr_00c_527b
 
-    ldh a, [$ff96]
+    ldh a, [WindowX]
     jr nz, @-$16
 
     ld hl, sp-$6b

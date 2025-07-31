@@ -7124,10 +7124,10 @@ Call_013_6056:
     ld h, h
     ld [bc], a
     push af
-    jp nz, Jump_000_0264
+    jp nz, $0264
 
     push af
-    call nz, Call_000_0264
+    call nz, $0264
     push af
     add $64
     ld [bc], a
@@ -10684,7 +10684,7 @@ jr_013_6f28:
     ld [hl], b
     ld [bc], a
     push af
-    jp Jump_000_0270
+    jp $0270
 
 
     push af
@@ -12710,7 +12710,7 @@ jr_013_79f3:
     cp b
     db $10
     dec b
-    ld bc, $0260
+    ld bc, JumpTable_4
     cp $17
     nop
     add hl, de
@@ -12900,7 +12900,7 @@ jr_013_7a91:
     ld [bc], a
     ld de, $2712
     dec bc
-    call c, Call_000_0702
+    call c, $0702
     ld b, $0d
     jr @+$80
 

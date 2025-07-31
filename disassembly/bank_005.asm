@@ -40,9 +40,9 @@ SECTION "ROM Bank $005", ROMX[$4000], BANK[$5]
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $07
-    ldh [$ff96], a
+    ldh [WindowX], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     ld [$c820], a
     ld a, $1d
     ld [TransitionRelated], a
@@ -97,7 +97,7 @@ Call_005_40d2:
     or a
     ret nz
 
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or a
     ret nz
 
@@ -522,7 +522,7 @@ Jump_005_4328:
     ld a, $06
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, [$cb51]
     ld [$cbe8], a
     xor a
@@ -531,7 +531,7 @@ Jump_005_4328:
 
 
 Call_005_433d:
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or a
     ret nz
 
@@ -623,7 +623,7 @@ jr_005_43bd:
     ld a, $01
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, [$cb51]
     ld [$cbe8], a
     ld a, $03
@@ -685,7 +685,7 @@ jr_005_4413:
     ld a, $08
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [$cc79], a
     ld [$cc7b], a
@@ -847,9 +847,9 @@ Call_005_44b3:
     ld b, $20
     call Call_000_210f
     ld a, $24
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor a
-    ldh [$ff93], a
+    ldh [CameraX], a
     ret
 
 
@@ -859,9 +859,9 @@ jr_005_4543:
     ld b, $20
     call Call_000_210f
     xor a
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor a
-    ldh [$ff93], a
+    ldh [CameraX], a
     ret
 
 
@@ -871,9 +871,9 @@ jr_005_4555:
     ld b, $20
     call Call_000_210f
     xor a
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor a
-    ldh [$ff93], a
+    ldh [CameraX], a
     ret
 
 
@@ -1395,7 +1395,7 @@ jr_005_4624:
     nop
     xor l
     sbc b
-    jp c, Jump_000_0700
+    jp c, $0700
 
     nop
     inc bc
@@ -10565,7 +10565,7 @@ jr_005_77c2:
     rst $38
     dec a
     rst $38
-    call Call_000_070f
+    call $070f
     ld [$5702], sp
     rst $38
     rst $38

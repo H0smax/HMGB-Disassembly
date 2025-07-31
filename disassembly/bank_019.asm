@@ -1138,7 +1138,7 @@ jr_019_44da:
 
     ret z
 
-    ldh a, [$ff96]
+    ldh a, [WindowX]
     ld hl, sp-$2f
     cp $d9
     cp $51
@@ -5794,7 +5794,7 @@ jr_019_5928:
     ld [$521c], a
     xor h
     ld a, [$6a04]
-    call nc, Call_000_070b
+    call nc, $070b
     ld b, $01
     inc bc
     nop
@@ -9638,7 +9638,7 @@ jr_019_69be:
     add b
     db $10
     ldh [$ff9e], a
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor $cd
     cp $c6
     jr c, jr_019_69d5
@@ -9904,7 +9904,7 @@ jr_019_6adc:
     add b
     db $10
     ldh [$ff9e], a
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor $cd
     cp $c6
     jr c, jr_019_6b6c
@@ -10246,7 +10246,7 @@ Call_019_6c20:
     ld c, e
     db $10
     ldh [$ff9e], a
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor $cd
     cp $c6
     jr c, @+$7e
@@ -14243,7 +14243,7 @@ jr_019_7d68:
 
     ld [$08f0], sp
     ldh a, [$ffd8]
-    ldh [$ff91], a
+    ldh [CameraY], a
     ld l, [hl]
     rst $38
     ld a, a

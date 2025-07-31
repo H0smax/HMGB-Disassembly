@@ -34,13 +34,13 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
     ld de, $9800
     call Call_000_2f41
     ld a, $24
-    ldh [$ff91], a
+    ldh [CameraY], a
     xor a
-    ldh [$ff93], a
+    ldh [CameraX], a
     ld a, $07
-    ldh [$ff96], a
+    ldh [WindowX], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     ld a, $1d
     ld [TransitionRelated], a
     ld a, $22
@@ -251,12 +251,12 @@ MoveToHouse::
 
 Call_004_4240:
     ld hl, $c88a
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c886]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c888]
     sub b
@@ -266,12 +266,12 @@ Call_004_4240:
 
 Call_004_4254:
     ld hl, $c8aa
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c8a6]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c8a8]
     sub b
@@ -281,12 +281,12 @@ Call_004_4254:
 
 Call_004_4268:
     ld hl, $c8ca
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c8c6]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c8c8]
     sub b
@@ -296,12 +296,12 @@ Call_004_4268:
 
 Call_004_427c:
     ld hl, $c8ea
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld b, a
     ld a, [$c8e6]
     sub b
     ld [hl+], a
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld b, a
     ld a, [$c8e8]
     sub b
@@ -314,7 +314,7 @@ Call_004_4290:
     or a
     ret nz
 
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or a
     ret nz
 
@@ -800,7 +800,7 @@ Call_004_4540:
 jr_004_4554:
     ld hl, $cb5b
     dec [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     inc [hl]
 
 jr_004_455c:
@@ -847,7 +847,7 @@ Call_004_4573:
 jr_004_458d:
     ld hl, $cb5b
     inc [hl]
-    ld hl, $ff91
+    ld hl, CameraY
     dec [hl]
 
 jr_004_4595:
@@ -893,7 +893,7 @@ Call_004_45a1:
 jr_004_45cb:
     ld hl, $cb5a
     inc [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     dec [hl]
 
 jr_004_45d3:
@@ -934,7 +934,7 @@ jr_004_45e8:
 jr_004_45fd:
     ld hl, $cb5a
     inc [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     dec [hl]
 
 jr_004_4605:
@@ -975,7 +975,7 @@ Call_004_4611:
 
     ld hl, $cb5a
     dec [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     inc [hl]
 
 jr_004_463c:
@@ -1011,7 +1011,7 @@ jr_004_4651:
 
     ld hl, $cb5a
     dec [hl]
-    ld hl, $ff93
+    ld hl, CameraX
     inc [hl]
 
 jr_004_4667:
@@ -1068,7 +1068,7 @@ jr_004_46a4:
     ld a, $01
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, $02
     ld [$c910], a
     ret
@@ -4324,7 +4324,7 @@ Call_004_5a9f:
     add b
     ld l, a
     ld h, $00
-    ldh a, [$ff93]
+    ldh a, [CameraX]
     ld e, a
     ldh a, [$ff94]
     ld d, a
@@ -4338,7 +4338,7 @@ Call_004_5a9f:
     add c
     ld l, a
     ld h, $00
-    ldh a, [$ff91]
+    ldh a, [CameraY]
     ld e, a
     ldh a, [$ff92]
     ld d, a

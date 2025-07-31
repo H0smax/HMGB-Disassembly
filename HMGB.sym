@@ -10,8 +10,14 @@
 00:0280 UD2
 00:0280 .data:64
 00:3222 LCDCInterruptHandler
-00:037A UD3
-00:037A .data:79
+00:037A JumpTable_0
+00:037A .data:2
+00:037C JumpTable_1
+00:037C .data:2
+00:037E JumpTable_2
+00:037E .data:2
+00:0380 UD3
+00:0380 .data:79
 00:04EA UD4
 00:04EA .data:60
 00:05A6 UD5
@@ -22,8 +28,14 @@
 00:0620 .data:9
 00:0635 UD8
 00:0635 .data:B
-00:0661 UD9
-00:0661 .data:6D
+00:059F .data:7
+00:0671 .data:28
+00:06E1 .data:3D
+
+; To be confirmed
+00:0732 SetCameraAndWindow
+00:075A SetCurrentPalettes
+
 
 ; TODO: Check bank?
 ; To be confirmed, not related to real seconds and minutes
@@ -35,6 +47,9 @@
 00:B884 CurrentSeason
 00:B885 CurrentYear
 
+; To be confirmed, data block?
+00:C0A3 PaletteRelated
+
 ; Inside house or at shops
 00:CB81 OutsideFarm
 00:CB56 TimePaused
@@ -43,6 +58,7 @@
 
 ; To be confirmed
 00:CB4E TransitionRelated
+00:CB4F TransitionRelated2
 
 ; To be confirmed
 00:0403 NextTimerSecond
@@ -97,6 +113,12 @@
 ; To be confirmed
 00:C608 PlayerOrCameraYPosition
 
+
+00:FF91 CameraY
+00:FF93 CameraX
+00:FF95 WindowY
+00:FF96 WindowX
+
 ; To be confirmed
 00:C622 CurrentTool
 00:B93C CurrentTool2
@@ -119,3 +141,41 @@
 
 ;1A:6600 Items
 ;1A:6600 .image:200:w128,pe4
+
+; To be confirmed
+;00:0F82 ColissionRelated???
+
+00:025D JumpTable_3
+00:025D .data:2
+00:025F .data:1
+00:0260 JumpTable_4
+00:0260 .data:2
+00:0262 .data:1
+00:0263 JumpTable_5
+00:0263 .data:2
+00:0265 .data:1
+00:0266 JumpTable_6
+00:0266 .data:2
+00:0268 .data:1
+00:0269 JumpTable_7
+00:0269 .data:2
+00:026B .data:1
+00:026C JumpTable_8
+00:026C .data:2
+00:026E .data:1
+00:026F JumpTable_9
+00:026F .data:2
+00:0271 .data:1
+00:0272 JumpTable_10
+00:0272 .data:2
+00:0274 .data:1
+00:0275 JumpTable_11
+00:0275 .data:2
+00:0277 .data:1
+00:0278 JumpTable_12
+00:0278 .data:2
+00:027A .data:1
+00:027B JumpTable_13
+00:027B .data:2
+00:027D .data:1
+00:027E .data:2

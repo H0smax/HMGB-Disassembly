@@ -3649,7 +3649,7 @@ jr_007_4f0b:
     db $db
     nop
     rlc b
-    jp Jump_000_0700
+    jp $0700
 
 
     nop
@@ -5207,7 +5207,7 @@ jr_007_5585:
     db $db
     nop
     rlc b
-    jp Jump_000_0700
+    jp $0700
 
 
     nop
@@ -11138,13 +11138,13 @@ jr_007_70cd:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ldh [$ff91], a
+    ldh [CameraY], a
     call Call_000_20a1
     call Call_000_20b0
     call Call_000_314e
     xor a
-    ldh [$ff93], a
-    ldh [$ff91], a
+    ldh [CameraX], a
+    ldh [CameraY], a
     ld [$c909], a
     ld [$c90a], a
     ld [$cb80], a
@@ -11174,7 +11174,7 @@ jr_007_70cd:
 
 
     call Call_000_2b71
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or a
     ret nz
 
@@ -11207,7 +11207,7 @@ jr_007_715a:
 Jump_007_716d:
 jr_007_716d:
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, [$ccc1]
     or a
     jr z, jr_007_719f
@@ -11598,9 +11598,9 @@ Call_007_73e1:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $07
-    ldh [$ff96], a
+    ldh [WindowX], a
     ld a, $00
-    ldh [$ff95], a
+    ldh [WindowY], a
     ld hl, $44b3
     ld a, $05
     call Call_000_1f96
@@ -11694,7 +11694,7 @@ jr_007_749e:
 
 Call_007_74ab:
     ld a, $18
-    ldh [$ff91], a
+    ldh [CameraY], a
     ld hl, $99ab
     ld a, $48
     ld b, $08

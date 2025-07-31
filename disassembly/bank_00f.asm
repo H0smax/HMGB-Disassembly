@@ -6077,7 +6077,7 @@ Call_00f_62dd:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     ld a, $40
     ldh [rSTAT], a
     ld a, $66
@@ -6135,7 +6135,7 @@ Call_00f_64a1:
     call Call_00f_6780
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -6616,7 +6616,7 @@ Jump_00f_6777:
 Call_00f_6780:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -6722,7 +6722,7 @@ jr_00f_6807:
     ld a, $02
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [$c910], a
     ld [TimerSeconds], a
@@ -7155,8 +7155,8 @@ jr_00f_6a6c:
     inc bc
     ld [bc], a
     ld bc, $af00
-    ldh [$ff93], a
-    ldh [$ff91], a
+    ldh [CameraX], a
+    ldh [CameraY], a
     ld hl, $6b5b
     ld de, $c600
     ld b, $10
@@ -7516,14 +7516,14 @@ jr_00f_6bf7:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
     ldh [rIE], a
     ld a, $1b
     call Call_000_23d2
-    ld hl, $c0a3
+    ld hl, PaletteRelated
     inc hl
     ld a, $72
     ld [hl+], a
@@ -7547,7 +7547,7 @@ jr_00f_6bf7:
 Call_00f_6cd2:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -7612,7 +7612,7 @@ jr_00f_6d18:
     ld a, $02
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     call Call_00f_6eb2
     ret
 
@@ -7697,8 +7697,8 @@ Call_00f_6d7c:
 
 Call_00f_6d94:
     xor a
-    ldh [$ff93], a
-    ldh [$ff91], a
+    ldh [CameraX], a
+    ldh [CameraY], a
     ld hl, $6db8
     ld de, $c600
     ld b, $10
@@ -11649,7 +11649,7 @@ jr_00f_7e58:
     set 7, b
     ldh [rSB], a
     ld c, $3d
-    call nz, Call_000_0717
+    call nz, $0717
     ld c, $fc
     adc b
     pop hl
@@ -11658,7 +11658,7 @@ jr_00f_7e58:
     ld d, d
     inc bc
     ld [bc], a
-    jp Jump_000_0707
+    jp $0707
 
 
     db $10

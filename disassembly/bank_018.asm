@@ -2131,7 +2131,7 @@ jr_018_4940:
     add b
     db $10
     ldh [$ff9e], a
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor $c1
     cp $b3
     ld l, h

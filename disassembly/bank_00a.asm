@@ -11850,7 +11850,7 @@ jr_00a_7230:
     inc b
     dec [hl]
     adc $33
-    call z, Call_000_06fd
+    call z, $06fd
     rst $38
     jp hl
 

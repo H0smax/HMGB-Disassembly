@@ -73,7 +73,7 @@ jr_01b_4044:
     ld [$cd6e], a
     ld hl, $4001
     ld d, $11
-    call $0661
+    call Call_000_0661
     pop af
     ld b, a
     ld de, $99c2
@@ -152,7 +152,7 @@ jr_01b_40b3:
     push hl
     ld hl, $4001
     ld d, $11
-    call $0661
+    call Call_000_0661
     pop hl
     ld e, [hl]
     inc hl
@@ -1343,7 +1343,7 @@ jr_01b_4648:
     ld a, $1d
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld h, b
     ld l, c
     ret
@@ -1352,7 +1352,7 @@ jr_01b_4648:
     ld a, $1e
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld h, b
     ld l, c
     ret
@@ -1361,7 +1361,7 @@ jr_01b_4648:
     ld a, $1f
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld h, b
     ld l, c
     ret
@@ -5030,7 +5030,7 @@ jr_01b_55f7:
     jr nc, jr_01b_55f7
 
     ld b, b
-    ld bc, $0272
+    ld bc, JumpTable_10
     cp d
     or h
     jp c, $afaf
@@ -9444,7 +9444,7 @@ Call_01b_699d:
     ld a, $19
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ret
 
 
@@ -9455,7 +9455,7 @@ Call_01b_699d:
     ld a, $19
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ret
 
 
@@ -10318,7 +10318,7 @@ jr_01b_6d4d:
     ret c
 
     ld de, $3472
-    jp nz, $06b5
+    jp nz, Jump_000_06b5
 
     ld b, l
     ld a, d

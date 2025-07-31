@@ -54,8 +54,8 @@ jr_010_4056:
     ld [$cb5d], a
     ld [$cb5e], a
     xor a
-    ldh [$ff91], a
-    ldh [$ff93], a
+    ldh [CameraY], a
+    ldh [CameraX], a
     ld [$cc1d], a
     ld [$cc1c], a
     ld [$c800], a
@@ -116,7 +116,7 @@ jr_010_40b9:
     call Call_000_2b71
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -509,7 +509,7 @@ jr_010_4327:
     ld a, $03
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ret
 
 
@@ -3086,12 +3086,12 @@ jr_010_4f2d:
     ld a, $83
     ld [$c0a2], a
     ld a, $68
-    ldh [$ff95], a
+    ldh [WindowY], a
     xor a
     ldh [rIF], a
     ld a, $03
     ldh [rIE], a
-    ld hl, $c0a3
+    ld hl, PaletteRelated
     inc hl
     ld a, $72
     ld [hl+], a
@@ -3125,7 +3125,7 @@ jr_010_4f2d:
 Call_010_4fee:
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -3482,7 +3482,7 @@ jr_010_519c:
     ret nz
 
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [TimePaused], a
     ld a, $01
@@ -3996,7 +3996,7 @@ jr_010_549e:
 
     ld c, [hl]
     bit 0, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
@@ -4053,11 +4053,11 @@ jr_010_549e:
     ret nz
 
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     xor a
     ld [TimePaused], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, $02
     ld [$ba43], a
     ld a, $26
@@ -4164,8 +4164,8 @@ jr_010_556e:
 
 Call_010_5590:
     xor a
-    ldh [$ff93], a
-    ldh [$ff91], a
+    ldh [CameraX], a
+    ldh [CameraY], a
     ld [$c600], a
     ld [$c820], a
     ld hl, $55a7

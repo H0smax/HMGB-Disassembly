@@ -55,8 +55,8 @@ Call_01f_4020:
     ld a, $01
     ld [TimePaused], a
     xor a
-    ldh [$ff91], a
-    ldh [$ff93], a
+    ldh [CameraY], a
+    ldh [CameraX], a
     ld a, $1d
     ld [TransitionRelated], a
     ld a, $22
@@ -90,11 +90,11 @@ Call_01f_4092:
     call Call_000_0ae9
     ld a, [TransitionRelated]
     ld b, a
-    ld a, [$cb4f]
+    ld a, [TransitionRelated2]
     or b
     ret nz
 
-    ld a, [$c0a3]
+    ld a, [PaletteRelated]
     ld [$c0a4], a
     ld hl, $cedf
     ld a, [hl+]
@@ -3976,7 +3976,7 @@ jr_01f_53c0:
     ld a, $02
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ret
 
 
@@ -8860,15 +8860,15 @@ Call_01f_6b14:
     ld de, $8800
     ld bc, $0800
     call Call_000_211f
-    ld hl, $c0a3
+    ld hl, PaletteRelated
     ld a, $6c
     ld [hl+], a
     ld a, $1c
     ld [hl+], a
     ld [hl+], a
     xor a
-    ldh [$ff93], a
-    ldh [$ff91], a
+    ldh [CameraX], a
+    ldh [CameraY], a
     ld [$ccd2], a
     ld [$cb68], a
     ld a, [CurrentYear]
@@ -9120,7 +9120,7 @@ jr_01f_6d9d:
     ld a, $02
     ld [NextMapIndex], a
     ld a, $1d
-    ld [$cb4f], a
+    ld [TransitionRelated2], a
     ld a, $00
     ld [$c910], a
     xor a
@@ -11527,7 +11527,7 @@ jr_01f_78e5:
     cpl
     rst $38
     ldh [rP1], a
-    ldh [$ff91], a
+    ldh [CameraY], a
     ld h, b
     ld bc, $5100
     adc a

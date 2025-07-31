@@ -12444,7 +12444,7 @@ jr_015_7338:
     ld b, l
     ld h, a
     add b
-    call Call_000_0706
+    call $0706
     nop
     dec c
     ld b, $0f
