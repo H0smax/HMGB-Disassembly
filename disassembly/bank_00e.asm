@@ -266,15 +266,15 @@ Call_00e_41de:
     jr z, jr_00e_4213
 
     cp $13
-    jr nc, jr_00e_41f7
+    jr nc, MoveToHouse
 
     pop hl
     ret
 
 
-jr_00e_41f7:
+MoveToHouse::
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -291,9 +291,9 @@ jr_00e_41f7:
 jr_00e_4213:
     ld a, [$c90f]
     ld b, a
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     add b
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -740,7 +740,7 @@ Call_00e_4487:
 
     ld a, [$cb33]
     cp $20
-    jr z, jr_00e_44b7
+    jr z, MoveToToolRoom
 
     cp $21
     jr z, jr_00e_44c3
@@ -760,48 +760,48 @@ Call_00e_4487:
     ret
 
 
-jr_00e_44b7:
+MoveToToolRoom::
     ld a, [$cb4a]
     or a
     ret nz
 
     ld a, $05
-    ld [$cb50], a
+    ld [NextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44c3:
     ld a, $00
     ld [$cc7b], a
     ld a, $08
-    ld [$cb50], a
+    ld [NextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44cf:
     ld a, $01
     ld [$cc7b], a
     ld a, $09
-    ld [$cb50], a
+    ld [NextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44db:
     ld a, $02
     ld [$cc7b], a
     ld a, $0a
-    ld [$cb50], a
+    ld [NextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44e7:
     ld a, $03
     ld [$cc7b], a
     ld a, $0b
-    ld [$cb50], a
+    ld [NextMapIndex], a
     jr jr_00e_44fd
 
 jr_00e_44f3:
     ld a, $04
     ld [$cc7b], a
     ld a, $0c
-    ld [$cb50], a
+    ld [NextMapIndex], a
 
 jr_00e_44fd:
     ld a, $1d
@@ -3430,7 +3430,7 @@ jr_00e_53aa:
     ld [TimerSeconds], a
     ld [$c910], a
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, [$b899]

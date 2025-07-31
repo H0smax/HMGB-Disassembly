@@ -6720,7 +6720,7 @@ jr_00f_6807:
     ret nz
 
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -7610,7 +7610,7 @@ jr_00f_6d18:
     jr nz, jr_00f_6d18
 
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     call Call_00f_6eb2

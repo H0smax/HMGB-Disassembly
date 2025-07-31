@@ -168,7 +168,7 @@ JoypadTransitionInterrupt::
 
 
 Call_000_0061:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
 
 Jump_000_0064:
     or a
@@ -410,7 +410,7 @@ HeaderGlobalChecksum::
 Start::
     nop
 
-Jump_000_0151:
+Start_::
     nop
     di
     xor a
@@ -424,7 +424,7 @@ Jump_000_0151:
     ld hl, $dd00
     ld bc, $00ff
     call ClearMem
-    call Call_000_2059
+    call CopyDMA
     xor a
     ldh [rBGP], a
     xor a
@@ -485,11 +485,11 @@ Call_000_01c1:
 Call_000_01d5:
     ld bc, $1cff
     call ClearMem
-    call Call_000_2059
+    call CopyDMA
     xor a
     ld [$4000], a
     ld a, $20
-    ld [MapLocation], a
+    ld [MapIndex], a
     call Call_000_2071
     push hl
     push af
@@ -542,7 +542,7 @@ Jump_000_0214:
     pop af
     pop hl
     xor a
-    ld [$c0a6], a
+    ld [ActivateTransitionBetweenMaps], a
     xor a
     ldh [$ff8d], a
     xor a
@@ -566,7 +566,7 @@ Jump_000_0245:
     ei
 
 Jump_000_024d:
-    ld a, [$c0a6]
+    ld a, [ActivateTransitionBetweenMaps]
     or a
     or a
     jp z, Jump_000_024d
@@ -575,7 +575,7 @@ Jump_000_024d:
 
 
 Call_000_0258:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     or a
     rst $08
     dec d
@@ -710,7 +710,7 @@ Jump_000_036a:
     jr jr_000_0365
 
 Call_000_0375:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     or a
     rst $08
 
@@ -2213,7 +2213,7 @@ Jump_000_0bc3:
     ld [TransitionRelated], a
 
 jr_000_0bce:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     jr nz, jr_000_0bf6
 
@@ -2425,14 +2425,14 @@ jr_000_0cbc:
     cp $01
     jr nz, jr_000_0ccb
 
-Call_000_0cc0:
-    ld a, [$cb50]
-    ld [MapLocation], a
+SetNextMapIndex::
+    ld a, [NextMapIndex]
+    ld [MapIndex], a
     ld a, $01
-    ld [$c0a6], a
+    ld [ActivateTransitionBetweenMaps], a
 
 jr_000_0ccb:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     jr nz, jr_000_0cf3
 
@@ -4075,7 +4075,7 @@ jr_000_1626:
 
 Call_000_1634:
     push af
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $02
     jr z, jr_000_1640
 
@@ -4100,7 +4100,7 @@ jr_000_1640:
 
 Call_000_164f:
     push af
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $02
     jr z, jr_000_165b
 
@@ -5497,7 +5497,7 @@ jr_000_1c7d:
     xor a
 
 Call_000_1c81:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $26
     ret z
 
@@ -6321,7 +6321,7 @@ jr_000_2046:
     ret
 
 
-Call_000_2059:
+CopyDMA::
     ld c, $80
     ld b, $0a
     ld hl, $2067
@@ -10260,7 +10260,7 @@ LCDCInterruptHandler::
     push bc
     push de
     push hl
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     ld e, a
     add a
     add e

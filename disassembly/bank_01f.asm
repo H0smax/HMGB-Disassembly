@@ -3974,7 +3974,7 @@ jr_01f_53c0:
     ld a, $04
     ld [$c910], a
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -9118,7 +9118,7 @@ jr_01f_6d9d:
     ret z
 
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $00

@@ -461,6 +461,7 @@ jr_01c_41d9:
     jp $c0ff
 
 
+MoveToHouse::
     cp $df
     rst $18
     rst $38
@@ -1108,6 +1109,8 @@ jr_01c_4452:
     rst $38
     ld d, l
     adc [hl]
+
+MoveToToolRoom::
     ld d, a
     adc d
     reti

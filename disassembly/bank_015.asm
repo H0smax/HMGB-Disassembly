@@ -477,6 +477,7 @@ jr_015_41f0:
     ldh a, [$ffa8]
     ret nc
 
+MoveToHouse::
     ld d, b
     and b
     ldh [rP1], a
@@ -1149,6 +1150,7 @@ jr_015_44b2:
     ldh a, [$ffa8]
     ret nc
 
+MoveToToolRoom::
     ld d, b
     and b
 

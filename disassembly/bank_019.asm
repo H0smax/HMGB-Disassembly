@@ -1090,6 +1090,8 @@ jr_019_4494:
 
 jr_019_44b5:
     ld c, $07
+
+MoveToToolRoom::
     add hl, bc
     ld b, $19
     ld c, $1e

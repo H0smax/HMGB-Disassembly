@@ -1,5 +1,10 @@
 00:0100 Logo
 00:0150 Start
+00:0151 Start_
+
+; To be confirmed
+00:2059 CopyDMA
+;00:2060 .loop
 
 00:02E4 VBlankInterruptHandler
 00:0280 UD2
@@ -56,7 +61,30 @@
 00:B8F1 CurrentMoneyH
 
 ; To be confirmed
-00:C0A7 MapLocation
+00:C0A7 MapIndex
+
+; To be confirmed
+00:0CC0 SetNextMapIndex
+
+; To be confirmed
+00:CB50 NextMapIndex
+
+; To be confirmed, suspicious transition related to maps
+00:C0A6 ActivateTransitionBetweenMaps
+
+00:41F7 MoveToHouse
+00:44b7 MoveToToolRoom
+
+; To be confirmed
+01:427B MoveToAnimalShop
+; To be confirmed, probably event related
+01:4298 MoveToHouse2?
+; To be confirmed
+1D:5401 MoveToFarm
+; To be confirmed
+1D:542B MoveToCowHouse
+
+
 
 ; To be confirmed, pet related (dog)
 00:C7A0 GrabbingDog?

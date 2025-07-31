@@ -969,6 +969,8 @@ jr_013_4453:
 
     nop
     ld hl, sp-$07
+
+MoveToToolRoom::
     rst $10
     nop
     ldh a, [rSB]

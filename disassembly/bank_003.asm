@@ -232,6 +232,8 @@ jr_003_414d:
     ld de, $c820
     ld b, $20
     call Call_000_210f
+
+MoveToHouse::
     ld a, $02
     ld [$cb62], a
     ret
@@ -328,7 +330,7 @@ jr_003_429e:
     and $0f
     ld [$b9a2], a
     ld a, $25
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
 
@@ -379,7 +381,7 @@ jr_003_42f0:
     and $0f
     ld [$b9a2], a
     ld a, $23
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
 
@@ -734,6 +736,7 @@ jr_003_44ad:
     jp Jump_003_4560
 
 
+MoveToToolRoom::
     ld a, [$cc17]
     cp $08
     jr nz, jr_003_44ca
@@ -3686,7 +3689,7 @@ jr_003_562e:
     jr nz, jr_003_5648
 
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $01
@@ -3696,7 +3699,7 @@ jr_003_562e:
 
 jr_003_5648:
     ld a, $07
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret

@@ -216,6 +216,8 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
     ld b, a
     call Call_000_210f
     ld hl, $cc4c
+
+MoveToHouse::
     ld de, $c8c0
     ld b, $20
     call Call_000_210f
@@ -1064,7 +1066,7 @@ jr_004_4687:
 jr_004_46a4:
     call Call_004_6e8c
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $02

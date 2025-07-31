@@ -431,6 +431,8 @@ Jump_00c_4100:
     ld l, l
     nop
     rst $38
+
+MoveToHouse::
     adc l
     ld l, l
     nop
@@ -1016,6 +1018,8 @@ jr_00c_445e:
     ld b, l
     ld e, a
     ld b, l
+
+MoveToToolRoom::
     ld a, b
     ld b, l
     sub c

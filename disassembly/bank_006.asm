@@ -1147,6 +1147,8 @@ Jump_006_4414:
     inc sp
     nop
     and e
+
+MoveToToolRoom::
     add d
     inc [hl]
     ld de, $d941
@@ -3790,7 +3792,7 @@ jr_006_507d:
     dec hl
     dec hl
     ld a, $05
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -7968,7 +7970,7 @@ jr_006_67c7:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -8039,7 +8041,7 @@ jr_006_684b:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -8458,7 +8460,7 @@ jr_006_6b52:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -8529,7 +8531,7 @@ jr_006_6bd6:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -9302,7 +9304,7 @@ jr_006_70c6:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -9539,7 +9541,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -9566,7 +9568,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 

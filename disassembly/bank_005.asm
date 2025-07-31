@@ -520,7 +520,7 @@ jr_005_4325:
 
 Jump_005_4328:
     ld a, $06
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, [$cb51]
@@ -621,7 +621,7 @@ Call_005_43a4:
 
 jr_005_43bd:
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, [$cb51]
@@ -683,7 +683,7 @@ jr_005_4407:
 
 jr_005_4413:
     ld a, $08
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a

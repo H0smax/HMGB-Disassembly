@@ -1110,6 +1110,8 @@ jr_007_4483:
     nop
     ld [bc], a
     nop
+
+MoveToToolRoom::
     jp c, $ff00
 
     nop
@@ -11220,13 +11222,13 @@ jr_007_716d:
     ld a, $01
     ld [$c910], a
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ret
 
 
 jr_007_718e:
     ld a, $26
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $01
     ld [$c90b], a
     ret
@@ -11234,13 +11236,13 @@ jr_007_718e:
 
 jr_007_7199:
     ld a, $27
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ret
 
 
 jr_007_719f:
     ld a, $11
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -12355,7 +12357,7 @@ jr_007_7775:
     ld bc, $0400
     call ClearMem
     ld hl, $79fc
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     jr z, jr_007_77fa
 
@@ -12417,11 +12419,11 @@ jr_007_7825:
     call Call_000_21f3
     call Call_000_222e
     pop hl
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $20
     jr z, jr_007_78b8
 
-    ld a, [$cb50]
+    ld a, [NextMapIndex]
     cp $20
     jr z, jr_007_78b8
 

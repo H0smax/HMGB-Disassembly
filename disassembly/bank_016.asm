@@ -1033,6 +1033,7 @@ jr_016_4452:
 
     ret nz
 
+MoveToToolRoom::
     ret nc
 
     ldh [$ffa0], a

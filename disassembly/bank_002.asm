@@ -154,7 +154,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ret z
 
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $03
@@ -240,6 +240,8 @@ Call_002_41ec:
     call Call_000_316d
     pop hl
     ld a, [$ccd0]
+
+MoveToHouse::
     inc a
     ld [hl+], a
     ld a, [$ccd1]
@@ -3335,7 +3337,7 @@ jr_002_5204:
 
 Jump_002_5229:
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $01
@@ -4158,7 +4160,7 @@ jr_002_56d1:
     jr z, jr_002_56fa
 
     ld a, $1b
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $02
@@ -4169,7 +4171,7 @@ jr_002_56d1:
 
 jr_002_56fa:
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $00
@@ -4183,7 +4185,7 @@ jr_002_56fa:
 jr_002_570f:
     pop hl
     ld a, $22
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $02
@@ -4201,7 +4203,7 @@ jr_002_570f:
 
 jr_002_572e:
     ld a, $0d
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $03
@@ -4214,7 +4216,7 @@ jr_002_572e:
 
 jr_002_5743:
     ld a, $00
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld a, $03

@@ -447,6 +447,8 @@ jr_018_41bc:
     ld a, [hl+]
     push de
     ld [$c03a], a
+
+MoveToHouse::
     ldh a, [rNR41]
     add sp, -$30
     inc [hl]
@@ -1086,6 +1088,7 @@ jr_018_44af:
     cpl
     jr c, jr_018_44be
 
+MoveToToolRoom::
     ld a, a
 
 jr_018_44b8:

@@ -479,6 +479,8 @@ jr_01e_41c6:
     dec c
     add hl, hl
     inc bc
+
+MoveToHouse::
     ld [hl+], a
     jr nc, jr_01e_41ab
 
@@ -1085,6 +1087,8 @@ jr_01e_443b:
     and b
     ld b, $49
     db $10
+
+MoveToToolRoom::
     rra
     inc b
     and d

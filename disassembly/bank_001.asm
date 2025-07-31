@@ -263,10 +263,10 @@ jr_001_4200:
     call Call_001_661c
     ld a, [$c90f]
     cp $05
-    jr z, jr_001_427b
+    jr z, MoveToAnimalShop
 
     cp $06
-    jp z, Jump_001_4298
+    jp z, MoveToHouse2?
 
     cp $07
     jp z, Jump_001_42e5
@@ -320,14 +320,14 @@ jr_001_4200:
 jr_001_425e:
     ld a, [$c90f]
     ld b, a
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     add b
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
     ld [$c7c0], a
-    ld a, [$cb50]
+    ld a, [NextMapIndex]
     cp $02
     jr z, jr_001_4279
 
@@ -336,9 +336,9 @@ jr_001_4279:
     ret
 
 
-jr_001_427b:
+MoveToAnimalShop::
     ld a, $13
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -352,9 +352,9 @@ jr_001_427b:
     ret
 
 
-Jump_001_4298:
+MoveToHouse2?::
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -397,7 +397,7 @@ Jump_001_42e5:
     ld a, $1d
     ld [$cb4f], a
     ld a, $1c
-    ld [$cb50], a
+    ld [NextMapIndex], a
     xor a
     ld [$c90f], a
     ld [$c911], a
@@ -414,7 +414,7 @@ Jump_001_4304:
     ld a, $01
     ld [$ccb8], a
     ld a, $0f
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -445,7 +445,7 @@ Jump_001_434a:
     ld a, $02
     ld [$ccb8], a
     ld a, $0f
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -470,7 +470,7 @@ Jump_001_4381:
     ld a, $00
     ld [$ccb8], a
     ld a, $0f
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     xor a
@@ -2641,7 +2641,7 @@ jr_001_5253:
     cp $ff
     jp nz, Jump_001_5ddd
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $02
     ret z
 
@@ -7245,7 +7245,7 @@ jr_001_6d8a:
     ld hl, $80e0
     xor a
     ld [$cb16], a
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $03
     jr nz, jr_001_6dbb
 
@@ -7824,7 +7824,7 @@ Jump_001_6e03:
 
 
 Call_001_6fe4:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 

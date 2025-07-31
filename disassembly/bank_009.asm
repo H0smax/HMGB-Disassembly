@@ -135,7 +135,7 @@ jr_009_4066:
     jr @-$7c
 
     ldh a, [rSTAT]
-    ld bc, $41f7
+    ld bc, MoveToHouse
     rst $08
     ld b, b
     rst $28
@@ -366,6 +366,7 @@ jr_009_41d7:
     ret
 
 
+MoveToHouse::
     ld h, b
     ld l, c
     ld a, [$cd24]
@@ -488,7 +489,7 @@ Jump_009_427c:
     jr nz, jr_009_4293
 
 jr_009_428a:
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -560,7 +561,7 @@ jr_009_42f6:
     ld a, $05
     ld [$c910], a
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     pop hl
@@ -613,7 +614,7 @@ jr_009_4332:
     ld a, $05
     ld [$c910], a
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -906,6 +907,8 @@ jr_009_442d:
     inc b
     nop
     dec d
+
+MoveToToolRoom::
     nop
     inc b
     ld hl, sp+$15
@@ -2507,7 +2510,7 @@ jr_009_4c34:
     ld h, b
     ld l, c
     ld a, $13
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -5343,7 +5346,7 @@ Jump_009_5b65:
     xor a
     ld [TimePaused], a
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -7953,9 +7956,9 @@ jr_009_6690:
     ld [TimePaused], a
     inc a
     ld [$c910], a
-    ld [$c0a6], a
+    ld [ActivateTransitionBetweenMaps], a
     inc a
-    ld [MapLocation], a
+    ld [MapIndex], a
     pop hl
     ret
 

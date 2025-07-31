@@ -406,6 +406,7 @@ jr_01b_41f4:
     ret
 
 
+MoveToHouse::
     ld h, b
     ld l, c
     ld a, [hl+]
@@ -1340,7 +1341,7 @@ jr_01b_4648:
 
 
     ld a, $1d
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld h, b
@@ -1349,7 +1350,7 @@ jr_01b_4648:
 
 
     ld a, $1e
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld h, b
@@ -1358,7 +1359,7 @@ jr_01b_4648:
 
 
     ld a, $1f
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ld h, b
@@ -9441,7 +9442,7 @@ Call_01b_699d:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -9452,7 +9453,7 @@ Call_01b_699d:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -11585,7 +11586,7 @@ jr_01b_7325:
     sub b
     ld e, e
     rrca
-    jp nz, Jump_000_0151
+    jp nz, Start_
 
     ld d, d
     db $fd

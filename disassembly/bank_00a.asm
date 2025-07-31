@@ -424,6 +424,8 @@ jr_00a_41bd:
     ld d, [hl]
     nop
     ldh a, [rP1]
+
+MoveToHouse::
     ld d, l
     nop
     ldh a, [$fff8]
@@ -1035,6 +1037,8 @@ jr_00a_44ab:
     nop
     ld d, c
     nop
+
+MoveToToolRoom::
     ld [hl], d
     nop
     inc d

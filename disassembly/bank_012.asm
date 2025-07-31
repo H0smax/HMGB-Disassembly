@@ -420,6 +420,8 @@ SECTION "ROM Bank $012", ROMX[$4000], BANK[$12]
     ld l, h
     nop
     nop
+
+MoveToHouse::
     add l
     ld l, h
     nop
@@ -1045,6 +1047,8 @@ jr_012_4456:
     ld b, l
     ld l, b
     ld b, l
+
+MoveToToolRoom::
     or e
     ld b, l
     ld hl, sp+$00

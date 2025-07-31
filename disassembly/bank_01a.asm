@@ -443,6 +443,8 @@ jr_01a_41da:
     call nc, $a0a0
     ld [$8808], sp
     adc b
+
+MoveToHouse::
     add b
     add b
     add b

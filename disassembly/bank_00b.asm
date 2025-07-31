@@ -452,6 +452,8 @@ jr_00b_4148:
     adc b
     adc b
     ld [hl-], a
+
+MoveToHouse::
     ld [hl-], a
     ld [bc], a
     ld [bc], a
@@ -1102,6 +1104,8 @@ jr_00b_4408:
     ld b, l
     cp e
     rst $38
+
+MoveToToolRoom::
     dec sp
     rst $00
     ld b, $fe
@@ -14083,7 +14087,7 @@ jr_00b_7c1e:
     ld [$c0bc], sp
     ld a, [$befc]
     db $fc
-    call z, Call_000_0cc0
+    call z, SetNextMapIndex
     ld [$0fc3], sp
     pop bc
     ld c, $c9

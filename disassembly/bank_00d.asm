@@ -972,6 +972,8 @@ jr_00d_4453:
     ld hl, sp+$00
     ld b, $00
     ld hl, sp-$08
+
+MoveToToolRoom::
     dec b
     nop
     ldh a, [rP1]

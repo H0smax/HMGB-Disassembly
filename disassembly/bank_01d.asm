@@ -387,6 +387,8 @@ jr_01d_41a1:
     nop
     ldh a, [$ff8b]
     and $0f
+
+MoveToHouse::
     or a
     jp nz, Jump_01d_4328
 
@@ -584,9 +586,9 @@ jr_01d_42ff:
     xor a
     ld [TimePaused], a
     ld a, $11
-    ld [MapLocation], a
+    ld [MapIndex], a
     ld a, $01
-    ld [$c0a6], a
+    ld [ActivateTransitionBetweenMaps], a
     ld a, [$c0a2]
     and $83
     ld [$c0a2], a
@@ -921,6 +923,8 @@ jr_01d_44a7:
     push bc
     ld b, h
     inc b
+
+MoveToToolRoom::
     nop
     nop
     nop
@@ -993,7 +997,7 @@ jr_01d_44f9:
     ld a, $00
     ldh [rSTAT], a
     ld a, $01
-    ld [$c0a6], a
+    ld [ActivateTransitionBetweenMaps], a
     xor a
     ld [$ccc1], a
     push hl
@@ -1025,7 +1029,7 @@ jr_01d_4532:
     ld a, $27
 
 jr_01d_4534:
-    ld [MapLocation], a
+    ld [MapIndex], a
     ret
 
 
@@ -1039,9 +1043,9 @@ jr_01d_4534:
     xor a
     ld [TimePaused], a
     inc a
-    ld [$c0a6], a
+    ld [ActivateTransitionBetweenMaps], a
     ld a, $12
-    ld [MapLocation], a
+    ld [MapIndex], a
     ld a, $01
     ld [$cb92], a
     ret
@@ -1065,7 +1069,7 @@ jr_01d_4534:
     jr nz, jr_01d_4580
 
     ld a, $28
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $02
     ld [$cb4f], a
     ret
@@ -1073,7 +1077,7 @@ jr_01d_4534:
 
 jr_01d_4580:
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $02
     ld [$cb4f], a
     ret
@@ -2063,7 +2067,7 @@ Call_01d_4a62:
     ld h, b
     ld l, c
     ld a, $24
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -2123,7 +2127,7 @@ Call_01d_4a98:
     ld a, $1d
     ld [$cb4f], a
     ld a, $11
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ret
 
 
@@ -3921,7 +3925,7 @@ jr_01d_52c0:
     inc a
     ld [$c910], a
     ld a, $0e
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $02
     ld [$cb4f], a
     ret
@@ -4124,20 +4128,20 @@ jr_01d_52c0:
     ei
     ld d, e
     ld a, e
-    call Call_01d_5401
+    call MoveToFarm
     inc l
     ld b, e
     db $fd
     ld d, e
 
-Call_01d_5401:
+MoveToFarm::
     push bc
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $1d
     jr z, jr_01d_544a
 
     cp $23
-    jr z, jr_01d_542b
+    jr z, MoveToCowHouse
 
     ld hl, $cd7b
     ld de, $b8e6
@@ -4147,14 +4151,14 @@ Call_01d_5401:
     xor a
     ld [TimePaused], a
     ld a, $01
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     pop hl
     ret
 
 
-jr_01d_542b:
+MoveToCowHouse::
     ld hl, $cd7b
     ld de, $cd2c
     call Call_01d_4a6f
@@ -4163,7 +4167,7 @@ jr_01d_542b:
     or $0f
     ld [$b9a1], a
     ld a, $03
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     pop hl
@@ -4284,7 +4288,7 @@ jr_01d_54c5:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -4960,7 +4964,7 @@ jr_01d_57d8:
     sbc [hl]
     ld e, b
     ld a, $10
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -10457,13 +10461,13 @@ Jump_01d_720e:
     jr z, jr_01d_721f
 
     ld a, $29
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ret
 
 
 jr_01d_721f:
     ld a, $11
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ret
 
 
@@ -11078,7 +11082,7 @@ Jump_01d_759d:
     jr z, jr_01d_75b3
 
     ld a, $26
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $02
     ld [$c90b], a
     ret
@@ -11086,7 +11090,7 @@ Jump_01d_759d:
 
 jr_01d_75b3:
     ld a, $11
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ret
 
 

@@ -439,6 +439,8 @@ jr_017_41ad:
     ld h, d
     cpl
     push de
+
+MoveToHouse::
     ld d, l
     add d
     adc c
@@ -1110,6 +1112,8 @@ jr_017_4448:
     nop
     nop
     nop
+
+MoveToToolRoom::
     nop
     nop
     nop

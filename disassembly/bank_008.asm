@@ -780,7 +780,7 @@ Jump_008_43a9:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $05
     jr z, jr_008_43e4
 
@@ -1132,7 +1132,7 @@ jr_008_4579:
 
     ld a, $37
     call Call_000_23d8
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -1183,7 +1183,7 @@ jr_008_45bf:
     cp $02
     ret nz
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     jr nz, jr_008_461e
 
@@ -1233,7 +1233,7 @@ jr_008_461e:
 
     ld a, $3a
     call Call_000_23d8
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -1434,7 +1434,7 @@ Jump_008_476b:
 
     ld a, $30
     call Call_000_23d8
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -1593,7 +1593,7 @@ jr_008_484e:
 
     ld a, $37
     call Call_000_23d8
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -1638,7 +1638,7 @@ jr_008_489a:
 
     ld a, $38
     call Call_000_23d5
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -1670,7 +1670,7 @@ jr_008_489a:
 jr_008_48dc:
     ld a, $3b
     call Call_000_23d8
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -1915,11 +1915,11 @@ jr_008_4a51:
 jr_008_4a80:
     ld a, $32
     call Call_000_23d8
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $03
     ret z
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $04
     ret z
 
@@ -1929,7 +1929,7 @@ jr_008_4a80:
 
 
 jr_008_4a97:
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 
@@ -2054,7 +2054,7 @@ Jump_008_4b81:
     ret
 
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     jp nz, Jump_008_4b81
 
@@ -2952,7 +2952,7 @@ Jump_008_4fea:
     cp $30
     jp z, Jump_008_51bb
 
-    ld a, [MapLocation]
+    ld a, [MapIndex]
     cp $01
     ret nz
 

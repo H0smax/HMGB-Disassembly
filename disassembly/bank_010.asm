@@ -299,6 +299,8 @@ jr_010_41ec:
     xor a
     ld [$cc1c], a
     ld a, $01
+
+MoveToHouse::
     ld [$c60d], a
     ld a, $01
     call Call_000_166a
@@ -505,7 +507,7 @@ jr_010_42f2:
 
 jr_010_4327:
     ld a, $03
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $1d
     ld [$cb4f], a
     ret
@@ -780,6 +782,8 @@ jr_010_44b3:
     rra
     nop
     and a
+
+MoveToToolRoom::
     ld a, [hl]
     add hl, bc
     ld [bc], a
@@ -3504,7 +3508,7 @@ Jump_010_5200:
 
 jr_010_5206:
     ld a, $02
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $01
     ld [$c910], a
     ret
@@ -3512,7 +3516,7 @@ jr_010_5206:
 
 jr_010_5211:
     ld a, $21
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $ff
     ld [$ba3a], a
     ret
@@ -4057,7 +4061,7 @@ jr_010_549e:
     ld a, $02
     ld [$ba43], a
     ld a, $26
-    ld [$cb50], a
+    ld [NextMapIndex], a
     ld a, $00
     ld [$c90b], a
     ld a, $01
