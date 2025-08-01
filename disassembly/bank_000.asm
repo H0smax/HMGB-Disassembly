@@ -3094,8 +3094,6 @@ jr_000_10e1:
     ld [wCurrentMoneyM], a
     ld a, [sCurrentMoneyL]
     ld [wCurrentMoneyL], a
-
-Jump_000_10f3:
     call Call_000_3179
     ld a, [$cccd]
     ld [$b928], a
@@ -5598,8 +5596,6 @@ Call_000_1cff:
     nop
     nop
     nop
-
-Call_000_1d03:
     nop
     sub [hl]
     nop
@@ -9307,7 +9303,6 @@ Jump_000_2dde:
     ld d, $00
     add hl, de
 
-Call_000_2dff:
 Jump_000_2dff:
     add hl, de
     ld a, [hl+]
@@ -10377,8 +10372,6 @@ Call_000_32d5:
     jr nz, jr_000_3303
 
     ld a, [hl]
-
-Call_000_32e3:
     or a
     jr z, jr_000_32ec
 
