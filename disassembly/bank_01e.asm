@@ -11057,7 +11057,7 @@ jr_01e_70ca:
     ldh [$fff2], a
     rst $28
     pop bc
-    call nz, Call_000_3f83
+    call nz, $3f83
     inc b
     ld c, l
     pop bc

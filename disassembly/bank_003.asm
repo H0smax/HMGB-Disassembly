@@ -7,7 +7,7 @@ SECTION "ROM Bank $003", ROMX[$4000], BANK[$3]
 
     inc bc
     xor a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c780], a
     call Call_000_20a1
     call Call_000_20b0
@@ -5996,7 +5996,7 @@ jr_003_6424:
     ld [$b991], a
 
 jr_003_6427:
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $00
     jp nz, Jump_003_657f
 
@@ -8148,7 +8148,7 @@ jr_003_7149:
     ret
 
 
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $00
     jr z, jr_003_71ce
 

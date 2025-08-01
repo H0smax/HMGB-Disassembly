@@ -3847,7 +3847,7 @@ jr_008_5490:
     ret
 
 
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $02
     jr z, jr_008_54b3
 
@@ -4710,7 +4710,7 @@ Call_008_5932:
     nop
     ld bc, $0001
     ld bc, $0001
-    ld a, [GrabbingDog?]
+    ld a, [GrabbingDog]
     or a
     ret z
 
@@ -6226,7 +6226,7 @@ jr_008_62d2:
 Call_008_62e5:
     xor a
     ld [$cb83], a
-    ld a, [GrabbingDog?]
+    ld a, [GrabbingDog]
     or a
     ret z
 

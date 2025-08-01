@@ -3056,7 +3056,7 @@ jr_010_4f2d:
     ld [$c720], a
     ld [$c740], a
     ld [$c760], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     ld [$c820], a
     ld [$c800], a
@@ -8888,7 +8888,7 @@ Call_010_67af:
     ld b, a
     ld h, l
     adc a
-    jp nc, Jump_000_3fef
+    jp nc, $3fef
 
     db $ed
     rst $30
@@ -11698,7 +11698,7 @@ jr_010_75ad:
     ld h, e
     sbc l
     ccf
-    jp Jump_000_3f71
+    jp $3f71
 
 
     ld a, [$f4ff]

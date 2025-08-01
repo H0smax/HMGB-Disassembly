@@ -78,7 +78,7 @@ SECTION "ROM Bank $00e", ROMX[$4000], BANK[$e]
     ld [$c80e], a
     ld [$c760], a
     ld [$c780], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     ld [$c820], a
     call $511f
@@ -298,7 +298,7 @@ jr_00e_4213:
     ld [TransitionRelated2], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     pop hl
     ret
 

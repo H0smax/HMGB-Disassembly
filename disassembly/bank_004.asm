@@ -7,7 +7,7 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
 
     inc b
     xor a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c780], a
     call Call_000_20a1
     call Call_000_20b0

@@ -196,7 +196,7 @@ jr_001_416a:
     call Call_001_715a
     call Call_001_6c75
     call Call_000_3d18
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $01
     jr z, jr_001_41aa
 
@@ -266,7 +266,7 @@ jr_001_4200:
     jr z, MoveToAnimalShop
 
     cp $06
-    jp z, MoveToHouse2?
+    jp z, MoveToHouse2
 
     cp $07
     jp z, Jump_001_42e5
@@ -347,12 +347,12 @@ MoveToAnimalShop::
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     pop hl
     ret
 
 
-MoveToHouse2?::
+MoveToHouse2::
     ld a, $02
     ld [wNextMapIndex], a
     ld a, $1d
@@ -371,13 +371,13 @@ MoveToHouse2?::
     or a
     ret z
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jr z, jr_001_42cc
 
     xor a
     ld [$b8e1], a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ret
 
 
@@ -405,7 +405,7 @@ Jump_001_42e5:
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     pop hl
     ret
 
@@ -423,17 +423,17 @@ Jump_001_4304:
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     ld [$c620], a
     ld [$cb4a], a
     ld [$cb84], a
     ld [$cb82], a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ld [$cb89], a
     ld a, $00
     call Call_000_166a
@@ -454,13 +454,13 @@ Jump_001_434a:
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     ld [$c620], a
     ld [$cb4a], a
     ld [$cb84], a
     ld [$cb82], a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ld [$cb89], a
     pop hl
     ret
@@ -479,7 +479,7 @@ Jump_001_4381:
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     pop hl
     ret
 
@@ -1060,7 +1060,7 @@ jr_001_46b6:
     cp $02
     jp z, Jump_001_48b4
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jp nz, Jump_001_454d
 
@@ -1161,7 +1161,7 @@ jr_001_4769:
 
 
 Jump_001_476d:
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jp nz, Jump_001_44ef
 
@@ -1261,7 +1261,7 @@ jr_001_480b:
 
 
 Jump_001_480f:
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jp nz, Jump_001_45ae
 
@@ -1362,7 +1362,7 @@ jr_001_48b0:
 
 
 Jump_001_48b4:
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jp nz, Jump_001_460f
 
@@ -1632,7 +1632,7 @@ jr_001_4a17:
     ld bc, $0102
 
 Jump_001_4a3d:
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -2227,9 +2227,9 @@ Jump_001_4ee2:
 
 Jump_001_4f24:
     ld a, $01
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     xor a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$cb89], a
     ret
 
@@ -2300,9 +2300,9 @@ jr_001_4f48:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     xor a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2371,9 +2371,9 @@ Jump_001_4fe0:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     xor a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2469,9 +2469,9 @@ Jump_001_506e:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     xor a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2582,9 +2582,9 @@ jr_001_51ca:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     xor a
-    ld [GrabbingDog3?], a
+    ld [GrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2625,7 +2625,7 @@ Call_001_5231:
     or a
     jp nz, Jump_001_4f24
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jp nz, Jump_001_4f31
 
@@ -2992,7 +2992,7 @@ Call_001_547e:
     or a
     ret nz
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -3655,7 +3655,7 @@ Jump_001_5834:
 
 
 Call_001_5836:
-    ld a, [GrabbingDog?]
+    ld a, [GrabbingDog]
     or a
     ret z
 
@@ -6461,7 +6461,7 @@ jr_001_6874:
     cp $3e
     jr nz, jr_001_6889
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -6478,7 +6478,7 @@ jr_001_6889:
     cp $3f
     jr nz, jr_001_689e
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -6504,7 +6504,7 @@ jr_001_689e:
     cp $40
     jr nz, jr_001_68c2
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -6528,7 +6528,7 @@ Call_001_68c3:
     or a
     ret z
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jr z, jr_001_68e2
 
@@ -6580,7 +6580,7 @@ Call_001_6920:
     or a
     ret nz
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -6700,7 +6700,7 @@ Call_001_69f0:
     or a
     ret nz
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -6913,7 +6913,7 @@ jr_001_6b23:
 
 
 Call_001_6b29:
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jr nz, jr_001_6b59
 
@@ -6930,14 +6930,14 @@ Call_001_6b29:
     ld a, [$b8e5]
     ld [$c7a9], a
     ld a, $01
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld a, $05
     ld [$c7a1], a
     jr jr_001_6b5d
 
 jr_001_6b59:
     xor a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
 
 jr_001_6b5d:
     ld hl, $6bf5
@@ -7832,11 +7832,11 @@ Call_001_6fe4:
     cp $ff
     ret nz
 
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $01
     ret z
 
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $02
     ret z
 
@@ -8037,11 +8037,11 @@ Call_001_715a:
     or a
     ret nz
 
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $01
     ret z
 
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $02
     ret z
 
@@ -10357,7 +10357,7 @@ jr_001_7e39:
 
     ret c
 
-    jr nz, jr_001_7f6e
+    jr nz, @+$72
 
     and b
     ldh a, [rNR41]
@@ -10392,227 +10392,23 @@ jr_001_7e39:
 
     ld h, b
     ld [hl], b
-    jr nz, jr_001_7f7c
+    jr nz, @+$5a
 
-    jr nc, jr_001_7f56
+    jr nc, @+$32
 
     nop
-    dec b
-    ld [bc], a
-    rra
-    ld [bc], a
-    ld a, a
-    add hl, de
-    rst $38
-    ld h, [hl]
-    ld l, a
-    ld bc, $060d
-    ld c, $04
-    inc b
-    nop
-    ret nc
 
-    and b
-    ldh a, [$ffa0]
-    ret nc
-
-    ld h, b
-    xor b
-    ldh a, [$fff8]
-    ld h, b
-    ld e, b
-    jr nc, jr_001_7f7c
-
-    db $10
-    stop
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-jr_001_7f56:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-jr_001_7f6e:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-jr_001_7f7c:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+    db $05, $02, $1f, $02, $7f, $19, $ff, $66, $6f, $01, $0d, $06, $0e, $04, $04, $00
+    db $d0, $a0, $f0, $a0, $d0, $60, $a8, $f0, $f8, $60, $58, $30, $38, $10, $10, $00
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff

@@ -1636,7 +1636,7 @@ jr_016_473a:
     inc c
     xor h
     ld [hl], b
-    call c, Call_000_3f28
+    call c, $3f28
     inc de
     inc a
     rrca

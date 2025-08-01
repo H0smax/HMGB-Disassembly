@@ -6029,7 +6029,7 @@ Call_00f_62dd:
     ld [$c8e0], a
     ld [$c760], a
     ld [$c780], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     ld [$c820], a
     call Call_000_20a1
@@ -7481,7 +7481,7 @@ jr_00f_6bf7:
     ld [$c860], a
     ld [$c760], a
     ld [$c780], a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c800], a
     ld [$c820], a
     call Call_000_20a1

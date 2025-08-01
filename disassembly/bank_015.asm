@@ -3602,7 +3602,7 @@ jr_015_4f1a:
     cp h
     ld [$d65c], a
     xor h
-    jp z, Jump_000_3fb4
+    jp z, $3fb4
 
     rlca
     ccf
@@ -13183,7 +13183,7 @@ jr_015_76e5:
     call c, Call_000_2cda
     halt
     adc h
-    jp z, Jump_000_3fb4
+    jp z, $3fb4
 
     inc b
     ccf

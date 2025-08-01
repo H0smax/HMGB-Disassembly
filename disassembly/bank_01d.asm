@@ -3875,7 +3875,7 @@ jr_01d_523e:
     ret
 
 
-    call Call_000_0d6a
+    call NewGame
     ld hl, $4413
     ld a, $1d
     ld de, $bff0

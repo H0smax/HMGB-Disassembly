@@ -6052,7 +6052,7 @@ jr_006_5a5f:
     or a
     jr nz, jr_006_5aa4
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jr nz, jr_006_5ab6
 
@@ -6105,7 +6105,7 @@ jr_006_5ace:
     or a
     jr nz, jr_006_5aeb
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jr nz, jr_006_5afd
 

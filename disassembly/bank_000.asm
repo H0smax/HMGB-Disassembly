@@ -2552,7 +2552,7 @@ jr_000_0d63:
     ret
 
 
-Call_000_0d6a:
+NewGame::
     di
     call Call_000_0a2e
     di
@@ -2635,7 +2635,7 @@ Call_000_0d6a:
     call Call_000_1029
     ld a, $00
     ld [$b89f], a
-    ld [$b8a0], a
+    ld [sCurrentWeather], a
     ld a, $50
     ld [$b924], a
     ld a, $83
@@ -2810,7 +2810,7 @@ Call_000_0f37:
 
 Call_000_0f40:
     call Call_000_2331
-    ld a, [$b8a0]
+    ld a, [sCurrentWeather]
     cp $01
     jr z, jr_000_0f75
 
@@ -4679,7 +4679,7 @@ Call_000_1925:
     or a
     ret nz
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     ret nz
 
@@ -4783,7 +4783,7 @@ Jump_000_19af:
 
     xor a
     ld [$cb89], a
-    ld a, [GrabbingDog?]
+    ld a, [GrabbingDog]
     or a
     ret z
 
@@ -6711,7 +6711,7 @@ jr_000_21b6:
     pop de
     ld a, [$4000]
     ld b, a
-    ld a, [GrabbingDog2?]
+    ld a, [GrabbingDog2]
     add $18
     ld [$2100], a
     ld c, $10
@@ -9306,7 +9306,7 @@ Jump_000_2dde:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2?], a
+    ld [GrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9363,7 +9363,7 @@ Jump_000_2e0c:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2?], a
+    ld [GrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9425,7 +9425,7 @@ jr_000_2e62:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2?], a
+    ld [GrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9483,7 +9483,7 @@ Jump_000_2ed1:
 Call_000_2edc:
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2?], a
+    ld [GrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -12524,7 +12524,7 @@ Call_000_3cce:
     or a
     jr nz, jr_000_3d06
 
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     jr nz, jr_000_3d06
 
@@ -12933,7 +12933,6 @@ Call_000_3edc:
     ld a, $04
     jr jr_000_3f0a
 
-Call_000_3f00:
     ld a, $54
     jr jr_000_3f0a
 
@@ -12952,261 +12951,18 @@ jr_000_3f0a:
     ret
 
 
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Call_000_3f20:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Call_000_3f28:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Jump_000_3f64:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Jump_000_3f71:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Call_000_3f83:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Jump_000_3fb4:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Jump_000_3fbc:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Jump_000_3fef:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Call_000_3ff8:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-
-Jump_000_3ffc:
-    rst $38
-    rst $38
-    rst $38
-
-Call_000_3fff:
-    rst $38
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff

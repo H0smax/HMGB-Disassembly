@@ -11699,7 +11699,7 @@ jr_018_7198:
     ld a, [$6604]
     ld hl, sp-$0e
     adc h
-    jp nz, Jump_000_3ffc
+    jp nz, $3ffc
 
     ld de, $0d7b
     ld [hl], d

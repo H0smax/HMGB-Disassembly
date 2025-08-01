@@ -12409,7 +12409,7 @@ jr_01b_76b1:
 
     pop af
     ld hl, sp-$0f
-    call c, Call_000_3ff8
+    call c, $3ff8
     nop
     sbc d
     ccf

@@ -7,7 +7,7 @@ SECTION "ROM Bank $005", ROMX[$4000], BANK[$5]
 
     dec b
     xor a
-    ld [GrabbingDog?], a
+    ld [GrabbingDog], a
     ld [$c780], a
     ld [$c820], a
     ld [$b88d], a
@@ -3846,7 +3846,7 @@ jr_005_517e:
     ld a, [$cb4a]
     or a
     call nz, Call_005_535f
-    ld a, [GrabbingDog3?]
+    ld a, [GrabbingDog3]
     or a
     call nz, Call_005_5399
     ret

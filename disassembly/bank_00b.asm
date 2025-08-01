@@ -805,7 +805,7 @@ MoveToHouse::
     ld b, a
     ld h, l
     adc a
-    jp nc, Jump_000_3fef
+    jp nc, $3fef
 
     db $ed
     rst $30
@@ -3749,7 +3749,7 @@ Call_00b_4ebd:
     push de
     rst $38
     or [hl]
-    jp Jump_000_3fbc
+    jp $3fbc
 
 
     pop bc

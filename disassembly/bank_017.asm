@@ -774,7 +774,7 @@ jr_017_4346:
 jr_017_434b:
     cp [hl]
     call z, Call_000_2cf2
-    jp c, Jump_000_3f64
+    jp c, $3f64
 
     inc bc
     ccf

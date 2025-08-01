@@ -8232,7 +8232,7 @@ jr_011_7888:
     nop
     ld a, a
     add b
-    call nc, Call_000_3fff
+    call nc, $3fff
     sbc d
     ld a, e
     cp c

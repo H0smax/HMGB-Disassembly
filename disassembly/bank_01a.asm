@@ -9924,7 +9924,7 @@ jr_01a_693e:
     ld [$0009], sp
     nop
     nop
-    call nc, Call_000_3f20
+    call nc, $3f20
 
 jr_01a_6974:
     call nz, Call_000_36fb
