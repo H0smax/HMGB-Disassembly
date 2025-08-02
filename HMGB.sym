@@ -201,6 +201,7 @@
 00:0671 .data:28
 00:06E1 .data:3D
 00:3F14 .data:EC
+
 01:4000 .data:1
 01:4A19 .data:24
 01:5456 .data:8
@@ -232,6 +233,7 @@
 01:7EE7 .data:20
 01:7F07 .data:20
 01:7F27 .data:D9
+
 02:4000 .data:F82
 02:514D .data:18
 02:5165 .data:10
@@ -280,6 +282,7 @@
 02:74DC .data:F0
 02:75CC .data:10
 02:75DC .data:A24
+
 03:4000 .data:1
 03:4118 .data:201
 03:4369 .data:E21
@@ -304,6 +307,28 @@
 03:7717 .data:A
 03:780B .data:7F5
 
+04:4000 .data:1
+04:4114 .data:12C
+04:4290 .data:427
+04:46C5 .data:64
+04:4735 .data:1452
+04:5BFB .data:2
+04:5BFD .data:2
+04:5BFF .data:2
+04:5C01 .data:2
+04:5C03 .data:2
+04:5C99 .data:E63
+04:6B30 .data:8
+04:6B76 .data:8
+04:6BBC .data:8
+04:6C02 .data:8
+04:6E1D .data:8
+04:6E84 .data:12
+04:6E96 .data:2C
+04:6EC2 .data:13C
+04:6FFE .data:69A
+04:7698 .data:4C1
+04:7B59 .data:4A7
 
 
 1F:4000 .data:4F0

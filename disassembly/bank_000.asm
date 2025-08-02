@@ -1321,8 +1321,6 @@ Call_000_07c0:
     ld a, [$4000]
     push af
     ldh a, [$ffa4]
-
-Call_000_07c6:
     ld [$2100], a
     call Call_000_077d
     pop af
@@ -2523,8 +2521,6 @@ jr_000_0d4b:
 jr_000_0d51:
     ldh a, [rSTAT]
     and $02
-
-Call_000_0d55:
     jr nz, jr_000_0d51
 
 Jump_000_0d57:
@@ -5378,7 +5374,6 @@ Call_000_1c2a:
     dec d
     jr z, jr_000_1c33
 
-Call_000_1c2d:
     ld b, h
     jr nc, jr_000_1c73
 
@@ -7360,8 +7355,6 @@ jr_000_2536:
     ldh [$ffef], a
     ldh [$fff0], a
     ldh [$fff1], a
-
-Jump_000_253d:
     ldh [$fff4], a
     ldh [$fffd], a
     dec a
@@ -11823,8 +11816,6 @@ Call_000_3892:
     ld [de], a
     ldh a, [$ff8b]
     and $20
-
-Jump_000_38c3:
     jr z, jr_000_3902
 
     call Call_000_3edc
