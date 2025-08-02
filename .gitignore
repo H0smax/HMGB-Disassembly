@@ -8,6 +8,9 @@
 build/
 *.2bpp
 *.zip
+*.o
+*.map
+*.rtc
 
 ; Dissasembly tools
 mgbdis

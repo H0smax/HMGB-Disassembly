@@ -1,5 +1,3 @@
-IMAGE_DEPS = gfx\DialogueCharacters.2bpp
-
 all: game.gb
 
 %.2bpp: %.png
@@ -8,7 +6,7 @@ all: game.gb
 %.1bpp: %.png
 	rgbgfx -d 1 -o $@ $<
 
-game.o: game.asm bank_*.asm $(IMAGE_DEPS)
+game.o: game.asm bank_*.asm
 	rgbasm -o game.o game.asm
 
 game.gb: game.o

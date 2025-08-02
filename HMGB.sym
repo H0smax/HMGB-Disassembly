@@ -94,8 +94,8 @@
 ; To be confirmed, suspicious transition related to maps
 00:C0A6 wActivateTransitionBetweenMaps
 
-00:41F7 MoveToHouse
-00:44b7 MoveToToolRoom
+;00:41F7 MoveToHouse
+;00:44b7 MoveToToolRoom
 
 ; To be confirmed
 01:427B MoveToAnimalShop
@@ -191,6 +191,20 @@
 
 ; TRYING TO FIT ALL IN BANKS:
 
+00:0003 .data:1
+00:0004 .data:3
+00:000B .data:1
+00:000C .data:4
+00:0011 .data:3
+00:0014 .data:3
+00:0019 .data:7
+00:0020 .data:20
+00:0044 .data:4
+00:004B .data:5
+00:0053 .data:5
+00:005B .data:5
+00:0066 .data:7E
+00:00E4 .data:1C
 00:0380 .data:79
 00:04EA .data:60
 00:05A6 .data:3C
@@ -200,6 +214,78 @@
 00:059F .data:7
 00:0671 .data:28
 00:06E1 .data:3D
+00:077D .data:6F
+00:083A .data:2D
+00:089F .data:175
+00:0A2E .data:4D
+00:0ACB .data:1E
+00:0B40 .data:1E
+00:0B5E .data:1E
+00:0B7C .data:1E
+00:0B9A .data:1E
+00:0C2E .data:1E
+00:0C4C .data:1E
+00:0C6A .data:1E
+00:0C88 .data:1E
+;00:0D6A .data:F0
+00:1029 .data:23
+00:1191 .data:7B
+00:166B .data:28C
+00:18C3 .data:2
+00:18C5 .data:4
+00:18C9 .data:2
+00:18CB .data:7
+00:18D3 .data:2
+00:18D5 .data:1
+00:18D6 .data:2
+00:18D8 .data:7
+00:18DF .data:2
+00:18E1 .data:7
+00:18E9 .data:2
+00:18EB .data:4
+00:18EF .data:2
+00:18F1 .data:1
+00:18F2 .data:2
+00:18F4 .data:4
+00:1A1A .data:1
+00:1ABC .data:2C
+00:1B22 .data:1F
+00:1B41 .data:2D
+00:1B6E .data:113
+00:1CD0 .data:1F2
+00:1EEF .data:6
+00:1F72 .data:5
+00:2090 .data:9
+00:20B5 .data:F
+00:2134 .data:41
+00:229B .data:10
+00:22AB .data:49
+00:2229 .data:5
+00:2330 .data:1
+00:235E .data:15
+00:2729 .data:10
+00:299F .data:30
+00:29CF .data:100
+00:2ACF .data:80
+00:2BAD .data:1
+00:2BB1 .data:8
+00:2BBA .data:42
+00:2D5E .data:2
+00:2D60 .data:2
+00:2D62 .data:47
+00:2EF6 .data:2
+00:2EF8 .data:2
+00:2EFA .data:47
+00:2FDE .data:C0
+00:309E .data:B0
+00:315A .data:13
+00:3256 .data:7E
+00:333A .data:2
+00:333C .data:2F0
+00:398C .data:8
+00:3A13 .data:9A
+00:3DEA .data:40
+00:3F04 .data:4
 00:3F14 .data:EC
 
 01:4000 .data:1
@@ -352,6 +438,33 @@
 05:7AB1 .data:8A
 05:7B3B .data:4C5
 
-1F:4000 .data:4F0
-1F:44F0 .data:306
-1F:63E3 .data:92
+06:4000 .data:4000
+07:4000 .data:4000
+08:4000 .data:4000
+09:4000 .data:4000
+0A:4000 .data:4000
+0B:4000 .data:4000
+0C:4000 .data:4000
+0D:4000 .data:4000
+0E:4000 .data:4000
+0F:4000 .data:4000
+10:4000 .data:4000
+11:4000 .data:4000
+12:4000 .data:4000
+13:4000 .data:4000
+14:4000 .data:4000
+15:4000 .data:4000
+16:4000 .data:4000
+17:4000 .data:4000
+18:4000 .data:4000
+19:4000 .data:4000
+1A:4000 .data:4000
+1B:4000 .data:4000
+1C:4000 .data:4000
+1D:4000 .data:4000
+1E:4000 .data:4000
+1F:4000 .data:4000
+
+;1F:4000 .data:4F0
+;1F:44F0 .data:306
+;1F:63E3 .data:92
