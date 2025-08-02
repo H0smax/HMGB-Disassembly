@@ -330,6 +330,27 @@
 04:7698 .data:4C1
 04:7B59 .data:4A7
 
+05:4000 .data:1
+05:40B8 .data:3FB
+05:44C1 .data:64
+05:4567 .data:20
+05:4587 .data:20
+05:45A7 .data:20
+05:462B .data:ABF
+05:50EA .data:20
+05:510A .data:20
+05:53BF .data:1
+05:5C2C .data:8
+05:5C34 .data:1
+05:5E95 .data:8
+05:5E9D .data:1
+05:6000 .data:AB6
+05:6AB6 .data:DF
+05:6B95 .data:784
+05:7319 .data:4EE
+05:7807 .data:2AA
+05:7AB1 .data:8A
+05:7B3B .data:4C5
 
 1F:4000 .data:4F0
 1F:44F0 .data:306

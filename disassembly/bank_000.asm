@@ -287,11 +287,7 @@ Call_000_00c0:
     ccf
     nop
     dec c
-
-Jump_000_00ca:
     ccf
-
-Call_000_00cb:
     nop
 
 Call_000_00cc:
@@ -702,7 +698,6 @@ Call_000_0339:
     and $10
     jr z, jr_000_0346
 
-Jump_000_033d:
     ld a, [$cb5c]
     ld [$cb5d], a
     call CheckTime
@@ -1371,8 +1366,6 @@ Call_000_07f8:
     inc hl
     ld [hl+], a
     add $03
-
-Call_000_0800:
     ld b, a
 
 jr_000_0801:
@@ -1913,8 +1906,6 @@ Call_000_0a2e:
     nop
     ld a, $09
     ld [$4000], a
-
-Jump_000_0a4a:
     xor a
     ld [$a000], a
     nop
@@ -5958,8 +5949,6 @@ jr_000_1eba:
 Call_000_1ec2:
     ld a, [hl]
     inc a
-
-Jump_000_1ec4:
     ld [hl], a
     or a
     jr nz, jr_000_1ed5
@@ -6397,8 +6386,6 @@ jr_000_20bb:
     ldh a, [$ffa4]
     ld [hl-], a
     dec bc
-
-Jump_000_20bf:
     ld a, b
     or c
     jr nz, jr_000_20bb
@@ -6893,8 +6880,6 @@ jr_000_22da:
 
 jr_000_22dc:
     ld [hl+], a
-
-Call_000_22dd:
     inc a
     dec b
     jr nz, jr_000_22dc
@@ -7655,8 +7640,6 @@ jr_000_2693:
 
 Jump_000_26a6:
     and $3f
-
-Call_000_26a8:
     or d
     ldh [$ffea], a
     jp Jump_000_2584
@@ -9074,7 +9057,6 @@ Call_000_2cf6:
 Call_000_2cfe:
     ld b, a
 
-Call_000_2cff:
 Jump_000_2cff:
     ld l, c
     ld h, b
@@ -10091,7 +10073,6 @@ Jump_000_3179:
     or a
     jr z, jr_000_3199
 
-Call_000_3191:
     ld bc, $63c0
     add hl, bc
     ld a, [de]
@@ -11286,8 +11267,6 @@ Jump_000_3508:
     ld l, e
     ld e, b
     db $10
-
-Jump_000_35c0:
     or a
     ld e, b
     db $10
@@ -11854,8 +11833,6 @@ Call_000_38e8:
 
     ld a, $01
     ld [$cb72], a
-
-Call_000_38ff:
     call Call_000_3edc
 
 Call_000_3902:
