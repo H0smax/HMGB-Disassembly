@@ -1,14 +1,6 @@
 00:0100 Logo
 00:0150 Start
 00:0151 Start_
-
-; To be confirmed
-00:2059 DMARelated
-00:2067 DMARelated2
-
-; To be confirmed
-00:2331 MusicRelated
-
 00:02E4 VBlankInterruptHandler
 00:0280 UD2
 00:0280 .data:64
@@ -19,48 +11,7 @@
 00:037C .data:2
 00:037E JumpTable_2
 00:037E .data:2
-
-
-; To be confirmed
-00:2FBE TileLoadRelated
-
-; To be confirmed
-00:0D6A NewGame
-
-; To be confirmed
-00:0732 SetCameraAndWindow
-00:075A SetCurrentPalettes
-
-
-; To be confirmed, not related to real seconds and minutes
-00:B880 sTimerSeconds
-00:B881 sTimerMinutes
-
-00:B882 sCurrentHour
-00:B883 sCurrentDay
-00:B884 sCurrentSeason
-00:B885 sCurrentYear
-
-00:B8A0 sCurrentWeather
-
-00:CBDD wCurrentYear
-00:CBDE wCurrentSeason
-00:CBDF wCurrentDay
-00:CBE0 wCurrentHour
-00:CBE1 wCurrentMinutes
-
-; To be confirmed, data block?
-00:C0A3 wPaletteRelated
-
-; Inside house or at shops
-00:CB81 wOutsideFarm
-00:CB56 wTimePaused
-
 00:03F9 CheckTime
-
-; To be confirmed
-00:CB4E wTransitionRelated
-00:CB4F wTransitionRelated2
 
 ; To be confirmed
 00:0403 NextTimerSecond
@@ -72,49 +23,90 @@
 00:047A NextYear
 
 ; To be confirmed
-00:B88B sDayRelated
-
-00:B8EF sCurrentMoneyL
-00:B8F0 sCurrentMoneyM
-00:B8F1 sCurrentMoneyH
-
-00:CCCA wCurrentMoneyL
-00:CCCB wCurrentMoneyM
-00:CCCC wCurrentMoneyH
-
-; To be confirmed
-00:10A0 CheckCurrentMoney
-
-; To be confirmed
-00:C0A7 wMapIndex
+00:0732 SetCameraAndWindow
+00:075A SetCurrentPalettes
 
 ; To be confirmed
 00:0CC0 SetNextMapIndex
 
 ; To be confirmed
-00:CB50 wNextMapIndex
+00:0D6A NewGame
 
-; To be confirmed, suspicious transition related to maps
-00:C0A6 wActivateTransitionBetweenMaps
+; To be confirmed
+00:10A0 CheckCurrentMoney
+00:10D7 ResetMoney
+00:10C6 LimitMoney
+
+; To be confirmed
+00:2059 DMARelated
+00:2067 DMARelated2
+
+00:2099 ClearMem
+
+; To be confirmed
+00:2331 MusicRelated
+
+; To be confirmed
+00:2FBE TileLoadRelated
+
+00:330A TimerOverflowInterruptHandler
+00:3319 SerialTransferCompleteInterruptHandler
 
 ;00:41F7 MoveToHouse
 ;00:44b7 MoveToToolRoom
 
 ; To be confirmed
 01:427B MoveToAnimalShop
+01:425E GoToInterior
+
 ; To be confirmed, probably event related
 01:4298 MoveToHouse2
+
+; To be confirmed
+02:56FA GoToFarmFromHouse
+03:562E GoToFarmFromCows
+04:46A4 GoToFarmFromChickens
+05:43BD GoToFarmFromToolRoom
+09:428A GoToShop
+09:42F6 GoToFarmFromOutside
+09:4C56 GoToTown
+
+11:4000 DialogueCharacters
+11:4000 .image:1000:w128,pe4
+
 ; To be confirmed
 1D:5401 MoveToFarm
 ; To be confirmed
 1D:542B MoveToCowHouse
 
+; To be confirmed, not related to real seconds and minutes
+00:B880 sTimerSeconds
+00:B881 sTimerMinutes
+00:B882 sCurrentHour
+00:B883 sCurrentDay
+00:B884 sCurrentSeason
+00:B885 sCurrentYear
+
+; To be confirmed
+00:B88B sDayRelated
+
+00:B8A0 sCurrentWeather
 
 
-; To be confirmed, pet related (dog)
-00:C7A0 wGrabbingDog
-00:CB60 wGrabbingDog2
-00:CB8B wGrabbingDog3
+00:B8EF sCurrentMoneyL
+00:B8F0 sCurrentMoneyM
+00:B8F1 sCurrentMoneyH
+
+00:B93C sCurrentTool2
+
+; To be confirmed, data block?
+00:C0A3 wPaletteRelated
+; To be confirmed, suspicious transition related to maps
+00:C0A6 wActivateTransitionBetweenMaps
+
+; To be confirmed
+00:C0A7 wMapIndex
+
 
 00:C60A wPlayerXPosition
 00:C606 wCameraXPosition
@@ -122,6 +114,35 @@
 ; To be confirmed
 00:C608 wPlayerOrCameraYPosition
 
+; To be confirmed
+00:C622 wCurrentTool
+
+; To be confirmed, pet related (dog)
+00:C7A0 wGrabbingDog
+
+00:CBDD wCurrentYear
+00:CBDE wCurrentSeason
+00:CBDF wCurrentDay
+00:CBE0 wCurrentHour
+00:CBE1 wCurrentMinutes
+
+; To be confirmed
+00:CB4E wTransitionRelated
+00:CB4F wTransitionRelated2
+
+; To be confirmed
+00:CB50 wNextMapIndex
+00:CB56 wTimePaused
+00:CB60 wGrabbingDog2
+
+; Inside house or at shops
+00:CB81 wOutsideFarm
+
+00:CB8B wGrabbingDog3
+
+00:CCCA wCurrentMoneyL
+00:CCCB wCurrentMoneyM
+00:CCCC wCurrentMoneyH
 
 00:FF91 hCameraY
 00:FF93 hCameraX
@@ -136,45 +157,9 @@
 00:FFBC hMapLimitL
 00:FFBD hMapLimitH
 
-; To be confirmed
-00:C622 wCurrentTool
-00:B93C sCurrentTool2
 
 
-00:10D7 ResetMoney
-00:10C6 LimitMoney
-
-00:2099 ClearMem
-
-00:330A TimerOverflowInterruptHandler
-00:3319 SerialTransferCompleteInterruptHandler
-
-01:6CDE UD
-01:6CDE .data:64
-
-01:6D42 UF
-
-;02:478F NewWindDay
-
-; To be confirmed
-01:425E GoToInterior
-02:56FA GoToFarmFromHouse
-09:42F6 GoToFarmFromOutside
-05:43BD GoToFarmFromToolRoom
-04:46A4 GoToFarmFromChickens
-03:562E GoToFarmFromCows
-09:428A GoToShop
-09:4C56 GoToTown
-
-11:4000 DialogueCharacters
-11:4000 .image:1000:w128,pe4
-
-;1A:6600 Items
-;1A:6600 .image:200:w128,pe4
-
-; To be confirmed
-;00:0F82 ColissionRelated
-
+; some jumtables (ignoring at the moment)
 00:025D JumpTable_3
 00:025D .data:2
 00:025F .data:1
