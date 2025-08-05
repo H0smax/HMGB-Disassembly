@@ -8,7 +8,7 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
     db $04
 
     xor a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     ld [$c780], a
     call Call_000_20a1
     call Call_000_20b0
@@ -35,15 +35,15 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
     ld de, $9800
     call Call_000_2f41
     ld a, $24
-    ldh [CameraY], a
+    ldh [hCameraY], a
     xor a
-    ldh [CameraX], a
+    ldh [hCameraX], a
     ld a, $07
-    ldh [WindowX], a
+    ldh [hWindowX], a
     ld a, $68
-    ldh [WindowY], a
+    ldh [hWindowY], a
     ld a, $1d
-    ld [TransitionRelated], a
+    ld [wTransitionRelated], a
     ld a, $22
     ld [$b90c], a
     xor a
@@ -140,12 +140,12 @@ SECTION "ROM Bank $004", ROMX[$4000], BANK[$4]
 
 Call_004_4240:
     ld hl, $c88a
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     ld b, a
     ld a, [$c886]
     sub b
     ld [hl+], a
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     ld b, a
     ld a, [$c888]
     sub b
@@ -155,12 +155,12 @@ Call_004_4240:
 
 Call_004_4254:
     ld hl, $c8aa
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     ld b, a
     ld a, [$c8a6]
     sub b
     ld [hl+], a
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     ld b, a
     ld a, [$c8a8]
     sub b
@@ -170,12 +170,12 @@ Call_004_4254:
 
 Call_004_4268:
     ld hl, $c8ca
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     ld b, a
     ld a, [$c8c6]
     sub b
     ld [hl+], a
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     ld b, a
     ld a, [$c8c8]
     sub b
@@ -185,12 +185,12 @@ Call_004_4268:
 
 Call_004_427c:
     ld hl, $c8ea
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     ld b, a
     ld a, [$c8e6]
     sub b
     ld [hl+], a
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     ld b, a
     ld a, [$c8e8]
     sub b

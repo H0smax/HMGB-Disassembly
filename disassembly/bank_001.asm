@@ -134,16 +134,16 @@ jr_001_40ff:
     ld [$cb5e], a
     xor a
     ld [$cb79], a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     xor a
-    ldh [CameraX], a
-    ldh [CameraY], a
+    ldh [hCameraX], a
+    ldh [hCameraY], a
     ld a, $1d
-    ld [TransitionRelated], a
+    ld [wTransitionRelated], a
     ld a, $07
-    ldh [WindowX], a
+    ldh [hWindowX], a
     ld a, $68
-    ldh [WindowY], a
+    ldh [hWindowY], a
     ld a, $80
     ld [$b90c], a
     xor a
@@ -176,7 +176,7 @@ jr_001_40ff:
 
 jr_001_416a:
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     ld [$cb7a], a
     ld [$cb7b], a
     ld [$cb7c], a
@@ -245,7 +245,7 @@ Call_001_41e7:
     ret z
 
     ld a, $01
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     ld a, [$c911]
     dec a
     ld [$c911], a
@@ -323,7 +323,7 @@ jr_001_425e:
     add b
     ld [wNextMapIndex], a
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     xor a
     ld [$c7c0], a
     ld a, [wNextMapIndex]
@@ -339,14 +339,14 @@ MoveToAnimalShop::
     ld a, $13
     ld [wNextMapIndex], a
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     xor a
     ld [$c90f], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     pop hl
     ret
 
@@ -355,7 +355,7 @@ MoveToHouse2::
     ld a, $02
     ld [wNextMapIndex], a
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     xor a
     ld [$c90f], a
     ld [$c911], a
@@ -370,13 +370,13 @@ MoveToHouse2::
     or a
     ret z
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jr z, jr_001_42cc
 
     xor a
     ld [$b8e1], a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ret
 
 
@@ -394,7 +394,7 @@ jr_001_42cc:
 
 Jump_001_42e5:
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     ld a, $1c
     ld [wNextMapIndex], a
     xor a
@@ -404,7 +404,7 @@ Jump_001_42e5:
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     pop hl
     ret
 
@@ -415,24 +415,24 @@ Jump_001_4304:
     ld a, $0f
     ld [wNextMapIndex], a
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     xor a
     ld [$c90f], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     ld [$c800], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     ld [$c800], a
     ld [$c620], a
     ld [$cb4a], a
     ld [$cb84], a
     ld [$cb82], a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ld [$cb89], a
     ld a, $00
     call Call_000_166a
@@ -446,20 +446,20 @@ Jump_001_434a:
     ld a, $0f
     ld [wNextMapIndex], a
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     xor a
     ld [$c90f], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     ld [$c800], a
     ld [$c620], a
     ld [$cb4a], a
     ld [$cb84], a
     ld [$cb82], a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ld [$cb89], a
     pop hl
     ret
@@ -471,28 +471,28 @@ Jump_001_4381:
     ld a, $0f
     ld [wNextMapIndex], a
     ld a, $1d
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
     xor a
     ld [$c90f], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     pop hl
     ret
 
 
 Call_001_43a3:
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     or a
     ret nz
 
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     or a
     ret nz
 
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -657,7 +657,7 @@ Call_001_4464:
     cp $02
     jr z, jr_001_44b6
 
-    ld a, [PlayerXPosition]
+    ld a, [wPlayerXPosition]
     add d
     ld b, a
     ld a, [$c78a]
@@ -711,7 +711,7 @@ jr_001_44b0:
 
 
 jr_001_44b6:
-    ld a, [PlayerXPosition]
+    ld a, [wPlayerXPosition]
     add d
     ld b, a
     ld a, [$c78a]
@@ -1059,7 +1059,7 @@ jr_001_46b6:
     cp $02
     jp z, Jump_001_48b4
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jp nz, Jump_001_454d
 
@@ -1160,7 +1160,7 @@ jr_001_4769:
 
 
 Jump_001_476d:
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jp nz, Jump_001_44ef
 
@@ -1260,7 +1260,7 @@ jr_001_480b:
 
 
 Jump_001_480f:
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jp nz, Jump_001_45ae
 
@@ -1361,7 +1361,7 @@ jr_001_48b0:
 
 
 Jump_001_48b4:
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jp nz, Jump_001_460f
 
@@ -1616,7 +1616,7 @@ jr_001_4a17:
     db $02, $01, $02, $01
 
 Jump_001_4a3d:
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -1649,11 +1649,11 @@ Call_001_4a65:
     cp $02
     jp z, Jump_001_4b55
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0015
     call Call_000_0a27
     call Call_001_6815
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $ffeb
     call Call_000_0a27
     ld a, [$cb38]
@@ -1664,11 +1664,11 @@ Call_001_4a65:
     and $01
     jp nz, Jump_001_4b9c
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_001_6815
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb38]
@@ -1683,11 +1683,11 @@ Call_001_4a65:
 
 
 jr_001_4ac1:
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $ffec
     call Call_000_0a27
     call Call_001_681e
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0014
     call Call_000_0a27
     ld a, [$cb38]
@@ -1698,11 +1698,11 @@ jr_001_4ac1:
     and $01
     jp nz, Jump_001_4b9c
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_001_681e
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb38]
@@ -1717,11 +1717,11 @@ jr_001_4ac1:
 
 
 Jump_001_4b0c:
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0014
     call Call_000_0a27
     call Call_001_6827
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $ffec
     call Call_000_0a27
     ld a, [$cb38]
@@ -1732,11 +1732,11 @@ Jump_001_4b0c:
     and $01
     jp nz, Jump_001_4b9c
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_001_6827
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb38]
@@ -1751,11 +1751,11 @@ Jump_001_4b0c:
 
 
 Jump_001_4b55:
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $ffec
     call Call_000_0a27
     call Call_001_6830
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0014
     call Call_000_0a27
     ld a, [$cb38]
@@ -1766,11 +1766,11 @@ Jump_001_4b55:
     and $01
     jr nz, jr_001_4b9c
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_001_6830
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb38]
@@ -1820,11 +1820,11 @@ jr_001_4bb5:
     or a
     jr nz, jr_001_4c41
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_000_150b
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -1834,11 +1834,11 @@ jr_001_4bb5:
     and $01
     jr nz, jr_001_4c41
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0010
     call Call_000_0a27
     call Call_000_150b
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff0
     call Call_000_0a27
     ld a, [$cb30]
@@ -1848,11 +1848,11 @@ jr_001_4bb5:
     and $01
     jr nz, jr_001_4c41
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0018
     call Call_000_0a27
     call Call_000_150b
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $ffe8
     call Call_000_0a27
     ld a, [$cb30]
@@ -1883,11 +1883,11 @@ jr_001_4c41:
     or a
     ret nz
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -1897,11 +1897,11 @@ jr_001_4c41:
     and $01
     ret nz
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff0
     call Call_000_0a27
     call Call_000_1514
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0010
     call Call_000_0a27
     ld a, [$cb30]
@@ -1911,11 +1911,11 @@ jr_001_4c41:
     and $01
     ret nz
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $ffe8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0018
     call Call_000_0a27
     ld a, [$cb30]
@@ -1946,11 +1946,11 @@ Jump_001_4cc8:
     or a
     jr nz, jr_001_4d51
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -1960,11 +1960,11 @@ Jump_001_4cc8:
     and $01
     jr nz, jr_001_4d51
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0010
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff0
     call Call_000_0a27
     ld a, [$cb30]
@@ -1974,11 +1974,11 @@ Jump_001_4cc8:
     and $01
     jr nz, jr_001_4d51
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0018
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $ffe8
     call Call_000_0a27
     ld a, [$cb30]
@@ -2008,11 +2008,11 @@ jr_001_4d51:
     or a
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -2022,11 +2022,11 @@ jr_001_4d51:
     and $01
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff0
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0010
     call Call_000_0a27
     ld a, [$cb30]
@@ -2036,11 +2036,11 @@ jr_001_4d51:
     and $01
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $ffe8
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0018
     call Call_000_0a27
     ld a, [$cb30]
@@ -2070,11 +2070,11 @@ Jump_001_4dd6:
     or a
     jr nz, jr_001_4e5f
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -2084,11 +2084,11 @@ Jump_001_4dd6:
     and $01
     jr nz, jr_001_4e5f
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff0
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0010
     call Call_000_0a27
     ld a, [$cb30]
@@ -2098,11 +2098,11 @@ Jump_001_4dd6:
     and $01
     jr nz, jr_001_4e5f
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $ffe8
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0018
     call Call_000_0a27
     ld a, [$cb30]
@@ -2132,11 +2132,11 @@ jr_001_4e5f:
     or a
     jr nz, jr_001_4e5f
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -2146,11 +2146,11 @@ jr_001_4e5f:
     and $01
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0010
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff0
     call Call_000_0a27
     ld a, [$cb30]
@@ -2160,11 +2160,11 @@ jr_001_4e5f:
     and $01
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0018
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $ffe8
     call Call_000_0a27
     ld a, [$cb30]
@@ -2191,11 +2191,11 @@ Jump_001_4ee2:
     ld [$c792], a
     ld a, $40
     ld [$c791], a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     ld [$c786], a
     ld a, [$c607]
     ld [$c787], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld [$c788], a
     ld a, [$c609]
     ld [$c789], a
@@ -2211,9 +2211,9 @@ Jump_001_4ee2:
 
 Jump_001_4f24:
     ld a, $01
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     xor a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     ld [$cb89], a
     ret
 
@@ -2236,11 +2236,11 @@ Jump_001_4f31:
 
 
 jr_001_4f48:
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -2250,11 +2250,11 @@ jr_001_4f48:
     and $01
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff2
     call Call_000_0a27
     call Call_000_151d
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $000e
     call Call_000_0a27
     ld a, [$cb30]
@@ -2268,13 +2268,13 @@ jr_001_4f48:
     ld [$c7ad], a
     add $00
     call Call_000_1634
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $10
     ld [$c7a6], a
     ld a, [$c607]
     sbc $00
     ld [$c7a7], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld [$c7a8], a
     ld a, [$c609]
     ld [$c7a9], a
@@ -2284,9 +2284,9 @@ jr_001_4f48:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     xor a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2307,11 +2307,11 @@ Jump_001_4fd6:
 
 
 Jump_001_4fe0:
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -2321,11 +2321,11 @@ Jump_001_4fe0:
     and $01
     ret nz
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $000e
     call Call_000_0a27
     call Call_000_1526
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff2
     call Call_000_0a27
     ld a, [$cb30]
@@ -2339,13 +2339,13 @@ Jump_001_4fe0:
     ld [$c7ad], a
     add $00
     call Call_000_1634
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     add $10
     ld [$c7a6], a
     ld a, [$c607]
     adc $00
     ld [$c7a7], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld [$c7a8], a
     ld a, [$c609]
     ld [$c7a9], a
@@ -2355,9 +2355,9 @@ Jump_001_4fe0:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     xor a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2370,11 +2370,11 @@ Jump_001_4fe0:
 
 
 Jump_001_506e:
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -2391,11 +2391,11 @@ Jump_001_506e:
     and $02
     ret nz
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff2
     call Call_000_0a27
     call Call_000_1514
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $000e
     call Call_000_0a27
     ld a, [$cb30]
@@ -2412,11 +2412,11 @@ Jump_001_506e:
     and $02
     ret nz
 
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $ffe8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0018
     call Call_000_0a27
     ld a, [$cb30]
@@ -2437,13 +2437,13 @@ Jump_001_506e:
     ld [$c7ad], a
     add $00
     call Call_000_1634
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $18
     ld [$c7a8], a
     ld a, [$c609]
     sbc $00
     ld [$c7a9], a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     ld [$c7a6], a
     ld a, [$c607]
     ld [$c7a7], a
@@ -2453,9 +2453,9 @@ Jump_001_506e:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     xor a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2468,11 +2468,11 @@ Jump_001_506e:
 
 
 Jump_001_513d:
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0004
     call Call_000_0a27
     call Call_000_150b
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fffc
     call Call_000_0a27
     ld a, [$cb30]
@@ -2494,11 +2494,11 @@ Jump_001_513d:
 
 
 jr_001_516c:
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $0008
     call Call_000_0a27
     call Call_000_150b
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -2520,11 +2520,11 @@ jr_001_516c:
 
 
 jr_001_519b:
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $000e
     call Call_000_0a27
     call Call_000_150b
-    ld hl, PlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition
     ld bc, $fff2
     call Call_000_0a27
     ld a, [$cb30]
@@ -2550,13 +2550,13 @@ jr_001_51ca:
     ld [$c7ad], a
     add $00
     call Call_000_1634
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     add $10
     ld [$c7a8], a
     ld a, [$c609]
     adc $00
     ld [$c7a9], a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     ld [$c7a6], a
     ld a, [$c607]
     ld [$c7a7], a
@@ -2566,9 +2566,9 @@ jr_001_51ca:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     xor a
-    ld [GrabbingDog3], a
+    ld [wGrabbingDog3], a
     ld a, [$b8db]
     cp $00
     jp z, Jump_001_4fd6
@@ -2609,7 +2609,7 @@ Call_001_5231:
     or a
     jp nz, Jump_001_4f24
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jp nz, Jump_001_4f31
 
@@ -2832,7 +2832,7 @@ jr_001_5376:
     cp $00
     jr nz, jr_001_53bd
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $08
     cpl
     inc a
@@ -2845,7 +2845,7 @@ jr_001_53bd:
     cp $01
     jr nz, jr_001_53d4
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $08
     and $08
     add $08
@@ -2860,7 +2860,7 @@ jr_001_53d4:
     cp $02
     jr nz, jr_001_53eb
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $08
     and $08
     add $08
@@ -2872,7 +2872,7 @@ jr_001_53d4:
     jr jr_001_53f8
 
 jr_001_53eb:
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $08
     cpl
     inc a
@@ -2948,7 +2948,7 @@ Call_001_547e:
     or a
     ret nz
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -2956,7 +2956,7 @@ Call_001_547e:
     or a
     ret z
 
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -3045,13 +3045,13 @@ jr_001_5502:
     call Call_000_153c
     ld a, $02
     ld [$c80d], a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $60
     ld [$c806], a
     ld a, [$c607]
     sbc $00
     ld [$c807], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld [$c808], a
     ld a, [$c609]
     sbc $00
@@ -3084,13 +3084,13 @@ Jump_001_5546:
     call Call_000_153c
     ld a, $02
     ld [$c80d], a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $60
     ld [$c806], a
     ld a, [$c607]
     sbc $00
     ld [$c807], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld [$c808], a
     ld a, [$c609]
     sbc $00
@@ -3544,7 +3544,7 @@ Jump_001_5834:
 
 
 Call_001_5836:
-    ld a, [GrabbingDog]
+    ld a, [wGrabbingDog]
     or a
     ret z
 
@@ -3875,22 +3875,22 @@ jr_001_5a68:
 
 
 jr_001_5a8e:
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $000a
     call Call_000_0a27
     call Call_001_6839
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff6
     call Call_000_0a27
     ld a, [de]
     cp $0e
     jr z, jr_001_5ac5
 
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $fff6
     call Call_000_0a27
     call Call_001_6839
-    ld hl, CameraXPosition
+    ld hl, wCameraXPosition
     ld bc, $000a
     call Call_000_0a27
     ld a, [de]
@@ -4175,7 +4175,7 @@ Call_001_5cad:
     cp $02
     jr z, jr_001_5cf3
 
-    ld a, [PlayerXPosition]
+    ld a, [wPlayerXPosition]
     add d
     ld b, a
     ld a, [$c78a]
@@ -4229,7 +4229,7 @@ jr_001_5cee:
 
 
 jr_001_5cf3:
-    ld a, [PlayerXPosition]
+    ld a, [wPlayerXPosition]
     add d
     ld b, a
     ld a, [$c78a]
@@ -5427,12 +5427,12 @@ Jump_001_63e7:
 
     db $c9
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $08
     cpl
     inc a
     ld b, a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     and $0f
     jr z, jr_001_64a4
 
@@ -5452,14 +5452,14 @@ jr_001_64a4:
 
     db $c9
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $08
     and $08
     add $08
     cpl
     inc a
     ld c, a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $0f
     sub $08
     bit 7, a
@@ -5478,14 +5478,14 @@ jr_001_64c7:
 
     db $c9
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $08
     and $08
     add $08
     cpl
     inc a
     ld c, a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $0f
     ld b, a
     ld a, $08
@@ -5659,7 +5659,7 @@ Call_001_65c0:
     cp $02
     jr nz, jr_001_65d6
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     cp $e8
     ret nc
 
@@ -5668,7 +5668,7 @@ jr_001_65d6:
     cp $02
     jr nz, jr_001_65e4
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     cp $c0
     jr nc, jr_001_6615
 
@@ -5677,28 +5677,28 @@ jr_001_65e4:
     cp $00
     jr nz, jr_001_65f2
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     cp $48
     jr c, jr_001_6615
 
 jr_001_65f2:
     ld hl, $cb5b
     dec [hl]
-    ld hl, CameraY
+    ld hl, hCameraY
     inc [hl]
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     and $0f
     cp $00
     call z, Call_001_72e8
 
 jr_001_6603:
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
     inc hl
     ld a, l
-    ld [PlayerOrCameraYPosition], a
+    ld [wPlayerOrCameraYPosition], a
     ld a, h
     ld [$c609], a
     ret
@@ -5720,7 +5720,7 @@ Call_001_661c:
     cp $00
     jr nz, jr_001_6632
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     cp $0e
     ret c
 
@@ -5729,7 +5729,7 @@ jr_001_6632:
     cp $02
     jr nz, jr_001_6640
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     cp $c1
     jr nc, jr_001_6671
 
@@ -5738,28 +5738,28 @@ jr_001_6640:
     cp $00
     jr nz, jr_001_664e
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     cp $49
     jr c, jr_001_6671
 
 jr_001_664e:
     ld hl, $cb5b
     inc [hl]
-    ld hl, CameraY
+    ld hl, hCameraY
     dec [hl]
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     and $0f
     cp $0f
     call z, Call_001_7299
 
 jr_001_665f:
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
     dec hl
     ld a, l
-    ld [PlayerOrCameraYPosition], a
+    ld [wPlayerOrCameraYPosition], a
     ld a, h
     ld [$c609], a
     ret
@@ -5781,7 +5781,7 @@ Call_001_6678:
     cp $00
     jr nz, jr_001_668e
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $18
     ret c
 
@@ -5794,7 +5794,7 @@ jr_001_668e:
     cp $03
     jr nz, jr_001_66b2
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $b1
     jr nc, jr_001_66e3
 
@@ -5805,7 +5805,7 @@ jr_001_66a4:
     cp $02
     jr nz, jr_001_66b2
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $c1
     jr nc, jr_001_66e3
 
@@ -5814,35 +5814,35 @@ jr_001_66b2:
     cp $00
     jr nz, jr_001_66c0
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $51
     jr c, jr_001_66e3
 
 jr_001_66c0:
     ld hl, $cb5a
     inc [hl]
-    ld hl, CameraX
+    ld hl, hCameraX
     dec [hl]
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     and $0f
     cp $0f
     call z, Call_001_7337
 
 jr_001_66d1:
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
     dec hl
     ld a, l
-    ld [CameraXPosition], a
+    ld [wCameraXPosition], a
     ld a, h
     ld [$c607], a
     ret
 
 
 jr_001_66e3:
-    ld hl, PlayerXPosition
+    ld hl, wPlayerXPosition
     dec [hl]
     jr jr_001_66d1
 
@@ -5861,7 +5861,7 @@ Call_001_66ea:
     cp $03
     jr nz, jr_001_6706
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $e8
     ret nc
 
@@ -5870,7 +5870,7 @@ jr_001_6706:
     cp $03
     jr nz, jr_001_6731
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $b0
     jr nc, jr_001_6762
 
@@ -5881,7 +5881,7 @@ jr_001_6716:
     cp $02
     jr nz, jr_001_6723
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $f8
     ret nc
 
@@ -5890,7 +5890,7 @@ jr_001_6723:
     cp $02
     jr nz, jr_001_6731
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $c0
     jr nc, jr_001_6762
 
@@ -5899,35 +5899,35 @@ jr_001_6731:
     cp $00
     jr nz, jr_001_673f
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     cp $50
     jr c, jr_001_6762
 
 jr_001_673f:
     ld hl, $cb5a
     dec [hl]
-    ld hl, CameraX
+    ld hl, hCameraX
     inc [hl]
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     and $0f
     cp $00
     call z, Call_001_738c
 
 jr_001_6750:
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
     inc hl
     ld a, l
-    ld [CameraXPosition], a
+    ld [wCameraXPosition], a
     ld a, h
     ld [$c607], a
     ret
 
 
 jr_001_6762:
-    ld hl, PlayerXPosition
+    ld hl, wPlayerXPosition
     inc [hl]
     jr jr_001_6750
 
@@ -5938,12 +5938,12 @@ Call_001_6769:
     cp $00
     jr nz, jr_001_6786
 
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $08
     cpl
     inc a
     ld b, a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     dec a
     and $08
     cpl
@@ -5957,14 +5957,14 @@ jr_001_6786:
     cp $01
     jr nz, jr_001_67b7
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $08
     and $08
     add $08
     cpl
     inc a
     ld c, a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $08
     and $0f
     cp $00
@@ -5996,14 +5996,14 @@ jr_001_67b7:
     cp $02
     jr nz, jr_001_67e8
 
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $08
     and $08
     add $08
     cpl
     inc a
     ld c, a
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $08
     and $0f
     cp $00
@@ -6031,12 +6031,12 @@ jr_001_67e4:
 
 
 jr_001_67e8:
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     and $08
     cpl
     inc a
     ld b, a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $0d
     and $0f
     cp $00
@@ -6147,7 +6147,7 @@ jr_001_6874:
     cp $3e
     jr nz, jr_001_6889
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -6164,7 +6164,7 @@ jr_001_6889:
     cp $3f
     jr nz, jr_001_689e
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -6190,7 +6190,7 @@ jr_001_689e:
     cp $40
     jr nz, jr_001_68c2
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -6214,7 +6214,7 @@ Call_001_68c3:
     or a
     ret z
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jr z, jr_001_68e2
 
@@ -6266,7 +6266,7 @@ Call_001_6920:
     or a
     ret nz
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -6312,7 +6312,7 @@ Call_001_6950:
     ld [$c7ca], a
     ld a, $10
     ld [$c7cb], a
-    call Call_000_2331
+    call MusicRelated
     ld a, $40
     call Call_000_23d8
     ret
@@ -6341,15 +6341,15 @@ Call_001_6985:
 
 
 Call_001_69b2:
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     or a
     ret nz
 
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     or a
     ret nz
 
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -6386,7 +6386,7 @@ Call_001_69f0:
     or a
     ret nz
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -6394,7 +6394,7 @@ Call_001_69f0:
     or a
     ret nz
 
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -6550,7 +6550,7 @@ Call_001_6acb:
     cp $ff
     ret nz
 
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     or a
     ret nz
 
@@ -6569,7 +6569,7 @@ jr_001_6ae9:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb5f], a
     call Call_000_3e2a
     ld a, $06
@@ -6594,12 +6594,12 @@ Call_001_6b16:
 
 jr_001_6b23:
     ld a, $bd
-    ld [PaletteRelated], a
+    ld [wPaletteRelated], a
     ret
 
 
 Call_001_6b29:
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jr nz, jr_001_6b59
 
@@ -6616,14 +6616,14 @@ Call_001_6b29:
     ld a, [$b8e5]
     ld [$c7a9], a
     ld a, $01
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
     ld a, $05
     ld [$c7a1], a
     jr jr_001_6b5d
 
 jr_001_6b59:
     xor a
-    ld [GrabbingDog], a
+    ld [wGrabbingDog], a
 
 jr_001_6b5d:
     ld hl, $6bf5
@@ -6699,9 +6699,9 @@ jr_001_6be4:
 
 jr_001_6bec:
     ld a, $28
-    ldh [CameraX], a
+    ldh [hCameraX], a
     ld a, $88
-    ldh [CameraX], a
+    ldh [hCameraX], a
     ret
 
 
@@ -7457,13 +7457,13 @@ jr_001_7018:
     ld [$c912], a
     ld a, $0d
     call Call_000_15dd
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $58
     ld [$c766], a
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $20
     ld [$c768], a
     ld a, [$c609]
@@ -7485,13 +7485,13 @@ jr_001_705b:
     call Call_000_0fb9
     ld a, $07
     call Call_000_15dd
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $58
     ld [$c766], a
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $20
     ld [$c768], a
     ld a, [$c609]
@@ -7513,13 +7513,13 @@ Jump_001_709b:
     call Call_000_0fb9
     ld a, $11
     call Call_000_15dd
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     sub $58
     ld [$c766], a
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     sub $20
     ld [$c768], a
     ld a, [$c609]
@@ -7663,13 +7663,13 @@ jr_001_7180:
     call Call_000_0fb9
     ld a, $16
     call Call_000_15f6
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     add $08
     ld [$c766], a
     ld a, [$c607]
     adc $00
     ld [$c767], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     add $10
     ld [$c768], a
     ld a, [$c609]
@@ -7688,7 +7688,7 @@ jr_001_7180:
 
 
 Call_001_71d3:
-    ld a, [CameraXPosition]
+    ld a, [wCameraXPosition]
     ld l, a
     ld a, [$c607]
     ld h, a
@@ -7701,10 +7701,10 @@ Call_001_71d3:
     ld a, $10
     call Call_000_06ce
     add $20
-    ldh [CameraX], a
+    ldh [hCameraX], a
     ld a, l
     ldh [$ffa4], a
-    ld a, [PlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -7717,7 +7717,7 @@ Call_001_71d3:
     ld a, $10
     call Call_000_06ce
     add $20
-    ldh [CameraY], a
+    ldh [hCameraY], a
     ld c, l
     ld a, $80
     call Call_000_071e
@@ -8129,7 +8129,7 @@ jr_001_747f:
     ld [$b88d], a
     ld [$cbf6], a
     ld a, $01
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     xor a
     ld [sTimerMinutes], a
     ld a, $01
@@ -8776,7 +8776,7 @@ jr_001_78a7:
     ld [$c911], a
     call Call_001_41e7
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     ret
 
 
@@ -8799,7 +8799,7 @@ jr_001_78c6:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8823,7 +8823,7 @@ Jump_001_78f1:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8847,7 +8847,7 @@ Jump_001_791c:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8874,7 +8874,7 @@ Jump_001_7947:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8889,7 +8889,7 @@ jr_001_7975:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8913,7 +8913,7 @@ Jump_001_798e:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8935,7 +8935,7 @@ Jump_001_79b9:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8957,7 +8957,7 @@ Jump_001_79e2:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -8979,7 +8979,7 @@ Jump_001_7a0b:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9001,7 +9001,7 @@ Jump_001_7a34:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9023,7 +9023,7 @@ Jump_001_7a5d:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9045,7 +9045,7 @@ Jump_001_7a86:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9080,7 +9080,7 @@ jr_001_7ad1:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9109,7 +9109,7 @@ Jump_001_7af7:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9131,7 +9131,7 @@ Jump_001_7b20:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 
@@ -9153,7 +9153,7 @@ Jump_001_7b49:
     ld a, $ff
     ld [$c80c], a
     xor a
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     call Call_000_3e54
     ret
 

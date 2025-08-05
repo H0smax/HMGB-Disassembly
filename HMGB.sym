@@ -3,8 +3,11 @@
 00:0151 Start_
 
 ; To be confirmed
-00:2059 CopyDMA
-;00:2060 .loop
+00:2059 DMARelated
+00:2067 DMARelated2
+
+; To be confirmed
+00:2331 MusicRelated
 
 00:02E4 VBlankInterruptHandler
 00:0280 UD2
@@ -47,17 +50,17 @@
 00:CBE1 wCurrentMinutes
 
 ; To be confirmed, data block?
-00:C0A3 PaletteRelated
+00:C0A3 wPaletteRelated
 
 ; Inside house or at shops
-00:CB81 OutsideFarm
-00:CB56 TimePaused
+00:CB81 wOutsideFarm
+00:CB56 wTimePaused
 
 00:03F9 CheckTime
 
 ; To be confirmed
-00:CB4E TransitionRelated
-00:CB4F TransitionRelated2
+00:CB4E wTransitionRelated
+00:CB4F wTransitionRelated2
 
 ; To be confirmed
 00:0403 NextTimerSecond
@@ -109,21 +112,21 @@
 
 
 ; To be confirmed, pet related (dog)
-00:C7A0 GrabbingDog
-00:CB60 GrabbingDog2
-00:CB8B GrabbingDog3
+00:C7A0 wGrabbingDog
+00:CB60 wGrabbingDog2
+00:CB8B wGrabbingDog3
 
-00:C60A PlayerXPosition
-00:C606 CameraXPosition
+00:C60A wPlayerXPosition
+00:C606 wCameraXPosition
 
 ; To be confirmed
-00:C608 PlayerOrCameraYPosition
+00:C608 wPlayerOrCameraYPosition
 
 
-00:FF91 CameraY
-00:FF93 CameraX
-00:FF95 WindowY
-00:FF96 WindowX
+00:FF91 hCameraY
+00:FF93 hCameraX
+00:FF95 hWindowY
+00:FF96 hWindowX
 
 ; To be confirmed
 00:C622 wCurrentTool

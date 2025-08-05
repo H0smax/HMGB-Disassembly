@@ -1,18 +1,18 @@
 SECTION "WRAM", WRAM0
-PlayerOrCameraYPosition: db
-TransitionRelated: db
-OutsideFarm: db
-TimePaused: db
-PlayerXPosition: db
-GrabbingDog: db
-GrabbingDog2: db
-GrabbingDog3: db
-PaletteRelated: db
+wPlayerOrCameraYPosition: db
+wTransitionRelated: db
+wOutsideFarm: db
+wTimePaused: db
+wPlayerXPosition: db
+wGrabbingDog: db
+wGrabbingDog2: db
+wGrabbingDog3: db
+wPaletteRelated: db
 wActivateTransitionBetweenMaps: db
-CameraXPosition: db
-CameraYPosition: db
+wCameraXPosition: db
+wCameraYPosition: db
 wNextMapIndex: db
-TransitionRelated2: db
+wTransitionRelated2: db
 wMapIndex: db
 wCurrentMoneyL: db
 wCurrentMoneyM: db
@@ -33,7 +33,7 @@ sCurrentMoneyH: db
 sCurrentTool2: db
 
 SECTION "HRAM", HRAM
-WindowX: db
-WindowY: db
-CameraX: db
-CameraY: db
+hWindowX: db
+hWindowY: db
+hCameraX: db
+hCameraY: db

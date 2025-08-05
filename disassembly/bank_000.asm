@@ -183,14 +183,14 @@ Start_::
     ld hl, $dd00
     ld bc, $00ff
     call ClearMem
-    call CopyDMA
+    call DMARelated
     xor a
     ldh [rBGP], a
     xor a
     ldh [rOBP0], a
     xor a
     ldh [rOBP1], a
-    call Call_000_2331
+    call MusicRelated
     ld a, $02
     ldh [$ff8d], a
     call Call_000_2071
@@ -238,7 +238,7 @@ Jump_000_01ad:
     ld hl, $c000
     ld bc, $1cff
     call ClearMem
-    call CopyDMA
+    call DMARelated
     xor a
     ld [$4000], a
     ld a, $20
@@ -492,16 +492,16 @@ JumpTable_2::
     db $70, $1d, $64, $41, $02, $ba, $74, $1d, $c9
 
 CheckTime::
-    ld a, [OutsideFarm]
+    ld a, [wOutsideFarm]
     or a
     ret nz
 
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     or a
     ret nz
 
 NextTimerSecond::
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -610,7 +610,7 @@ Call_000_0491:
     ld [$b918], a
     ld a, [hl+]
     ld [$b919], a
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -681,7 +681,7 @@ Call_000_054a:
     ld h, a
     ld a, [hl]
     ld [$b91a], a
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret nz
 
@@ -905,13 +905,13 @@ jr_000_0729:
 
 
 SetCameraAndWindow::
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     ldh [rSCY], a
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     ldh [rSCX], a
-    ldh a, [WindowY]
+    ldh a, [hWindowY]
     ldh [rWY], a
-    ldh a, [WindowX]
+    ldh a, [hWindowX]
     ldh [rWX], a
     ret
 
@@ -943,7 +943,7 @@ Call_000_0743:
 
 
 SetCurrentPalettes::
-    ld hl, PaletteRelated
+    ld hl, wPaletteRelated
     ld a, [hl+]
     ldh [rBGP], a
     ld a, [hl+]
@@ -1244,7 +1244,7 @@ Call_000_0b02:
     ld [$c910], a
     ld [$c90f], a
     ld [$c911], a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb57], a
     ld [$b88c], a
     ld a, $ff
@@ -1273,7 +1273,7 @@ Call_000_0b02:
 Call_000_0bb8:
     ld a, [$dd00]
     ld b, a
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     or a
     ret z
 
@@ -1284,7 +1284,7 @@ Call_000_0bb8:
     jr nz, jr_000_0bce
 
     ld a, $0d
-    ld [TransitionRelated], a
+    ld [wTransitionRelated], a
 
 jr_000_0bce:
     ld a, [wMapIndex]
@@ -1301,32 +1301,32 @@ jr_000_0bce:
 
 jr_000_0be3:
     ld hl, $0b9a
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, PaletteRelated
+    ld hl, wPaletteRelated
     ld [hl], a
     jr jr_000_0c07
 
 jr_000_0bf6:
     ld hl, $0b40
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, PaletteRelated
+    ld hl, wPaletteRelated
     ld [hl], a
 
 jr_000_0c07:
     ld hl, $0b5e
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     add l
     ld l, a
     ld a, $00
@@ -1336,7 +1336,7 @@ jr_000_0c07:
     ld hl, $c0a4
     ld [hl], a
     ld hl, $0b7c
-    ld a, [TransitionRelated]
+    ld a, [wTransitionRelated]
     add l
     ld l, a
     ld a, $00
@@ -1345,7 +1345,7 @@ jr_000_0c07:
     ld a, [hl]
     ld hl, $c0a5
     ld [hl], a
-    ld hl, TransitionRelated
+    ld hl, wTransitionRelated
     dec [hl]
     ret
 
@@ -1365,7 +1365,7 @@ jr_000_0c07:
 Call_000_0ca6:
     ld a, [$dd00]
     ld b, a
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     or a
     ret z
 
@@ -1376,7 +1376,7 @@ Call_000_0ca6:
     jr nz, jr_000_0cbc
 
     ld a, $07
-    ld [TransitionRelated2], a
+    ld [wTransitionRelated2], a
 
 jr_000_0cbc:
     cp $01
@@ -1403,32 +1403,32 @@ jr_000_0ccb:
 
 jr_000_0ce0:
     ld hl, $0c88
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, PaletteRelated
+    ld hl, wPaletteRelated
     ld [hl], a
     jr jr_000_0d04
 
 jr_000_0cf3:
     ld hl, $0c2e
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     add l
     ld l, a
     ld a, $00
     adc h
     ld h, a
     ld a, [hl]
-    ld hl, PaletteRelated
+    ld hl, wPaletteRelated
     ld [hl], a
 
 jr_000_0d04:
     ld hl, $0c4c
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     add l
     ld l, a
     ld a, $00
@@ -1438,7 +1438,7 @@ jr_000_0d04:
     ld hl, $c0a4
     ld [hl], a
     ld hl, $0c6a
-    ld a, [TransitionRelated2]
+    ld a, [wTransitionRelated2]
     add l
     ld l, a
     ld a, $00
@@ -1447,7 +1447,7 @@ jr_000_0d04:
     ld a, [hl]
     ld hl, $c0a5
     ld [hl], a
-    ld hl, TransitionRelated2
+    ld hl, wTransitionRelated2
     dec [hl]
     ret
 
@@ -1525,7 +1525,7 @@ NewGame::
     ld [$cb5f], a
     call Call_000_134b
     ld a, $01
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     ld [$c910], a
     ld a, $06
     ld [sCurrentHour], a
@@ -1625,7 +1625,7 @@ Call_000_0e5a:
     ld [$c910], a
     ld [$c90f], a
     ld [$c911], a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb57], a
     ld a, $ff
     ld [$cb52], a
@@ -1636,7 +1636,7 @@ Call_000_0e5a:
     ld [$cb55], a
     ld [$cb5f], a
     ld a, $01
-    ld [OutsideFarm], a
+    ld [wOutsideFarm], a
     ld a, [sCurrentDay]
     cp $ff
     ret nz
@@ -1750,7 +1750,7 @@ Call_000_0f37:
 
 
 Call_000_0f40:
-    call Call_000_2331
+    call MusicRelated
     ld a, [sCurrentWeather]
     cp $01
     jr z, jr_000_0f75
@@ -3025,7 +3025,7 @@ Call_000_1925:
     or a
     ret nz
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     ret nz
 
@@ -3059,11 +3059,11 @@ jr_000_194c:
 
 
 Call_000_1960:
-    ld a, [PlayerXPosition]
+    ld a, [wPlayerXPosition]
     add b
     ld l, a
     ld h, $00
-    ldh a, [CameraX]
+    ldh a, [hCameraX]
     ld e, a
     ldh a, [$ff94]
     ld d, a
@@ -3077,7 +3077,7 @@ Call_000_1960:
     add c
     ld l, a
     ld h, $00
-    ldh a, [CameraY]
+    ldh a, [hCameraY]
     ld e, a
     ldh a, [$ff92]
     ld d, a
@@ -3125,11 +3125,11 @@ Call_000_19ac:
 
     xor a
     ld [$cb89], a
-    ld a, [GrabbingDog]
+    ld a, [wGrabbingDog]
     or a
     ret z
 
-    ld a, [PlayerXPosition]
+    ld a, [wPlayerXPosition]
     add d
     ld b, a
     ld a, [$c7aa]
@@ -3847,10 +3847,10 @@ jr_000_2046:
     ret
 
 
-CopyDMA::
+DMARelated::
     ld c, $80
     ld b, $0a
-    ld hl, $2067
+    ld hl, DMARelated2
 
 jr_000_2060:
     ld a, [hl+]
@@ -3862,6 +3862,7 @@ jr_000_2060:
     ret
 
 
+DMARelated2::
     ld a, $c0
     ldh [rDMA], a
     ld a, $28
@@ -4146,7 +4147,7 @@ jr_000_21b6:
     pop de
     ld a, [$4000]
     ld b, a
-    ld a, [GrabbingDog2]
+    ld a, [wGrabbingDog2]
     add $18
     ld [$2100], a
     ld c, $10
@@ -4333,7 +4334,7 @@ jr_000_2318:
 
     db $c9
 
-Call_000_2331:
+MusicRelated::
     ld bc, $0000
     call Call_000_2373
     ld a, $80
@@ -6076,7 +6077,7 @@ jr_000_2dc4:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2], a
+    ld [wGrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -6128,7 +6129,7 @@ Jump_000_2e0c:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2], a
+    ld [wGrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -6190,7 +6191,7 @@ jr_000_2e62:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2], a
+    ld [wGrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -6242,7 +6243,7 @@ Jump_000_2eac:
     ld a, [hl+]
     ld [$cb61], a
     ld a, [hl+]
-    ld [GrabbingDog2], a
+    ld [wGrabbingDog2], a
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -6985,7 +6986,7 @@ jr_000_375c:
 
 
 Jump_000_3762:
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     or a
     ret z
 
@@ -7570,7 +7571,7 @@ Call_000_3b69:
 jr_000_3b92:
     call Call_000_3ed0
     xor a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb57], a
     call Call_000_3e2a
     ld a, $01
@@ -7603,7 +7604,7 @@ jr_000_3b92:
 jr_000_3bd7:
     call Call_000_3ed0
     xor a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb57], a
     call Call_000_3e2a
     ld a, $50
@@ -7662,7 +7663,7 @@ jr_000_3c2c:
 
 
 jr_000_3c3c:
-    ld a, [TimePaused]
+    ld a, [wTimePaused]
     cp $00
     jr z, jr_000_3ca0
 
@@ -7676,7 +7677,7 @@ jr_000_3c3c:
 
     call Call_000_3e2a
     ld a, $01
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld a, $01
     ld [$cb52], a
     ld [$cb57], a
@@ -7697,7 +7698,7 @@ jr_000_3c66:
     ld a, $01
     ld [$cbf6], a
     xor a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cbeb], a
     ld [$cb78], a
     ld [$cb5f], a
@@ -7739,7 +7740,7 @@ jr_000_3ca0:
     ld a, $03
     ld [$c912], a
     ld a, $01
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ret
 
 
@@ -7764,7 +7765,7 @@ Call_000_3cce:
     or a
     jr nz, jr_000_3d06
 
-    ld a, [GrabbingDog3]
+    ld a, [wGrabbingDog3]
     or a
     jr nz, jr_000_3d06
 
@@ -7966,9 +7967,9 @@ jr_000_3e2a:
 Call_000_3e39:
     call Call_000_393d
     ld a, $07
-    ldh [WindowX], a
+    ldh [hWindowX], a
     ld a, $68
-    ldh [WindowY], a
+    ldh [hWindowY], a
     call Call_000_0d2b
     ld a, $e3
     ld [$c0a2], a
@@ -7986,7 +7987,7 @@ Call_000_3e54:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb5f], a
     ld a, [$b906]
     or a
@@ -8010,7 +8011,7 @@ Call_000_3e80:
     ld a, b
     ld [$cb52], a
     ld a, $01
-    ld [TimePaused], a
+    ld [wTimePaused], a
     ld [$cb5f], a
     ld [$cc1b], a
     call Call_000_3e39
