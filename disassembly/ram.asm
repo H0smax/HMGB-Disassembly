@@ -37,3 +37,9 @@ hWindowX: db
 hWindowY: db
 hCameraX: db
 hCameraY: db
+hMapLimitL: db
+hMapLimitH: db
+hMapSizeL: db
+hMapSizeH: db
+hMapTilesRelatedL: db
+hMapTilesRelatedH: db

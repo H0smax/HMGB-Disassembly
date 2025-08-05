@@ -1408,7 +1408,7 @@ jr_002_56d1:
 
     ld a, [$c90f]
     or a
-    jr z, jr_002_56fa
+    jr z, GoToFarmFromHouse
 
     ld a, $1b
     ld [wNextMapIndex], a
@@ -1420,7 +1420,7 @@ jr_002_56d1:
     ret
 
 
-jr_002_56fa:
+GoToFarmFromHouse::
     ld a, $01
     ld [wNextMapIndex], a
     ld a, $1d

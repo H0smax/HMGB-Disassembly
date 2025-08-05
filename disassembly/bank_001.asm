@@ -249,7 +249,7 @@ Call_001_41e7:
     ld a, [$c911]
     dec a
     ld [$c911], a
-    jr z, jr_001_425e
+    jr z, GoToHouse
 
     cp $13
     jr nc, jr_001_4200
@@ -316,7 +316,7 @@ jr_001_4200:
     ret
 
 
-jr_001_425e:
+GoToHouse::
     ld a, [$c90f]
     ld b, a
     ld a, [wMapIndex]

@@ -6275,17 +6275,17 @@ Call_000_2f41:
     ld a, c
     ld [$2100], a
     ld a, d
-    ldh [$ffb9], a
+    ldh [hMapTilesRelatedH], a
     ld a, e
-    ldh [$ffb8], a
+    ldh [hMapTilesRelatedL], a
     ld a, [hl+]
-    ldh [$ffba], a
+    ldh [hMapSizeL], a
     add e
-    ldh [$ffbc], a
+    ldh [hMapLimitL], a
     ld a, [hl+]
-    ldh [$ffbb], a
+    ldh [hMapSizeH], a
     adc d
-    ldh [$ffbd], a
+    ldh [hMapLimitH], a
     ld c, $00
 
 jr_000_2f5d:
@@ -6333,13 +6333,13 @@ jr_000_2f70:
     ld a, d
     sbc b
     ld b, a
-    ldh a, [$ffb9]
+    ldh a, [hMapTilesRelatedH]
     cp b
     jr c, jr_000_2fb9
 
     jr nz, jr_000_2fa0
 
-    ldh a, [$ffb8]
+    ldh a, [hMapTilesRelatedL]
     cp c
     jr c, jr_000_2fb9
 
@@ -6363,11 +6363,11 @@ jr_000_2fa9:
     dec b
     jr nz, jr_000_2fa9
 
-    ld hl, $ffb8
+    ld hl, hMapTilesRelatedL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
-    jr jr_000_2fbe
+    jr TileLoadRelated
 
 jr_000_2fb9:
     ld h, b
@@ -6375,18 +6375,18 @@ jr_000_2fb9:
     ldh a, [$ffbe]
     ld c, a
 
-jr_000_2fbe:
+TileLoadRelated::
     ld a, [hl+]
     ld [de], a
     inc de
     dec c
-    jr nz, jr_000_2fbe
+    jr nz, TileLoadRelated
 
 jr_000_2fc4:
     pop hl
 
 jr_000_2fc5:
-    ldh a, [$ffbd]
+    ldh a, [hMapLimitH]
     ld b, a
     ld a, d
     cp b
@@ -6394,7 +6394,7 @@ jr_000_2fc5:
 
     jr nz, jr_000_2fd8
 
-    ldh a, [$ffbc]
+    ldh a, [hMapLimitL]
     ld c, a
     ld a, e
     cp c

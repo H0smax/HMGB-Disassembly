@@ -21,7 +21,8 @@
 00:037E .data:2
 
 
-
+; To be confirmed
+00:2FBE TileLoadRelated
 
 ; To be confirmed
 00:0D6A NewGame
@@ -31,7 +32,6 @@
 00:075A SetCurrentPalettes
 
 
-; TODO: Check bank?
 ; To be confirmed, not related to real seconds and minutes
 00:B880 sTimerSeconds
 00:B881 sTimerMinutes
@@ -129,6 +129,14 @@
 00:FF96 hWindowX
 
 ; To be confirmed
+00:FFB8 hMapTilesRelatedL
+00:FFB9 hMapTilesRelatedH
+00:FFBA hMapSizeL
+00:FFBB hMapSizeH
+00:FFBC hMapLimitL
+00:FFBD hMapLimitH
+
+; To be confirmed
 00:C622 wCurrentTool
 00:B93C sCurrentTool2
 
@@ -147,6 +155,12 @@
 01:6D42 UF
 
 ;02:478F NewWindDay
+
+; To be confirmed
+01:425E GoToHouse
+02:56FA GoToFarmFromHouse
+09:42F6 GoToFarmFromOutside
+05:43BD GoToFarmFromToolRoom
 
 11:4000 DialogueCharacters
 11:4000 .image:1000:w128,pe4
@@ -420,7 +434,7 @@
 04:7B59 .data:4A7
 
 05:4000 .data:1
-05:40B8 .data:3FB
+;05:40B8 .data:3FB
 05:44C1 .data:64
 05:4567 .data:20
 05:4587 .data:20
@@ -441,6 +455,8 @@
 05:7AB1 .data:8A
 05:7B3B .data:4C5
 
+
+; Uncomment to compile
 06:4000 .data:4000
 07:4000 .data:4000
 08:4000 .data:4000
