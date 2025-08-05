@@ -157,10 +157,14 @@
 ;02:478F NewWindDay
 
 ; To be confirmed
-01:425E GoToHouse
+01:425E GoToInterior
 02:56FA GoToFarmFromHouse
 09:42F6 GoToFarmFromOutside
 05:43BD GoToFarmFromToolRoom
+04:46A4 GoToFarmFromChickens
+03:562E GoToFarmFromCows
+09:428A GoToShop
+09:4C56 GoToTown
 
 11:4000 DialogueCharacters
 11:4000 .image:1000:w128,pe4

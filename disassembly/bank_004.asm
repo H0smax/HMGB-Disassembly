@@ -263,8 +263,11 @@ Call_004_427c:
     db $18, $f5, $c9, $fa, $4a, $cb, $b7, $c0, $fa, $11, $c9, $b7, $c8, $3d, $ea, $11
     db $c9, $fe, $00, $28, $02, $e1, $c9, $fa, $4a, $cc, $fe, $ff, $28, $16, $21, $84
     db $6e, $cd, $43, $07, $7e, $fe, $ff, $20, $0b, $fa, $4b, $cc, $77, $af, $ea, $4a
-    db $cb, $ea, $20, $c6, $cd, $8c, $6e, $3e, $01, $ea, $50, $cb, $3e, $1d, $ea, $4f
-    db $cb, $3e, $02, $ea, $10, $c9, $c9
+    db $cb, $ea, $20, $c6
+
+GoToFarmFromChickens::
+    db $cd, $8c, $6e, $3e, $01, $ea, $50, $cb, $3e, $1d, $ea, $4f, $cb, $3e, $02, $ea
+    db $10, $c9, $c9
 
 Call_004_46b7:
     ld hl, $9c00
