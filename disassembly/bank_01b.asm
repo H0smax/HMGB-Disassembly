@@ -423,8 +423,8 @@ jr_01b_41f4:
     ld [$cd94], a
     xor a
     ld [$cd92], a
-    ld [$cd95], a
-    ld [$cd96], a
+    ld [wBuyPriceL], a
+    ld [wBuyPriceH], a
     ret
 
 
@@ -490,15 +490,15 @@ jr_01b_4255:
     ld e, a
     ld a, [$cd94]
     ld d, a
-    ld hl, $cd95
+    ld hl, wBuyPriceL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
     add hl, de
     ld a, l
-    ld [$cd95], a
+    ld [wBuyPriceL], a
     ld a, h
-    ld [$cd96], a
+    ld [wBuyPriceH], a
     ld a, $48
     call Call_000_23d8
     pop hl
@@ -521,7 +521,7 @@ jr_01b_4284:
     ld e, a
     ld a, [$cd94]
     ld d, a
-    ld hl, $cd95
+    ld hl, wBuyPriceL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -532,9 +532,9 @@ jr_01b_4284:
     sbc d
     ld h, a
     ld a, l
-    ld [$cd95], a
+    ld [wBuyPriceL], a
     ld a, h
-    ld [$cd96], a
+    ld [wBuyPriceH], a
     ld a, $48
     call Call_000_23d8
     pop hl
@@ -591,7 +591,7 @@ Call_01b_42e0:
 
 
 Call_01b_42f9:
-    ld hl, $cd95
+    ld hl, wBuyPriceL
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -727,9 +727,10 @@ jr_01b_43a1:
     ret
 
 
-    ld a, [$cd95]
+TryToBuyItem::
+    ld a, [wBuyPriceL]
     ld e, a
-    ld a, [$cd96]
+    ld a, [wBuyPriceH]
     ld d, a
     call CompareMoney
     jr nc, jr_01b_43c5

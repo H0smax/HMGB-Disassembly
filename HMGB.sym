@@ -45,6 +45,8 @@
 ; To be confirmed
 00:2331 MusicRelated
 
+00:23D5 DialogRelated
+
 ; To be confirmed
 00:2FBE TileLoadRelated
 
@@ -75,6 +77,8 @@
 ;11:4000 .image:1000:w128,pe4
 
 1B:46A8 CompareMoney
+1B:43AD TryToBuyItem
+1B:43C5 BuyItem
 1B:46B5 DiscountMoney
 
 ; To be confirmed
@@ -148,6 +152,9 @@
 00:CCCA wCurrentMoneyL
 00:CCCB wCurrentMoneyM
 00:CCCC wCurrentMoneyH
+
+00:CD95 wBuyPriceL
+00:CD96 wBuyPriceH
 
 00:FF91 hCameraY
 00:FF93 hCameraX
