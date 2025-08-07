@@ -240,7 +240,7 @@ jr_001_41ae:
 
 
 Call_001_41e7:
-    ld a, [$c90f]
+    ld a, [MapOffset]
     or a
     ret z
 
@@ -260,7 +260,7 @@ Call_001_41e7:
 
 jr_001_4200:
     call Call_001_661c
-    ld a, [$c90f]
+    ld a, [MapOffset]
     cp $05
     jr z, MoveToAnimalShop
 
@@ -317,7 +317,7 @@ jr_001_4200:
 
 
 GoToInterior::
-    ld a, [$c90f]
+    ld a, [MapOffset]
     ld b, a
     ld a, [wMapIndex]
     add b
@@ -341,7 +341,7 @@ MoveToAnimalShop::
     ld a, $1d
     ld [wTransitionRelated2], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld [$c911], a
     ld [$c910], a
     xor a
@@ -357,7 +357,7 @@ MoveToHouse2::
     ld a, $1d
     ld [wTransitionRelated2], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld [$c911], a
     ld a, $01
     ld [$c910], a
@@ -398,7 +398,7 @@ Jump_001_42e5:
     ld a, $1c
     ld [wNextMapIndex], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld [$c911], a
     ld a, $05
     ld [$c910], a
@@ -417,7 +417,7 @@ Jump_001_4304:
     ld a, $1d
     ld [wTransitionRelated2], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld [$c911], a
     ld [$c910], a
     xor a
@@ -448,7 +448,7 @@ Jump_001_434a:
     ld a, $1d
     ld [wTransitionRelated2], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld [$c911], a
     ld [$c910], a
     xor a
@@ -473,7 +473,7 @@ Jump_001_4381:
     ld a, $1d
     ld [wTransitionRelated2], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld [$c911], a
     ld [$c910], a
     xor a
@@ -6205,7 +6205,7 @@ jr_001_68c2:
 
 Call_001_68c3:
     ld a, $01
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     xor a
@@ -6237,7 +6237,7 @@ jr_001_68e2:
 
 Call_001_68fb:
     ld a, $02
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     ret
@@ -6245,7 +6245,7 @@ Call_001_68fb:
 
 Call_001_6906:
     ld a, $03
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     ret
@@ -6253,7 +6253,7 @@ Call_001_6906:
 
 Call_001_6911:
     ld a, $04
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     xor a
@@ -6284,7 +6284,7 @@ Call_001_6920:
     ret nz
 
     ld a, $05
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     xor a
@@ -6573,7 +6573,7 @@ jr_001_6ae9:
     ld [$cb5f], a
     call Call_000_3e2a
     ld a, $06
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     ld a, $01
@@ -6764,23 +6764,113 @@ Call_001_6cc4:
 
 Call_001_6cd0:
     ld hl, $9c00
-    ld de, UD
+    ld de, $6cde
     ld b, $14
     ld c, $05
     call Call_000_0767
     ret
 
 
-UD::
-    db $a0, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1, $a1
-    db $a1, $a1, $a1, $a2, $f9, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8
-    db $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a5, $f9, $a8, $a8, $a8, $a8, $a8, $a8, $a8
-    db $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a5, $f9, $a8, $a8, $a8
-    db $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a8, $a5
-    db $a3, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b, $5b
-    db $5b, $5b, $5b, $a4
-
-UF::
+    and b
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and c
+    and d
+    ld sp, hl
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    and l
+    ld sp, hl
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    and l
+    ld sp, hl
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    xor b
+    and l
+    and e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    ld e, e
+    and h
     ld a, [$cb14]
     or a
     jr nz, jr_001_6d67
@@ -8771,7 +8861,7 @@ jr_001_78a7:
     xor a
     ld [$b88c], a
     ld a, $07
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $20
     ld [$c911], a
     call Call_001_41e7

@@ -4,7 +4,6 @@
 ; https://github.com/mattcurrie/mgbdis
 
 INCLUDE "hardware.inc"
-INCLUDE "ram.asm"
 INCLUDE "bank_000.asm"
 INCLUDE "bank_001.asm"
 INCLUDE "bank_002.asm"

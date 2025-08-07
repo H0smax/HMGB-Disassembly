@@ -446,7 +446,7 @@ jr_002_5114:
     ld a, $18
     ld [$c911], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $01
     ld [$c912], a
     ret
@@ -462,7 +462,7 @@ jr_002_5134:
     ld a, $18
     ld [$c911], a
     ld a, $03
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, $01
     ld [$c912], a
     ret
@@ -1170,7 +1170,7 @@ jr_002_55a4:
     ld a, $18
     ld [$c911], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ld a, [wGrabbingDog3]
     or a
     ret z
@@ -1395,18 +1395,18 @@ Call_002_56c2:
 
 
 jr_002_56d1:
-    ld a, [$c90f]
+    ld a, [MapOffset]
     cp $02
     jr z, jr_002_570f
 
-    ld a, [$c90f]
+    ld a, [MapOffset]
     cp $03
     jr z, jr_002_572e
 
     cp $ff
     jr z, jr_002_5743
 
-    ld a, [$c90f]
+    ld a, [MapOffset]
     or a
     jr z, GoToFarmFromHouse
 
@@ -1555,7 +1555,7 @@ jr_002_57c0:
     ld a, $01
     ld [$c911], a
     ld a, $01
-    ld [$c90f], a
+    ld [MapOffset], a
     call Call_000_0f81
     ret
 

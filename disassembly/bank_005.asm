@@ -527,7 +527,7 @@ Jump_005_4328:
     ld a, [$cb51]
     ld [$cbe8], a
     xor a
-    ld [$c90f], a
+    ld [MapOffset], a
     ret
 
 
@@ -561,7 +561,7 @@ Call_005_433d:
     ld a, $02
     ld [$c910], a
     ld a, $01
-    ld [$c90f], a
+    ld [MapOffset], a
     ret
 
 
@@ -606,7 +606,7 @@ Call_005_43a4:
     or a
     ret z
 
-    ld a, [$c90f]
+    ld a, [MapOffset]
     cp $00
     jr nz, jr_005_43d3
 

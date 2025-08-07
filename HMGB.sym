@@ -4,7 +4,6 @@
 00:02E4 VBlankInterruptHandler
 00:0280 UD2
 00:0280 .data:64
-00:3222 LCDCInterruptHandler
 00:037A JumpTable_0
 00:037A .data:2
 00:037C JumpTable_1
@@ -14,7 +13,7 @@
 00:03F9 CheckTime
 
 ; To be confirmed
-00:0403 NextTimerSecond
+;00:0403 NextTimerSecond
 00:0414 NextTimerMinute
 00:0432 NextHour
 00:0448 NextDay
@@ -49,6 +48,7 @@
 ; To be confirmed
 00:2FBE TileLoadRelated
 
+00:3222 LCDCInterruptHandler
 00:330A TimerOverflowInterruptHandler
 00:3319 SerialTransferCompleteInterruptHandler
 
@@ -71,8 +71,11 @@
 09:42F6 GoToFarmFromOutside
 09:4C56 GoToTown
 
-11:4000 DialogueCharacters
-11:4000 .image:1000:w128,pe4
+;11:4000 DialogueCharacters
+;11:4000 .image:1000:w128,pe4
+
+1B:46A8 CompareMoney
+1B:46B5 DiscountMoney
 
 ; To be confirmed
 1D:5401 MoveToFarm
@@ -91,7 +94,6 @@
 00:B88B sDayRelated
 
 00:B8A0 sCurrentWeather
-
 
 00:B8EF sCurrentMoneyL
 00:B8F0 sCurrentMoneyM
@@ -119,6 +121,9 @@
 
 ; To be confirmed, pet related (dog)
 00:C7A0 wGrabbingDog
+
+; To be confirmed
+00:C90F MapOffset
 
 00:CBDD wCurrentYear
 00:CBDE wCurrentSeason
@@ -446,32 +451,32 @@
 
 
 ; Uncomment to compile
-06:4000 .data:4000
-07:4000 .data:4000
-08:4000 .data:4000
-09:4000 .data:4000
-0A:4000 .data:4000
-0B:4000 .data:4000
-0C:4000 .data:4000
-0D:4000 .data:4000
-0E:4000 .data:4000
-0F:4000 .data:4000
-10:4000 .data:4000
-11:4000 .data:4000
-12:4000 .data:4000
-13:4000 .data:4000
-14:4000 .data:4000
-15:4000 .data:4000
-16:4000 .data:4000
-17:4000 .data:4000
-18:4000 .data:4000
-19:4000 .data:4000
-1A:4000 .data:4000
-1B:4000 .data:4000
-1C:4000 .data:4000
-1D:4000 .data:4000
-1E:4000 .data:4000
-1F:4000 .data:4000
+;06:4000 .data:4000
+;07:4000 .data:4000
+;08:4000 .data:4000
+;09:4000 .data:4000
+;0A:4000 .data:4000
+;0B:4000 .data:4000
+;0C:4000 .data:4000
+;0D:4000 .data:4000
+;0E:4000 .data:4000
+;0F:4000 .data:4000
+;10:4000 .data:4000
+;11:4000 .data:4000
+;12:4000 .data:4000
+;13:4000 .data:4000
+;14:4000 .data:4000
+;15:4000 .data:4000
+;16:4000 .data:4000
+;17:4000 .data:4000
+;18:4000 .data:4000
+;19:4000 .data:4000
+;1A:4000 .data:4000
+;1B:4000 .data:4000
+;1C:4000 .data:4000
+;1D:4000 .data:4000
+;1E:4000 .data:4000
+;1F:4000 .data:4000
 
 ;1F:4000 .data:4F0
 ;1F:44F0 .data:306
