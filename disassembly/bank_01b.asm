@@ -335,7 +335,7 @@ jr_01b_4188:
 
 jr_01b_4199:
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [$cd98]
     add a
     add l
@@ -351,7 +351,7 @@ jr_01b_4199:
 
 jr_01b_41ac:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     ld a, [hl+]
@@ -458,7 +458,7 @@ jr_01b_423b:
     jr z, jr_01b_424a
 
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -467,7 +467,7 @@ jr_01b_423b:
 
 jr_01b_424a:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     ld a, [hl+]
@@ -698,6 +698,8 @@ jr_01b_4343:
     nop
     xor $00
     add b
+
+TryToBuyFixedItem::
     ld h, b
     ld l, c
     ld a, [hl+]
@@ -706,37 +708,37 @@ jr_01b_4343:
     ld d, a
     push hl
     call CompareMoney
-    jr nc, jr_01b_43a1
+    jr nc, BuyFixedItem
 
     pop hl
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [hl+]
     ld h, [hl]
     ld l, a
     ret
 
 
-jr_01b_43a1:
+BuyFixedItem::
     call DiscountMoney
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     inc hl
     inc hl
     ret
 
 
-TryToBuyItem::
+TryToBuyVariableItem::
     ld a, [wBuyPriceL]
     ld e, a
     ld a, [wBuyPriceH]
     ld d, a
     call CompareMoney
-    jr nc, jr_01b_43c5
+    jr nc, BuyVariableItem
 
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld h, b
     ld l, c
     ld a, [hl+]
@@ -745,10 +747,10 @@ TryToBuyItem::
     ret
 
 
-jr_01b_43c5:
+BuyVariableItem::
     call DiscountMoney
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld h, b
     ld l, c
     inc hl
@@ -978,7 +980,7 @@ jr_01b_44a5:
 
 jr_01b_44b8:
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [$cd98]
     add a
     add l
@@ -994,7 +996,7 @@ jr_01b_44b8:
 
 jr_01b_44cb:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     inc hl
@@ -1055,7 +1057,7 @@ jr_01b_4515:
 
 jr_01b_4518:
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     inc hl
@@ -1695,7 +1697,7 @@ jr_01b_47c1:
 
 jr_01b_47c7:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     ret

@@ -3161,7 +3161,7 @@ Jump_010_4ff7:
     jr nz, jr_010_502d
 
     ld a, $44
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     jr jr_010_502d
 
 jr_010_5028:

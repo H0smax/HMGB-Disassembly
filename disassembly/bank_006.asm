@@ -3767,7 +3767,7 @@ jr_006_5060:
 jr_006_5068:
     push hl
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     ld a, [$cd6c]
     add a
@@ -3785,7 +3785,7 @@ jr_006_5068:
 jr_006_507d:
     push hl
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     dec hl
     dec hl
@@ -3968,7 +3968,7 @@ jr_006_5163:
     ld a, [hl]
     ld [$cd6c], a
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, $00
     ld [$cd63], a
     xor a
@@ -3994,13 +3994,13 @@ Jump_006_517a:
     inc hl
     inc hl
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
 jr_006_5194:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     dec hl
     dec hl
     ret

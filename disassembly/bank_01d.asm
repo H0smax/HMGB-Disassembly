@@ -2232,7 +2232,7 @@ jr_01d_4af4:
     jr nz, jr_01d_4b40
 
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld h, b
     ld l, c
     ld a, [hl+]
@@ -2243,7 +2243,7 @@ jr_01d_4af4:
 
 jr_01d_4b40:
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld h, b
     ld l, c
     inc hl
@@ -2416,7 +2416,7 @@ jr_01d_4bee:
 
     ld e, a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld hl, $cd6b
     ld a, [$cd67]
     cp $04
@@ -2443,7 +2443,7 @@ jr_01d_4c17:
 
 jr_01d_4c28:
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
 
 jr_01d_4c2d:
     ld a, b
@@ -2463,7 +2463,7 @@ jr_01d_4c2d:
 Jump_01d_4c3a:
 jr_01d_4c3a:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [$cd67]
     or a
     jr z, jr_01d_4c5a
@@ -3411,7 +3411,7 @@ jr_01d_5076:
 Jump_01d_507a:
     pop de
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     ld a, [hl+]
     ld h, [hl]
@@ -3422,7 +3422,7 @@ Jump_01d_507a:
 jr_01d_5085:
     pop de
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     inc hl
@@ -3681,7 +3681,7 @@ jr_01d_51b5:
 Jump_01d_51b9:
     pop hl
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [$cd64]
     add a
     add l
@@ -3698,7 +3698,7 @@ Jump_01d_51b9:
 jr_01d_51cd:
     pop hl
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     inc hl

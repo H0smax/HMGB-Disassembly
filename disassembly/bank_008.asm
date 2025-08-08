@@ -1217,7 +1217,7 @@ jr_008_45f6:
     call Call_000_0a27
     call Call_000_0fe5
     ld a, $38
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
@@ -1637,7 +1637,7 @@ jr_008_489a:
     ret nz
 
     ld a, $38
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [wMapIndex]
     cp $01
     ret nz

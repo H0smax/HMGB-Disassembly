@@ -4845,7 +4845,7 @@ jr_00e_5c98:
 
     call Call_00e_52ea
     ld a, $44
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, $03
     ld [$cc98], a
     ret

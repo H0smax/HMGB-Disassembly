@@ -3173,7 +3173,7 @@ Call_000_1925:
     ret nz
 
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, $38
     ld [$c912], a
     ld a, $21
@@ -4641,7 +4641,7 @@ Call_000_23cf:
 Call_000_23d2:
     call Call_000_23d8
 
-Call_000_23d5:
+SpawnDialogOrEvent::
     call Call_000_23d8
 
 Call_000_23d8:
@@ -7319,7 +7319,7 @@ jr_000_3796:
     ld a, $ff
     ld [$cb4d], a
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
@@ -7334,7 +7334,7 @@ jr_000_37a4:
     ld a, $ff
     ld [$cb4d], a
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
 
 Call_000_37bf:
     ret
@@ -7356,7 +7356,7 @@ jr_000_37c0:
     ld a, [$cbea]
     ld [$b906], a
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
@@ -7387,7 +7387,7 @@ Call_000_37e6:
     ld [$cb57], a
     pop hl
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
@@ -8395,7 +8395,7 @@ Call_000_3ed0:
     push de
     push bc
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop bc
     pop de
     pop hl

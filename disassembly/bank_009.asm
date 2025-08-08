@@ -426,7 +426,7 @@ jr_009_422f:
 
 jr_009_4239:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     dec hl
     dec hl
@@ -482,7 +482,7 @@ Jump_009_427c:
     call CheckCurrentMoney
     pop hl
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [hl+]
     bit 7, a
     jr nz, jr_009_4293
@@ -2364,14 +2364,14 @@ jr_009_4b83:
     xor a
     ld [$cd6a], a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     ret
 
 
 jr_009_4bb5:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, $04
     add l
     ld l, a
@@ -5307,7 +5307,7 @@ jr_009_5b45:
 
     ld e, a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, e
 
 jr_009_5b57:
@@ -5326,7 +5326,7 @@ jr_009_5b57:
 
 Jump_009_5b65:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, $08
     add l
     ld l, a
@@ -6594,7 +6594,7 @@ jr_009_615d:
     jr nz, jr_009_6176
 
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     inc hl
@@ -6607,7 +6607,7 @@ jr_009_615d:
 
 jr_009_6176:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     dec hl
     dec hl
     ret
@@ -6615,7 +6615,7 @@ jr_009_6176:
 
 jr_009_617e:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     inc hl
@@ -8619,7 +8619,7 @@ jr_009_6ac8:
 
 jr_009_6ad2:
     ld a, b
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 

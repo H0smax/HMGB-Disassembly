@@ -2852,7 +2852,7 @@ jr_01f_4e39:
     xor a
     ld [$cdb3], a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
@@ -2862,7 +2862,7 @@ jr_01f_4e43:
     ld a, $04
     ld [$cd98], a
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ret
 
 
@@ -3537,7 +3537,7 @@ jr_01f_51c5:
     xor a
     ld [$cdb3], a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [$cd98]
     ld [$cdb7], a
     inc hl
@@ -3549,7 +3549,7 @@ jr_01f_51d7:
     xor a
     ld [$cdb3], a
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, $01
     ld [$cdb7], a
     ld a, [hl+]
@@ -3640,7 +3640,7 @@ jr_01f_5241:
     xor a
     ld [$cdb3], a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     inc hl
     inc hl
@@ -3649,7 +3649,7 @@ jr_01f_5241:
 
 jr_01f_5260:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     dec hl
     dec hl
@@ -3801,7 +3801,7 @@ Jump_01f_52ff:
     ld a, b
     ld [$cdb5], a
     ld a, $42
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     inc hl
     inc hl
     ret
@@ -3809,7 +3809,7 @@ Jump_01f_52ff:
 
 jr_01f_531a:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
 
 jr_01f_531f:
     dec hl
@@ -5155,7 +5155,7 @@ jr_01f_58fe:
 
 jr_01f_595a:
     ld a, $51
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -5524,7 +5524,7 @@ jr_01f_5b1f:
     push bc
     call MusicRelated
     ld a, $46
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     pop hl
     ret
 
@@ -9304,7 +9304,7 @@ jr_01f_6ef6:
     jr nz, jr_01f_6f00
 
     ld a, b
-    call Call_000_23d5
+    call SpawnDialogOrEvent
     jr jr_01f_6f12
 
 jr_01f_6f00:

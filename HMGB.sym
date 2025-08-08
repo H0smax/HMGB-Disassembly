@@ -45,7 +45,7 @@
 ; To be confirmed
 00:2331 MusicRelated
 
-00:23D5 DialogRelated
+00:23D5 SpawnDialogOrEvent
 
 ; To be confirmed
 00:2FBE TileLoadRelated
@@ -76,15 +76,22 @@
 ;11:4000 DialogueCharacters
 ;11:4000 .image:1000:w128,pe4
 
+1B:438B TryToBuyFixedItem
+1B:43A1 BuyFixedItem
+1B:43AD TryToBuyVariableItem
+1B:43C5 BuyVariableItem
 1B:46A8 CompareMoney
-1B:43AD TryToBuyItem
-1B:43C5 BuyItem
 1B:46B5 DiscountMoney
+
 
 ; To be confirmed
 1D:5401 MoveToFarm
 ; To be confirmed
 1D:542B MoveToCowHouse
+
+; To be confirmed
+1E:4001 EventOrDialogData
+;1E:4109 AcceptItem
 
 ; To be confirmed, not related to real seconds and minutes
 00:B880 sTimerSeconds
