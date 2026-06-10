@@ -2077,20 +2077,20 @@ CheckCurrentMoney::
     jr nc, LimitMoney
 
     cp $01
-    jr c, jr_000_10e1
+    jr c, LoadMoney
 
     ld a, [sCurrentMoneyM]
     cp $87
     jr nc, LimitMoney
 
     cp $86
-    jr c, jr_000_10e1
+    jr c, LoadMoney
 
     ld a, [sCurrentMoneyL]
     cp $a0
     jr nc, LimitMoney
 
-    jr jr_000_10e1
+    jr LoadMoney
 
 LimitMoney::
     ld a, $9f
@@ -2099,7 +2099,7 @@ LimitMoney::
     ld [sCurrentMoneyM], a
     ld a, $01
     ld [sCurrentMoneyH], a
-    jr jr_000_10e1
+    jr LoadMoney
 
 ResetMoney::
     xor a
@@ -2107,7 +2107,7 @@ ResetMoney::
     ld [sCurrentMoneyM], a
     ld [sCurrentMoneyH], a
 
-jr_000_10e1:
+LoadMoney::
     ld a, [sCurrentMoneyH]
     ld [wCurrentMoneyH], a
     ld a, [sCurrentMoneyM]

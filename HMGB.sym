@@ -12,7 +12,6 @@
 00:037E .data:2
 00:03F9 CheckTime
 
-; To be confirmed
 ;00:0403 NextTimerSecond
 00:0414 NextTimerMinute
 00:0432 NextHour
@@ -25,16 +24,15 @@
 00:0732 SetCameraAndWindow
 00:075A SetCurrentPalettes
 
-; To be confirmed
 00:0CC0 SetNextMapIndex
 
 ; To be confirmed
 00:0D6A NewGame
 
-; To be confirmed
 00:10A0 CheckCurrentMoney
-00:10D7 ResetMoney
 00:10C6 LimitMoney
+00:10D7 ResetMoney
+00:10E1 LoadMoney
 
 ; To be confirmed
 00:2059 DMARelated
@@ -64,7 +62,6 @@
 ; To be confirmed, probably event related
 01:4298 MoveToHouse2
 
-; To be confirmed
 02:56FA GoToFarmFromHouse
 03:562E GoToFarmFromCows
 04:46A4 GoToFarmFromChickens
@@ -93,7 +90,6 @@
 1E:4001 EventOrDialogData
 ;1E:4109 AcceptItem
 
-; To be confirmed, not related to real seconds and minutes
 00:B880 sTimerSeconds
 00:B881 sTimerMinutes
 00:B882 sCurrentHour
