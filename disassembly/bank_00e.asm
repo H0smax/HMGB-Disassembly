@@ -72,7 +72,7 @@ SECTION "ROM Bank $00e", ROMX[$4000], BANK[$e]
     ld [hl+], a
     ld [hl], a
     ld [$ba0e], a
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld [$c90e], a
     ld [$c800], a
     ld [$c80e], a
@@ -236,7 +236,7 @@ Call_00e_417d:
 
 jr_00e_41b7:
     ld a, $06
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld a, $20
     ld [$c911], a
     ld a, [wCameraXPosition]
@@ -254,7 +254,7 @@ jr_00e_41b7:
 
 
 Call_00e_41de:
-    ld a, [MapOffset]
+    ld a, [wMapOffset]
     or a
     ret z
 
@@ -278,7 +278,7 @@ jr_00e_41f7:
     ld a, $1d
     ld [wTransitionRelated2], a
     xor a
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld [$c911], a
     ld a, $01
     ld [$c910], a
@@ -289,7 +289,7 @@ jr_00e_41f7:
 
 
 jr_00e_4213:
-    ld a, [MapOffset]
+    ld a, [wMapOffset]
     ld b, a
     ld a, [wMapIndex]
     add b

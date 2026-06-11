@@ -1308,7 +1308,7 @@ Call_000_0b02:
     ld [$c912], a
     ld [$c90e], a
     ld [$c910], a
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld [$c911], a
     ld [wTimePaused], a
     ld [$cb57], a
@@ -1708,7 +1708,7 @@ Call_000_0e68:
     ld [$c912], a
     ld [$c90e], a
     ld [$c910], a
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld [$c911], a
     ld [wTimePaused], a
     ld [$cb57], a

@@ -17,6 +17,10 @@ wMapIndex: db
 wCurrentMoneyL: db
 wCurrentMoneyM: db
 wCurrentMoneyH: db
+wMapOffset: db
+wBuyPriceL: db
+wBuyPriceH: db
+wCurrentTool: db
 
 SECTION "SRAM", SRAM
 sTimerSeconds: db

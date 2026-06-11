@@ -999,7 +999,7 @@ jr_01c_42f3:
     ei
     ld a, [$0062]
     inc bc
-    ld bc, MapOffset
+    ld bc, wMapOffset
     or b
     rst $08
     or b

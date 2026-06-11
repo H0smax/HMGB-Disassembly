@@ -10432,7 +10432,7 @@ jr_007_6c20:
     ld a, $18
     ld [$c911], a
     ld a, $01
-    ld [MapOffset], a
+    ld [wMapOffset], a
     call Call_000_0f81
     ret
 
@@ -10449,7 +10449,7 @@ jr_007_6c55:
     ld a, $01
     ld [$c911], a
     ld a, $02
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -10496,7 +10496,7 @@ jr_007_6c9f:
     xor a
     ld [$b893], a
     ld a, $0a
-    ld [MapOffset], a
+    ld [wMapOffset], a
     ld a, $20
     ld [$c911], a
     ld a, $ff
