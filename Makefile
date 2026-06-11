@@ -21,8 +21,8 @@ FX   := $(RGBDS)rgbfix
 # Collect every .asm file inside disassembly/ recursively.
 rwildcard = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-ASM_FILES := $(call rwildcard,disassembly,*.asm)
-ENTRY     := disassembly/game.asm
+ASM_FILES := $(call rwildcard,src,*.asm)
+ENTRY     := src/game.asm
 
 ROM := HMGB.gb
 
@@ -66,7 +66,7 @@ default: build test
 # Step 1 — Assemble all source into a single object file.
 build/main.o: $(ENTRY) $(ASM_FILES)
 	@mkdir -p build
-	$(ASM) $(ASFLAGS) -I disassembly/ -o $@ $(ENTRY)
+	$(ASM) $(ASFLAGS) -I src/ -o $@ $(ENTRY)
 
 # Step 2 — Link into a ROM.
 $(ROM): build/main.o
