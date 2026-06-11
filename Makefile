@@ -70,7 +70,7 @@ build/main.o: $(ENTRY) $(ASM_FILES)
 
 # Step 2 — Link into a ROM.
 $(ROM): build/main.o
-	$(LD) $(LDFLAGS) -n $(ROM:.gb=.sym) -o $@ $^
+	$(LD) $(LDFLAGS) -n build/HMGB.sym -o $@ $^
 	$(FX) $(FXFLAGS) $@
 
 build: $(ROM)
