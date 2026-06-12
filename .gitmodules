@@ -1,0 +1,3 @@
+[submodule "tools/external/mgbdis"]
+	path = tools/external/mgbdis
+	url = https://github.com/mattcurrie/mgbdis.git

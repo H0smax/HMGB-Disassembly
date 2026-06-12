@@ -24,7 +24,7 @@ rwildcard = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(
 ASM_FILES := $(call rwildcard,src,*.asm)
 ENTRY     := src/game.asm
 
-ROM := HMGB.gb
+ROM := build/HMGB.gb
 
 # ---------------------------------------------------------------------------
 # Assembler / linker / fixer flags
@@ -70,7 +70,7 @@ build/main.o: $(ENTRY) $(ASM_FILES)
 
 # Step 2 — Link into a ROM.
 $(ROM): build/main.o
-	$(LD) $(LDFLAGS) -n build/HMGB.sym -o $@ $^
+	$(LD) $(LDFLAGS) -n build/HMGB.sym -m build/HMGB.map -o $@ $^
 	$(FX) $(FXFLAGS) $@
 
 build: $(ROM)
