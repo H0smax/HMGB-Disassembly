@@ -3871,7 +3871,7 @@ jr_01d_523e:
     ret
 
 
-    call NewGame_TBD
+    call NewGame
     ld hl, $4413
     ld a, $1d
     ld de, $bff0

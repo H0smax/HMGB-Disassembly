@@ -1002,7 +1002,7 @@ Call_000_0491:
     or a
     ret nz
 
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -1147,7 +1147,7 @@ Jump_000_057b:
     or a
     ret nz
 
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -2939,7 +2939,7 @@ jr_000_0d63:
     ret
 
 
-NewGame_TBD::
+NewGame::
     di
     call Call_000_0a2e
     di
@@ -2987,7 +2987,7 @@ NewGame_TBD::
     ld [$b8ed], a
     ld [$b8ee], a
     ld a, $01
-    ld [$b906], a
+    ld [sHideInfoBox_TBD], a
     xor a
     ld [$b907], a
     ld [$b904], a
@@ -12091,7 +12091,7 @@ jr_000_37c0:
     ld a, $01
     ld [$cb57], a
     ld a, [$cbea]
-    ld [$b906], a
+    ld [sHideInfoBox_TBD], a
     ld a, $51
     call SpawnDialogOrEvent
     ret
@@ -12386,12 +12386,12 @@ Call_000_3994:
 
     ldh a, [$ff8b]
     cp $20
-    jr z, jr_000_39f4
+    jr z, ShowInfoBox_TBD
 
     cp $10
-    jr z, jr_000_3a03
+    jr z, HideInfoBox_TBD
 
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     cp $00
     jr z, jr_000_39cb
 
@@ -12426,24 +12426,24 @@ jr_000_39de:
     ret
 
 
-jr_000_39f4:
-    ld a, [$b906]
+ShowInfoBox_TBD::
+    ld a, [sHideInfoBox_TBD]
     cp $01
     ret nz
 
     ld a, $00
-    ld [$b906], a
+    ld [sHideInfoBox_TBD], a
     call Call_000_3edc
     ret
 
 
-jr_000_3a03:
-    ld a, [$b906]
+HideInfoBox_TBD::
+    ld a, [sHideInfoBox_TBD]
     cp $00
     ret nz
 
     ld a, $01
-    ld [$b906], a
+    ld [sHideInfoBox_TBD], a
     call Call_000_3edc
     ret
 
@@ -12495,7 +12495,7 @@ jr_000_3a51:
     ld [wTimePaused_TBD], a
     ld [$cb57], a
     call Call_000_3e2a
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -12691,7 +12691,7 @@ Call_000_3b69:
     cp $02
     jr z, jr_000_3bd7
 
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     ld [$cbea], a
     call Call_000_3e2a
     ld a, $03
@@ -12723,7 +12723,7 @@ jr_000_3b92:
     ld [$cb87], a
     ld a, $00
     ld [$c620], a
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -12756,7 +12756,7 @@ jr_000_3bd7:
 
 Call_000_3bff:
     ld [$c620], a
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -12855,7 +12855,7 @@ Jump_000_3c69:
     ret nz
 
     call Call_000_3e2a
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -12954,7 +12954,7 @@ Call_000_3d08:
 
 
 Call_000_3d18:
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     ret nz
 
@@ -13204,7 +13204,7 @@ Call_000_3e54:
     xor a
     ld [wTimePaused_TBD], a
     ld [$cb5f], a
-    ld a, [$b906]
+    ld a, [sHideInfoBox_TBD]
     or a
     jr nz, jr_000_3e2a
 

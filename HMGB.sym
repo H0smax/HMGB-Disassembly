@@ -22,7 +22,7 @@
 00:0732 SetCameraAndWindow_TBD
 00:075A SetCurrentPalettes_TBD
 00:0CC0 SetNextMapIndex
-00:0D6A NewGame_TBD
+00:0D6A NewGame
 00:10A0 CheckCurrentMoney
 00:10C6 LimitMoney
 00:10D7 ResetMoney
@@ -36,6 +36,8 @@
 00:3222 LCDCInterruptHandler
 00:330A TimerOverflowInterruptHandler
 00:3319 SerialTransferCompleteInterruptHandler
+00:39f4 ShowInfoBox_TBD
+00:3A03 HideInfoBox_TBD
 ;00:41F7 MoveToHouse
 ;00:44b7 MoveToToolRoom
 
@@ -131,6 +133,7 @@
 00:B8EF sCurrentMoneyL
 00:B8F0 sCurrentMoneyM
 00:B8F1 sCurrentMoneyH
+00:B906 sHideInfoBox_TBD
 
 ; WRAM
 00:C0A3 wPaletteRelated

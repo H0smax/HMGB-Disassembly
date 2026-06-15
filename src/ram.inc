@@ -14,6 +14,7 @@ DEF sCurrentWeather EQU $b8a0
 DEF sCurrentMoneyL EQU $b8ef
 DEF sCurrentMoneyM EQU $b8f0
 DEF sCurrentMoneyH EQU $b8f1
+DEF sHideInfoBox_TBD EQU $b906
 DEF sCurrentTool2 EQU $b93c
 DEF wCharacterAnimation_TBD EQU $c010
 DEF wPaletteRelated EQU $c0a3
