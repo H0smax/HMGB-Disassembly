@@ -218,7 +218,7 @@ SECTION "ROM Bank $012", ROMX[$4000], BANK[$12]
     ld d, $5d
     inc bc
     nop
-    rst $38
+    rst RST_38
     ld e, l
     inc bc
     nop
@@ -404,7 +404,7 @@ SECTION "ROM Bank $012", ROMX[$4000], BANK[$12]
     ld [bc], a
     call $0068
     ld [bc], a
-    rst $08
+    rst RST_08
     ld l, b
     nop
     ld [bc], a
@@ -775,47 +775,47 @@ jr_012_4344:
     ld hl, sp+$2a
     nop
     add b
-    rst $20
+    rst RST_20
     nop
     dec hl
     nop
-    rst $30
+    rst RST_30
     nop
     inc [hl]
     nop
-    rst $30
+    rst RST_30
     ld hl, sp+$33
     nop
-    rst $28
+    rst RST_28
     nop
     ld [hl-], a
     nop
-    rst $28
+    rst RST_28
     ld hl, sp+$31
     nop
-    rst $20
+    rst RST_20
     ld hl, sp+$30
     nop
     add b
-    rst $20
+    rst RST_20
     nop
     dec hl
     nop
-    rst $20
+    rst RST_20
     ld hl, sp+$30
     nop
-    rst $30
+    rst RST_30
     nop
     jr c, jr_012_43b3
 
 jr_012_43b3:
-    rst $30
+    rst RST_30
     ld hl, sp+$37
     nop
-    rst $28
+    rst RST_28
     nop
     ld [hl], $00
-    rst $28
+    rst RST_28
     ld hl, sp+$35
     nop
     add b
@@ -844,51 +844,51 @@ jr_012_43ce:
     ld hl, sp+$0e
     nop
     add b
-    rst $30
+    rst RST_30
     nop
     ld b, c
     nop
-    rst $30
+    rst RST_30
     ld hl, sp+$40
     nop
-    rst $28
+    rst RST_28
     nop
     ccf
     nop
-    rst $28
+    rst RST_28
     ld hl, sp+$3e
     nop
-    rst $20
+    rst RST_20
     nop
     dec a
     nop
-    rst $20
+    rst RST_20
     ld hl, sp+$3c
     nop
     add b
-    rst $20
+    rst RST_20
     nop
     dec a
     nop
-    rst $20
+    rst RST_20
     ld hl, sp+$3c
     nop
-    rst $30
+    rst RST_30
     nop
     ld b, l
     nop
-    rst $30
+    rst RST_30
     ld hl, sp+$44
 
 jr_012_43fd:
     nop
-    rst $28
+    rst RST_28
     nop
     ld b, e
 
 jr_012_4401:
     nop
-    rst $28
+    rst RST_28
     ld hl, sp+$42
     nop
     add b
@@ -912,7 +912,7 @@ jr_012_4418:
     nop
     ld c, $20
     add b
-    rst $30
+    rst RST_30
     ld hl, sp+$41
     jr nz, jr_012_4418
 
@@ -926,7 +926,7 @@ jr_012_4421:
 
     nop
     ld a, $20
-    rst $20
+    rst RST_20
     ld hl, sp+$3d
     jr nz, jr_012_4418
 
@@ -935,7 +935,7 @@ jr_012_4421:
     jr nz, @-$7e
 
 jr_012_4435:
-    rst $20
+    rst RST_20
     ld hl, sp+$3d
     jr nz, jr_012_4421
 
@@ -981,40 +981,40 @@ jr_012_4456:
     ld b, [hl]
     nop
     add b
-    rst $20
+    rst RST_20
     ld sp, hl
     ld b, [hl]
     nop
-    rst $30
+    rst RST_30
     ld bc, $004e
-    rst $30
+    rst RST_30
     ld sp, hl
     ld c, l
     nop
-    rst $28
+    rst RST_28
     ld bc, $004c
-    rst $28
+    rst RST_28
     ld sp, hl
     ld c, e
     nop
-    rst $20
+    rst RST_20
     ld bc, $004a
     add b
-    rst $30
+    rst RST_30
     ld bc, $0052
-    rst $30
+    rst RST_30
     ld sp, hl
     ld d, c
     nop
-    rst $28
+    rst RST_28
     ld bc, $0050
-    rst $20
+    rst RST_20
     ld sp, hl
     ld b, [hl]
     nop
-    rst $20
+    rst RST_20
     ld bc, $004a
-    rst $28
+    rst RST_28
     ld sp, hl
     ld c, a
     nop
@@ -1330,7 +1330,7 @@ jr_012_457f:
     push bc
     ld b, [hl]
     sbc $46
-    rst $30
+    rst RST_30
     ld b, [hl]
     db $10
     ld b, a
@@ -1385,7 +1385,7 @@ jr_012_457f:
     push bc
     ld b, [hl]
     sbc $46
-    rst $30
+    rst RST_30
     ld b, [hl]
     db $10
     ld b, a
@@ -1585,31 +1585,31 @@ jr_012_457f:
     nop
     add b
     ld sp, hl
-    rst $38
+    rst RST_38
     sbc b
     nop
     ld sp, hl
-    rst $30
+    rst RST_30
     sub a
     nop
     pop af
-    rst $38
+    rst RST_38
     sub [hl]
     nop
     pop af
-    rst $30
+    rst RST_30
     sub l
     nop
     jp hl
 
 
-    rst $38
+    rst RST_38
     sub h
     nop
     jp hl
 
 
-    rst $30
+    rst RST_30
     sub e
     nop
     add b
@@ -1664,12 +1664,12 @@ jr_012_457f:
     nop
     ret c
 
-    rst $38
+    rst RST_38
     sbc d
     nop
     ret c
 
-    rst $30
+    rst RST_30
     sbc c
     nop
     ret nc
@@ -1679,79 +1679,79 @@ jr_012_457f:
     nop
     add b
     db $eb
-    rst $38
+    rst RST_38
     and l
     nop
     db $eb
-    rst $30
+    rst RST_30
     and h
     nop
     db $e3
-    rst $38
+    rst RST_38
     and e
     nop
     db $e3
-    rst $30
+    rst RST_30
     and d
     nop
     db $db
-    rst $38
+    rst RST_38
     and c
     nop
     db $db
-    rst $30
+    rst RST_30
     and b
     nop
     add b
     di
-    rst $38
+    rst RST_38
     and l
     nop
     di
-    rst $30
+    rst RST_30
     and h
     nop
     db $eb
-    rst $38
+    rst RST_38
     and e
     nop
     db $eb
-    rst $30
+    rst RST_30
     and d
     nop
     db $e3
-    rst $38
+    rst RST_38
     and c
     nop
     db $e3
-    rst $30
+    rst RST_30
 
 jr_012_47a3:
     and b
     nop
     add b
-    rst $30
-    rst $38
+    rst RST_30
+    rst RST_38
     and l
     nop
-    rst $30
-    rst $30
+    rst RST_30
+    rst RST_30
     and h
     nop
-    rst $28
-    rst $38
+    rst RST_28
+    rst RST_38
     and e
     nop
-    rst $28
-    rst $30
+    rst RST_28
+    rst RST_30
     and d
     nop
-    rst $20
-    rst $38
+    rst RST_20
+    rst RST_38
     and c
     nop
-    rst $20
-    rst $30
+    rst RST_20
+    rst RST_30
     and b
 
 jr_012_47bd:
@@ -1807,7 +1807,7 @@ jr_012_47f3:
     sbc [hl]
     jr nz, @-$26
 
-    rst $38
+    rst RST_38
 
 jr_012_47f7:
     add d
@@ -1843,7 +1843,7 @@ jr_012_4813:
     ld bc, ClearMem
     ret nc
 
-    rst $38
+    rst RST_38
     add d
     jr nz, jr_012_47a3
 
@@ -1888,19 +1888,19 @@ jr_012_4834:
 jr_012_4851:
     ld bc, $20a0
     add b
-    rst $30
+    rst RST_30
     ld sp, hl
     and l
     jr nz, jr_012_4851
 
     ld bc, $20a4
-    rst $28
+    rst RST_28
     ld sp, hl
     and e
     jr nz, jr_012_4851
 
     ld bc, $20a2
-    rst $20
+    rst RST_20
     ld sp, hl
     and c
     jr nz, jr_012_4851
@@ -2137,7 +2137,7 @@ jr_012_4851:
     add a
     nop
     add sp, $00
-    rst $00
+    rst RST_00
     nop
     add sp, -$08
     add $00
@@ -2158,7 +2158,7 @@ jr_012_4851:
     add a
     nop
     ldh [rP1], a
-    rst $00
+    rst RST_00
     nop
     ldh [$fff8], a
     add $00
@@ -2181,7 +2181,7 @@ jr_012_4851:
     ret c
 
     nop
-    rst $00
+    rst RST_00
     nop
     ret c
 
@@ -2227,7 +2227,7 @@ jr_012_4851:
     nop
     db $e4
     nop
-    rst $00
+    rst RST_00
     nop
     db $e4
     ld hl, sp-$3a
@@ -2249,7 +2249,7 @@ jr_012_4851:
     add a
     nop
     add sp, $00
-    rst $00
+    rst RST_00
     nop
     add sp, -$08
     add $00
@@ -2270,9 +2270,9 @@ jr_012_4851:
     nop
     ld hl, sp-$01
     call $f800
-    rst $30
+    rst RST_30
     call z, $f000
-    rst $38
+    rst RST_38
     rlc b
     ldh a, [$fff7]
     jp z, $8000
@@ -2288,7 +2288,7 @@ jr_012_4851:
 
     nop
     add sp, $00
-    rst $08
+    rst RST_08
     nop
     add sp, -$08
     adc $00
@@ -2304,7 +2304,7 @@ jr_012_4851:
 
     nop
     ldh [rP1], a
-    rst $08
+    rst RST_08
     nop
     ldh [$fff8], a
     adc $00
@@ -2322,7 +2322,7 @@ jr_012_4851:
     ret c
 
     nop
-    rst $08
+    rst RST_08
     nop
     ret c
 
@@ -2356,7 +2356,7 @@ jr_012_4851:
     nop
     db $e4
     nop
-    rst $08
+    rst RST_08
     nop
     db $e4
     ld hl, sp-$32
@@ -2373,7 +2373,7 @@ jr_012_4851:
 
     nop
     add sp, $00
-    rst $08
+    rst RST_08
     nop
     add sp, -$08
     adc $00
@@ -2518,7 +2518,7 @@ jr_012_4b12:
 
     nop
     ld hl, sp-$07
-    rst $10
+    rst RST_10
     nop
     ldh a, [rSB]
     sub $00
@@ -2772,7 +2772,7 @@ jr_012_4c51:
     ld hl, sp+$00
     ldh [rP1], a
     ld hl, sp-$08
-    rst $18
+    rst RST_18
     nop
     ldh a, [rP1]
     ld [hl], b
@@ -2837,7 +2837,7 @@ jr_012_4cb5:
     ld hl, sp-$08
     ldh [rNR41], a
     ld hl, sp+$00
-    rst $18
+    rst RST_18
     jr nz, @-$0e
 
     ld hl, sp+$70
@@ -2955,11 +2955,11 @@ jr_012_4d24:
     and b
     ld c, l
     adc $4d
-    rst $20
+    rst RST_20
     ld c, l
     db $fc
     ld c, l
-    rst $20
+    rst RST_20
     ld c, l
     dec d
     ld c, [hl]
@@ -2993,41 +2993,41 @@ jr_012_4d24:
     ld hl, sp-$1b
     nop
     add b
-    rst $30
+    rst RST_30
     nop
     db $ec
     nop
-    rst $30
+    rst RST_30
     ld hl, sp-$15
     nop
-    rst $28
+    rst RST_28
     nop
     add sp, $00
-    rst $28
+    rst RST_28
     ld hl, sp-$19
     nop
-    rst $20
+    rst RST_20
     nop
     and $00
-    rst $20
+    rst RST_20
     ld hl, sp-$1b
     nop
     add b
-    rst $30
+    rst RST_30
     nop
     ld [$f700], a
     ld hl, sp-$17
     nop
-    rst $28
+    rst RST_28
     nop
     add sp, $00
-    rst $28
+    rst RST_28
     ld hl, sp-$19
     nop
-    rst $20
+    rst RST_20
     nop
     and $00
-    rst $20
+    rst RST_20
     ld hl, sp-$1b
     nop
     add b
@@ -3054,47 +3054,47 @@ jr_012_4dae:
     ld hl, sp-$13
     nop
     add b
-    rst $28
+    rst RST_28
     nop
     ldh a, [rP1]
-    rst $28
+    rst RST_28
     ld hl, sp-$11
     nop
-    rst $20
+    rst RST_20
     nop
     xor $00
-    rst $20
+    rst RST_20
     ld hl, sp-$13
     nop
-    rst $30
+    rst RST_30
     nop
     di
     nop
-    rst $30
+    rst RST_30
     ld hl, sp-$0e
     nop
     add b
-    rst $28
+    rst RST_28
     nop
     ldh a, [rP1]
-    rst $28
+    rst RST_28
     ld hl, sp-$11
     nop
-    rst $20
+    rst RST_20
     nop
     xor $00
-    rst $20
+    rst RST_20
     ld hl, sp-$13
 
 jr_012_4ddd:
     nop
-    rst $30
+    rst RST_30
     nop
     push af
 
 jr_012_4de1:
     nop
-    rst $30
+    rst RST_30
     ld hl, sp-$0c
     nop
     add b
@@ -3109,7 +3109,7 @@ jr_012_4dec:
 
 jr_012_4df0:
     nop
-    rst $28
+    rst RST_28
     jr nz, jr_012_4ddd
 
     ld hl, sp-$12
@@ -3119,12 +3119,12 @@ jr_012_4df0:
     db $ed
     jr nz, @-$7e
 
-    rst $28
+    rst RST_28
     ld hl, sp-$10
     jr nz, jr_012_4df0
 
     nop
-    rst $28
+    rst RST_28
     jr nz, jr_012_4dec
 
 jr_012_4e05:
@@ -3143,12 +3143,12 @@ jr_012_4e09:
     ldh a, [c]
     jr nz, @-$7e
 
-    rst $28
+    rst RST_28
     ld hl, sp-$10
     jr nz, jr_012_4e09
 
     nop
-    rst $28
+    rst RST_28
     jr nz, jr_012_4e05
 
     ld hl, sp-$12
@@ -3169,7 +3169,7 @@ jr_012_4e09:
     ld bc, $00f8
     ld sp, hl
     ld sp, hl
-    rst $30
+    rst RST_30
     nop
     pop af
     ld bc, $007c
@@ -3187,39 +3187,39 @@ jr_012_4e09:
     ld sp, hl
     or $00
     add b
-    rst $30
+    rst RST_30
     ld bc, $00fa
-    rst $30
+    rst RST_30
     ld sp, hl
     ld sp, hl
     nop
-    rst $28
+    rst RST_28
     ld bc, $007c
-    rst $28
+    rst RST_28
     ld sp, hl
     ld a, e
     nop
-    rst $20
+    rst RST_20
     ld bc, $001d
-    rst $20
+    rst RST_20
     ld sp, hl
     or $00
     add b
-    rst $30
+    rst RST_30
     ld bc, $00fc
-    rst $30
+    rst RST_30
     ld sp, hl
     ei
     nop
-    rst $28
+    rst RST_28
     ld bc, $007c
-    rst $28
+    rst RST_28
     ld sp, hl
     ld a, e
     nop
-    rst $20
+    rst RST_20
     ld bc, $001d
-    rst $20
+    rst RST_20
     ld sp, hl
     or $00
     add b
@@ -3510,7 +3510,7 @@ jr_012_4f82:
     add b
     add hl, hl
     ld b, d
-    rst $10
+    rst RST_10
     ld c, a
     ldh a, [rVBK]
     add hl, bc
@@ -4425,7 +4425,7 @@ jr_012_53f3:
 
     nop
     add sp, $01
-    rst $00
+    rst RST_00
     nop
     add sp, -$07
     add $00
@@ -4445,7 +4445,7 @@ jr_012_53f3:
 
     nop
     ldh a, [$fff9]
-    rst $08
+    rst RST_08
     nop
     add sp, $01
     adc $00
@@ -4488,7 +4488,7 @@ jr_012_53f3:
 
 
     ld sp, hl
-    rst $10
+    rst RST_10
     nop
     add b
     ld a, [hl]
@@ -4511,7 +4511,7 @@ jr_012_53f3:
     ldh a, [$fff8]
     ldh [rP1], a
     add sp, $00
-    rst $18
+    rst RST_18
     nop
     add sp, -$08
     sbc $00
@@ -4532,7 +4532,7 @@ jr_012_53f3:
     or $f8
     add sp, $00
     xor $00
-    rst $20
+    rst RST_20
     nop
     xor $f8
     and $00
@@ -4556,7 +4556,7 @@ jr_012_53f3:
     nop
     pop af
     nop
-    rst $28
+    rst RST_28
     nop
     pop af
     ld hl, sp-$12
@@ -4586,7 +4586,7 @@ jr_012_53f3:
     ld hl, sp+$00
     ld hl, sp+$00
     ld hl, sp-$08
-    rst $30
+    rst RST_30
     nop
     ldh a, [$fff8]
     push af
@@ -4711,27 +4711,27 @@ jr_012_5597:
     rlca
     jr nz, jr_012_5597
 
-    rst $38
+    rst RST_38
     ld b, $20
     ldh a, [$fff7]
     dec b
     jr nz, jr_012_5597
 
-    rst $38
+    rst RST_38
     inc b
     jr nz, jr_012_5593
 
-    rst $28
+    rst RST_28
     inc bc
     jr nz, jr_012_5597
 
-    rst $30
+    rst RST_30
     ld [bc], a
     jr nz, @-$16
 
-    rst $38
+    rst RST_38
     ld bc, $e020
-    rst $30
+    rst RST_30
     nop
     jr nz, jr_012_553b
 
@@ -4917,7 +4917,7 @@ jr_012_5691:
     add b
     or d
     ld d, [hl]
-    rst $08
+    rst RST_08
     ld d, [hl]
     db $ec
     ld d, [hl]
@@ -5422,7 +5422,7 @@ jr_012_581b:
     or l
     ld e, c
     sub $59
-    rst $30
+    rst RST_30
     ld e, c
     jr jr_012_5922
 
@@ -5779,7 +5779,7 @@ jr_012_59db:
     ld e, d
     cp [hl]
     ld e, d
-    rst $10
+    rst RST_10
     ld e, d
     ld hl, sp+$5a
     add hl, de
@@ -5888,7 +5888,7 @@ jr_012_5ad7:
     ld hl, sp-$09
     ldh [rP1], a
     ldh a, [rIE]
-    rst $18
+    rst RST_18
     nop
     ldh a, [$fff7]
     sbc $00
@@ -5903,39 +5903,39 @@ jr_012_5ad7:
     nop
     add b
     ld sp, hl
-    rst $38
+    rst RST_38
     jp hl
 
 
     nop
     ld sp, hl
-    rst $30
+    rst RST_30
     add sp, $00
     ld sp, hl
-    rst $28
-    rst $20
+    rst RST_28
+    rst RST_20
     nop
     pop af
-    rst $38
+    rst RST_38
     and $00
     pop af
-    rst $30
+    rst RST_30
     push hl
     nop
     pop af
-    rst $28
+    rst RST_28
     db $e4
     nop
     jp hl
 
 
-    rst $38
+    rst RST_38
     db $e3
     nop
     jp hl
 
 
-    rst $30
+    rst RST_30
     ldh [c], a
     nop
     add b
@@ -5966,7 +5966,7 @@ jr_012_5b33:
 
     ld bc, $20e0
     ldh a, [$fff9]
-    rst $18
+    rst RST_18
     jr nz, jr_012_5b33
 
     ld bc, $20de
@@ -5978,7 +5978,7 @@ jr_012_5b33:
     ldh [$fff7], a
     jp z, $e020
 
-    rst $38
+    rst RST_38
     db $db
 
 jr_012_5b55:
@@ -5996,7 +5996,7 @@ jr_012_5b59:
     ld bc, $20e8
     ld sp, hl
     add hl, bc
-    rst $20
+    rst RST_20
     jr nz, jr_012_5b55
 
     ld sp, hl
@@ -6175,11 +6175,11 @@ jr_012_5b7d:
     nop
     add b
     ld sp, hl
-    rst $38
+    rst RST_38
     add hl, hl
     nop
     ld sp, hl
-    rst $30
+    rst RST_30
     jr z, jr_012_5c68
 
 jr_012_5c68:
@@ -6187,22 +6187,22 @@ jr_012_5c68:
     daa
     nop
     pop af
-    rst $38
+    rst RST_38
     ld h, $00
     pop af
-    rst $30
+    rst RST_30
     dec h
     nop
     jp hl
 
 
-    rst $38
+    rst RST_38
     inc h
     nop
     jp hl
 
 
-    rst $30
+    rst RST_30
     inc hl
     nop
     add b
@@ -6735,30 +6735,30 @@ jr_012_5d15:
     adc e
     nop
     add b
-    rst $30
+    rst RST_30
     cp $9a
     nop
-    rst $30
+    rst RST_30
     or $99
     nop
 
 jr_012_5f0e:
-    rst $30
+    rst RST_30
     xor $98
     nop
-    rst $28
+    rst RST_28
     cp $97
     nop
-    rst $28
+    rst RST_28
     or $96
     nop
-    rst $28
+    rst RST_28
     xor $95
     nop
-    rst $20
+    rst RST_20
     cp $94
     nop
-    rst $20
+    rst RST_20
     or $93
     nop
     add b
@@ -6879,11 +6879,11 @@ jr_012_5f8b:
     jr nz, jr_012_5f2f
 
 jr_012_5faf:
-    rst $30
+    rst RST_30
     ld a, [$209a]
 
 jr_012_5fb3:
-    rst $30
+    rst RST_30
     ld [bc], a
     sbc c
     jr nz, jr_012_5faf
@@ -6893,7 +6893,7 @@ jr_012_5fb3:
     jr nz, @-$0f
 
     ld a, [$2097]
-    rst $28
+    rst RST_28
     ld [bc], a
     sub [hl]
     jr nz, jr_012_5fb3
@@ -6905,7 +6905,7 @@ jr_012_5fb3:
     ld a, [$2094]
 
 jr_012_5fcb:
-    rst $20
+    rst RST_20
     ld [bc], a
     sub e
     jr nz, jr_012_5f50
@@ -7080,7 +7080,7 @@ jr_012_5ffa:
     ld bc, $00c8
     pop af
     ld sp, hl
-    rst $00
+    rst RST_00
     nop
     jp hl
 
@@ -7096,7 +7096,7 @@ jr_012_5ffa:
     cp l
     ld h, b
     sbc $60
-    rst $38
+    rst RST_38
     ld h, b
     inc e
     ld h, c
@@ -7112,7 +7112,7 @@ jr_012_5ffa:
 
     nop
     ldh a, [$fff8]
-    rst $08
+    rst RST_08
     nop
     add sp, $00
     adc $00
@@ -7135,7 +7135,7 @@ jr_012_5ffa:
 
     nop
     ldh a, [$fff8]
-    rst $10
+    rst RST_10
     nop
     add sp, $00
     sub $00
@@ -7172,7 +7172,7 @@ jr_012_5ffa:
     nop
     ld a, [$00e8]
     ld hl, sp+$00
-    rst $20
+    rst RST_20
     nop
     ld hl, sp-$08
     and $00
@@ -7192,7 +7192,7 @@ jr_012_5ffa:
     nop
     ld a, [$00e8]
     ld hl, sp+$00
-    rst $20
+    rst RST_20
     nop
     ld hl, sp-$08
     and $00
@@ -7213,7 +7213,7 @@ jr_012_5ffa:
     ld h, c
     or [hl]
     ld h, c
-    rst $10
+    rst RST_10
     ld h, c
     ld hl, sp+$61
     add hl, de
@@ -7722,7 +7722,7 @@ jr_012_638d:
     and l
     ld h, h
     add $64
-    rst $20
+    rst RST_20
     ld h, h
     ld [$2d65], sp
     ld h, l
@@ -8159,7 +8159,7 @@ jr_012_65cb:
     sub l
     nop
     add b
-    rst $20
+    rst RST_20
     ld h, l
     add hl, de
     ld h, [hl]
@@ -8205,7 +8205,7 @@ jr_012_65cb:
     and c
     nop
     add b
-    rst $28
+    rst RST_28
     ldh a, [$ffa9]
     nop
     ld hl, sp-$04
@@ -8228,7 +8228,7 @@ jr_012_662f:
     and a
     nop
     add b
-    rst $28
+    rst RST_28
     ld [$20a9], sp
     ld hl, sp-$04
     xor h
@@ -8349,9 +8349,9 @@ jr_012_662f:
     or h
     nop
     add b
-    rst $28
+    rst RST_28
     ld [$00b8], sp
-    rst $30
+    rst RST_30
     ld [$00c2], sp
     ld hl, sp+$00
     pop bc
@@ -8374,11 +8374,11 @@ jr_012_662f:
     nop
     add b
     ld hl, sp-$08
-    rst $00
+    rst RST_00
     nop
-    rst $28
+    rst RST_28
     ld [$00b8], sp
-    rst $30
+    rst RST_30
     ld [$00c2], sp
     ld hl, sp+$00
     pop bc
@@ -8397,7 +8397,7 @@ jr_012_662f:
     nop
     add b
     ld hl, sp+$08
-    rst $08
+    rst RST_08
     nop
     ld hl, sp+$00
     adc $00
@@ -8460,7 +8460,7 @@ jr_012_662f:
 
     nop
     add sp, -$08
-    rst $10
+    rst RST_10
     nop
     add b
     nop
@@ -8479,12 +8479,12 @@ jr_012_662f:
 
     nop
     add sp, -$08
-    rst $10
+    rst RST_10
     nop
     ld hl, sp-$08
     ldh [rP1], a
     ldh a, [$fff8]
-    rst $18
+    rst RST_18
     nop
     add b
     ld hl, sp+$00
@@ -8518,7 +8518,7 @@ jr_012_662f:
     add sp, $00
     add sp, $00
     add sp, -$08
-    rst $20
+    rst RST_20
     nop
     add b
     ldh a, [$ff08]
@@ -8536,7 +8536,7 @@ jr_012_662f:
     ldh a, [rP1]
     ldh a, [rP1]
     ldh a, [$fff8]
-    rst $28
+    rst RST_28
     nop
     add sp, $00
     xor $00
@@ -8553,7 +8553,7 @@ jr_012_662f:
     ld hl, sp+$00
     ld hl, sp+$00
     ld hl, sp-$08
-    rst $30
+    rst RST_30
     nop
     ld hl, sp-$10
     or $00
@@ -8618,7 +8618,7 @@ jr_012_6811:
     nop
 
 jr_012_682a:
-    rst $20
+    rst RST_20
     jr nz, @-$7e
 
     ldh a, [$fff0]
@@ -8640,7 +8640,7 @@ jr_012_6832:
     jr nz, jr_012_6832
 
     nop
-    rst $28
+    rst RST_28
     jr nz, @-$16
 
     ld hl, sp-$12
@@ -8665,7 +8665,7 @@ jr_012_6857:
     jr nz, jr_012_6853
 
     nop
-    rst $30
+    rst RST_30
     jr nz, jr_012_6857
 
     ld [$20f6], sp
@@ -8805,7 +8805,7 @@ jr_012_6857:
     nop
     add b
     nop
-    rst $38
+    rst RST_38
     rrca
     nop
     ld hl, sp+$08
@@ -8859,7 +8859,7 @@ jr_012_6923:
     nop
     add sp, -$08
     ld de, $e000
-    rst $38
+    rst RST_38
     stop
     add b
     ld hl, sp+$08
@@ -10103,7 +10103,7 @@ jr_012_6f12:
     ld a, $03
 
 jr_012_6f1f:
-    rst $00
+    rst RST_00
     jr z, @+$71
 
     add hl, hl
@@ -10920,8 +10920,8 @@ jr_012_7130:
     dec b
     inc b
     cp b
-    rst $38
-    rst $00
+    rst RST_38
+    rst RST_00
     ret
 
 
@@ -10938,10 +10938,10 @@ jr_012_7130:
     ld [hl], $37
     ld c, b
     ld c, c
-    rst $38
+    rst RST_38
     ld l, b
     ld l, c
-    rst $00
+    rst RST_00
     ret z
 
     ret z
@@ -10952,7 +10952,7 @@ jr_012_7130:
 jr_012_73db:
     jr z, jr_012_7406
 
-    rst $28
+    rst RST_28
     ld b, b
     ld b, c
     ld b, d
@@ -10961,14 +10961,14 @@ jr_012_73db:
     ld b, $70
     ld [hl], c
     ld [hl], d
-    rst $38
+    rst RST_38
     ld [hl], e
     ld e, b
     ld e, c
     ld a, b
     ld a, c
-    rst $00
-    rst $20
+    rst RST_00
+    rst RST_20
     add sp, $7f
     ret
 
@@ -10988,8 +10988,8 @@ jr_012_73db:
     xor c
     xor b
     xor c
-    rst $38
-    rst $10
+    rst RST_38
+    rst RST_10
     ret c
 
 jr_012_7406:
@@ -11084,7 +11084,7 @@ jr_012_742d:
     push hl
     dec b
     ld b, l
-    rst $18
+    rst RST_18
     ld b, l
     ld a, [hl-]
     dec sp
@@ -12541,1098 +12541,1098 @@ jr_012_7b9c:
     ret
 
 
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
 
 Call_012_7f45:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38

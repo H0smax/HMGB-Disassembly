@@ -23,7 +23,7 @@ Jump_01e_4002:
     ld b, e
     ld [hl-], a
     nop
-    rst $10
+    rst RST_10
     ld b, e
     ld c, e
     ld bc, $443c
@@ -156,7 +156,7 @@ Jump_01e_403e:
     ld bc, $5c28
     ld h, h
     ld [bc], a
-    rst $30
+    rst RST_30
     ld e, h
     ld a, l
     inc bc
@@ -218,7 +218,7 @@ Jump_01e_403e:
     ld e, a
     nop
     nop
-    rst $00
+    rst RST_00
     ld e, a
     nop
     inc bc
@@ -276,7 +276,7 @@ jr_01e_4104:
     jp nc, Jump_01e_7d60
 
     inc bc
-    rst $10
+    rst RST_10
 
 jr_01e_4134:
     ld h, b
@@ -510,7 +510,7 @@ jr_01e_41fa:
     ld c, c
     or b
     nop
-    rst $38
+    rst RST_38
     ld [$0c01], sp
     nop
     cp $fe
@@ -805,7 +805,7 @@ jr_01e_4323:
     ld [$74b1], sp
     or b
     nop
-    rst $38
+    rst RST_38
     ld [$040f], sp
     dec bc
     cp $fe
@@ -850,7 +850,7 @@ jr_01e_4323:
     rrca
     or b
     nop
-    rst $38
+    rst RST_38
     ld [$0a00], sp
     nop
     cp $fe
@@ -920,7 +920,7 @@ jr_01e_4323:
     inc b
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     ld bc, $000e
     cp $fe
@@ -1000,7 +1000,7 @@ jr_01e_4435:
     nop
 
 jr_01e_443b:
-    rst $38
+    rst RST_38
     inc b
     ld bc, $000d
     cp $fe
@@ -1053,7 +1053,7 @@ jr_01e_443b:
     add b
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     dec h
     ld [bc], a
@@ -1063,7 +1063,7 @@ jr_01e_443b:
     cp $a2
     jr nz, jr_01e_443b
 
-    rst $38
+    rst RST_38
     and b
     ld [bc], a
     ld [hl], $18
@@ -1090,7 +1090,7 @@ jr_01e_443b:
     and d
     jr nz, @-$59
 
-    rst $38
+    rst RST_38
     and b
     ld [bc], a
     ld [hl], $18
@@ -1116,7 +1116,7 @@ jr_01e_443b:
     inc b
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     nop
     ld a, [bc]
@@ -1196,7 +1196,7 @@ jr_01e_4545:
     nop
     or b
     ld [bc], a
-    rst $38
+    rst RST_38
 
 jr_01e_4557:
     ld b, $01
@@ -1378,7 +1378,7 @@ jr_01e_4654:
     db $10
     or b
     nop
-    rst $38
+    rst RST_38
     ld b, $02
     dec bc
     nop
@@ -1613,7 +1613,7 @@ jr_01e_473a:
     db $10
     or b
     nop
-    rst $38
+    rst RST_38
     ld b, $35
     inc b
     ld [bc], a
@@ -1808,7 +1808,7 @@ jr_01e_47ee:
     jr nc, jr_01e_47a4
 
     nop
-    rst $38
+    rst RST_38
     inc bc
     ld bc, $0008
     db $fd
@@ -1956,7 +1956,7 @@ jr_01e_48cc:
     ld [$301f], sp
     or b
     nop
-    rst $38
+    rst RST_38
     inc bc
     ld bc, $000a
     db $fd
@@ -2086,7 +2086,7 @@ jr_01e_4931:
     ld [$2cb1], sp
     or b
     nop
-    rst $38
+    rst RST_38
     inc bc
     ld [hl+], a
     ld [bc], a
@@ -2138,7 +2138,7 @@ jr_01e_49b9:
     nop
 
 jr_01e_49be:
-    rst $38
+    rst RST_38
     inc bc
     nop
     ld [$fd00], sp
@@ -2265,7 +2265,7 @@ jr_01e_49eb:
     dec hl
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
     ld [bc], a
     inc c
@@ -2477,7 +2477,7 @@ jr_01e_4ad4:
     dec sp
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
     ld [bc], a
     inc c
@@ -2624,7 +2624,7 @@ jr_01e_4b63:
     jr c, jr_01e_4b34
 
     nop
-    rst $38
+    rst RST_38
     dec b
     jr nz, @+$04
 
@@ -2797,7 +2797,7 @@ jr_01e_4c13:
     ld a, [bc]
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
 
 jr_01e_4c20:
@@ -2967,7 +2967,7 @@ jr_01e_4c20:
     inc b
     or b
     nop
-    rst $38
+    rst RST_38
     ld [$0a01], sp
     nop
     cp $fe
@@ -3206,7 +3206,7 @@ jr_01e_4dd6:
     jr nz, jr_01e_4d89
 
     nop
-    rst $38
+    rst RST_38
     ld [$0a01], sp
     nop
     cp $fe
@@ -3446,7 +3446,7 @@ jr_01e_4eb4:
     jr nz, jr_01e_4eb4
 
     nop
-    rst $38
+    rst RST_38
     ld [$0450], sp
     ld [bc], a
     cp $fe
@@ -3585,10 +3585,10 @@ jr_01e_4f79:
 jr_01e_4f80:
     or b
     nop
-    rst $38
+    rst RST_38
     ld [$0000], sp
     nop
-    rst $38
+    rst RST_38
     add hl, bc
     ld bc, $000a
 
@@ -3822,7 +3822,7 @@ jr_01e_5060:
     ld l, a
     or b
     nop
-    rst $38
+    rst RST_38
     add hl, bc
     ld [bc], a
     ld c, $00
@@ -4161,7 +4161,7 @@ jr_01e_51e3:
 jr_01e_51e7:
     or b
     nop
-    rst $38
+    rst RST_38
     add hl, bc
 
 jr_01e_51eb:
@@ -4368,7 +4368,7 @@ jr_01e_5259:
     jr jr_01e_5259
 
     nop
-    rst $38
+    rst RST_38
 
 jr_01e_52ab:
     add hl, bc
@@ -4426,7 +4426,7 @@ jr_01e_52ab:
     inc b
     or b
     nop
-    rst $38
+    rst RST_38
     rlca
     ld [bc], a
     inc c
@@ -4579,7 +4579,7 @@ jr_01e_5326:
     ld [$0832], sp
     or b
     nop
-    rst $38
+    rst RST_38
     rlca
     ld [bc], a
     inc c
@@ -4657,7 +4657,7 @@ jr_01e_53fc:
     ld [$2832], sp
     add hl, hl
     ld [$00b0], sp
-    rst $38
+    rst RST_38
     rlca
     dec [hl]
     inc b
@@ -4746,7 +4746,7 @@ jr_01e_545b:
     jr jr_01e_5437
 
     nop
-    rst $38
+    rst RST_38
     dec b
     ld bc, $000a
     cp $fe
@@ -4951,7 +4951,7 @@ jr_01e_555f:
     ld a, [bc]
     or b
     nop
-    rst $38
+    rst RST_38
 
 jr_01e_5568:
     dec b
@@ -5134,7 +5134,7 @@ jr_01e_562a:
 
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
     dec d
     ld [bc], a
@@ -5221,7 +5221,7 @@ jr_01e_5673:
     daa
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
     nop
     dec c
@@ -5262,7 +5262,7 @@ jr_01e_5673:
     ld [$12bc], sp
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     ld bc, $0009
     cp $fe
@@ -5444,7 +5444,7 @@ jr_01e_574f:
     inc c
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     ld [bc], a
     ld a, [bc]
@@ -5611,7 +5611,7 @@ jr_01e_5831:
     inc c
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     dec d
     ld [bc], a
@@ -5814,7 +5814,7 @@ jr_01e_58e1:
     inc c
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     nop
     ld [$fe00], sp
@@ -5899,7 +5899,7 @@ jr_01e_5946:
     jr nc, @-$4e
 
     nop
-    rst $38
+    rst RST_38
     inc b
     ld bc, $000a
     cp $fe
@@ -6089,7 +6089,7 @@ jr_01e_5a1d:
     or c
     ld l, $b0
     nop
-    rst $38
+    rst RST_38
     inc b
     ld [bc], a
     inc c
@@ -6308,7 +6308,7 @@ jr_01e_5ae2:
     ld d, b
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
 
 jr_01e_5aea:
@@ -6363,7 +6363,7 @@ jr_01e_5b11:
     dec c
     or b
     nop
-    rst $38
+    rst RST_38
     inc b
     nop
     dec bc
@@ -6436,7 +6436,7 @@ jr_01e_5b11:
     dec d
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
     ld bc, $0009
     cp $fe
@@ -6606,7 +6606,7 @@ jr_01e_5c17:
 
     or b
     nop
-    rst $38
+    rst RST_38
     dec b
     ld bc, $000a
     cp $fe
@@ -6792,7 +6792,7 @@ jr_01e_5cee:
     nop
 
 jr_01e_5cf6:
-    rst $38
+    rst RST_38
     dec b
     ld a, [bc]
     inc b
@@ -6851,7 +6851,7 @@ jr_01e_5d49:
     ld [$0820], sp
     ld a, [hl+]
     ld [$00b0], sp
-    rst $38
+    rst RST_38
     dec b
     nop
     ld [$fe00], sp
@@ -7005,7 +7005,7 @@ jr_01e_5d57:
     inc bc
     ld b, d
     ld [$00b0], sp
-    rst $38
+    rst RST_38
     nop
     ld bc, $170f
     daa
@@ -7020,7 +7020,7 @@ jr_01e_5d57:
     rla
     add hl, hl
     ld [bc], a
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -7057,7 +7057,7 @@ jr_01e_5d57:
     ld bc, $02a0
     ld b, l
     ld [bc], a
-    rst $38
+    rst RST_38
     nop
     nop
     ld b, $00
@@ -7110,7 +7110,7 @@ jr_01e_5edd:
     inc b
     db $10
     inc bc
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7142,7 +7142,7 @@ jr_01e_5edd:
     ld [bc], a
     dec [hl]
     inc b
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -7155,7 +7155,7 @@ jr_01e_5edd:
     rra
     ld bc, $05a0
     ld [hl], $02
-    rst $38
+    rst RST_38
 
 jr_01e_5f33:
     nop
@@ -7186,7 +7186,7 @@ jr_01e_5f33:
     inc bc
     dec h
     inc b
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7197,7 +7197,7 @@ jr_01e_5f33:
     ld bc, $0232
     ld [hl-], a
     inc bc
-    rst $38
+    rst RST_38
     nop
     db $10
     rrca
@@ -7212,7 +7212,7 @@ jr_01e_5f33:
     dec b
     ld h, d
     dec b
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7233,7 +7233,7 @@ jr_01e_5f7e:
     rlca
     dec de
     inc bc
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -7246,7 +7246,7 @@ jr_01e_5f7e:
     ld [bc], a
     rra
     db $10
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -7261,7 +7261,7 @@ jr_01e_5f7e:
     ld [bc], a
     dec b
     inc bc
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -7345,7 +7345,7 @@ Jump_01e_600a:
     inc b
     ld [hl+], a
     ld [bc], a
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7374,7 +7374,7 @@ Jump_01e_600a:
     jr nc, jr_01e_5fe6
 
     nop
-    rst $38
+    rst RST_38
     nop
     nop
     ld [$fd00], sp
@@ -7388,7 +7388,7 @@ Jump_01e_600a:
     ld h, b
     or b
     nop
-    rst $38
+    rst RST_38
     nop
     ld bc, $000f
     ld [hl-], a
@@ -7402,7 +7402,7 @@ Jump_01e_600a:
     inc b
     ld b, [hl]
     ld a, [bc]
-    rst $38
+    rst RST_38
     nop
     ld bc, $000c
     add hl, hl
@@ -7416,7 +7416,7 @@ Jump_01e_600a:
     inc b
     ld [hl-], a
     ld a, [bc]
-    rst $38
+    rst RST_38
     nop
     ld bc, $000f
     daa
@@ -7441,7 +7441,7 @@ Jump_01e_600a:
     dec b
     ld b, a
     rlca
-    rst $38
+    rst RST_38
     nop
     ld bc, $000c
     ld [hl+], a
@@ -7466,7 +7466,7 @@ Jump_01e_600a:
     dec b
     ld b, l
     rlca
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7475,14 +7475,14 @@ Jump_01e_600a:
     ld [bc], a
     rra
     ld bc, $02bf
-    rst $38
+    rst RST_38
     nop
     ld bc, $000a
     ld e, e
     ld [bc], a
     rra
     ld bc, $02bf
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7495,34 +7495,34 @@ Jump_01e_600a:
     dec b
     ld b, d
     inc bc
-    rst $38
+    rst RST_38
     nop
     nop
     nop
     nop
-    rst $38
+    rst RST_38
     nop
     nop
     nop
     nop
-    rst $38
+    rst RST_38
     nop
     nop
     nop
     nop
-    rst $38
+    rst RST_38
     nop
     nop
 
 jr_01e_60d9:
     nop
     nop
-    rst $38
+    rst RST_38
     nop
     nop
     nop
     nop
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -7538,7 +7538,7 @@ jr_01e_60d9:
     and b
     ld b, $14
     dec b
-    rst $38
+    rst RST_38
     nop
     nop
     dec bc
@@ -7549,7 +7549,7 @@ jr_01e_60d9:
     ld [bc], a
     dec sp
     dec b
-    rst $38
+    rst RST_38
     nop
     ld [bc], a
     rrca
@@ -7842,7 +7842,7 @@ jr_01e_625d:
     xor b
     or b
     nop
-    rst $38
+    rst RST_38
     ld b, $01
     ld a, [bc]
     nop
@@ -8042,7 +8042,7 @@ jr_01e_630d:
 jr_01e_6357:
     or b
     nop
-    rst $38
+    rst RST_38
     ld b, $15
     ld [bc], a
     inc bc
@@ -8137,7 +8137,7 @@ jr_01e_6394:
     inc l
     or b
     nop
-    rst $38
+    rst RST_38
     ld b, $00
     ld [$fd00], sp
     cp $a0
@@ -8335,7 +8335,7 @@ jr_01e_6394:
     ld d, c
     or b
     nop
-    rst $38
+    rst RST_38
     nop
     nop
     rrca
@@ -8359,13 +8359,13 @@ jr_01e_6394:
     ld [$00ff], sp
     ld [$1dfe], sp
     nop
-    rst $38
+    rst RST_38
     nop
     rrca
     ldh a, [$fff0]
-    rst $38
+    rst RST_38
     ldh a, [$fff3]
-    rst $38
+    rst RST_38
     rrca
     inc h
     nop
@@ -8384,7 +8384,7 @@ jr_01e_6394:
 
     dec b
     inc bc
-    rst $28
+    rst RST_28
     ld a, a
     rra
     rra
@@ -8402,7 +8402,7 @@ jr_01e_6394:
     sbc [hl]
     dec bc
     dec b
-    rst $08
+    rst RST_08
     ccf
     inc c
     ld b, $ed
@@ -8410,7 +8410,7 @@ jr_01e_6394:
 jr_01e_6533:
     ld hl, sp+$0b
     rlca
-    rst $28
+    rst RST_28
     rra
     ld bc, $f308
     db $fc
@@ -8424,7 +8424,7 @@ jr_01e_6533:
     ld a, a
     inc hl
     nop
-    rst $08
+    rst RST_08
     ld hl, $233f
     nop
     pop bc
@@ -8436,14 +8436,14 @@ jr_01e_6533:
     ld [bc], a
     nop
     inc b
-    rst $38
+    rst RST_38
     ei
     ld [$08f4], sp
     pop af
     inc c
     push af
     ldh a, [$ff7f]
-    rst $38
+    rst RST_38
     pop af
     cp $fe
     pop af
@@ -8459,7 +8459,7 @@ jr_01e_6533:
     ld b, b
     ret nz
 
-    rst $38
+    rst RST_38
     inc c
     rrca
     ld b, b
@@ -8482,9 +8482,9 @@ jr_01e_6577:
     jr nz, jr_01e_6587
 
 jr_01e_6587:
-    rst $38
+    rst RST_38
     inc bc
-    rst $38
+    rst RST_38
     jr @-$06
 
     ld c, d
@@ -8498,7 +8498,7 @@ jr_01e_6591:
     cp $00
     ld hl, $7e00
     nop
-    rst $38
+    rst RST_38
     ld a, [hl]
     ld [bc], a
     ld a, [hl]
@@ -8506,14 +8506,14 @@ jr_01e_6591:
     cp $41
     ld h, c
     inc b
-    rst $18
+    rst RST_18
     inc b
     ld c, $09
     rlca
     ld [$0023], sp
     rrca
     nop
-    rst $38
+    rst RST_38
     jr c, jr_01e_6577
 
     daa
@@ -8528,7 +8528,7 @@ jr_01e_6591:
     inc d
     db $e3
     inc b
-    rst $00
+    rst RST_00
     jr nz, jr_01e_658d
 
 jr_01e_65be:
@@ -8545,7 +8545,7 @@ jr_01e_65be:
     ret nz
 
     inc hl
-    rst $38
+    rst RST_38
     jr jr_01e_663b
 
     ld d, $19
@@ -8562,25 +8562,25 @@ jr_01e_65be:
     ld hl, sp+$08
     ld [bc], a
     add hl, bc
-    rst $38
+    rst RST_38
     ld [hl], b
 
 jr_01e_65e6:
-    rst $38
+    rst RST_38
     ldh a, [$ff7f]
     adc a
     ld a, a
-    rst $28
+    rst RST_28
     rra
-    rst $28
+    rst RST_28
     dec de
-    rst $20
+    rst RST_20
     dec b
     inc bc
     ld b, $0c
     cp $0e
     db $fd
-    rst $28
+    rst RST_28
     ld c, $fc
     ld a, [bc]
     db $fc
@@ -8588,7 +8588,7 @@ jr_01e_65e6:
     dec c
     ccf
     ccf
-    rst $08
+    rst RST_08
     cp a
     cpl
     inc sp
@@ -8607,7 +8607,7 @@ jr_01e_65e6:
     push af
     ei
     ld c, $fa
-    rst $38
+    rst RST_38
     inc b
     ld hl, sp+$08
     db $f4
@@ -8615,8 +8615,8 @@ jr_01e_65e6:
 
     ret c
 
-    rst $20
-    rst $38
+    rst RST_20
+    rst RST_38
     add sp, -$68
     and b
     ld h, b
@@ -8628,7 +8628,7 @@ jr_01e_65e6:
     or c
     ld a, [hl]
     ld a, [hl]
-    rst $38
+    rst RST_38
     or c
     jr nc, jr_01e_667f
 
@@ -8644,14 +8644,14 @@ jr_01e_663b:
     ld hl, sp-$0b
     ld hl, sp+$34
     or h
-    rst $38
+    rst RST_38
     call z, Call_000_3828
     nop
     nop
     jr jr_01e_666c
 
     sbc a
-    rst $18
+    rst RST_18
     sub b
     rlca
     adc b
@@ -8659,7 +8659,7 @@ jr_01e_663b:
     nop
     ld hl, $7c00
     add b
-    rst $28
+    rst RST_28
     ld a, h
     add e
     ld a, a
@@ -8669,7 +8669,7 @@ jr_01e_663b:
     nop
     rra
     db $10
-    rst $38
+    rst RST_38
     rra
     nop
     rrca
@@ -8695,7 +8695,7 @@ jr_01e_666c:
     cp $80
 
 jr_01e_667f:
-    rst $38
+    rst RST_38
     db $fc
     add b
     db $fc
@@ -8704,7 +8704,7 @@ jr_01e_667f:
     inc b
     db $fc
     nop
-    rst $38
+    rst RST_38
     ld hl, sp+$00
     ld hl, sp+$60
     ldh [rNR32], a
@@ -8722,10 +8722,10 @@ jr_01e_6694:
 jr_01e_669a:
     adc a
     sub b
-    rst $08
+    rst RST_08
     rra
     add b
-    rst $08
+    rst RST_08
     jr z, jr_01e_6694
 
     inc de
@@ -8733,14 +8733,14 @@ jr_01e_669a:
     ld [bc], a
     adc a
     db $10
-    rst $38
+    rst RST_38
     rra
     add b
     db $e4
     daa
     call nz, $e007
     rla
-    rst $38
+    rst RST_38
     ldh [rNR22], a
     ld hl, sp+$1f
     add sp, $0f
@@ -8754,10 +8754,10 @@ jr_01e_669a:
     add hl, bc
     ld [hl+], a
     ld d, $20
-    rst $38
+    rst RST_38
     ld [hl+], a
     cp a
-    rst $38
+    rst RST_38
     inc b
     cp a
     inc bc
@@ -8776,17 +8776,17 @@ jr_01e_669a:
     ld bc, $c081
     ld hl, $f4f7
     dec c
-    rst $38
+    rst RST_38
     jr nc, @+$0e
 
     ld [hl], c
     add c
     ld a, b
     add h
-    rst $38
+    rst RST_38
     db $fd
     inc bc
-    rst $38
+    rst RST_38
     ld bc, $02fc
     ld a, [$ff06]
     inc c
@@ -8798,7 +8798,7 @@ jr_01e_669a:
     cp a
     jr nc, @+$61
 
-    rst $28
+    rst RST_28
     jr nc, jr_01e_671f
 
     jr nc, @+$11
@@ -8821,7 +8821,7 @@ jr_01e_669a:
     inc [hl]
     call $c135
     rra
-    rst $38
+    rst RST_38
     db $fc
     ldh [c], a
 
@@ -8832,12 +8832,12 @@ jr_01e_671f:
     ld h, e
     dec bc
     inc c
-    rst $38
+    rst RST_38
     ld e, a
     ld h, b
 
 jr_01e_6728:
-    rst $38
+    rst RST_38
     nop
     ret nz
 
@@ -8845,14 +8845,14 @@ jr_01e_6728:
 
     ret nz
 
-    rst $38
+    rst RST_38
     ld e, $02
     inc a
     ld [bc], a
     ld a, $01
     sbc a
     and b
-    rst $08
+    rst RST_08
     rra
     add b
     adc a
@@ -8871,10 +8871,10 @@ jr_01e_673d:
     ld d, d
     db $10
     call nz, $080e
-    rst $38
+    rst RST_38
     inc b
-    rst $20
-    rst $38
+    rst RST_20
+    rst RST_38
     rlca
     adc b
     ld b, e
@@ -8888,7 +8888,7 @@ jr_01e_673d:
 
     nop
     ldh [$fff7], a
-    rst $38
+    rst RST_38
     nop
     cp $c0
     ld [$02fc], sp
@@ -8903,7 +8903,7 @@ jr_01e_673d:
 
 jr_01e_6771:
     inc sp
-    rst $08
+    rst RST_08
     ld bc, $0681
     rlca
     and b
@@ -8933,14 +8933,14 @@ jr_01e_677b:
     ld h, $ff
     rra
     add b
-    rst $38
+    rst RST_38
     rra
     add b
     ld e, a
     ret nz
 
     ld e, b
-    rst $20
+    rst RST_20
     ld b, b
     ret nz
 
@@ -8967,7 +8967,7 @@ jr_01e_677b:
     ccf
     jr nz, jr_01e_677b
 
-    rst $38
+    rst RST_38
     ld c, $8f
     add b
     cp e
@@ -8975,9 +8975,9 @@ jr_01e_677b:
     ld a, a
     ld [$ff7f], sp
     add b
-    rst $30
+    rst RST_30
     add hl, de
-    rst $38
+    rst RST_38
     nop
     xor $20
     xor $ef
@@ -8996,17 +8996,17 @@ jr_01e_677b:
     ldh a, [$ffe3]
     ld d, $7f
     add b
-    rst $38
+    rst RST_38
 
 jr_01e_67e6:
     ld c, a
     ld [hl], b
     inc h
-    rst $20
+    rst RST_20
     ld [hl], h
     adc h
     cp $81
-    rst $38
+    rst RST_38
     ret nc
 
     jr nc, jr_01e_67e6
@@ -9014,7 +9014,7 @@ jr_01e_67e6:
     inc c
 
 jr_01e_67f3:
-    rst $38
+    rst RST_38
     ld bc, $01fe
     ld a, [hl]
     ld hl, $5c13
@@ -9032,7 +9032,7 @@ jr_01e_6801:
     ld l, $10
     rra
     call nz, $18c7
-    rst $38
+    rst RST_38
     inc l
     rra
     inc sp
@@ -9047,7 +9047,7 @@ jr_01e_6801:
     dec [hl]
 
 jr_01e_6818:
-    rst $38
+    rst RST_38
     db $d3
     inc a
     inc hl
@@ -9055,7 +9055,7 @@ jr_01e_6818:
     dec a
     ld l, $8d
     sub [hl]
-    rst $38
+    rst RST_38
     adc l
     sub [hl]
     cp l
@@ -9064,25 +9064,25 @@ jr_01e_6818:
     ld [hl], l
     cp [hl]
     ld [hl], d
-    rst $38
+    rst RST_38
     cp h
     ld [hl], d
     or [hl]
     ld a, c
-    rst $08
+    rst RST_08
     jr c, jr_01e_6801
 
     inc a
     ei
-    rst $08
+    rst RST_08
     ld a, $01
     ld a, [hl-]
-    rst $38
+    rst RST_38
     add b
     ccf
     ld b, b
     rra
-    rst $38
+    rst RST_38
     jr nz, jr_01e_67ff
 
     and b
@@ -9090,14 +9090,14 @@ jr_01e_6818:
     db $10
     adc a
     ld b, b
-    rst $20
+    rst RST_20
     ld a, a
     jr nz, jr_01e_6818
 
     ld b, b
     add a
     ld c, b
-    rst $18
+    rst RST_18
     jr nz, jr_01e_6894
 
     ld e, $ff
@@ -9111,11 +9111,11 @@ jr_01e_6818:
     pop af
     ld bc, $08f8
     ldh a, [$ff08]
-    rst $38
+    rst RST_38
     db $fc
     inc b
     inc d
-    rst $30
+    rst RST_30
     db $10
     di
     nop
@@ -9145,7 +9145,7 @@ jr_01e_6874:
     rlca
     add d
     dec [hl]
-    rst $30
+    rst RST_30
     rra
     ld h, b
     ccf
@@ -9164,7 +9164,7 @@ jr_01e_6874:
     rrca
 
 jr_01e_6894:
-    rst $38
+    rst RST_38
     sub b
     rra
     nop
@@ -9178,22 +9178,22 @@ jr_01e_6894:
     jr nz, @-$1b
 
     call nz, $3e21
-    rst $38
+    rst RST_38
     inc bc
     ld a, a
     inc b
     db $fd
     ld [$00fb], sp
-    rst $30
+    rst RST_30
     cp $d4
     inc h
     ei
     ld a, [bc]
-    rst $38
+    rst RST_38
     jr @+$01
 
     nop
-    rst $28
+    rst RST_28
     ld [hl], a
     jr nc, @+$01
 
@@ -9224,7 +9224,7 @@ jr_01e_68c5:
     add hl, sp
     and c
     rlca
-    rst $38
+    rst RST_38
     ld hl, $403f
     ld a, [hl]
     inc bc
@@ -9238,13 +9238,13 @@ jr_01e_68c5:
     cp c
     ld b, d
     ld a, e
-    rst $38
+    rst RST_38
     add b
-    rst $30
+    rst RST_30
     nop
-    rst $30
+    rst RST_30
     db $10
-    rst $38
+    rst RST_38
     db $10
 
 jr_01e_68f6:
@@ -9257,7 +9257,7 @@ jr_01e_68f6:
     ld hl, $00e2
     ret c
 
-    rst $38
+    rst RST_38
     ld c, l
 
 jr_01e_6903:
@@ -9270,7 +9270,7 @@ jr_01e_6903:
 
     rrca
     sub b
-    rst $38
+    rst RST_38
     pop bc
     ld h, $f1
     add hl, bc
@@ -9278,7 +9278,7 @@ jr_01e_6903:
     inc bc
     ld a, [hl]
     add c
-    rst $38
+    rst RST_38
     rrca
     ld sp, $cd4b
     add d
@@ -9324,7 +9324,7 @@ jr_01e_692e:
 jr_01e_6943:
     dec de
     inc h
-    rst $38
+    rst RST_38
     inc sp
     ld c, h
     ld [hl], e
@@ -9337,7 +9337,7 @@ jr_01e_6943:
     dec c
     cp $f7
     inc d
-    rst $38
+    rst RST_38
     pop hl
     sub d
     pop af
@@ -9384,7 +9384,7 @@ jr_01e_6976:
 
     and e
     ld [hl], $04
-    rst $20
+    rst RST_20
     jr nz, @+$01
 
     ldh [rNR41], a
@@ -9395,7 +9395,7 @@ jr_01e_6976:
     jr nz, jr_01e_6976
 
     ld [hl+], a
-    rst $30
+    rst RST_30
     and $27
     ldh [rNR42], a
     nop
@@ -9403,7 +9403,7 @@ jr_01e_6976:
     db $e3
     rrca
     dec bc
-    rst $38
+    rst RST_38
     sub a
     sbc e
     ld [$040f], sp
@@ -9417,13 +9417,13 @@ jr_01e_69a7:
     inc bc
     ld a, $c1
     ld e, $e1
-    rst $38
+    rst RST_38
     inc c
 
 jr_01e_69b5:
     ld a, [$ff10]
     nop
-    rst $18
+    rst RST_18
     inc c
     adc a
     cp $70
@@ -9441,11 +9441,11 @@ jr_01e_69b5:
     ld e, h
     ld h, d
     cp $1c
-    rst $38
+    rst RST_38
     rra
     adc [hl]
     adc a
-    rst $30
+    rst RST_30
     ld c, $01
     nop
     nop
@@ -9457,7 +9457,7 @@ jr_01e_69b5:
     ld h, $12
     or e
     db $10
-    rst $18
+    rst RST_18
     or c
     sbc b
     add hl, sp
@@ -9474,7 +9474,7 @@ jr_01e_69b5:
     xor $0f
     nop
     db $fd
-    rst $38
+    rst RST_38
     ld b, d
 
 jr_01e_69f8:
@@ -9491,14 +9491,14 @@ jr_01e_69f8:
     ldh a, [rTAC]
     and b
     nop
-    rst $28
+    rst RST_28
     jr nz, jr_01e_69f8
 
-    rst $38
+    rst RST_38
 
 jr_01e_6a0a:
     inc b
-    rst $00
+    rst RST_00
     ld b, c
     ld b, c
     db $10
@@ -9511,7 +9511,7 @@ jr_01e_6a0a:
     cp a
     add b
     ld a, [$38c7]
-    rst $28
+    rst RST_28
     ld b, h
     ld a, h
     inc b
@@ -9530,7 +9530,7 @@ jr_01e_6a25:
     jp nz, Jump_01e_403e
 
     cp $80
-    rst $28
+    rst RST_28
     cp $02
     ld sp, hl
     dec b
@@ -9538,7 +9538,7 @@ jr_01e_6a25:
     dec h
     ld b, $07
     db $10
-    rst $20
+    rst RST_20
     jr nc, jr_01e_6a81
 
     ld a, h
@@ -9599,15 +9599,15 @@ jr_01e_6a65:
     jp Jump_000_26a6
 
 
-    rst $28
+    rst RST_28
 
 jr_01e_6a81:
     nop
-    rst $28
+    rst RST_28
     jr z, @-$38
 
     ld b, c
-    rst $38
+    rst RST_38
     inc b
     add d
     sub b
@@ -9617,7 +9617,7 @@ jr_01e_6a81:
     nop
     call z, $8e02
     ld de, $201f
-    rst $38
+    rst RST_38
     ccf
     ld b, b
     rlca
@@ -9634,11 +9634,11 @@ jr_01e_6a9f:
     rra
     daa
     ccf
-    rst $00
-    rst $38
+    rst RST_00
+    rst RST_38
     rrca
-    rst $38
-    rst $28
+    rst RST_38
+    rst RST_28
     rra
     db $fc
     inc bc
@@ -9659,39 +9659,39 @@ jr_01e_6a9f:
     rlca
     ld sp, hl
     ld c, a
-    rst $38
+    rst RST_38
     ret z
 
-    rst $28
+    rst RST_28
     pop hl
     ld [hl], h
     ldh a, [hMapSizeL]
     ei
     ld e, h
-    rst $38
+    rst RST_38
     db $fc
     ld l, $fe
     daa
     ld e, a
     ld c, $11
     db $fd
-    rst $38
+    rst RST_38
     ld [bc], a
     daa
-    rst $20
+    rst RST_20
     inc de
     di
     db $eb
     ld a, [de]
     ld e, d
-    rst $38
+    rst RST_38
     ei
     dec bc
     dec sp
     inc h
     ld a, $02
     cp $39
-    rst $38
+    rst RST_38
     add hl, sp
     cp h
     cp h
@@ -9708,8 +9708,8 @@ jr_01e_6a9f:
     dec a
     and $07
     and h
-    rst $38
-    rst $20
+    rst RST_38
+    rst RST_20
     ld [de], a
     ld [hl], e
     pop hl
@@ -9720,28 +9720,28 @@ jr_01e_6a9f:
 
     sbc l
     nop
-    rst $38
+    rst RST_38
     sub b
     adc a
     db $10
-    rst $38
+    rst RST_38
     rrca
     adc b
     sub a
     ld e, b
-    rst $10
+    rst RST_10
     adc e
-    rst $00
+    rst RST_00
     adc e
-    rst $38
-    rst $00
+    rst RST_38
+    rst RST_00
     rra
     sub a
     rrca
     rla
     or $19
-    rst $30
-    rst $18
+    rst RST_30
+    rst RST_18
     ld hl, sp-$0d
 
 jr_01e_6b25:
@@ -9761,8 +9761,8 @@ jr_01e_6b25:
     rra
     ldh [rP1], a
     dec c
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     ldh a, [c]
     dec bc
     ld a, b
@@ -9779,10 +9779,10 @@ jr_01e_6b25:
 
     jr nc, @-$06
 
-    rst $38
+    rst RST_38
     inc b
     inc b
-    rst $38
+    rst RST_38
     add hl, bc
     ld sp, hl
     ld bc, $10f1
@@ -9825,30 +9825,30 @@ jr_01e_6b25:
     add h
     cp a
     cp $c2
-    rst $38
+    rst RST_38
     ldh [rIF], a
     ldh a, [$ffe1]
     dec b
     rrca
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     jr nz, jr_01e_6bbd
 
     ld a, c
     ld c, c
     ld sp, hl
     add [hl]
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     nop
-    rst $08
+    rst RST_08
     jr nc, jr_01e_6b25
 
     ld a, b
     dec c
     db $fc
     dec c
-    rst $38
+    rst RST_38
     db $fc
 
 jr_01e_6b9d:
@@ -9869,7 +9869,7 @@ jr_01e_6b9d:
     ldh [$ffdf], a
     ret nz
 
-    rst $18
+    rst RST_18
     ret nz
 
     rra
@@ -9919,7 +9919,7 @@ jr_01e_6bbd:
     jr nc, @+$01
 
     nop
-    rst $38
+    rst RST_38
     nop
     db $fd
     add b
@@ -9932,12 +9932,12 @@ jr_01e_6bbd:
     nop
     db $dd
     ld bc, $00e0
-    rst $38
+    rst RST_38
     nop
     inc bc
     ld b, b
     ld bc, $01fe
-    rst $18
+    rst RST_18
     inc e
     ldh [c], a
     nop
@@ -9946,7 +9946,7 @@ jr_01e_6bbd:
 
     ld [bc], a
     ld bc, $00e0
-    rst $38
+    rst RST_38
     xor a
     ld d, b
     dec b
@@ -9978,8 +9978,8 @@ jr_01e_6c25:
     nop
     nop
     nop
-    rst $38
-    rst $10
+    rst RST_38
+    rst RST_10
     jr z, jr_01e_6bb7
 
     ld d, h
@@ -9987,8 +9987,8 @@ jr_01e_6c25:
     cp b
     ret nz
 
-    rst $00
-    rst $08
+    rst RST_00
+    rst RST_08
     cp b
     add e
     ld a, h
@@ -9996,16 +9996,16 @@ jr_01e_6c25:
     ld b, b
     ld b, $f6
     add hl, bc
-    rst $38
+    rst RST_38
     ldh [c], a
 
 jr_01e_6c46:
     dec d
     cp $81
-    rst $38
+    rst RST_38
     ret nz
 
-    rst $30
+    rst RST_30
     ld hl, sp-$01
     pop af
     cp $00
@@ -10014,7 +10014,7 @@ jr_01e_6c46:
     and b
     rrca
     ld d, b
-    rst $38
+    rst RST_38
     ld e, a
     and b
     add [hl]
@@ -10022,7 +10022,7 @@ jr_01e_6c46:
     add b
     ld h, b
     ldh a, [$ff0c]
-    rst $38
+    rst RST_38
     cp $01
     ld a, a
     add b
@@ -10038,20 +10038,20 @@ jr_01e_6c46:
     ret z
 
     ld e, $11
-    rst $38
+    rst RST_38
     sbc h
     and e
-    rst $38
+    rst RST_38
     rlca
-    rst $38
+    rst RST_38
     rrca
-    rst $28
+    rst RST_28
     rra
 
 jr_01e_6c7a:
     xor a
     rrca
-    rst $38
+    rst RST_38
     ldh a, [$ff7f]
     inc hl
     dec b
@@ -10083,9 +10083,9 @@ jr_01e_6c93:
     pop bc
     ld a, [hl+]
     db $e3
-    rst $38
+    rst RST_38
     inc e
-    rst $38
+    rst RST_38
 
 jr_01e_6c9d:
     nop
@@ -10098,9 +10098,9 @@ jr_01e_6c9d:
     jr nz, jr_01e_6c81
 
     ldh a, [c]
-    rst $38
+    rst RST_38
     dec c
-    rst $38
+    rst RST_38
     nop
     ld a, b
     add l
@@ -10114,7 +10114,7 @@ jr_01e_6c9d:
     ld a, [hl+]
     dec sp
     call nz, $00ff
-    rst $38
+    rst RST_38
     add $39
     ld [bc], a
     push bc
@@ -10122,17 +10122,17 @@ jr_01e_6c9d:
     cp d
     jr nc, jr_01e_6c93
 
-    rst $18
+    rst RST_18
     ldh [c], a
     dec d
-    rst $00
+    rst RST_00
     jr z, jr_01e_6c9d
 
     and b
     rrca
     inc c
     ld [de], a
-    rst $38
+    rst RST_38
     jr jr_01e_6c7a
 
     nop
@@ -10141,7 +10141,7 @@ jr_01e_6c9d:
     ld [hl], l
     nop
     ld [hl], l
-    rst $28
+    rst RST_28
     inc b
     adc d
     adc [hl]
@@ -10149,7 +10149,7 @@ jr_01e_6c9d:
     ld bc, $0001
     ld l, h
     nop
-    rst $38
+    rst RST_38
     ld l, d
     nop
     ld l, l
@@ -10167,16 +10167,16 @@ jr_01e_6c9d:
     db $10
     xor e
     db $10
-    rst $38
+    rst RST_38
     xor d
     jr nc, jr_01e_6d48
 
     ld a, e
     add h
-    rst $38
+    rst RST_38
     nop
     ld h, d
-    rst $38
+    rst RST_38
     sub l
     ld [hl+], a
     push de
@@ -10186,15 +10186,15 @@ jr_01e_6c9d:
     db $db
     jr @+$01
 
-    rst $20
+    rst RST_20
     inc c
     ld [de], a
     inc e
     db $e3
-    rst $38
+    rst RST_38
     nop
     inc a
-    rst $18
+    rst RST_18
     ld b, e
     inc a
     ld b, e
@@ -10212,7 +10212,7 @@ jr_01e_6c9d:
     xor e
     nop
     ld l, h
-    rst $38
+    rst RST_38
     inc c
     db $d3
     rra
@@ -10230,9 +10230,9 @@ jr_01e_6c9d:
     rla
     ldh a, [$ff08]
     ld hl, sp+$07
-    rst $38
+    rst RST_38
     nop
-    rst $38
+    rst RST_38
     ccf
     ld b, b
     ld h, c
@@ -10254,7 +10254,7 @@ jr_01e_6d48:
     adc a
     ld [hl+], a
     nop
-    rst $30
+    rst RST_30
     rrca
     ld a, a
     or b
@@ -10262,13 +10262,13 @@ jr_01e_6d48:
 
 jr_01e_6d5e:
     nop
-    rst $08
+    rst RST_08
     ccf
-    rst $08
+    rst RST_08
     ccf
     adc a
     ldh a, [rIF]
-    rst $38
+    rst RST_38
     nop
     dec b
     dec d
@@ -10278,13 +10278,13 @@ jr_01e_6d5e:
     ld bc, $0105
     rra
     nop
-    rst $18
+    rst RST_18
     ret nz
 
-    rst $18
+    rst RST_18
     ret nz
 
-    rst $28
+    rst RST_28
     xor $e0
     ld bc, $05f1
     ld [bc], a
@@ -10298,10 +10298,10 @@ jr_01e_6d5e:
     inc bc
     rrca
     nop
-    rst $28
+    rst RST_28
     ldh [$ffef], a
     ldh [rBCPD], a
-    rst $30
+    rst RST_30
     ret nc
 
     rlca
@@ -10353,7 +10353,7 @@ jr_01e_6d5e:
     ld e, $b8
     add e
     rlca
-    rst $00
+    rst RST_00
     inc bc
     ld [bc], a
     ei
@@ -10382,7 +10382,7 @@ jr_01e_6d5e:
     nop
     xor d
     xor d
-    rst $30
+    rst RST_30
     ld e, a
     ld e, a
     ld a, [$26b3]
@@ -10408,18 +10408,18 @@ jr_01e_6d5e:
     dec d
     ld d, l
     ld e, d
-    rst $28
+    rst RST_28
     ld a, [$ffaf]
     db $fd
     ldh [c], a
     inc bc
     and b
-    rst $38
+    rst RST_38
     call nc, $ffff
     ld l, d
     ld a, a
     db $f4
-    rst $38
+    rst RST_38
     ld [$50ff], a
     ld a, h
     push hl
@@ -10427,20 +10427,20 @@ jr_01e_6d5e:
     add [hl]
     nop
     ccf
-    rst $38
+    rst RST_38
     dec d
-    rst $38
+    rst RST_38
     ld [bc], a
     ld l, b
     ld bc, $f59f
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
     xor d
     ld b, b
     ld bc, $0785
     cp $ab
-    rst $38
+    rst RST_38
     ld d, l
     nop
     ld bc, $8640
@@ -10449,21 +10449,21 @@ jr_01e_6d5e:
     ld c, h
     inc b
     ld h, b
-    rst $38
+    rst RST_38
     ldh [rSTAT], a
     pop bc
     add $c6
     db $fc
     db $fc
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
     ld a, a
-    rst $38
+    rst RST_38
     scf
-    rst $38
+    rst RST_38
     ld a, [bc]
-    rst $38
+    rst RST_38
     rlca
     ld a, a
     rlca
@@ -10485,30 +10485,30 @@ jr_01e_6d5e:
     ld b, l
     ld b, l
     adc d
-    rst $38
+    rst RST_38
     adc d
     push af
     push af
     cp a
-    rst $38
+    rst RST_38
     ld [bc], a
     add d
     ld b, c
-    rst $38
+    rst RST_38
     ld b, c
     xor d
     xor d
     ld d, a
     ld d, a
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     cp d
-    rst $38
+    rst RST_38
     cp a
     push de
-    rst $38
+    rst RST_38
     xor [hl]
-    rst $38
+    rst RST_38
     cp a
     cp a
     ld a, [hl]
@@ -10551,10 +10551,10 @@ jr_01e_6e9a:
 
     ld d, l
     ccf
-    rst $38
+    rst RST_38
     push de
     push de
-    rst $28
+    rst RST_28
     ld a, [hl+]
     ld a, [hl+]
     dec b
@@ -10585,7 +10585,7 @@ jr_01e_6ecf:
     ld e, a
     dec hl
     dec hl
-    rst $08
+    rst RST_08
     ld d, l
     ld d, l
     xor d
@@ -10594,15 +10594,15 @@ jr_01e_6ecf:
     dec d
     add c
     ld b, $e8
-    rst $38
+    rst RST_38
     ld a, a
     or h
     cp a
     jp c, Jump_000_0fdf
 
-    rst $38
+    rst RST_38
     ld bc, $114a
-    rst $20
+    rst RST_20
     ld [$ffea], a
     dec hl
     ld bc, $0560
@@ -10617,11 +10617,11 @@ jr_01e_6ecf:
     xor a
     ld a, a
     ld a, a
-    rst $38
+    rst RST_38
     ld a, $a4
     dec d
     nop
-    rst $38
+    rst RST_38
     ld a, a
     ld a, a
 
@@ -10644,7 +10644,7 @@ jr_01e_6f06:
     ldh [$ff30], a
     ldh a, [$ff03]
     cp e
-    rst $38
+    rst RST_38
     inc bc
     and $0b
     ld a, [bc]
@@ -10652,7 +10652,7 @@ jr_01e_6f06:
     ld d, d
     ld h, b
     db $10
-    rst $38
+    rst RST_38
     cp $20
     dec b
     ld [bc], a
@@ -10661,16 +10661,16 @@ jr_01e_6f06:
     ld a, [hl+]
     push de
     ei
-    rst $38
+    rst RST_38
     xor a
     ret nz
 
 jr_01e_6f39:
     rla
     add b
-    rst $38
+    rst RST_38
     db $fc
-    rst $38
+    rst RST_38
     xor a
     xor c
     xor a
@@ -10711,7 +10711,7 @@ jr_01e_6f39:
     or b
     ld c, e
     rrca
-    rst $38
+    rst RST_38
     ld [hl], b
     ldh a, [$ffe0]
     stop
@@ -10759,10 +10759,10 @@ jr_01e_6f94:
     jr jr_01e_6faa
 
     dec b
-    rst $20
+    rst RST_20
     xor d
     xor d
-    rst $38
+    rst RST_38
 
 jr_01e_6faa:
     ld [bc], a
@@ -10806,7 +10806,7 @@ jr_01e_6fb9:
     jr nz, @+$01
 
     nop
-    rst $38
+    rst RST_38
     adc a
     ld [hl], b
     or b
@@ -10849,7 +10849,7 @@ jr_01e_6fe6:
 
 jr_01e_7008:
     and c
-    rst $28
+    rst RST_28
     ld b, b
     ld c, h
     nop
@@ -10858,7 +10858,7 @@ jr_01e_7008:
     ld a, a
     add c
     add c
-    rst $38
+    rst RST_38
     nop
     ld sp, hl
     nop
@@ -10873,21 +10873,21 @@ jr_01e_7008:
     ld [hl], b
     or h
     ld a, b
-    rst $08
+    rst RST_08
     inc a
     ld hl, $ff42
-    rst $08
+    rst RST_08
     ccf
     ld [$6a04], a
     inc b
     call nc, $ff08
     inc sp
     inc e
-    rst $08
+    rst RST_08
     ccf
     ccf
     call $804d
-    rst $38
+    rst RST_38
     ld c, l
     add b
     ld [hl], b
@@ -10896,15 +10896,15 @@ jr_01e_7008:
     jr nc, jr_01e_7071
 
     nop
-    rst $38
+    rst RST_38
     cp $31
     rrca
-    rst $38
+    rst RST_38
     sbc a
     ld h, b
     ld h, b
     nop
-    rst $38
+    rst RST_38
     ld h, h
     nop
     ld h, b
@@ -10949,7 +10949,7 @@ jr_01e_7071:
     sbc c
     sbc c
     ld [$3f48], sp
-    rst $18
+    rst RST_18
     pop bc
     ld b, c
     add b
@@ -10957,13 +10957,13 @@ jr_01e_7071:
     add b
     ld [$c301], sp
     ld b, e
-    rst $20
+    rst RST_20
     add c
     ld a, a
     add c
     rrca
     ld bc, $5b08
-    rst $30
+    rst RST_30
     rla
     ldh [c], a
     cp $06
@@ -10982,7 +10982,7 @@ jr_01e_7071:
     ld c, $79
     ld [$6f06], sp
     sbc a
-    rst $28
+    rst RST_28
     sbc a
     rrca
     sbc a
@@ -10999,12 +10999,12 @@ jr_01e_70ba:
     add a
     rlca
     ld d, d
-    rst $38
+    rst RST_38
     ldh [rSB], a
-    rst $18
+    rst RST_18
     di
     ld bc, $80c0
-    rst $08
+    rst RST_08
     jr nz, jr_01e_70ca
 
 jr_01e_70ca:
@@ -11017,7 +11017,7 @@ jr_01e_70ca:
     ret z
 
     ld sp, hl
-    rst $18
+    rst RST_18
     ldh a, [$fff2]
     ld h, c
     rrca
@@ -11034,7 +11034,7 @@ jr_01e_70ca:
     ld bc, $05e1
     ld bc, $41fe
     pop bc
-    rst $30
+    rst RST_30
     nop
     cp $c1
     rlca
@@ -11051,7 +11051,7 @@ jr_01e_70ca:
     sub b
     ld sp, hl
     ldh [$fff2], a
-    rst $28
+    rst RST_28
     pop bc
     call nz, $3f83
     inc b
@@ -11086,7 +11086,7 @@ jr_01e_711b:
 
     add a
     ccf
-    rst $08
+    rst RST_08
     inc bc
     ld d, e
     db $e4
@@ -11161,7 +11161,7 @@ jr_01e_711b:
     rlca
     cp a
     ld e, a
-    rst $38
+    rst RST_38
     db $fd
     ld e, a
     inc de
@@ -11169,15 +11169,15 @@ jr_01e_711b:
     ld l, [hl]
     ldh a, [$ffdf]
     cp [hl]
-    rst $38
-    rst $30
+    rst RST_38
+    rst RST_30
     adc $fe
     and b
-    rst $38
+    rst RST_38
     ld e, a
     xor [hl]
     ld e, a
-    rst $18
+    rst RST_18
     and b
     ld e, a
     ld d, c
@@ -11185,7 +11185,7 @@ jr_01e_711b:
     and h
     ld [bc], a
     add sp, -$30
-    rst $38
+    rst RST_38
     ld a, b
     ldh [$ffe8], a
     jr nc, jr_01e_71f3
@@ -11200,10 +11200,10 @@ jr_01e_711b:
     xor $44
     ld [hl], a
     ld [hl+], a
-    rst $28
+    rst RST_28
     ld a, a
     daa
-    rst $38
+    rst RST_38
     ld c, d
     inc de
     dec b
@@ -11245,7 +11245,7 @@ jr_01e_71dd:
     inc a
     db $10
     cp $3c
-    rst $38
+    rst RST_38
 
 jr_01e_71f3:
     ldh [c], a
@@ -11255,12 +11255,12 @@ jr_01e_71f3:
     nop
     adc a
     inc b
-    rst $00
+    rst RST_00
     add e
     db $e3
-    rst $28
+    rst RST_28
     ld b, b
-    rst $20
+    rst RST_20
     ld b, d
     ld c, a
     ld [bc], a
@@ -11268,7 +11268,7 @@ jr_01e_71f3:
     nop
     nop
     add b
-    rst $28
+    rst RST_28
     nop
     ret nz
 
@@ -11277,10 +11277,10 @@ jr_01e_71f3:
     jp nz, $ef0a
 
     ld b, d
-    rst $20
-    rst $38
+    rst RST_20
+    rst RST_38
     ld b, e
-    rst $38
+    rst RST_38
     ld b, l
     ld a, a
     dec [hl]
@@ -11292,7 +11292,7 @@ jr_01e_71f3:
     inc e
     ld [$089c], sp
     call c, $ef88
-    rst $28
+    rst RST_28
     ld b, h
     ld b, a
     inc bc
@@ -11305,11 +11305,11 @@ jr_01e_722a:
     ld c, a
     dec b
     ld a, a
-    rst $28
+    rst RST_28
     ld b, h
-    rst $28
+    rst RST_28
     ld b, h
-    rst $00
+    rst RST_00
     add e
     add e
     jp nz, $ff0d
@@ -11319,7 +11319,7 @@ jr_01e_722a:
     xor $44
     xor $c4
     adc $84
-    rst $30
+    rst RST_30
     call c, $0808
     jp nz, $f70e
 
@@ -11327,7 +11327,7 @@ jr_01e_722a:
     ld [hl], a
     ld [hl+], a
     cp a
-    rst $20
+    rst RST_20
     ld b, d
     xor $44
     ld c, [hl]
@@ -11345,7 +11345,7 @@ jr_01e_722a:
     inc b
     and c
     ld b, $e0
-    rst $20
+    rst RST_20
     ld b, b
     ldh [rLCDC], a
     dec b
@@ -11403,7 +11403,7 @@ jr_01e_722a:
     nop
     inc bc
     ld bc, $10b3
-    rst $38
+    rst RST_38
     ld [hl], c
     jr nz, jr_01e_7320
 
@@ -11624,7 +11624,7 @@ jr_01e_7325:
     nop
     inc b
     ei
-    rst $38
+    rst RST_38
     ld bc, $0012
     ld [bc], a
     inc bc
@@ -11637,7 +11637,7 @@ jr_01e_7325:
     add c
     ld bc, $0908
     ld a, [bc]
-    rst $38
+    rst RST_38
     dec bc
     inc c
     dec c
@@ -11662,7 +11662,7 @@ jr_01e_7325:
     ld a, [de]
     add c
     inc bc
-    rst $38
+    rst RST_38
     jr jr_01e_73d4
 
     ld a, [de]
@@ -11702,7 +11702,7 @@ jr_01e_73d4:
     nop
     jr nc, jr_01e_7411
 
-    rst $38
+    rst RST_38
     ld [hl-], a
     inc sp
     inc [hl]
@@ -11721,7 +11721,7 @@ jr_01e_73e9:
     rlca
     push bc
     nop
-    rst $38
+    rst RST_38
     ld b, b
     ld b, c
     ld b, d
@@ -11732,7 +11732,7 @@ jr_01e_73fa:
     ld b, l
     ld b, [hl]
     ld b, a
-    rst $38
+    rst RST_38
     ld c, b
     ld c, c
     ld c, d
@@ -11741,7 +11741,7 @@ jr_01e_73fa:
     ld c, l
     ld c, [hl]
     ld c, a
-    rst $08
+    rst RST_08
     ld d, b
     ld d, c
     ld d, d
@@ -11752,7 +11752,7 @@ jr_01e_73fa:
     ld bc, $540a
 
 jr_01e_7411:
-    rst $38
+    rst RST_38
     ld d, l
     ld d, [hl]
     ld d, a
@@ -11761,7 +11761,7 @@ jr_01e_7411:
     ld e, d
     ld e, e
     ld e, h
-    rst $38
+    rst RST_38
     ld e, l
     ld e, [hl]
     ld e, a
@@ -11781,7 +11781,7 @@ jr_01e_7422:
     ld bc, $670a
     ld l, b
     ld l, c
-    rst $38
+    rst RST_38
     ld l, d
     ld l, e
     ld l, h
@@ -11790,7 +11790,7 @@ jr_01e_7422:
     ld l, a
     ld [hl], b
     ld [hl], c
-    rst $38
+    rst RST_38
     ld [hl], d
     ld [hl], e
     ld [hl], h
@@ -11808,7 +11808,7 @@ jr_01e_7422:
     adc h
     adc l
     ld l, [hl]
-    rst $38
+    rst RST_38
     ld l, a
     ld a, [bc]
     dec bc
@@ -11817,7 +11817,7 @@ jr_01e_7422:
     ld a, h
     ld a, l
     ld a, [hl]
-    rst $38
+    rst RST_38
     ld a, a
     add b
     add c
@@ -11835,7 +11835,7 @@ jr_01e_7422:
     nop
     ld c, $80
     ld [bc], a
-    rst $38
+    rst RST_38
     adc [hl]
     adc a
     sub b
@@ -11844,7 +11844,7 @@ jr_01e_7422:
     sub e
     sub h
     sub l
-    rst $08
+    rst RST_08
     sub [hl]
     sub a
     sbc b
@@ -11854,7 +11854,7 @@ jr_01e_7422:
     inc b
     adc [hl]
     adc a
-    rst $38
+    rst RST_38
     sbc c
     sbc d
     sbc d
@@ -11863,7 +11863,7 @@ jr_01e_7422:
     sbc h
     sbc l
     sbc [hl]
-    rst $38
+    rst RST_38
     sbc a
     and b
     and c
@@ -11881,7 +11881,7 @@ jr_01e_7422:
     sbc c
     ld [hl], e
     ld bc, $a8a7
-    rst $28
+    rst RST_28
     xor c
     xor d
     xor e
@@ -11891,7 +11891,7 @@ jr_01e_7422:
     or c
     or d
     or e
-    rst $28
+    rst RST_28
     or h
     or l
     or [hl]
@@ -11899,7 +11899,7 @@ jr_01e_7422:
     add hl, sp
     ld bc, $adac
     xor [hl]
-    rst $38
+    rst RST_38
     xor a
     or b
     xor h
@@ -11967,7 +11967,7 @@ jr_01e_74f6:
     ld d, c
     inc bc
     sub $8f
-    rst $10
+    rst RST_10
     ret c
 
     reti
@@ -11979,19 +11979,19 @@ jr_01e_74f6:
     nop
     ld [bc], a
     ld e, $f8
-    rst $38
+    rst RST_38
     ld sp, hl
     ld a, [$fcfb]
     db $fd
     cp $ff
     db $db
-    rst $38
+    rst RST_38
     call c, $dedd
-    rst $18
+    rst RST_18
     ldh [$ffe1], a
     ldh [c], a
     db $e3
-    rst $38
+    rst RST_38
     ldh [c], a
     db $e4
     push hl
@@ -12005,7 +12005,7 @@ jr_01e_74f6:
 
     db $ed
     xor $ef
-    rst $38
+    rst RST_38
     ldh a, [$fff1]
     ldh a, [c]
     di
@@ -12093,7 +12093,7 @@ jr_01e_7570:
     ld a, [de]
     dec c
     ld bc, $1bcc
-    rst $38
+    rst RST_38
     dec c
     ld bc, $0800
     or $1d
@@ -12116,7 +12116,7 @@ jr_01e_7570:
     ld hl, $af00
     ei
     sbc a
-    rst $38
+    rst RST_38
     inc e
     nop
     ld b, c
@@ -12124,7 +12124,7 @@ jr_01e_7570:
     and c
     pop bc
     pop de
-    rst $38
+    rst RST_38
     pop hl
     pop de
     pop hl
@@ -12137,7 +12137,7 @@ jr_01e_7570:
 
     pop af
     push af
-    rst $18
+    rst RST_18
     ld sp, hl
     push af
     ld sp, hl
@@ -12167,15 +12167,15 @@ jr_01e_75e8:
     ld bc, $0409
     cpl
     rra
-    rst $38
-    rst $28
+    rst RST_38
+    rst RST_28
     nop
     ld [$fcff], sp
     db $fc
     ld hl, sp-$07
     ldh a, [$fff2]
     ldh [$ffe4], a
-    rst $18
+    rst RST_18
     ret nz
 
     ld [$c9c0], a
@@ -12184,7 +12184,7 @@ jr_01e_75e8:
     inc bc
     ld a, a
     nop
-    rst $38
+    rst RST_38
     sub h
     inc bc
     inc d
@@ -12193,17 +12193,17 @@ jr_01e_75e8:
     jr nz, jr_01e_7625
 
     ld h, b
-    rst $38
+    rst RST_38
     inc d
     pop hl
-    rst $38
+    rst RST_38
     ld a, a
     ld a, a
     rra
     rra
     rrca
-    rst $38
-    rst $08
+    rst RST_38
+    rst RST_08
     rlca
     daa
     inc bc
@@ -12219,12 +12219,12 @@ jr_01e_7625:
     add hl, bc
     rlca
     ld hl, sp-$10
-    rst $38
-    rst $30
+    rst RST_38
+    rst RST_30
     dec b
     ld a, [bc]
     db $e3
-    rst $38
+    rst RST_38
     ld a, a
     inc bc
     rlca
@@ -12232,7 +12232,7 @@ jr_01e_7625:
     rlca
     ld a, [hl-]
     dec c
-    rst $28
+    rst RST_28
     rra
     rrca
     cp $3a
@@ -12243,9 +12243,9 @@ jr_01e_7625:
     add [hl]
     ret nc
 
-    rst $18
+    rst RST_18
     adc a
-    rst $18
+    rst RST_18
     add b
     ret nc
 
@@ -12264,14 +12264,14 @@ jr_01e_7625:
     ld a, [bc]
     ld d, b
     dec bc
-    rst $38
+    rst RST_38
     nop
     sub l
     ld [$1825], sp
     ld b, l
     jr c, jr_01e_75e8
 
-    rst $38
+    rst RST_38
     ld a, b
     db $fd
     nop
@@ -12281,7 +12281,7 @@ jr_01e_7625:
     ld hl, sp-$03
     ld h, e
     nop
-    rst $30
+    rst RST_30
     ld d, b
     ld b, $1f
     nop
@@ -12342,11 +12342,11 @@ jr_01e_76a2:
     cp $81
     ld c, $14
     db $e3
-    rst $30
+    rst RST_30
     nop
     inc d
     nop
-    rst $30
+    rst RST_30
     cp [hl]
     ld h, c
     rlca
@@ -12397,7 +12397,7 @@ jr_01e_76c4:
     db $10
     jr c, jr_01e_7729
 
-    rst $30
+    rst RST_30
     jr z, jr_01e_771c
 
     ld c, b
@@ -12406,14 +12406,14 @@ jr_01e_76c4:
 
     ld a, b
     nop
-    rst $38
+    rst RST_38
     call z, Call_000_2448
     inc h
     jr c, jr_01e_770a
 
     ld e, h
     db $10
-    rst $38
+    rst RST_38
     jp z, $5468
 
     jr c, @+$6e
@@ -12443,7 +12443,7 @@ jr_01e_771c:
 
 jr_01e_7721:
     ld b, c
-    rst $38
+    rst RST_38
     nop
     ld d, e
     nop
@@ -12454,7 +12454,7 @@ jr_01e_7721:
 jr_01e_7729:
     rrca
     ld d, b
-    rst $38
+    rst RST_38
     db $10
     ld b, b
     rra
@@ -12470,7 +12470,7 @@ jr_01e_7729:
     push af
     ldh a, [rNR11]
     ld [de], a
-    rst $38
+    rst RST_38
     dec b
     nop
     nop
@@ -12479,7 +12479,7 @@ jr_01e_7729:
     jr nc, @+$32
 
     ld [hl], b
-    rst $38
+    rst RST_38
     ld [hl], b
     ld e, b
     ld e, b
@@ -12530,18 +12530,18 @@ jr_01e_7771:
     jr z, jr_01e_77d4
 
     ld sp, $97cf
-    rst $18
+    rst RST_18
     or $28
     nop
-    rst $28
+    rst RST_28
     sla l
     nop
-    rst $38
+    rst RST_38
     add c
     db $eb
     xor l
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     jp $0026
 
 
@@ -12549,7 +12549,7 @@ jr_01e_7771:
     sbc d
     pop af
     and $7b
-    rst $30
+    rst RST_30
     push hl
     dec h
     nop
@@ -12557,11 +12557,11 @@ jr_01e_7771:
     ld b, b
     ld d, b
     ld bc, $1505
-    rst $38
+    rst RST_38
     ret nc
 
     add b
-    rst $18
+    rst RST_18
     add b
     nop
     dec b
@@ -12579,7 +12579,7 @@ jr_01e_7771:
     call z, $8958
     or a
     ld h, c
-    rst $08
+    rst RST_08
     add a
     dec h
     nop
@@ -12588,40 +12588,40 @@ jr_01e_7771:
     dec bc
     dec b
     xor d
-    rst $30
+    rst RST_30
     adc h
-    rst $30
+    rst RST_30
     db $ed
-    rst $20
+    rst RST_20
     inc b
-    rst $30
+    rst RST_30
     push hl
     ld a, a
     ld a, a
     cp $2c
     ld sp, $d703
     ld e, e
-    rst $38
+    rst RST_38
     add a
-    rst $28
+    rst RST_28
     or a
 
 jr_01e_77d4:
-    rst $38
-    rst $08
+    rst RST_38
+    rst RST_08
     sub a
-    rst $08
+    rst RST_08
     sub [hl]
-    rst $10
+    rst RST_10
     sbc c
     sbc $bc
     ei
-    rst $20
+    rst RST_20
     sla c
     nop
-    rst $30
+    rst RST_30
     db $db
-    rst $38
+    rst RST_38
     jp $ffd7
 
 
@@ -12630,11 +12630,11 @@ jr_01e_77d4:
     ld b, d
     and l
     ld h, [hl]
-    rst $38
+    rst RST_38
     ret nz
 
     push af
-    rst $38
+    rst RST_38
     sub $ff
     pop hl
     ei
@@ -12669,7 +12669,7 @@ jr_01e_77d4:
     rrca
     ld b, $7b
     dec a
-    rst $08
+    rst RST_08
     ldh [c], a
     call c, $e1fe
     ret nz
@@ -12679,7 +12679,7 @@ jr_01e_77d4:
     inc de
     and l
     ld h, [hl]
-    rst $38
+    rst RST_38
     and l
     ld h, [hl]
     db $db
@@ -12688,7 +12688,7 @@ jr_01e_77d4:
     jp Jump_01e_4685
 
 
-    rst $38
+    rst RST_38
     jp $ffbd
 
 
@@ -12697,19 +12697,19 @@ jr_01e_77d4:
 
     ld b, a
     ld a, [hl-]
-    rst $38
+    rst RST_38
     ld a, a
     add [hl]
     db $fd
     ld a, [hl]
     ld hl, sp+$7f
     ldh a, [rIE]
-    rst $38
+    rst RST_38
     ldh [rIE], a
     push de
-    rst $38
+    rst RST_38
     xor d
-    rst $38
+    rst RST_38
     ld h, b
     ldh [rNR13], a
     ld h, b
@@ -12724,22 +12724,22 @@ jr_01e_77d4:
     ld b, c
     inc sp
     ld bc, $03ff
-    rst $38
+    rst RST_38
     ld d, a
     cp e
-    rst $38
+    rst RST_38
     xor a
     inc b
     inc bc
     add b
-    rst $38
+    rst RST_38
     ret nz
 
     nop
     inc b
     push af
     di
-    rst $38
+    rst RST_38
     ld a, [$0206]
     dec b
     inc b
@@ -12748,7 +12748,7 @@ jr_01e_77d4:
     ld a, [hl]
     and c
     rra
-    rst $18
+    rst RST_18
     ld a, $0f
     cp $07
     nop
@@ -12763,7 +12763,7 @@ jr_01e_77d4:
 
     inc d
     cp e
-    rst $38
+    rst RST_38
     xor $f4
     ld b, b
     nop
@@ -12772,10 +12772,10 @@ jr_01e_77d4:
     ld d, l
     ld b, b
     ld b, c
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     db $dd
-    rst $38
+    rst RST_38
     jp hl
 
 
@@ -12795,12 +12795,12 @@ jr_01e_77d4:
     ld b, b
     nop
     ei
-    rst $28
+    rst RST_28
     ld [$020b], sp
     ld a, a
     ret nz
 
-    rst $38
+    rst RST_38
     db $db
     xor a
     cpl
@@ -12816,11 +12816,11 @@ jr_01e_77d4:
     dec bc
     dec b
     ld d, l
-    rst $38
+    rst RST_38
     xor a
     ld hl, sp+$58
-    rst $38
-    rst $30
+    rst RST_38
+    rst RST_30
     ld d, $ef
 
 jr_01e_78d8:
@@ -12840,7 +12840,7 @@ jr_01e_78e1:
     inc bc
     ret nz
 
-    rst $38
+    rst RST_38
     inc bc
     add b
     rlca
@@ -12848,7 +12848,7 @@ jr_01e_78e1:
     ld b, $03
     inc c
     rlca
-    rst $38
+    rst RST_38
     ld a, [bc]
     inc c
     inc d
@@ -12858,35 +12858,35 @@ jr_01e_78e1:
 
 jr_01e_78f6:
     srl h
-    rst $38
+    rst RST_38
     db $db
-    rst $38
+    rst RST_38
     jr jr_01e_78d8
 
     inc a
-    rst $30
+    rst RST_30
     jr @+$01
 
-    rst $18
+    rst RST_18
     nop
     cp $81
     ld a, a
     ld a, a
     and e
     ld de, $7f80
-    rst $38
+    rst RST_38
     ldh [$ff1f], a
     or b
     ld c, a
     db $10
-    rst $28
+    rst RST_28
     sub d
-    rst $28
+    rst RST_28
     call c, Call_000_12a3
     inc bc
     inc de
     adc b
-    rst $38
+    rst RST_38
     ld [hl+], a
     db $e4
     nop
@@ -12904,7 +12904,7 @@ jr_01e_78f6:
     ret nz
 
     ld bc, $81e0
-    rst $38
+    rst RST_38
     ld h, b
     ret nz
 
@@ -12914,16 +12914,16 @@ jr_01e_78f6:
     inc d
     db $ec
     db $10
-    rst $38
+    rst RST_38
     db $ec
     push af
     rra
     ld a, [de]
-    rst $28
+    rst RST_28
     ld l, b
-    rst $30
+    rst RST_30
     ld [hl], h
-    rst $38
+    rst RST_38
     ei
     xor [hl]
     ld l, l
@@ -12964,7 +12964,7 @@ jr_01e_7964:
     ld h, d
     ld de, $58c1
     or c
-    rst $08
+    rst RST_08
     sbc a
     ldh [c], a
     rra
@@ -13019,7 +13019,7 @@ jr_01e_79a7:
     daa
     nop
     cp a
-    rst $38
+    rst RST_38
     nop
     ret nz
 
@@ -13042,7 +13042,7 @@ jr_01e_79a7:
     ld h, [hl]
     db $fd
     nop
-    rst $38
+    rst RST_38
     inc bc
     nop
     db $fd
@@ -13059,7 +13059,7 @@ jr_01e_79a7:
 
     jr nc, jr_01e_79a7
 
-    rst $00
+    rst RST_00
     ccf
     ret nz
 
@@ -13076,7 +13076,7 @@ jr_01e_79a7:
     ld c, $fd
     ld b, b
     dec d
-    rst $38
+    rst RST_38
     nop
     ld h, e
     dec b
@@ -13138,15 +13138,15 @@ jr_01e_79a7:
     nop
     nop
     ldh [rSC], a
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     ld l, e
     cp l
     ld l, $56
     dec e
     adc b
     inc d
-    rst $38
+    rst RST_38
     nop
     nop
     adc b
@@ -13170,7 +13170,7 @@ jr_01e_79a7:
     ld d, a
     ld a, [de]
     ld [hl+], a
-    rst $38
+    rst RST_38
     db $ed
     jr nc, jr_01e_7a6c
 
@@ -13198,8 +13198,8 @@ jr_01e_7a6c:
     ld l, l
     add c
     nop
-    rst $28
-    rst $38
+    rst RST_28
+    rst RST_38
     dec a
     ld d, a
     ld hl, $0101
@@ -13224,7 +13224,7 @@ jr_01e_7a6c:
     ld a, a
     or $84
     inc b
-    rst $38
+    rst RST_38
     inc bc
     ld bc, $1a05
     ld a, a
@@ -13269,12 +13269,12 @@ jr_01e_7ab7:
     ld c, e
     ld [hl], $09
     ld a, [bc]
-    rst $30
+    rst RST_30
     ld e, [hl]
     ld [hl], $02
     inc b
     ld e, a
-    rst $30
+    rst RST_30
     ld d, e
     or d
     ld e, l
@@ -13309,7 +13309,7 @@ jr_01e_7ab7:
     ld [hl], a
     ld [$885d], a
     inc d
-    rst $38
+    rst RST_38
     ld a, a
     ld l, a
     ld e, a
@@ -13342,7 +13342,7 @@ jr_01e_7b2c:
     ld [bc], a
     inc b
     ld [bc], a
-    rst $38
+    rst RST_38
     cp $77
     or c
     dec hl
@@ -13378,8 +13378,8 @@ jr_01e_7b2c:
     dec b
     ld [bc], a
     ld a, a
-    rst $38
-    rst $30
+    rst RST_38
+    rst RST_30
     ld e, [hl]
     xor a
     dec h
@@ -13392,7 +13392,7 @@ jr_01e_7b2c:
     add e
     ld hl, $8448
     inc b
-    rst $18
+    rst RST_18
     ld l, a
     ccf
     cp d
@@ -13441,7 +13441,7 @@ jr_01e_7b84:
     inc h
     rrca
     ld [$0405], sp
-    rst $18
+    rst RST_18
     ld a, a
     db $db
     ld [hl-], a
@@ -13554,12 +13554,12 @@ jr_01e_7bda:
     ld e, a
     nop
     ld [$0a60], a
-    rst $10
+    rst RST_10
     ld bc, $ff09
     add b
     ld [bc], a
     nop
-    rst $38
+    rst RST_38
     nop
     ccf
     nop
@@ -13577,12 +13577,12 @@ jr_01e_7bda:
     dec b
     or h
     nop
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
     ld a, [$bfaa]
-    rst $38
+    rst RST_38
     adc a
-    rst $38
+    rst RST_38
     jp z, $8faa
 
     ld e, a
@@ -13764,7 +13764,7 @@ jr_01e_7c5c:
     ld a, [hl+]
     xor a
     dec [hl]
-    rst $08
+    rst RST_08
     dec [hl]
     ld [de], a
     dec bc
@@ -13797,729 +13797,729 @@ jr_01e_7c5c:
     dec b
     inc d
     nop
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
 
 Call_01e_7d60:
 Jump_01e_7d60:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38

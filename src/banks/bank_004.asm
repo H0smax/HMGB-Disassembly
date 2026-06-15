@@ -712,7 +712,7 @@ Call_004_5bdf:
 jr_004_5bf6:
     ld hl, $5bfb
     ld a, b
-    rst $00
+    rst RST_00
 
     db $05, $5c
 
@@ -1091,7 +1091,7 @@ jr_004_6b14:
     ld [hl], a
     ld hl, $6b30
     ld a, [$b9a7]
-    rst $00
+    rst RST_00
 
     db $2e, $6c, $39, $6c, $44, $6c, $4f, $6c
 
@@ -1130,7 +1130,7 @@ jr_004_6b5a:
     ld [hl], a
     ld hl, $6b76
     ld a, [$b9b3]
-    rst $00
+    rst RST_00
 
     db $5a, $6c, $65, $6c, $70, $6c, $7b, $6c
 
@@ -1169,7 +1169,7 @@ jr_004_6ba0:
     ld [hl], a
     ld hl, $6bbc
     ld a, [$b9bf]
-    rst $00
+    rst RST_00
 
     db $86, $6c, $91, $6c, $9c, $6c, $a7, $6c
 
@@ -1208,7 +1208,7 @@ jr_004_6be6:
     ld [hl], a
     ld hl, $6c02
     ld a, [$b9cb]
-    rst $00
+    rst RST_00
 
     db $b2, $6c, $bd, $6c, $c8, $6c, $d3, $6c
 
@@ -1577,7 +1577,7 @@ Call_004_6df1:
 
     ldh a, [$ffa4]
     ld hl, $6e1d
-    rst $00
+    rst RST_00
 
     db $25, $6e, $2e, $6e, $37, $6e, $4c, $6e
 

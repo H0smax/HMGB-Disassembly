@@ -13,7 +13,7 @@ RST_00::
 
     db $ff, $ff, $ff
 
-    rst $38
+    rst RST_38
 
 RST_08::
     jp Jump_000_1f83
@@ -31,7 +31,7 @@ RST_10::
 
     db $ff, $ff, $ff
 
-    rst $38
+    rst RST_38
 
 RST_18::
     ret
@@ -46,36 +46,36 @@ RST_28::
     ret
 
 
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
 
 Jump_000_002c:
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
 
 Jump_000_002f:
-    rst $38
+    rst RST_38
 
 RST_30::
     ret
 
 
-    rst $38
+    rst RST_38
 
 Call_000_0032:
-    rst $38
+    rst RST_38
 
 Call_000_0033:
-    rst $38
+    rst RST_38
 
 Call_000_0034:
 Jump_000_0034:
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
 
 RST_38::
     add l
@@ -88,7 +88,7 @@ Jump_000_003c:
     ret
 
 
-    rst $38
+    rst RST_38
 
 VBlankInterrupt::
     call VBlankInterruptHandler
@@ -124,7 +124,7 @@ Call_000_0061:
 
 Jump_000_0064:
     or a
-    rst $08
+    rst RST_08
 
     db $0d, $3f, $00, $40, $0f, $00, $40, $0f, $00, $40, $0f, $00, $40, $0f, $00, $40
     db $0f, $00, $e8, $3e, $00, $ec, $3e, $00, $f0, $3e, $00, $f0, $3e, $00, $f0, $3e
@@ -351,7 +351,7 @@ Jump_000_024d:
 Call_000_0258:
     ld a, [wMapIndex]
     or a
-    rst $08
+    rst RST_08
 
 JumpTable_3::
     db $15, $6b
@@ -515,7 +515,7 @@ Jump_000_036a:
 Call_000_0375:
     ld a, [wMapIndex]
     or a
-    rst $08
+    rst RST_08
 
 JumpTable_0::
     db $67, $6d
@@ -3045,7 +3045,7 @@ jr_000_165b:
 
 
 Call_000_166a:
-    rst $08
+    rst RST_08
 
     db $8b, $5a, $06, $d7, $5a, $06, $1e, $5b, $06, $45, $5b, $06, $4e, $5b, $06, $75
     db $5b, $06, $7e, $5b, $06, $87, $5b, $06, $90, $5b, $06, $99, $5b, $06, $a2, $5b
@@ -3095,7 +3095,7 @@ Call_000_166a:
     db $12, $35, $78, $12, $57, $78, $12
 
 Call_000_18d2:
-    rst $08
+    rst RST_08
 
     db $8d, $78
 
@@ -3110,7 +3110,7 @@ Call_000_18d2:
     db $12, $37, $79, $12, $59, $79, $12
 
 Call_000_18e8:
-    rst $08
+    rst RST_08
 
     db $0b, $7a
 
@@ -5941,7 +5941,7 @@ Call_000_2bae:
 
 Call_000_2baf:
     ld a, [hl]
-    rst $08
+    rst RST_08
 
     db $01, $40, $08, $ae, $7a, $12, $ee, $51
 
