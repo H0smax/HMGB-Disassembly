@@ -12,9 +12,5 @@ build/
 *.map
 *.rtc
 
-# Dissasembly tools
-mgbdis
-tools/
-
 # VSCode 
 .vscode
