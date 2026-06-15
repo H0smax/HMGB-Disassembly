@@ -999,7 +999,7 @@ jr_01c_42f3:
     ei
     ld a, [$0062]
     inc bc
-    ld bc, wMapOffset
+    ld bc, wMapOffset_TBD
     or b
     rst RST_08
     or b
@@ -3975,7 +3975,7 @@ jr_01c_504c:
 
     jp z, $cbfb
 
-    call z, $1be7
+    call z, Call_000_1be7
     sbc $df
     call $cfce
     rst RST_38
@@ -4353,7 +4353,7 @@ jr_01c_51ec:
     adc c
     nop
     inc b
-    jp nz, $009f
+    jp nz, Jump_000_009f
 
     ld b, b
     db $e4
@@ -5493,7 +5493,7 @@ jr_01c_5787:
     nop
     ld l, h
     nop
-    call z, $07c0
+    call z, Call_000_07c0
     inc c
     ld [hl+], a
     ld [$42c0], sp
@@ -5962,7 +5962,7 @@ jr_01c_59c8:
     ld a, $c4
     ld a, $d4
     ld a, [hl-]
-    call z, $34df
+    call z, Call_000_34df
     ret c
 
     jr c, jr_01c_59a2
@@ -8034,7 +8034,7 @@ jr_01c_62fd:
 
     pop bc
     sub a
-    jp nz, $1700
+    jp nz, Jump_000_1700
 
     ld a, [bc]
     ld [$1018], sp
@@ -9018,7 +9018,7 @@ jr_01c_6709:
 
     pop bc
     sub a
-    jp nz, $1700
+    jp nz, Jump_000_1700
 
     ld a, [bc]
     ld [$1018], sp
@@ -9984,7 +9984,7 @@ jr_01c_6b43:
 
     pop bc
     sub a
-    jp nz, $1700
+    jp nz, Jump_000_1700
 
     ld a, [bc]
     ld [$1018], sp
@@ -10998,7 +10998,7 @@ jr_01c_702a:
 
     pop bc
     sub a
-    jp nz, $1700
+    jp nz, Jump_000_1700
 
     ld a, [bc]
     ld [$1018], sp
@@ -11679,7 +11679,7 @@ jr_01c_7389:
 
     ld h, $c8
     scf
-    call z, $33ff
+    call z, Call_000_33ff
     and $19
     ld h, [hl]
     sbc c
@@ -12027,7 +12027,7 @@ Call_01c_74ff:
 
     pop bc
     sub a
-    jp nz, $1700
+    jp nz, Jump_000_1700
 
     ld a, [bc]
     ld [$1018], sp
@@ -13044,7 +13044,7 @@ jr_01c_7943:
 
     pop bc
     sub a
-    jp nz, $1700
+    jp nz, Jump_000_1700
 
     ld a, [bc]
     ld [$1018], sp

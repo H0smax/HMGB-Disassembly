@@ -213,7 +213,7 @@ jr_017_40e6:
     ccf
     rlca
     ld e, b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -247,7 +247,7 @@ jr_017_410c:
     ld b, b
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -772,7 +772,7 @@ jr_017_4346:
 jr_017_434b:
     cp [hl]
     call z, Call_000_2cf2
-    jp c, $3f64
+    jp c, Jump_000_3f64
 
     inc bc
     ccf
@@ -4873,7 +4873,7 @@ jr_017_53bd:
     ld d, b
     and b
     xor b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl], b
     ld l, b
     or b
@@ -9554,7 +9554,7 @@ jr_017_67ce:
     ld [bc], a
     ld bc, $2711
     dec bc
-    call c, $0702
+    call c, Call_000_0702
     ld b, $0d
     ld [hl], a
     jr jr_017_6881

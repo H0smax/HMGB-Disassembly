@@ -322,7 +322,7 @@ jr_00b_4148:
     sbc [hl]
     pop hl
     cp $ff
-    jp nz, $1cfd
+    jp nz, Jump_000_1cfd
 
     db $e3
     ld hl, $c6df
@@ -792,7 +792,7 @@ jr_00b_4148:
     dec [hl]
     ld sp, hl
     rst RST_38
-    call z, $34f4
+    call z, Call_000_34f4
     cp b
     rra
     ld a, h
@@ -803,7 +803,7 @@ jr_00b_4148:
     ld b, a
     ld h, l
     adc a
-    jp nc, $3fef
+    jp nc, Jump_000_3fef
 
     db $ed
     rst RST_30
@@ -1348,7 +1348,7 @@ jr_00b_45a0:
     ld h, c
     ld l, d
     halt
-    jp nc, $08ee
+    jp nc, Jump_000_08ee
 
     rst RST_38
     ld c, a
@@ -2026,7 +2026,7 @@ jr_00b_489f:
     ret nz
 
     push de
-    call nz, $04f5
+    call nz, Call_000_04f5
     ld l, $a6
     ld c, [hl]
     rst RST_38
@@ -3200,7 +3200,7 @@ jr_00b_4d95:
     sbc [hl]
     pop hl
     cp $ff
-    jp nz, $1cfd
+    jp nz, Jump_000_1cfd
 
     db $e3
     ld hl, $c6df
@@ -3745,7 +3745,7 @@ Call_00b_4ebd:
     push de
     rst RST_38
     or [hl]
-    jp $3fbc
+    jp Jump_000_3fbc
 
 
     pop bc
@@ -4493,7 +4493,7 @@ jr_00b_5240:
     call nc, $a99b
     scf
     rst RST_38
-    call c, $216f
+    call c, Call_000_216f
     rst RST_18
     call z, $8033
     ld b, b
@@ -4788,7 +4788,7 @@ jr_00b_535d:
     sbc $ff
     nop
     dec hl
-    jp c, $29ff
+    jp c, Jump_000_29ff
 
     ret c
 
@@ -5109,7 +5109,7 @@ jr_00b_55dd:
     ret nz
 
     push de
-    call nz, $04f5
+    call nz, Call_000_04f5
     ld l, $a6
     ld c, [hl]
     rst RST_38
@@ -6484,7 +6484,7 @@ jr_00b_5bbc:
     sbc [hl]
     pop hl
     cp $ff
-    jp nz, $1cfd
+    jp nz, Jump_000_1cfd
 
     db $e3
     ld hl, $c6df
@@ -8185,7 +8185,7 @@ jr_00b_631a:
     ret nz
 
     push de
-    call nz, $04f5
+    call nz, Call_000_04f5
     ld l, $a6
     ld c, [hl]
     rst RST_38
@@ -9357,7 +9357,7 @@ jr_00b_6810:
     sbc [hl]
     pop hl
     cp $ff
-    jp nz, $1cfd
+    jp nz, Jump_000_1cfd
 
     db $e3
     ld hl, $c6df
@@ -9864,7 +9864,7 @@ Jump_00b_69ff:
     rst RST_10
     rst RST_08
     ld h, $de
-    call $2f3f
+    call Call_000_2f3f
     inc bc
     dec bc
     dec a
@@ -10439,7 +10439,7 @@ jr_00b_6ca2:
     ld h, c
     ld l, d
     halt
-    jp nc, $08ee
+    jp nc, Jump_000_08ee
 
     ld c, a
     ld d, h
@@ -10500,7 +10500,7 @@ jr_00b_6ca2:
     ld a, c
     ld h, h
     sbc a
-    jp z, $35ff
+    jp z, Jump_000_35ff
 
     or h
     db $db
@@ -11164,7 +11164,7 @@ jr_00b_6fd8:
     ret nz
 
     push de
-    call nz, $04f5
+    call nz, Call_000_04f5
     ld l, $a6
     ld c, [hl]
     rst RST_38

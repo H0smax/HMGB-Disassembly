@@ -1343,27 +1343,27 @@ jr_01b_4648:
 
 
     ld a, $1d
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld h, b
     ld l, c
     ret
 
 
     ld a, $1e
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld h, b
     ld l, c
     ret
 
 
     ld a, $1f
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld h, b
     ld l, c
     ret
@@ -1636,7 +1636,7 @@ jr_01b_4766:
     xor a
     ld [$cb68], a
     push hl
-    call MusicRelated
+    call MusicRelated_TBD
     pop hl
     ret
 
@@ -3314,7 +3314,7 @@ jr_01b_4eb0:
     ld b, e
     db $f4
     ld bc, $4f49
-    jp c, $0045
+    jp c, Jump_000_0045
 
     sub e
     ld b, [hl]
@@ -4392,7 +4392,7 @@ jr_01b_5362:
     call Call_01b_4a20
     cp c
     ld [hl], c
-    call $0601
+    call Call_000_0601
     ld l, c
     ld hl, $7140
     call $8020
@@ -4501,7 +4501,7 @@ jr_01b_5406:
     call $a820
     cp c
     ld [hl], c
-    call $2a01
+    call Call_000_2a01
     ld l, d
     ld hl, $7140
     call $8020
@@ -7047,7 +7047,7 @@ jr_01b_5f48:
     xor a
     and b
     sub h
-    call nz, $3393
+    call nz, Call_000_3393
     ld [de], a
     cp d
     jr nz, jr_01b_5f56
@@ -7771,7 +7771,7 @@ jr_01b_621d:
     jp c, $3101
 
 jr_01b_6280:
-    call nz, $3394
+    call nz, Call_000_3394
     ld h, b
     and b
     db $10
@@ -8102,7 +8102,7 @@ jr_01b_63b5:
     sub h
 
 jr_01b_63bf:
-    call nz, $3393
+    call nz, Call_000_3393
     ld b, e
     jp c, $c4af
 
@@ -9444,9 +9444,9 @@ Call_01b_699d:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -9455,9 +9455,9 @@ Call_01b_699d:
     ld a, $07
     ld [$cd2a], a
     ld a, $19
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -9587,7 +9587,7 @@ jr_01b_6a81:
     ld [$cd6e], a
     ld hl, $4001
     ld d, $11
-    call $0671
+    call Call_000_0671
     pop af
     ld b, a
     ld de, $99c2
@@ -11071,7 +11071,7 @@ jr_01b_70ef:
     rst RST_38
     ld a, a
     inc a
-    jp $07d8
+    jp Jump_000_07d8
 
 
     jr nz, jr_01b_711d
@@ -12079,7 +12079,7 @@ jr_01b_7516:
     rst RST_30
     db $e3
     nop
-    jp $0020
+    jp RST_20
 
 
     pop bc
@@ -12201,7 +12201,7 @@ Jump_01b_75df:
     ret nz
 
     rlca
-    call c, $1cff
+    call c, Call_000_1cff
     ld h, h
 
 jr_01b_75fa:
@@ -12359,7 +12359,7 @@ jr_01b_7680:
 jr_01b_7699:
     cp $20
     sub [hl]
-    jp nz, $3001
+    jp nz, Jump_000_3001
 
     cp $01
     jp hl
@@ -12411,7 +12411,7 @@ jr_01b_76b1:
 
     pop af
     ld hl, sp-$0f
-    call c, $3ff8
+    call c, Call_000_3ff8
     nop
     sbc d
     ccf
@@ -12517,7 +12517,7 @@ jr_01b_7730:
     cp $fd
     rst RST_38
     ld [bc], a
-    call z, $0c33
+    call z, Call_000_0c33
     di
     inc hl
 
@@ -13486,7 +13486,7 @@ jr_01b_7b2a:
     ld c, a
     db $db
     daa
-    call z, $335f
+    call z, Call_000_335f
     and $19
     pop hl
     sbc [hl]

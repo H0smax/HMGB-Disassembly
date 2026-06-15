@@ -47,7 +47,7 @@ SECTION "ROM Bank $00e", ROMX[$4000], BANK[$e]
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -72,13 +72,13 @@ SECTION "ROM Bank $00e", ROMX[$4000], BANK[$e]
     ld [hl+], a
     ld [hl], a
     ld [$ba0e], a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c90e], a
     ld [$c800], a
     ld [$c80e], a
     ld [$c760], a
     ld [$c780], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld [$c800], a
     ld [$c820], a
     call $511f
@@ -145,7 +145,7 @@ jr_00e_40e9:
     or a
     jr z, jr_00e_4134
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     jr nz, jr_00e_4134
 
@@ -196,7 +196,7 @@ Call_00e_417d:
     or a
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -236,17 +236,17 @@ Call_00e_417d:
 
 jr_00e_41b7:
     ld a, $06
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     ld a, [wCameraXPosition]
     and $f8
     or $08
     ld [wCameraXPosition], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     and $f8
     or $08
-    ld [wPlayerOrCameraYPosition], a
+    ld [wPlayerOrCameraYPosition_TBD], a
     ld a, $01
     ld [$c910], a
     call Call_00e_41de
@@ -254,7 +254,7 @@ jr_00e_41b7:
 
 
 Call_00e_41de:
-    ld a, [wMapOffset]
+    ld a, [wMapOffset_TBD]
     or a
     ret z
 
@@ -274,11 +274,11 @@ Call_00e_41de:
 
 jr_00e_41f7:
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld a, $01
     ld [$c910], a
@@ -289,28 +289,28 @@ jr_00e_41f7:
 
 
 jr_00e_4213:
-    ld a, [wMapOffset]
+    ld a, [wMapOffset_TBD]
     ld b, a
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     add b
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     pop hl
     ret
 
 
 Call_00e_422c:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -574,11 +574,11 @@ Jump_00e_43b5:
 Call_00e_43c8:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $d3
     jr nc, jr_00e_43f4
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c0
     jr nc, jr_00e_43ed
 
@@ -594,7 +594,7 @@ jr_00e_43e0:
     inc [hl]
 
 jr_00e_43e8:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     inc [hl]
     ret
 
@@ -616,15 +616,15 @@ jr_00e_43f4:
 Call_00e_43fa:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $1e
     ret c
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c1
     jr nc, jr_00e_4421
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $51
     jr c, jr_00e_4421
 
@@ -637,7 +637,7 @@ jr_00e_4414:
     dec [hl]
 
 jr_00e_441c:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     dec [hl]
     ret
 
@@ -724,9 +724,9 @@ jr_00e_4480:
 
 
 Call_00e_4487:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -766,46 +766,46 @@ jr_00e_44b7:
     ret nz
 
     ld a, $05
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     jr jr_00e_44fd
 
 jr_00e_44c3:
     ld a, $00
     ld [$cc7b], a
     ld a, $08
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     jr jr_00e_44fd
 
 jr_00e_44cf:
     ld a, $01
     ld [$cc7b], a
     ld a, $09
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     jr jr_00e_44fd
 
 jr_00e_44db:
     ld a, $02
     ld [$cc7b], a
     ld a, $0a
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     jr jr_00e_44fd
 
 jr_00e_44e7:
     ld a, $03
     ld [$cc7b], a
     ld a, $0b
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     jr jr_00e_44fd
 
 jr_00e_44f3:
     ld a, $04
     ld [$cc7b], a
     ld a, $0c
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
 
 jr_00e_44fd:
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -1862,7 +1862,7 @@ Call_00e_4b42:
     adc h
     ld h, a
     ld b, $08
-    call $0635
+    call Call_000_0635
     ld c, b
 
 Jump_00e_4b7d:
@@ -1910,7 +1910,7 @@ jr_00e_4b98:
     adc h
     ld h, a
     ld b, $08
-    call $0635
+    call Call_000_0635
     ld c, b
     jr jr_00e_4b7d
 
@@ -1927,7 +1927,7 @@ jr_00e_4b98:
     ld e, a
     add hl, de
     ld c, $06
-    call $0635
+    call Call_000_0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2024,7 +2024,7 @@ jr_00e_4c12:
     ld e, a
     add hl, de
     ld c, $06
-    call $0635
+    call Call_000_0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2077,7 +2077,7 @@ jr_00e_4c91:
     ld e, a
     add hl, de
     ld c, $06
-    call $0635
+    call Call_000_0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2133,7 +2133,7 @@ jr_00e_4ce5:
     adc h
     ld h, a
     ld c, $06
-    call $0635
+    call Call_000_0635
     ld b, c
 
 jr_00e_4d1f:
@@ -2200,7 +2200,7 @@ jr_00e_4d3a:
     adc h
     ld h, a
     ld c, $06
-    call $0635
+    call Call_000_0635
     ld b, c
 
 jr_00e_4d8a:
@@ -2247,7 +2247,7 @@ jr_00e_4da8:
     adc h
     ld h, a
     ld b, $08
-    call $0635
+    call Call_000_0635
     ld c, b
     jp Jump_00e_4b7d
 
@@ -2261,7 +2261,7 @@ jr_00e_4da8:
     ld e, a
     add hl, de
     ld c, $06
-    call $0635
+    call Call_000_0635
     ld b, $04
     ld a, h
     ld [de], a
@@ -2318,7 +2318,7 @@ jr_00e_4e1c:
     adc h
     ld h, a
     ld b, $08
-    call $0635
+    call Call_000_0635
     ld c, b
 
 jr_00e_4e3c:
@@ -2361,7 +2361,7 @@ jr_00e_4e59:
     adc h
     ld h, a
     ld b, $08
-    call $0635
+    call Call_000_0635
     ld c, b
 
 jr_00e_4e79:
@@ -2618,7 +2618,7 @@ jr_00e_4f58:
     reti
 
 
-    jp c, $00db
+    jp c, Jump_000_00db
 
     sbc e
     ld b, $04
@@ -2668,7 +2668,7 @@ jr_00e_4fbe:
 
 Jump_00e_4fc4:
     call Call_00e_4fd9
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     and $01
     ret z
 
@@ -3371,9 +3371,9 @@ Call_00e_537c:
 
 
 Call_00e_5385:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -3384,7 +3384,7 @@ Call_00e_5385:
     cp d
     ld d, e
     bit 2, e
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $a8
     jr z, jr_00e_53aa
 
@@ -3430,9 +3430,9 @@ jr_00e_53aa:
     ld [sTimerSeconds], a
     ld [$c910], a
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld a, [$b899]
     set 1, a
     ld [$b899], a
@@ -3454,7 +3454,7 @@ Call_00e_53fb:
     bit 1, a
     jr z, jr_00e_5418
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -3655,7 +3655,7 @@ jr_00e_54e4:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -3721,13 +3721,13 @@ jr_00e_55be:
 
 
 Call_00e_55dd:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -3819,7 +3819,7 @@ jr_00e_5647:
 
 
 Call_00e_5675:
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -3924,7 +3924,7 @@ jr_00e_56e9:
     ld h, a
     ld a, [hl]
     ld b, a
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -3992,7 +3992,7 @@ Jump_00e_5764:
     ld [$c60d], a
     ld a, $20
     call Call_000_166a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $54
     ret nc
 
@@ -4238,7 +4238,7 @@ Jump_00e_58cf:
 Call_00e_58e2:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $60
     jr nc, jr_00e_5900
 
@@ -4254,7 +4254,7 @@ jr_00e_58f3:
     inc [hl]
 
 jr_00e_58fb:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     inc [hl]
     ret
 
@@ -4270,11 +4270,11 @@ jr_00e_5900:
 Call_00e_5907:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $61
     jr nc, jr_00e_5928
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $51
     jr c, jr_00e_5928
 
@@ -4287,7 +4287,7 @@ jr_00e_591b:
     dec [hl]
 
 jr_00e_5923:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     dec [hl]
     ret
 
@@ -4375,7 +4375,7 @@ jr_00e_5987:
 
 Jump_00e_598e:
     call Call_00e_59a5
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     and $01
     jr z, jr_00e_59a4
 
@@ -4602,7 +4602,7 @@ jr_00e_5aa8:
     ld sp, $eaaf
     ld l, h
     call z, $6dea
-    call z, $2f21
+    call z, Call_000_2f21
     sla d
     ld [hl+], a
     ld [hl+], a
@@ -4631,7 +4631,7 @@ jr_00e_5aa8:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -4687,7 +4687,7 @@ jr_00e_5aa8:
     or a
     jr z, jr_00e_5bba
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     jr nz, jr_00e_5bba
 
@@ -4723,13 +4723,13 @@ jr_00e_5bca:
 
 
 Call_00e_5bef:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -5026,11 +5026,11 @@ Jump_00e_5da8:
 Call_00e_5dbb:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c3
     jr nc, jr_00e_5de7
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $b0
     jr nc, jr_00e_5de0
 
@@ -5046,7 +5046,7 @@ jr_00e_5dd3:
     inc [hl]
 
 jr_00e_5ddb:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     inc [hl]
     ret
 
@@ -5066,15 +5066,15 @@ jr_00e_5de7:
 Call_00e_5de8:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $1e
     ret c
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $b1
     jr nc, jr_00e_5e0f
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $51
     jr c, jr_00e_5e0f
 
@@ -5087,7 +5087,7 @@ jr_00e_5e02:
     dec [hl]
 
 jr_00e_5e0a:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     dec [hl]
     ret
 
@@ -5403,7 +5403,7 @@ jr_00e_5fed:
 
 Jump_00e_5ff3:
     call Call_00e_600a
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     and $01
     jr z, jr_00e_6009
 
@@ -5687,7 +5687,7 @@ Call_00e_6121:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     xor a
     ld [$cc96], a
     ld [$cc76], a
@@ -5776,13 +5776,13 @@ Call_00e_6270:
 
 
 Call_00e_6281:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -6042,7 +6042,7 @@ Jump_00e_6403:
 Call_00e_6416:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c0
     jr nc, jr_00e_6434
 
@@ -6058,7 +6058,7 @@ jr_00e_6427:
     inc [hl]
 
 jr_00e_642f:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     inc [hl]
     ret
 
@@ -6079,15 +6079,15 @@ jr_00e_6434:
 Call_00e_6441:
     xor a
     ld [$c90e], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $1e
     ret c
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c1
     jr nc, jr_00e_6468
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $51
     jr c, jr_00e_6468
 
@@ -6100,7 +6100,7 @@ jr_00e_645b:
     dec [hl]
 
 jr_00e_6463:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     dec [hl]
     ret
 
@@ -6180,7 +6180,7 @@ jr_00e_64bb:
 
 Jump_00e_64c2:
     call Call_00e_64d9
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     and $01
     jr z, jr_00e_64d8
 
@@ -6493,7 +6493,7 @@ jr_00e_6647:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     xor a
     ld [$cc96], a
     ld [$cc76], a

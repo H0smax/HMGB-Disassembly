@@ -45,7 +45,7 @@ SECTION "ROM Bank $009", ROMX[$4000], BANK[$9]
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, [$cd2a]
     cp $08
     jr c, jr_009_4066
@@ -73,7 +73,7 @@ jr_009_4066:
     ld [$cd69], a
     ld [$cd2b], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld hl, $c000
     ld bc, $00a0
     call ClearMem
@@ -107,9 +107,9 @@ jr_009_4066:
     ccf
     ld b, c
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -488,9 +488,9 @@ Jump_009_427c:
     jr nz, jr_009_4293
 
 GoToShop::
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -556,13 +556,13 @@ jr_009_42cf:
 
 GoToFarmFromOutside::
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, $05
     ld [$c910], a
     ld a, $01
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     pop hl
     ret
 
@@ -609,13 +609,13 @@ jr_009_4332:
     call Call_000_0491
     pop hl
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, $05
     ld [$c910], a
     ld a, $01
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -1381,9 +1381,9 @@ Call_009_4698:
     ld b, d
     ld c, b
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -1881,7 +1881,7 @@ Call_009_4837:
     pop hl
     ld h, b
     ld [hl], b
-    jp c, $07b8
+    jp c, Jump_000_07b8
 
     rra
     ld c, l
@@ -2508,9 +2508,9 @@ GoToTown::
     ld h, b
     ld l, c
     ld a, $13
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -2524,7 +2524,7 @@ GoToTown::
 Jump_009_4c6b:
     ld e, c
     inc e
-    jp z, $1c5f
+    jp z, Jump_000_1c5f
 
     cp e
     ld h, d
@@ -2532,9 +2532,9 @@ Jump_009_4c6b:
     sbc [hl]
     ld c, h
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -2776,9 +2776,9 @@ Call_009_4d7d:
     inc e
     bit 1, l
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -2997,9 +2997,9 @@ jr_009_4e8d:
 
 
     ld a, [bc]
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -3397,9 +3397,9 @@ jr_009_5076:
     inc e
     add $50
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -3648,7 +3648,7 @@ jr_009_5076:
     ret
 
 
-    call nz, $1c5d
+    call nz, Call_000_1c5d
     ld a, a
     halt
     inc e
@@ -3658,9 +3658,9 @@ jr_009_5076:
     inc de
     ld d, d
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -4159,7 +4159,7 @@ Call_009_53c2:
     dec a
     ld [$cb1c], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld hl, $c000
     ld bc, $00a0
     call ClearMem
@@ -4225,7 +4225,7 @@ jr_009_54d0:
     ld a, $9f
     ld [$cd9a], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld hl, $557a
     ld a, l
     ld [$cd28], a
@@ -4256,9 +4256,9 @@ jr_009_54d0:
 
 
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -4359,7 +4359,7 @@ Call_009_5599:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     call Call_009_576e
     xor a
     ldh [hCameraY], a
@@ -4369,7 +4369,7 @@ Call_009_5599:
     ld a, $60
     ldh [hWindowY], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld a, $22
     call Call_000_23cf
     ret
@@ -4377,9 +4377,9 @@ Call_009_5599:
 
     call Call_000_0ae9
     call Call_009_56ac
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -5342,11 +5342,11 @@ Jump_009_5b65:
     ld h, b
     ld l, c
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -6427,9 +6427,9 @@ jr_009_609b:
 
 
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -6769,9 +6769,9 @@ Call_009_61f1:
 
     ld e, c
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -6892,7 +6892,7 @@ jr_009_62c2:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     xor a
     ldh [hCameraY], a
     ldh [hCameraX], a
@@ -7031,9 +7031,9 @@ Call_009_636b:
     ld c, a
     nop
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -7951,12 +7951,12 @@ jr_009_6690:
     ld a, $00
     ldh [rSTAT], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     inc a
     ld [$c910], a
-    ld [wActivateTransitionBetweenMaps], a
+    ld [wActivateTransitionBetweenMaps_TBD], a
     inc a
-    ld [wMapIndex], a
+    ld [wMapIndex_TBD], a
     pop hl
     ret
 
@@ -8074,7 +8074,7 @@ jr_009_6803:
     ld a, [hl+]
     ld b, a
     push bc
-    call $0635
+    call Call_000_0635
     call Call_000_210f
     pop bc
     ldh a, [$ff97]
@@ -8601,7 +8601,7 @@ jr_009_69fb:
     jr z, jr_009_6ad7
 
     push bc
-    call MusicRelated
+    call MusicRelated_TBD
     pop bc
     ld a, b
     call Call_000_23cf
@@ -8610,7 +8610,7 @@ jr_009_69fb:
 
 jr_009_6ac8:
     push bc
-    call MusicRelated
+    call MusicRelated_TBD
     pop bc
     ld a, b
     call Call_000_23d2
@@ -9842,7 +9842,7 @@ jr_009_7036:
     ld bc, $007e
     ld a, [hl]
     add c
-    call c, $3107
+    call c, Call_000_3107
     ld h, b
     add hl, de
     nop
@@ -10618,7 +10618,7 @@ jr_009_7357:
 jr_009_7393:
     ldh a, [rNR22]
     nop
-    call $1832
+    call Call_000_1832
     and l
     add b
     rst RST_38
@@ -12086,7 +12086,7 @@ jr_009_7966:
     ldh [c], a
     inc e
     call nz, $b8ff
-    call nz, $17b8
+    call nz, Call_000_17b8
 
 jr_009_79d7:
     dec bc
@@ -13119,7 +13119,7 @@ jr_009_7dcc:
     jp nc, Jump_000_0207
 
     nop
-    jp nc, $00ff
+    jp nc, Jump_000_00ff
 
     nop
     add b

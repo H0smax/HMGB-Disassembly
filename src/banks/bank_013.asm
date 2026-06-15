@@ -1899,7 +1899,7 @@ jr_013_4945:
     xor b
     jr nz, jr_013_4938
 
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     jr nz, jr_013_493c
 
     ld hl, sp-$5a
@@ -11729,7 +11729,7 @@ jr_013_759b:
     inc h
     ret c
 
-    call nc, $1c08
+    call nc, Call_000_1c08
     add $1a
     rst RST_38
     ld bc, $0300
@@ -11878,7 +11878,7 @@ jr_013_760f:
     cp l
     ccf
     ld b, d
-    jp $183c
+    jp Jump_000_183c
 
 
     rlca
@@ -12012,7 +12012,7 @@ jr_013_76fa:
     ld e, b
     or b
     rra
-    jp nz, $1c09
+    jp nz, Jump_000_1c09
 
     ld [$3618], sp
     and h
@@ -12386,7 +12386,7 @@ jr_013_780c:
     inc h
     ret c
 
-    call nc, $1c08
+    call nc, Call_000_1c08
     add $1a
     ld bc, $00ff
     inc bc
@@ -12539,7 +12539,7 @@ jr_013_78cd:
     rst RST_38
     cp l
     ld b, d
-    jp $1b3c
+    jp Jump_000_1b3c
 
 
     rlca
@@ -12696,7 +12696,7 @@ jr_013_7977:
 jr_013_79f3:
     rra
     ld l, [hl]
-    jp nz, $1c09
+    jp nz, Jump_000_1c09
 
     ld [$a418], sp
     dec sp
@@ -12898,7 +12898,7 @@ jr_013_7a91:
     ld [bc], a
     ld de, $2712
     dec bc
-    call c, $0702
+    call c, Call_000_0702
     ld b, $0d
     jr @+$80
 

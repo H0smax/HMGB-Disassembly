@@ -449,7 +449,7 @@ jr_016_4217:
     halt
     ld e, l
     xor $ba
-    call c, $18f6
+    call c, Call_000_18f6
     ld a, [$2fa4]
     db $10
     ld e, $0d
@@ -474,7 +474,7 @@ jr_016_4217:
     ret c
 
     cp [hl]
-    call z, $00ec
+    call z, Call_000_00ec
     rla
     dec bc
     rrca
@@ -932,7 +932,7 @@ jr_016_4416:
 
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -1635,7 +1635,7 @@ jr_016_473a:
     inc c
     xor h
     ld [hl], b
-    call c, $3f28
+    call c, Call_000_3f28
     inc de
     inc a
     rrca
@@ -1705,7 +1705,7 @@ jr_016_473a:
     db $e4
     xor $f0
     cp [hl]
-    call nz, $30dc
+    call nz, Call_000_30dc
     ld a, h
     sub b
     ld e, $e4
@@ -1913,7 +1913,7 @@ jr_016_4851:
 
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -2022,7 +2022,7 @@ jr_016_4899:
 
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
 
 jr_016_48dc:
     ld d, b
@@ -2086,7 +2086,7 @@ jr_016_4910:
     ld hl, sp+$5c
     ld hl, sp-$54
     ld hl, sp+$18
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld d, b
     ret nc
 
@@ -2179,7 +2179,7 @@ jr_016_4970:
     ccf
     rlca
     ld e, b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -2266,7 +2266,7 @@ jr_016_4970:
     ccf
     rlca
     ld e, b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -2850,7 +2850,7 @@ jr_016_4c2b:
     add b
     nop
     cp d
-    call nz, $1cfa
+    call nz, Call_000_1cfa
     cp d
     ld b, h
     ld [hl], h
@@ -3135,7 +3135,7 @@ jr_016_4d98:
     dec bc
     rlca
     ld e, b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     rst RST_10
     ld d, e
     xor a
@@ -5312,7 +5312,7 @@ jr_016_56fe:
     ld l, [hl]
     db $fc
     or [hl]
-    call c, $1ce2
+    call c, Call_000_1ce2
     or $e8
     xor $94
     call c, $eeb0
@@ -6160,7 +6160,7 @@ jr_016_5a57:
     nop
     ld c, $f5
     ccf
-    call nz, $03cc
+    call nz, Call_000_03cc
     dec e
     ld c, $0e
     nop
@@ -7544,7 +7544,7 @@ jr_016_6088:
     nop
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -7575,7 +7575,7 @@ jr_016_6088:
     rrca
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -7716,7 +7716,7 @@ jr_016_60d6:
     nop
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -8725,7 +8725,7 @@ jr_016_65a3:
     rlca
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -8765,7 +8765,7 @@ jr_016_65d6:
     ld b, b
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -8822,7 +8822,7 @@ jr_016_6606:
     rrca
     rlca
     ld e, b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -8886,7 +8886,7 @@ jr_016_6646:
     dec bc
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -8955,7 +8955,7 @@ jr_016_668e:
     rlca
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
 
 jr_016_6696:
     ret nc
@@ -9013,7 +9013,7 @@ jr_016_66b1:
     ld b, b
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -9642,7 +9642,7 @@ jr_016_6978:
     rlca
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -9681,7 +9681,7 @@ jr_016_6978:
     ld b, b
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -9929,7 +9929,7 @@ jr_016_6a68:
     ldh [$ffec], a
     db $10
     xor d
-    call nc, $1d3b
+    call nc, Call_000_1d3b
     dec a
     dec de
     dec de
@@ -10750,7 +10750,7 @@ jr_016_6e53:
     ld b, b
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -10877,7 +10877,7 @@ jr_016_6ed1:
 
 jr_016_6ee2:
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ret c
@@ -10935,7 +10935,7 @@ jr_016_6ee2:
     rlca
     db $ec
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, b
@@ -10966,7 +10966,7 @@ jr_016_6ee2:
     ld d, b
     ret c
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 
@@ -11025,7 +11025,7 @@ jr_016_6f65:
 
     nop
     cp d
-    call nz, $30cc
+    call nz, Call_000_30cc
     db $10
     ldh [$ff58], a
     or b
@@ -11900,7 +11900,7 @@ jr_016_7315:
     ld d, [hl]
     db $fc
     xor [hl]
-    call c, $1d23
+    call c, Call_000_1d23
     scf
     ld [$163d], sp
     rra
@@ -12374,7 +12374,7 @@ jr_016_751e:
     ld l, a
     rst RST_18
     ld l, a
-    call nc, $3428
+    call nc, Call_000_3428
     ret z
 
     sub h
@@ -12986,7 +12986,7 @@ jr_016_77ac:
     ld hl, sp-$44
     ld hl, sp-$14
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld e, b
@@ -13055,7 +13055,7 @@ jr_016_77be:
 
     ld hl, sp-$14
     ld hl, sp+$58
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ret nc
 
     ld d, h
@@ -13240,7 +13240,7 @@ jr_016_786d:
     sbc $b4
     db $fc
     sub b
-    call nc, $03e8
+    call nc, Call_000_03e8
     nop
     inc c
     inc bc
@@ -13407,7 +13407,7 @@ jr_016_7985:
     ld b, b
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret nc
 

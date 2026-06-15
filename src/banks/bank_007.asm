@@ -222,7 +222,7 @@ Jump_007_4000:
     nop
     nop
     ld e, $00
-    call $3500
+    call Call_000_3500
     nop
     sbc c
     nop
@@ -359,7 +359,7 @@ jr_007_4122:
     ld b, b
     ld c, h
     nop
-    jp nc, $006b
+    jp nc, Jump_000_006b
 
     nop
     sbc l
@@ -3241,7 +3241,7 @@ jr_007_4d7b:
     nop
     inc [hl]
     nop
-    call nc, $1700
+    call nc, Call_000_1700
     nop
     ld b, [hl]
     nop
@@ -3647,7 +3647,7 @@ jr_007_4f0b:
     db $db
     nop
     rlc b
-    jp $0700
+    jp Jump_000_0700
 
 
     nop
@@ -4865,7 +4865,7 @@ jr_007_545b:
 
 
     nop
-    call $1700
+    call Call_000_1700
     nop
     and b
     nop
@@ -5205,7 +5205,7 @@ jr_007_5585:
     db $db
     nop
     rlc b
-    jp $0700
+    jp Jump_000_0700
 
 
     nop
@@ -5324,7 +5324,7 @@ jr_007_5585:
     ld b, b
     ld c, h
     nop
-    jp c, $006d
+    jp c, Jump_000_006d
 
     nop
     ld a, [de]
@@ -5499,7 +5499,7 @@ jr_007_56c7:
     nop
     ld [hl], d
     nop
-    jp c, $3000
+    jp c, Jump_000_3000
 
     nop
     ld b, h
@@ -9462,7 +9462,7 @@ jr_007_6747:
 
 
     nop
-    call $1700
+    call Call_000_1700
     nop
     jr nc, jr_007_67f7
 
@@ -9493,7 +9493,7 @@ jr_007_67f7:
     ld b, b
     ld c, h
     nop
-    jp nz, $0070
+    jp nz, Jump_000_0070
 
     nop
     dec bc
@@ -10358,7 +10358,7 @@ jr_007_6b87:
     ld [$cb53], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10381,7 +10381,7 @@ jr_007_6b87:
     ld [$cb53], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10423,7 +10423,7 @@ jr_007_6c20:
     ld [$cb53], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10432,7 +10432,7 @@ jr_007_6c20:
     ld a, $18
     ld [$c911], a
     ld a, $01
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     call Call_000_0f81
     ret
 
@@ -10449,7 +10449,7 @@ jr_007_6c55:
     ld a, $01
     ld [$c911], a
     ld a, $02
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -10457,7 +10457,7 @@ jr_007_6c55:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10496,7 +10496,7 @@ jr_007_6c9f:
     xor a
     ld [$b893], a
     ld a, $0a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     ld a, $ff
@@ -10506,7 +10506,7 @@ jr_007_6c9f:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -10525,7 +10525,7 @@ jr_007_6c9f:
     ld a, $01
     ld [$cbf6], a
     ld b, $1e
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -10542,7 +10542,7 @@ jr_007_6c9f:
     srl a
     srl a
     ld b, a
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -10963,7 +10963,7 @@ jr_007_6f84:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     xor a
@@ -11049,7 +11049,7 @@ jr_007_7024:
 Jump_007_705b:
     xor a
     ld [$b90a], a
-    call $1029
+    call Call_000_1029
     ld a, [$b909]
     or a
     jr nz, jr_007_7088
@@ -11064,7 +11064,7 @@ Jump_007_705b:
     ld [$cb53], a
     ld [$cb55], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     jr jr_007_7090
 
     ret
@@ -11073,22 +11073,22 @@ Jump_007_705b:
 jr_007_7088:
     xor a
     ld [$b90a], a
-    call $1029
+    call Call_000_1029
     ret
 
 
 jr_007_7090:
     xor a
     ld [$b90a], a
-    call $1029
+    call Call_000_1029
     ret
 
 
 jr_007_7098:
     ld a, $01
     ld [$b90a], a
-    call $1029
-    call $0a2e
+    call Call_000_1029
+    call Call_000_0a2e
     ret
 
 
@@ -11102,7 +11102,7 @@ jr_007_7098:
     ld [$cb53], a
     ld [$cb55], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ret
 
 
@@ -11122,7 +11122,7 @@ jr_007_70cd:
 
 
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ret
 
 
@@ -11149,7 +11149,7 @@ jr_007_70cd:
     ld [$c800], a
     ld [$c880], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld hl, $478a
     ld c, $0b
     ld de, $8800
@@ -11172,7 +11172,7 @@ jr_007_70cd:
 
 
     call Call_000_2b71
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or a
     ret nz
 
@@ -11205,7 +11205,7 @@ jr_007_715a:
 Jump_007_716d:
 jr_007_716d:
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld a, [$ccc1]
     or a
     jr z, jr_007_719f
@@ -11220,13 +11220,13 @@ jr_007_716d:
     ld a, $01
     ld [$c910], a
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ret
 
 
 jr_007_718e:
     ld a, $26
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $01
     ld [$c90b], a
     ret
@@ -11234,13 +11234,13 @@ jr_007_718e:
 
 jr_007_7199:
     ld a, $27
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ret
 
 
 jr_007_719f:
     ld a, $11
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $ff
     ld [$cb52], a
     xor a
@@ -11275,7 +11275,7 @@ Call_007_71cc:
 
 
 Call_007_71d4:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     or a
     ret nz
 
@@ -12355,7 +12355,7 @@ jr_007_7775:
     ld bc, $0400
     call ClearMem
     ld hl, $79fc
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     jr z, jr_007_77fa
 
@@ -12417,11 +12417,11 @@ jr_007_7825:
     call Call_000_21f3
     call Call_000_222e
     pop hl
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $20
     jr z, jr_007_78b8
 
-    ld a, [wNextMapIndex]
+    ld a, [wNextMapIndex_TBD]
     cp $20
     jr z, jr_007_78b8
 
@@ -12655,7 +12655,7 @@ Jump_007_78ef:
     nop
     dec bc
     add hl, sp
-    call $0c48
+    call Call_000_0c48
     ret nc
 
     inc [hl]
@@ -12702,7 +12702,7 @@ Jump_007_78ef:
 
     ld b, a
     ld [$0b00], sp
-    call nz, $16d0
+    call nz, Call_000_16d0
     and l
     set 1, c
     dec b

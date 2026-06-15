@@ -7777,7 +7777,7 @@ jr_00d_6438:
     ld a, b
     ld [hl], d
     adc h
-    jp z, $3434
+    jp z, Jump_000_3434
 
     ret z
 
@@ -8139,7 +8139,7 @@ jr_00d_65a0:
     rrca
     ld de, $0f0f
     nop
-    jp z, $1ef4
+    jp z, Jump_000_1ef4
 
     db $e4
     adc h
@@ -8224,7 +8224,7 @@ jr_00d_6636:
     ld a, b
     ld [hl], d
     adc h
-    jp z, $3434
+    jp z, Jump_000_3434
 
     ret z
 
@@ -9472,7 +9472,7 @@ jr_00d_6bb7:
 
     ld a, h
     ldh a, [$ffa2]
-    call c, $18ec
+    call c, Call_000_18ec
     ld a, b
     jr nc, jr_00d_6c50
 
@@ -13156,7 +13156,7 @@ jr_00d_7bcc:
     dec b
     ld [bc], a
     ld [hl], d
-    call c, $1ce2
+    call c, Call_000_1ce2
     jp nz, $e43c
 
     ld e, b
@@ -13212,7 +13212,7 @@ jr_00d_7bcc:
     dec [hl]
     ld a, [de]
     ld [hl], d
-    call c, $1ce2
+    call c, Call_000_1ce2
     jp nz, $e43c
 
     ld e, b
@@ -13268,7 +13268,7 @@ jr_00d_7bcc:
     inc c
     inc bc
     ld [hl], d
-    call c, $1ce2
+    call c, Call_000_1ce2
     jp nz, $e43c
 
     ld e, b

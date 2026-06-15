@@ -176,7 +176,7 @@ Jump_01e_403e:
     ld e, [hl]
     nop
     inc bc
-    call z, $005e
+    call z, Call_000_005e
     nop
     ei
     ld e, [hl]
@@ -8549,7 +8549,7 @@ jr_01e_65be:
     jr jr_01e_663b
 
     ld d, $19
-    jp $18c2
+    jp Jump_000_18c2
 
 
     ld sp, hl
@@ -9031,7 +9031,7 @@ jr_01e_6801:
     cp $01
     ld l, $10
     rra
-    call nz, $18c7
+    call nz, Call_000_18c7
     rst RST_38
     inc l
     rra
@@ -9909,7 +9909,7 @@ jr_01e_6bbd:
     ld h, b
     add a
     ld e, b
-    jp $0024
+    jp Jump_000_0024
 
 
     ld [$00ff], sp
@@ -10113,7 +10113,7 @@ jr_01e_6c9d:
     ld bc, $1102
     ld a, [hl+]
     dec sp
-    call nz, $00ff
+    call nz, Call_000_00ff
     rst RST_38
     add $39
     ld [bc], a
@@ -10942,7 +10942,7 @@ jr_01e_7008:
 jr_01e_7071:
     ld hl, sp-$47
     add hl, bc
-    jp nz, $0508
+    jp nz, Jump_000_0508
 
     ld d, a
     ld l, a
@@ -11053,7 +11053,7 @@ jr_01e_70ca:
     ldh [$fff2], a
     rst RST_28
     pop bc
-    call nz, $3f83
+    call nz, Call_000_3f83
     inc b
     ld c, l
     pop bc
@@ -11872,7 +11872,7 @@ jr_01e_7422:
     and h
     and l
     sbc e
-    jp c, $00f0
+    jp c, Jump_000_00f0
 
     and [hl]
     add c
@@ -12542,7 +12542,7 @@ jr_01e_7771:
     xor l
     rst RST_38
     rst RST_38
-    jp $0026
+    jp Jump_000_0026
 
 
     or e
@@ -12986,7 +12986,7 @@ jr_01e_7964:
     cp $0b
     inc b
     or b
-    call z, $1ce0
+    call z, Call_000_1ce0
     add h
     ld a, [hl]
     ld a, [hl+]

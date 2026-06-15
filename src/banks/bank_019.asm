@@ -1102,7 +1102,7 @@ jr_019_44b5:
     ret nc
 
     adc b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl], b
     ld c, b
     jr nc, jr_019_452e
@@ -3225,7 +3225,7 @@ jr_019_4e2c:
     inc c
     jp c, $ba0c
 
-    call z, $04fa
+    call z, Call_000_04fa
     ccf
     ret c
 
@@ -5792,7 +5792,7 @@ jr_019_5928:
     ld [$521c], a
     xor h
     ld a, [$6a04]
-    call nc, $070b
+    call nc, Call_000_070b
     ld b, $01
     inc bc
     nop
@@ -6244,7 +6244,7 @@ jr_019_5ae4:
     ret nz
 
     ld c, b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl], b
     and $18
     ld sp, hl
@@ -6278,7 +6278,7 @@ jr_019_5b2b:
     add sp, -$34
     jr nc, jr_019_5b7a
 
-    call z, $30ce
+    call z, Call_000_30ce
     scf
     sbc $3d
     ld a, [bc]
@@ -6979,7 +6979,7 @@ jr_019_5d57:
     add hl, de
     ret c
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ret nc
 
     adc $b0
@@ -9171,7 +9171,7 @@ jr_019_677c:
 
     call nz, $f4f8
     ld hl, sp-$04
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
     ret c
 
     cp $03
@@ -11308,7 +11308,7 @@ Jump_019_70b0:
 
 jr_019_70c6:
     xor $ba
-    call nz, $18f6
+    call nz, Call_000_18f6
     ld a, [hl-]
     call z, Call_000_3cf2
     ld a, h
@@ -11860,10 +11860,10 @@ jr_019_7332:
     adc l
     or $fb
     ld b, $3d
-    jp z, $2ad5
+    jp z, Jump_000_2ad5
 
 jr_019_734b:
-    jp c, $30e0
+    jp c, Jump_000_30e0
 
     ret nz
 
@@ -11951,9 +11951,9 @@ jr_019_7370:
     adc l
     or $fb
     ld b, $3d
-    jp z, $2ad5
+    jp z, Jump_000_2ad5
 
-    jp c, $34e0
+    jp c, Jump_000_34e0
 
     ret z
 
@@ -14028,7 +14028,7 @@ jr_019_7c48:
     ld hl, sp+$04
     ld hl, sp-$7c
     ld hl, sp-$11
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl], a
     sbc a
     ld a, a
@@ -14058,7 +14058,7 @@ jr_019_7cb8:
     db $10
     cp $e0
     dec l
-    jp c, $0080
+    jp c, Jump_000_0080
 
     add b
     nop
@@ -14158,7 +14158,7 @@ jr_019_7ced:
     ld d, $dd
     and $fb
     ld b, $3d
-    jp z, $2ad5
+    jp z, Jump_000_2ad5
 
     cp d
     ret nz

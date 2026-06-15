@@ -1272,7 +1272,7 @@ jr_00a_458f:
     nop
     ld de, $ba00
     nop
-    jp c, $1700
+    jp c, Jump_000_1700
 
     nop
     daa
@@ -2808,7 +2808,7 @@ jr_00a_4ba1:
     ld d, e
     nop
     nop
-    call $1700
+    call Call_000_1700
     nop
     ld h, h
     nop
@@ -3249,7 +3249,7 @@ jr_00a_4c3f:
     nop
     ld d, b
     nop
-    call $1700
+    call Call_000_1700
     nop
     and b
     nop
@@ -3383,7 +3383,7 @@ jr_00a_4e59:
 
 
     nop
-    call $1700
+    call Call_000_1700
     nop
     jr nc, jr_00a_4e7f
 
@@ -4506,7 +4506,7 @@ Jump_00a_527d:
     nop
     xor a
     nop
-    call $1700
+    call Call_000_1700
     nop
     jr nc, jr_00a_530f
 
@@ -4734,13 +4734,13 @@ jr_00a_53dc:
     nop
     inc c
     inc b
-    call nz, $22c3
+    call nz, Call_000_22c3
     nop
     xor a
     push bc
     jr nz, jr_00a_542e
 
-    jp nz, $00a3
+    jp nz, Jump_000_00a3
 
     jp Jump_000_140b
 
@@ -5741,7 +5741,7 @@ jr_00a_5843:
     inc de
     cpl
     nop
-    jp $3400
+    jp Jump_000_3400
 
 
     dec [hl]
@@ -7040,7 +7040,7 @@ jr_00a_5db2:
     jr c, jr_00a_5db2
 
     db $10
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     rst RST_30
     ret nc
@@ -8040,7 +8040,7 @@ jr_00a_61fb:
     add sp, -$61
     ldh [rIE], a
     dec a
-    jp nz, $18e7
+    jp nz, Jump_000_18e7
 
     daa
     ret c
@@ -8580,7 +8580,7 @@ jr_00a_641a:
     adc l
     and $fb
     ld h, a
-    call nc, $18e0
+    call nc, Call_000_18e0
     sbc e
     ld a, [$35ca]
     ld l, l
@@ -11069,7 +11069,7 @@ jr_00a_6f13:
     add sp, -$61
     ldh [rIE], a
     dec a
-    jp nz, $18e7
+    jp nz, Jump_000_18e7
 
     daa
     ret c
@@ -11846,7 +11846,7 @@ jr_00a_7230:
     inc b
     dec [hl]
     adc $33
-    call z, $06fd
+    call z, Call_000_06fd
     rst RST_38
     jp hl
 

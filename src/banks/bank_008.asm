@@ -491,7 +491,7 @@ jr_008_41ee:
     sub $12
     ld [$c64b], a
     ld b, $0a
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -505,7 +505,7 @@ jr_008_422a:
     sub $12
     ld [$c64b], a
     ld b, $1e
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -519,7 +519,7 @@ jr_008_4245:
     sub $12
     ld [$c64b], a
     ld b, $14
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -533,7 +533,7 @@ jr_008_4260:
     sub $12
     ld [$c64b], a
     ld b, $0a
-    call Call_000_1ae8
+    call $1ae8
     ret
 
 
@@ -780,7 +780,7 @@ Jump_008_43a9:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $05
     jr z, jr_008_43e4
 
@@ -1132,7 +1132,7 @@ jr_008_4579:
 
     ld a, $37
     call Call_000_23d8
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -1183,7 +1183,7 @@ jr_008_45bf:
     cp $02
     ret nz
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     jr nz, jr_008_461e
 
@@ -1233,7 +1233,7 @@ jr_008_461e:
 
     ld a, $3a
     call Call_000_23d8
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -1434,7 +1434,7 @@ Jump_008_476b:
 
     ld a, $30
     call Call_000_23d8
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -1593,7 +1593,7 @@ jr_008_484e:
 
     ld a, $37
     call Call_000_23d8
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -1638,7 +1638,7 @@ jr_008_489a:
 
     ld a, $38
     call SpawnDialogOrEvent
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -1670,7 +1670,7 @@ jr_008_489a:
 jr_008_48dc:
     ld a, $3b
     call Call_000_23d8
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -1915,11 +1915,11 @@ jr_008_4a51:
 jr_008_4a80:
     ld a, $32
     call Call_000_23d8
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $03
     ret z
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $04
     ret z
 
@@ -1929,7 +1929,7 @@ jr_008_4a80:
 
 
 jr_008_4a97:
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -2054,7 +2054,7 @@ Jump_008_4b81:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     jp nz, Jump_008_4b81
 
@@ -2952,7 +2952,7 @@ Jump_008_4fea:
     cp $30
     jp z, Jump_008_51bb
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -3245,7 +3245,7 @@ Jump_008_51bb:
     ret
 
 
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     cp $01
     ret nz
 
@@ -3425,21 +3425,21 @@ Call_008_5293:
     ld l, a
     inc de
     ld a, [de]
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
     inc de
     ld a, [de]
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
     inc de
     ld a, [de]
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     inc de
     ld a, [de]
     ldh [$ffa9], a
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     ld [hl+], a
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     ld [hl], a
     ld a, $1f
     add l
@@ -3449,7 +3449,7 @@ Call_008_5293:
     ld h, a
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl+], a
     ldh a, [$ffa9]
     ld [hl], a
@@ -3932,7 +3932,7 @@ jr_008_54fc:
     ld h, a
     ld bc, $fff8
     add hl, bc
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld c, a
     ld a, [$c609]
     ld b, a
@@ -4305,7 +4305,7 @@ Call_008_5763:
     ld a, [$c787]
     sbc h
     ld h, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld c, a
     ld a, [$c609]
     ld b, a
@@ -4710,7 +4710,7 @@ Call_008_5932:
     nop
     ld bc, $0001
     ld bc, $0001
-    ld a, [wGrabbingDog]
+    ld a, [wGrabbingDog_TBD]
     or a
     ret z
 
@@ -4776,7 +4776,7 @@ jr_008_59e1:
     ld h, a
     ld bc, $fff8
     add hl, bc
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld c, a
     ld a, [$c609]
     ld b, a
@@ -5421,7 +5421,7 @@ jr_008_5dd9:
     ld a, [$c7a7]
     sbc h
     ld h, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld c, a
     ld a, [$c609]
     ld b, a
@@ -6226,7 +6226,7 @@ jr_008_62d2:
 Call_008_62e5:
     xor a
     ld [$cb83], a
-    ld a, [wGrabbingDog]
+    ld a, [wGrabbingDog_TBD]
     or a
     ret z
 
@@ -7087,7 +7087,7 @@ jr_008_6558:
     ld c, b
     ld de, $1212
     ld de, $0000
-    jp nz, $1040
+    jp nz, Jump_000_1040
 
     ld [bc], a
     ld [bc], a
@@ -7099,7 +7099,7 @@ jr_008_6558:
     ld [de], a
     ld [de], a
     ld de, $0000
-    call nz, $1040
+    call nz, Call_000_1040
     ld [bc], a
     ld [bc], a
     stop
@@ -7168,7 +7168,7 @@ jr_008_6558:
     ld c, b
     ld de, $1212
     ld de, $0000
-    jp nc, $1040
+    jp nc, Jump_000_1040
 
     ld [bc], a
     ld [bc], a
@@ -7178,7 +7178,7 @@ jr_008_6558:
     ld c, b
     ld de, $1212
     ld de, $0000
-    call nc, $1040
+    call nc, Call_000_1040
     ld [bc], a
     ld [bc], a
     stop
@@ -7371,11 +7371,11 @@ Call_008_6854:
     ld a, [hl+]
     ldh [$ffa5], a
     ld a, [hl+]
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
     ld a, [hl+]
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
     ld a, [hl+]
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld a, [hl+]
     ldh [$ffa9], a
     push de
@@ -7393,7 +7393,7 @@ Call_008_6854:
     cpl
     inc a
     ld b, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     and $0f
     cp $03
     jr c, jr_008_689e
@@ -7456,13 +7456,13 @@ jr_008_68bf:
     ld a, l
     ld [de], a
     inc de
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     ld [de], a
     inc de
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     ld [de], a
     inc de
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [de], a
     inc de
     ldh a, [$ffa9]
@@ -7475,9 +7475,9 @@ jr_008_68bf:
 jr_008_68f4:
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     ld [hl+], a
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     ld [hl], a
     ld a, $1f
     add l
@@ -7487,7 +7487,7 @@ jr_008_68f4:
     ld h, a
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl+], a
     ldh a, [$ffa9]
     ld [hl], a
@@ -7510,11 +7510,11 @@ Call_008_6918:
     ld a, [hl+]
     ldh [$ffa5], a
     ld a, [hl+]
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
     ld a, [hl+]
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
     ld a, [hl+]
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld a, [hl+]
     ldh [$ffa9], a
     ld a, [$cb43]
@@ -7540,7 +7540,7 @@ Call_008_6918:
     cpl
     inc a
     ld b, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     and $0f
     cp $0c
     jr z, jr_008_697e
@@ -7583,7 +7583,7 @@ jr_008_698c:
     cpl
     inc a
     ld b, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     and $0f
     jr z, jr_008_69a3
 
@@ -7605,7 +7605,7 @@ jr_008_69a3:
 
 
 Jump_008_69ad:
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -7633,7 +7633,7 @@ jr_008_69c6:
 
 
 Jump_008_69d1:
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -7657,11 +7657,11 @@ Jump_008_69ef:
 jr_008_69ef:
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     ld [hl+], a
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     ld [hl], a
     ld a, $1f
     add l
@@ -7671,7 +7671,7 @@ jr_008_69ef:
     ld h, a
     call Call_000_199c
     call Call_000_0d2b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl+], a
     call Call_000_199c
     call Call_000_0d2b
@@ -7944,7 +7944,7 @@ Call_008_6b6b:
     ld [$c766], a
     ld a, [$c607]
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $10
     ld [$c768], a
     ld a, [$c609]
@@ -7962,7 +7962,7 @@ jr_008_6bc2:
     ld [$c766], a
     ld a, [$c607]
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $10
     ld [$c768], a
     ld a, [$c609]
@@ -7982,7 +7982,7 @@ jr_008_6be9:
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $04
     ld [$c768], a
     ld a, [$c609]
@@ -8002,7 +8002,7 @@ Jump_008_6c14:
     ld a, [$c607]
     adc $00
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $04
     ld [$c768], a
     ld a, [$c609]
@@ -8372,7 +8372,7 @@ Jump_008_6c14:
     rst RST_00
     cp d
     rst RST_20
-    jp c, $2af7
+    jp c, Jump_000_2af7
 
     rst RST_30
     ld l, d
@@ -9443,7 +9443,7 @@ jr_008_7163:
 
     rst RST_38
     ld b, $3e
-    call $2aff
+    call Call_000_2aff
     rst RST_38
     db $eb
     ccf
@@ -9677,7 +9677,7 @@ jr_008_7163:
     ld b, $01
     ld c, c
     nop
-    call c, $2a00
+    call c, Call_000_2a00
     nop
     ld [bc], a
     nop
@@ -11152,7 +11152,7 @@ jr_008_7163:
     rst RST_30
     ld a, [hl+]
     rst RST_30
-    jp z, $2af7
+    jp z, Jump_000_2af7
 
     rst RST_30
     ld c, d
@@ -11433,7 +11433,7 @@ jr_008_7163:
     ld a, [hl]
     cp l
     inc a
-    jp $00ff
+    jp Jump_000_00ff
 
 
     rst RST_38

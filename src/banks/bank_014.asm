@@ -7606,7 +7606,7 @@ jr_014_6314:
 
     nop
     db $f4
-    jp c, $0020
+    jp c, RST_20
 
 jr_014_631c:
     db $fc
@@ -8048,7 +8048,7 @@ jr_014_64c3:
     ld h, a
     nop
     nop
-    jp $0067
+    jp Jump_000_0067
 
 
     nop
@@ -8888,7 +8888,7 @@ jr_014_683a:
     nop
     add b
     rst RST_20
-    call z, $00d5
+    call z, Call_000_00d5
     add sp, $02
     push de
     nop
@@ -9027,7 +9027,7 @@ jr_014_689e:
     push de
     nop
     rst RST_18
-    jp z, $00d5
+    jp z, Jump_000_00d5
 
     inc de
     ret nz
@@ -9142,7 +9142,7 @@ jr_014_698a:
     push de
     nop
     inc hl
-    call $00d5
+    call Call_000_00d5
     adc $bf
     push de
 
@@ -9154,13 +9154,13 @@ jr_014_6994:
     push de
     nop
     dec c
-    jp $00d5
+    jp Jump_000_00d5
 
 
     call c, $d5c7
     nop
     scf
-    call nc, $00d5
+    call nc, Call_000_00d5
     ldh [c], a
     db $ec
     push de
@@ -9205,7 +9205,7 @@ jr_014_69d0:
     cp $d5
     nop
     cp e
-    jp nc, $00d5
+    jp nc, Jump_000_00d5
 
     inc hl
     cp e
@@ -12229,7 +12229,7 @@ jr_014_77c5:
     sbc [hl]
     pop hl
     cp $ff
-    jp nz, $1cfd
+    jp nz, Jump_000_1cfd
 
     db $e3
     ld hl, $c6df
@@ -13376,7 +13376,7 @@ jr_014_7c45:
     ld h, c
     ld l, d
     halt
-    jp nc, $08ee
+    jp nc, Jump_000_08ee
 
     ld c, a
     rst RST_38
@@ -13760,7 +13760,7 @@ Jump_014_7dda:
     sbc $ff
     nop
     dec hl
-    jp c, $29ff
+    jp c, Jump_000_29ff
 
     ret c
 

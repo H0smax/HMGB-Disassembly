@@ -571,7 +571,7 @@ jr_018_426c:
     ld e, [hl]
     xor h
     ld a, [hl]
-    call z, $0916
+    call z, Call_000_0916
     rla
     rrca
     rra
@@ -1069,7 +1069,7 @@ jr_018_449d:
     ld e, h
     xor b
     halt
-    call z, $00c0
+    call z, Call_000_00c0
     jr nc, jr_018_4465
 
     ld [$08f0], sp
@@ -2039,7 +2039,7 @@ jr_018_48de:
     or h
     ld d, $ec
     ldh a, [c]
-    call z, $30cc
+    call z, Call_000_30cc
     ld a, b
     and b
     ld e, $05
@@ -2486,7 +2486,7 @@ jr_018_4a47:
     ld h, h
     ld h, h
     sbc b
-    jp z, $35f4
+    jp z, Jump_000_35f4
 
     jp z, $0cda
 
@@ -3631,7 +3631,7 @@ jr_018_4fbf:
 
     jr nz, jr_018_4f54
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld d, b
     ret z
 
@@ -4331,7 +4331,7 @@ jr_018_52ae:
     ldh a, [rP1]
     add sp, -$10
     call nc, $2a38
-    call c, $1ce2
+    call c, Call_000_1ce2
     ldh a, [c]
     ld c, h
     rst RST_18
@@ -4415,7 +4415,7 @@ jr_018_52c8:
     ldh a, [rP1]
     add sp, -$10
     call nc, $2a38
-    call c, $1ce2
+    call c, Call_000_1ce2
     ldh a, [c]
     ld c, h
     rst RST_18
@@ -4621,7 +4621,7 @@ jr_018_53f5:
     sbc $30
     ret nc
 
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ret nc
 
     scf
@@ -6260,7 +6260,7 @@ jr_018_5ac5:
     pop de
     xor $f9
     and $65
-    jp c, $34cb
+    jp c, Jump_000_34cb
 
     sub d
     ld l, h
@@ -8431,7 +8431,7 @@ jr_018_63ba:
 
     jr nc, jr_018_63cc
 
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ldh a, [$fff8]
     jr nz, jr_018_643e
 
@@ -9100,7 +9100,7 @@ jr_018_66aa:
     jr jr_018_66aa
 
 jr_018_66ac:
-    call z, $30ee
+    call z, Call_000_30ee
     cp e
     ldh a, [rDIV]
     inc bc
@@ -10014,7 +10014,7 @@ jr_018_6a9a:
     nop
     nop
     ld e, b
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ret nc
 
     ret z
@@ -10099,7 +10099,7 @@ jr_018_6ad8:
     sbc $20
     ld a, [hl]
     sbc h
-    call c, $09e8
+    call c, Call_000_09e8
     ld b, $1c
     rrca
     inc e
@@ -10381,7 +10381,7 @@ Jump_018_6c24:
     ld [$0ff0], sp
     ldh a, [$ff0e]
     rst RST_30
-    call c, $00e3
+    call c, Call_000_00e3
     nop
     nop
     nop
@@ -11696,7 +11696,7 @@ jr_018_7198:
     ld a, [$6604]
     ld hl, sp-$0e
     adc h
-    jp nz, $3ffc
+    jp nz, Jump_000_3ffc
 
     ld de, $0d7b
     ld [hl], d
@@ -13686,7 +13686,7 @@ jr_018_7a22:
     ld [hl], b
     ld d, h
     cp b
-    call nc, $1d38
+    call nc, Call_000_1d38
     ld [bc], a
     ld [de], a
     dec c
@@ -14219,7 +14219,7 @@ Jump_018_7c62:
     ret nz
 
     ld a, [$fa24]
-    call nz, $34ca
+    call nz, Call_000_34ca
     ld h, $d8
     inc d
     dec bc

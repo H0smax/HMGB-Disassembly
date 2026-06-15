@@ -5,12 +5,13 @@
 
 SECTION "ROM Bank $001", ROMX[$4000], BANK[$1]
 
-    db $01
-
-    call Call_000_20a1
-    call Call_000_20b0
-    call Call_000_314e
-    ld a, [sCurrentSeason]
+    ld bc, $a1cd
+    db $20, $cd
+    or b
+    db $20, $cd
+    ld c, [hl]
+    ld sp, $84fa
+    cp b
     cp $01
     jr z, jr_001_4031
 
@@ -139,7 +140,7 @@ jr_001_40ff:
     ldh [hCameraX], a
     ldh [hCameraY], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld a, $07
     ldh [hWindowX], a
     ld a, $68
@@ -240,7 +241,7 @@ jr_001_41ae:
 
 
 Call_001_41e7:
-    ld a, [wMapOffset]
+    ld a, [wMapOffset_TBD]
     or a
     ret z
 
@@ -249,7 +250,7 @@ Call_001_41e7:
     ld a, [$c911]
     dec a
     ld [$c911], a
-    jr z, GoToInterior
+    jr z, GoToInterior_TBD
 
     cp $13
     jr nc, jr_001_4200
@@ -260,12 +261,12 @@ Call_001_41e7:
 
 jr_001_4200:
     call Call_001_661c
-    ld a, [wMapOffset]
+    ld a, [wMapOffset_TBD]
     cp $05
-    jr z, MoveToAnimalShop
+    jr z, MoveToAnimalShop_TBD
 
     cp $06
-    jp z, MoveToHouse2
+    jp z, MoveToHouse2_TBD
 
     cp $07
     jp z, Jump_001_42e5
@@ -316,17 +317,17 @@ jr_001_4200:
     ret
 
 
-GoToInterior::
-    ld a, [wMapOffset]
+GoToInterior_TBD::
+    ld a, [wMapOffset_TBD]
     ld b, a
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     add b
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
     ld [$c7c0], a
-    ld a, [wNextMapIndex]
+    ld a, [wNextMapIndex_TBD]
     cp $02
     jr z, jr_001_4279
 
@@ -335,29 +336,29 @@ jr_001_4279:
     ret
 
 
-MoveToAnimalShop::
+MoveToAnimalShop_TBD::
     ld a, $13
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     pop hl
     ret
 
 
-MoveToHouse2::
+MoveToHouse2_TBD::
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld a, $01
     ld [$c910], a
@@ -394,17 +395,17 @@ jr_001_42cc:
 
 Jump_001_42e5:
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld a, $1c
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld a, $05
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     pop hl
     ret
 
@@ -413,20 +414,20 @@ Jump_001_4304:
     ld a, $01
     ld [$ccb8], a
     ld a, $0f
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld [$c800], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld [$c800], a
     ld [$c620], a
     ld [$cb4a], a
@@ -444,16 +445,16 @@ Jump_001_434a:
     ld a, $02
     ld [$ccb8], a
     ld a, $0f
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld [$c800], a
     ld [$c620], a
     ld [$cb4a], a
@@ -469,30 +470,30 @@ Jump_001_4381:
     ld a, $00
     ld [$ccb8], a
     ld a, $0f
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld [$c911], a
     ld [$c910], a
     xor a
     ld [$c7c0], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     pop hl
     ret
 
 
 Call_001_43a3:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     or a
     ret nz
 
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or a
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -995,7 +996,7 @@ jr_001_4669:
 
 Call_001_466d:
 Jump_001_466d:
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     and $01
     jr z, jr_001_4680
 
@@ -1611,9 +1612,24 @@ jr_001_4a17:
     ret
 
 
-    db $00, $00, $00, $00, $00, $01, $00, $01, $00, $01, $00, $01, $00, $01, $01, $00
-    db $01, $01, $01, $01, $01, $01, $01, $02, $01, $01, $02, $01, $02, $01, $02, $01
-    db $02, $01, $02, $01
+    nop
+    nop
+    nop
+    nop
+    nop
+    ld bc, $0100
+    nop
+    ld bc, $0100
+    nop
+    ld bc, $0001
+    ld bc, $0101
+    ld bc, $0101
+    ld bc, $0102
+    ld bc, $0102
+    ld [bc], a
+    ld bc, $0102
+    ld [bc], a
+    ld bc, $0102
 
 Jump_001_4a3d:
     ld a, [wGrabbingDog3]
@@ -1649,11 +1665,11 @@ Call_001_4a65:
     cp $02
     jp z, Jump_001_4b55
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0015
     call Call_000_0a27
     call Call_001_6815
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffeb
     call Call_000_0a27
     ld a, [$cb38]
@@ -1664,11 +1680,11 @@ Call_001_4a65:
     and $01
     jp nz, Jump_001_4b9c
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
     call Call_000_0a27
     call Call_001_6815
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb38]
@@ -1683,11 +1699,11 @@ Call_001_4a65:
 
 
 jr_001_4ac1:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffec
     call Call_000_0a27
     call Call_001_681e
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0014
     call Call_000_0a27
     ld a, [$cb38]
@@ -1698,11 +1714,11 @@ jr_001_4ac1:
     and $01
     jp nz, Jump_001_4b9c
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
     call Call_000_0a27
     call Call_001_681e
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb38]
@@ -1820,11 +1836,11 @@ jr_001_4bb5:
     or a
     jr nz, jr_001_4c41
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
     call Call_000_0a27
     call Call_000_150b
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -1834,11 +1850,11 @@ jr_001_4bb5:
     and $01
     jr nz, jr_001_4c41
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0010
     call Call_000_0a27
     call Call_000_150b
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff0
     call Call_000_0a27
     ld a, [$cb30]
@@ -1848,11 +1864,11 @@ jr_001_4bb5:
     and $01
     jr nz, jr_001_4c41
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0018
     call Call_000_0a27
     call Call_000_150b
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffe8
     call Call_000_0a27
     ld a, [$cb30]
@@ -1883,11 +1899,11 @@ jr_001_4c41:
     or a
     ret nz
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -1897,11 +1913,11 @@ jr_001_4c41:
     and $01
     ret nz
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff0
     call Call_000_0a27
     call Call_000_1514
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0010
     call Call_000_0a27
     ld a, [$cb30]
@@ -1911,11 +1927,11 @@ jr_001_4c41:
     and $01
     ret nz
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffe8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0018
     call Call_000_0a27
     ld a, [$cb30]
@@ -2195,7 +2211,7 @@ Jump_001_4ee2:
     ld [$c786], a
     ld a, [$c607]
     ld [$c787], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [$c788], a
     ld a, [$c609]
     ld [$c789], a
@@ -2213,7 +2229,7 @@ Jump_001_4f24:
     ld a, $01
     ld [wGrabbingDog3], a
     xor a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld [$cb89], a
     ret
 
@@ -2274,7 +2290,7 @@ jr_001_4f48:
     ld a, [$c607]
     sbc $00
     ld [$c7a7], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [$c7a8], a
     ld a, [$c609]
     ld [$c7a9], a
@@ -2284,7 +2300,7 @@ jr_001_4f48:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     xor a
     ld [wGrabbingDog3], a
     ld a, [$b8db]
@@ -2345,7 +2361,7 @@ Jump_001_4fe0:
     ld a, [$c607]
     adc $00
     ld [$c7a7], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [$c7a8], a
     ld a, [$c609]
     ld [$c7a9], a
@@ -2355,7 +2371,7 @@ Jump_001_4fe0:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     xor a
     ld [wGrabbingDog3], a
     ld a, [$b8db]
@@ -2370,11 +2386,11 @@ Jump_001_4fe0:
 
 
 Jump_001_506e:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
     call Call_000_0a27
     ld a, [$cb30]
@@ -2391,11 +2407,11 @@ Jump_001_506e:
     and $02
     ret nz
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff2
     call Call_000_0a27
     call Call_000_1514
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $000e
     call Call_000_0a27
     ld a, [$cb30]
@@ -2412,11 +2428,11 @@ Jump_001_506e:
     and $02
     ret nz
 
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffe8
     call Call_000_0a27
     call Call_000_1514
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0018
     call Call_000_0a27
     ld a, [$cb30]
@@ -2437,7 +2453,7 @@ Jump_001_506e:
     ld [$c7ad], a
     add $00
     call Call_000_1634
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $18
     ld [$c7a8], a
     ld a, [$c609]
@@ -2453,7 +2469,7 @@ Jump_001_506e:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     xor a
     ld [wGrabbingDog3], a
     ld a, [$b8db]
@@ -2468,11 +2484,11 @@ Jump_001_506e:
 
 
 Jump_001_513d:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0004
     call Call_000_0a27
     call Call_000_150b
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fffc
     call Call_000_0a27
     ld a, [$cb30]
@@ -2494,11 +2510,11 @@ Jump_001_513d:
 
 
 jr_001_516c:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
     call Call_000_0a27
     call Call_000_150b
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
     call Call_000_0a27
     ld a, [$cb30]
@@ -2520,11 +2536,11 @@ jr_001_516c:
 
 
 jr_001_519b:
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $000e
     call Call_000_0a27
     call Call_000_150b
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff2
     call Call_000_0a27
     ld a, [$cb30]
@@ -2550,7 +2566,7 @@ jr_001_51ca:
     ld [$c7ad], a
     add $00
     call Call_000_1634
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $10
     ld [$c7a8], a
     ld a, [$c609]
@@ -2566,7 +2582,7 @@ jr_001_51ca:
     ld [$c7b2], a
     call Call_001_5218
     ld a, $01
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     xor a
     ld [wGrabbingDog3], a
     ld a, [$b8db]
@@ -2625,7 +2641,7 @@ jr_001_5253:
     cp $ff
     jp nz, Jump_001_5ddd
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $02
     ret z
 
@@ -2813,11 +2829,11 @@ jr_001_5376:
     ld a, [hl+]
     ldh [$ffa5], a
     ld a, [hl+]
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
     ld a, [hl+]
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
     ld a, [hl+]
-    ldh [$ffa8], a
+    ldh [hCharacterAnimationCountdown_TBD], a
     ld a, [hl+]
     ldh [$ffa9], a
     ld a, [$cb35]
@@ -2845,7 +2861,7 @@ jr_001_53bd:
     cp $01
     jr nz, jr_001_53d4
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -2860,7 +2876,7 @@ jr_001_53d4:
     cp $02
     jr nz, jr_001_53eb
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -2882,10 +2898,10 @@ jr_001_53eb:
 
 jr_001_53f8:
     call Call_000_0d2b
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     ld [hl+], a
     call Call_000_0d2b
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     ld [hl], a
     ld a, $1f
     add l
@@ -2894,7 +2910,7 @@ jr_001_53f8:
     adc h
     ld h, a
     call Call_000_0d2b
-    ldh a, [$ffa8]
+    ldh a, [hCharacterAnimationCountdown_TBD]
     ld [hl+], a
     call Call_000_0d2b
     ldh a, [$ffa9]
@@ -2932,12 +2948,40 @@ Jump_001_5423:
     ret
 
 
-    db $00, $00, $00, $00, $00, $00, $00, $00
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    ld de, $1000
+    db $10
+    db $10
+    stop
+    nop
+    ld e, h
+    ld b, c
+    daa
+    jr z, jr_001_54a2
 
-    db $11, $00
+    jr c, jr_001_546d
 
-    db $10, $10, $10, $10, $00, $00, $5c, $41, $27, $28, $37, $38, $00, $00, $ec, $41
-    db $2d, $2e, $3d, $3e, $00, $00, $82, $41, $2d, $2e, $3d, $3e, $00, $00
+jr_001_546d:
+    nop
+    db $ec
+    ld b, c
+    dec l
+    ld l, $3d
+    ld a, $00
+    nop
+    add d
+    ld b, c
+    dec l
+    ld l, $3d
+    ld a, $00
+    nop
 
 Call_001_547e:
     ld a, [$cb4a]
@@ -2956,7 +3000,7 @@ Call_001_547e:
     or a
     ret z
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -2968,6 +3012,7 @@ Call_001_547e:
     cp $81
     ret nz
 
+jr_001_54a2:
     ld a, [$cb33]
     cp $41
     jr z, jr_001_54bf
@@ -3051,7 +3096,7 @@ jr_001_5502:
     ld a, [$c607]
     sbc $00
     ld [$c807], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [$c808], a
     ld a, [$c609]
     sbc $00
@@ -3090,7 +3135,7 @@ Jump_001_5546:
     ld a, [$c607]
     sbc $00
     ld [$c807], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [$c808], a
     ld a, [$c609]
     sbc $00
@@ -3117,11 +3162,77 @@ Jump_001_55a1:
 Call_001_55a5:
     ld a, [$cb4a]
     rst RST_00
+    reti
 
-    db $d9, $55, $da, $55, $f6, $55, $9c, $56, $d9, $5a, $d9, $55, $d9, $55, $d9, $55
-    db $d9, $55, $d9, $55, $d9, $55, $d9, $55, $d9, $55, $d9, $55, $d9, $55, $d9, $55
-    db $f5, $5a, $2c, $5b, $63, $5b, $9a, $5b, $d1, $5b, $08, $5c, $3f, $5c, $76, $5c
 
+    ld d, l
+    jp c, $f655
+
+    ld d, l
+    sbc h
+    ld d, [hl]
+    reti
+
+
+    ld e, d
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    reti
+
+
+    ld d, l
+    push af
+    ld e, d
+    inc l
+    ld e, e
+    ld h, e
+    ld e, e
+    sbc d
+    ld e, e
+    pop de
+    ld e, e
+    ld [$3f5c], sp
+    ld e, h
+    halt
+    ld e, h
     ret
 
 
@@ -3544,7 +3655,7 @@ Jump_001_5834:
 
 
 Call_001_5836:
-    ld a, [wGrabbingDog]
+    ld a, [wGrabbingDog_TBD]
     or a
     ret z
 
@@ -3766,17 +3877,89 @@ Call_001_5933:
     ret
 
 
-    db $fa, $88, $c7, $c6, $00, $6f, $fa, $89, $c7, $ce, $08, $67, $cb, $3c, $cb, $1d
-    db $cb, $3c, $cb, $1d, $cb, $3c, $cb, $1d, $cb, $3c, $cb, $1d, $7d, $e0, $a4, $fa
-    db $86, $c7, $c6, $00, $6f, $fa, $87, $c7, $ce, $00, $67, $cb, $3c, $cb, $1d, $cb
-    db $3c, $cb, $1d, $cb, $3c, $cb, $1d, $cb, $3c, $cb, $1d, $7d, $cb, $27, $f5, $f0
-    db $a4, $4f, $fa, $0c, $b9, $cd, $1e, $07, $f1, $85, $6f, $3e, $00, $8c, $67, $fa
-    db $0d, $b9, $57, $fa, $0e, $b9, $5f, $19, $44, $4d, $c9, $fa, $a8, $c7, $c6, $00
-    db $6f, $fa, $a9, $c7, $ce, $00, $67, $cb, $3c, $cb, $1d, $cb, $3c, $cb, $1d, $cb
-    db $3c, $cb, $1d, $cb, $3c, $cb, $1d, $7d, $e0, $a4, $fa, $a6, $c7, $c6, $00, $6f
-    db $fa, $a7, $c7, $ce, $00, $67, $cb, $3c, $cb, $1d, $cb, $3c, $cb, $1d, $cb, $3c
-    db $cb, $1d, $cb, $3c, $cb, $1d
+    ld a, [$c788]
+    add $00
+    ld l, a
+    ld a, [$c789]
+    adc $08
+    ld h, a
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    ld a, l
+    ldh [$ffa4], a
+    ld a, [$c786]
+    add $00
+    ld l, a
+    ld a, [$c787]
+    adc $00
+    ld h, a
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    ld a, l
+    sla a
+    push af
+    ldh a, [$ffa4]
+    ld c, a
+    ld a, [$b90c]
+    call Call_000_071e
+    pop af
+    add l
+    ld l, a
+    ld a, $00
+    adc h
+    ld h, a
+    ld a, [$b90d]
+    ld d, a
+    ld a, [$b90e]
+    ld e, a
+    add hl, de
+    ld b, h
+    ld c, l
+    ret
 
+
+    ld a, [$c7a8]
+    add $00
+    ld l, a
+    ld a, [$c7a9]
+    adc $00
+    ld h, a
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    ld a, l
+    ldh [$ffa4], a
+    ld a, [$c7a6]
+    add $00
+    ld l, a
+    ld a, [$c7a7]
+    adc $00
+    ld h, a
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
+    srl h
+    rr l
     ld a, l
     sla a
     push af
@@ -3901,7 +4084,8 @@ jr_001_5a8e:
     ret
 
 
-    db $c9
+    ret
+
 
 jr_001_5ac5:
     ld a, [$c64a]
@@ -5136,7 +5320,14 @@ jr_001_61f5:
     ret
 
 
-    db $06, $02, $cd, $f9, $19, $3e, $63, $cd, $2f, $15, $3e, $60, $ea, $12, $c9, $c9
+    ld b, $02
+    call Call_000_19f9
+    ld a, $63
+    call Call_000_152f
+    ld a, $60
+    ld [$c912], a
+    ret
+
 
 Jump_001_620b:
     ld a, $18
@@ -5413,26 +5604,139 @@ Jump_001_63e7:
     ret
 
 
-    db $fa, $43, $cb, $67, $fa, $44, $cb, $6f, $fa, $45, $cb, $fe, $01, $20, $06, $3e
-    db $00, $22, $22, $18, $45, $fe, $02, $20, $19, $e5, $3e, $00, $22, $22, $22, $22
-    db $e1, $fa, $0c, $b9, $85, $6f, $3e, $00, $8c, $67, $3e, $00, $22, $22, $22, $22
-    db $18, $28, $fe, $03, $20, $04, $2b, $2b, $18, $df, $fe, $04, $20, $0d, $fa, $0c
-    db $b9, $47, $7d, $90, $6f, $7c, $de, $00, $67, $18, $ce, $2b, $2b, $fa, $0c, $b9
-    db $47, $7d, $90, $6f, $7c, $de, $00, $67, $18, $bf, $fa, $0d, $c6, $fe, $00, $28
-    db $41, $fe, $01, $ca, $ae, $64, $fe, $02, $ca, $d2, $64, $fa, $06, $c6, $e6, $08
-    db $2f, $3c, $47, $fa, $08, $c6, $e6, $0f, $fe, $0c, $28, $18, $f6, $10, $d6, $0d
-    db $fe, $10, $28, $10, $fe, $11, $28, $0c, $fe, $12, $28, $08, $fe, $09, $38, $06
-    db $d6, $08, $18, $02, $3e, $00, $4f, $3e, $e8, $91, $4f, $cd, $60, $19, $c3, $f0
-    db $64
+    ld a, [$cb43]
+    ld h, a
+    ld a, [$cb44]
+    ld l, a
+    ld a, [$cb45]
+    cp $01
+    jr nz, jr_001_6400
 
-    db $c9
+    ld a, $00
+    ld [hl+], a
+    ld [hl+], a
+    jr jr_001_6445
+
+jr_001_6400:
+    cp $02
+    jr nz, jr_001_641d
+
+jr_001_6404:
+    push hl
+    ld a, $00
+    ld [hl+], a
+    ld [hl+], a
+    ld [hl+], a
+    ld [hl+], a
+    pop hl
+    ld a, [$b90c]
+    add l
+    ld l, a
+    ld a, $00
+    adc h
+    ld h, a
+    ld a, $00
+    ld [hl+], a
+    ld [hl+], a
+    ld [hl+], a
+    ld [hl+], a
+    jr jr_001_6445
+
+jr_001_641d:
+    cp $03
+    jr nz, jr_001_6425
+
+    dec hl
+    dec hl
+    jr jr_001_6404
+
+jr_001_6425:
+    cp $04
+    jr nz, jr_001_6436
+
+    ld a, [$b90c]
+    ld b, a
+    ld a, l
+    sub b
+    ld l, a
+    ld a, h
+    sbc $00
+    ld h, a
+    jr jr_001_6404
+
+jr_001_6436:
+    dec hl
+    dec hl
+    ld a, [$b90c]
+    ld b, a
+    ld a, l
+    sub b
+    ld l, a
+    ld a, h
+    sbc $00
+    ld h, a
+    jr jr_001_6404
+
+jr_001_6445:
+    ld a, [$c60d]
+    cp $00
+    jr z, jr_001_648d
+
+    cp $01
+    jp z, Jump_001_64ae
+
+    cp $02
+    jp z, Jump_001_64d2
 
     ld a, [wCameraXPosition]
     and $08
     cpl
     inc a
     ld b, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
+    and $0f
+    cp $0c
+    jr z, jr_001_647f
+
+    or $10
+    sub $0d
+    cp $10
+    jr z, jr_001_647f
+
+    cp $11
+    jr z, jr_001_647f
+
+    cp $12
+    jr z, jr_001_647f
+
+    cp $09
+    jr c, jr_001_6481
+
+    sub $08
+    jr jr_001_6481
+
+jr_001_647f:
+    ld a, $00
+
+jr_001_6481:
+    ld c, a
+    ld a, $e8
+    sub c
+    ld c, a
+    call Call_000_1960
+    jp Jump_001_64f0
+
+
+    ret
+
+
+jr_001_648d:
+    ld a, [wCameraXPosition]
+    and $08
+    cpl
+    inc a
+    ld b, a
+    ld a, [wPlayerOrCameraYPosition_TBD]
     and $0f
     jr z, jr_001_64a4
 
@@ -5450,9 +5754,11 @@ jr_001_64a4:
     jp Jump_001_64f0
 
 
-    db $c9
+    ret
 
-    ld a, [wPlayerOrCameraYPosition]
+
+Jump_001_64ae:
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -5476,9 +5782,11 @@ jr_001_64c7:
     call Call_000_1960
     jr jr_001_64f0
 
-    db $c9
+    ret
 
-    ld a, [wPlayerOrCameraYPosition]
+
+Jump_001_64d2:
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -5495,7 +5803,8 @@ jr_001_64c7:
     call Call_000_1960
     jr jr_001_64f0
 
-    db $c9
+    ret
+
 
 Jump_001_64f0:
 jr_001_64f0:
@@ -5633,7 +5942,8 @@ jr_001_65a4:
     jp Jump_001_6519
 
 
-    db $c9
+    ret
+
 
 Call_001_65b2:
     push de
@@ -5659,7 +5969,7 @@ Call_001_65c0:
     cp $02
     jr nz, jr_001_65d6
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $e8
     ret nc
 
@@ -5668,7 +5978,7 @@ jr_001_65d6:
     cp $02
     jr nz, jr_001_65e4
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c0
     jr nc, jr_001_6615
 
@@ -5677,7 +5987,7 @@ jr_001_65e4:
     cp $00
     jr nz, jr_001_65f2
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $48
     jr c, jr_001_6615
 
@@ -5692,13 +6002,13 @@ jr_001_65f2:
     call z, Call_001_72e8
 
 jr_001_6603:
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld l, a
     ld a, [$c609]
     ld h, a
     inc hl
     ld a, l
-    ld [wPlayerOrCameraYPosition], a
+    ld [wPlayerOrCameraYPosition_TBD], a
     ld a, h
     ld [$c609], a
     ret
@@ -5709,7 +6019,8 @@ jr_001_6615:
     inc [hl]
     jr jr_001_6603
 
-    db $c9
+    ret
+
 
 Call_001_661c:
     ld a, $05
@@ -5720,7 +6031,7 @@ Call_001_661c:
     cp $00
     jr nz, jr_001_6632
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $0e
     ret c
 
@@ -5729,7 +6040,7 @@ jr_001_6632:
     cp $02
     jr nz, jr_001_6640
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $c1
     jr nc, jr_001_6671
 
@@ -5738,7 +6049,7 @@ jr_001_6640:
     cp $00
     jr nz, jr_001_664e
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     cp $49
     jr c, jr_001_6671
 
@@ -5753,13 +6064,13 @@ jr_001_664e:
     call z, Call_001_7299
 
 jr_001_665f:
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld l, a
     ld a, [$c609]
     ld h, a
     dec hl
     ld a, l
-    ld [wPlayerOrCameraYPosition], a
+    ld [wPlayerOrCameraYPosition_TBD], a
     ld a, h
     ld [$c609], a
     ret
@@ -5770,7 +6081,8 @@ jr_001_6671:
     dec [hl]
     jr jr_001_665f
 
-    db $c9
+    ret
+
 
 Call_001_6678:
     ld a, $05
@@ -5846,7 +6158,8 @@ jr_001_66e3:
     dec [hl]
     jr jr_001_66d1
 
-    db $c9
+    ret
+
 
 Call_001_66ea:
     ld a, $05
@@ -5931,7 +6244,8 @@ jr_001_6762:
     inc [hl]
     jr jr_001_6750
 
-    db $c9
+    ret
+
 
 Call_001_6769:
     ld a, [$c60d]
@@ -5943,7 +6257,7 @@ Call_001_6769:
     cpl
     inc a
     ld b, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     dec a
     and $08
     cpl
@@ -5957,7 +6271,7 @@ jr_001_6786:
     cp $01
     jr nz, jr_001_67b7
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -5996,7 +6310,7 @@ jr_001_67b7:
     cp $02
     jr nz, jr_001_67e8
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $08
     and $08
     add $08
@@ -6036,7 +6350,7 @@ jr_001_67e8:
     cpl
     inc a
     ld b, a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $0d
     and $0f
     cp $00
@@ -6205,7 +6519,7 @@ jr_001_68c2:
 
 Call_001_68c3:
     ld a, $01
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     xor a
@@ -6237,7 +6551,7 @@ jr_001_68e2:
 
 Call_001_68fb:
     ld a, $02
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     ret
@@ -6245,7 +6559,7 @@ Call_001_68fb:
 
 Call_001_6906:
     ld a, $03
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     ret
@@ -6253,7 +6567,7 @@ Call_001_6906:
 
 Call_001_6911:
     ld a, $04
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     xor a
@@ -6284,7 +6598,7 @@ Call_001_6920:
     ret nz
 
     ld a, $05
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     xor a
@@ -6312,7 +6626,7 @@ Call_001_6950:
     ld [$c7ca], a
     ld a, $10
     ld [$c7cb], a
-    call MusicRelated
+    call MusicRelated_TBD
     ld a, $40
     call Call_000_23d8
     ret
@@ -6341,15 +6655,15 @@ Call_001_6985:
 
 
 Call_001_69b2:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     or a
     ret nz
 
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or a
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -6394,7 +6708,7 @@ Call_001_69f0:
     or a
     ret nz
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     or a
     ret nz
 
@@ -6550,7 +6864,7 @@ Call_001_6acb:
     cp $ff
     ret nz
 
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or a
     ret nz
 
@@ -6569,11 +6883,11 @@ jr_001_6ae9:
     ld [$cb54], a
     ld [$cb55], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld [$cb5f], a
     call Call_000_3e2a
     ld a, $06
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     ld a, $01
@@ -6616,14 +6930,14 @@ Call_001_6b29:
     ld a, [$b8e5]
     ld [$c7a9], a
     ld a, $01
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld a, $05
     ld [$c7a1], a
     jr jr_001_6b5d
 
 jr_001_6b59:
     xor a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
 
 jr_001_6b5d:
     ld hl, $6bf5
@@ -6705,16 +7019,106 @@ jr_001_6bec:
     ret
 
 
-    db $01, $00, $ff, $00, $00, $08, $78, $00, $30, $01, $50, $58, $00, $00, $01, $00
-    db $01, $00, $ff, $00, $00, $08, $38, $01, $30, $01, $50, $58, $00, $00, $01, $00
-    db $01, $00, $ff, $00, $00, $08, $c8, $01, $30, $01, $50, $58, $00, $00, $01, $00
-    db $01, $00, $ff, $00, $00, $08, $88, $01, $b0, $01, $50, $58, $00, $00, $01, $00
-    db $01, $00, $ff, $00, $00, $08, $78, $00, $30, $01, $50, $58, $00, $00, $01, $00
-    db $01, $00, $ff, $00, $00, $08, $78, $00, $90, $01, $50, $58, $00, $02, $01, $00
+    ld bc, $ff00
+    nop
+    nop
+    ld [$0078], sp
+    jr nc, jr_001_6c00
 
-    db $01, $04, $02, $00, $00, $08, $60, $00, $90, $01, $00, $00, $00, $02, $00, $00
+    ld d, b
 
-    db $01, $04, $00, $00, $00, $08, $00, $01, $30, $01, $00, $00, $00, $00, $00, $00
+jr_001_6c00:
+    ld e, b
+    nop
+    nop
+    ld bc, $0100
+    nop
+    rst RST_38
+    nop
+    nop
+    ld [$0138], sp
+    jr nc, jr_001_6c10
+
+    ld d, b
+
+jr_001_6c10:
+    ld e, b
+    nop
+    nop
+    ld bc, $0100
+    nop
+    rst RST_38
+    nop
+    nop
+    ld [$01c8], sp
+    jr nc, jr_001_6c20
+
+    ld d, b
+
+jr_001_6c20:
+    ld e, b
+    nop
+    nop
+    ld bc, $0100
+    nop
+    rst RST_38
+    nop
+    nop
+    ld [$0188], sp
+    or b
+    ld bc, $5850
+    nop
+    nop
+    ld bc, $0100
+    nop
+    rst RST_38
+    nop
+    nop
+    ld [$0078], sp
+    jr nc, jr_001_6c40
+
+    ld d, b
+
+jr_001_6c40:
+    ld e, b
+    nop
+    nop
+    ld bc, $0100
+    nop
+    rst RST_38
+    nop
+    nop
+    ld [$0078], sp
+    sub b
+    ld bc, $5850
+    nop
+    ld [bc], a
+    ld bc, $0100
+    inc b
+    ld [bc], a
+    nop
+    nop
+    ld [$0060], sp
+    sub b
+    ld bc, $0000
+    nop
+    ld [bc], a
+    nop
+    nop
+    ld bc, $0004
+    nop
+    nop
+    ld [$0100], sp
+    jr nc, jr_001_6c70
+
+    nop
+
+jr_001_6c70:
+    nop
+    nop
+    nop
+    nop
+    nop
 
 Call_001_6c75:
     ld a, [$b8ea]
@@ -6752,10 +7156,17 @@ jr_001_6c9b:
     ret
 
 
-    db $01, $0b, $02, $00, $00, $08, $60, $00, $90, $01, $00, $00, $00, $02, $01, $00
-
-Call_001_6cc4:
-    ld hl, $6cb4
+    ld bc, $020b
+    nop
+    nop
+    ld [$0060], sp
+    sub b
+    ld bc, $0000
+    nop
+    ld [bc], a
+    ld bc, $2100
+    or h
+    ld l, h
     ld de, $c800
     ld b, $10
     call Call_000_210f
@@ -6924,7 +7335,7 @@ jr_001_6d8a:
     ld hl, $80e0
     xor a
     ld [$cb16], a
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $03
     jr nz, jr_001_6dbb
 
@@ -6961,7 +7372,7 @@ jr_001_6dbf:
     ld c, $02
     jr jr_001_6dcf
 
-    db $0e, $08
+    ld c, $08
 
 jr_001_6dcf:
     ld a, [de]
@@ -7503,7 +7914,7 @@ Jump_001_6e03:
 
 
 Call_001_6fe4:
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -7553,7 +7964,7 @@ jr_001_7018:
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $20
     ld [$c768], a
     ld a, [$c609]
@@ -7581,7 +7992,7 @@ jr_001_705b:
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $20
     ld [$c768], a
     ld a, [$c609]
@@ -7609,7 +8020,7 @@ Jump_001_709b:
     ld a, [$c607]
     sbc $00
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     sub $20
     ld [$c768], a
     ld a, [$c609]
@@ -7759,7 +8170,7 @@ jr_001_7180:
     ld a, [$c607]
     adc $00
     ld [$c767], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $10
     ld [$c768], a
     ld a, [$c609]
@@ -7794,7 +8205,7 @@ Call_001_71d3:
     ldh [hCameraX], a
     ld a, l
     ldh [$ffa4], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -8293,7 +8704,7 @@ Jump_001_74f8:
 
 
 Jump_001_750a:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $3d
@@ -8303,13 +8714,13 @@ Jump_001_750a:
 
 
 Jump_001_751a:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $24
     call Call_000_153c
     call Call_001_7653
-    ld a, [sDayRelated]
+    ld a, [sDayRelated_TBD]
     ld [$b894], a
     ld a, [$b88a]
     ld [$b895], a
@@ -8317,7 +8728,7 @@ Jump_001_751a:
 
 
 Jump_001_7536:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $0c
@@ -8327,7 +8738,7 @@ Jump_001_7536:
 
 
 Jump_001_7546:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$b8ec]
     cp $00
     jr z, jr_001_755d
@@ -8356,7 +8767,7 @@ jr_001_755d:
 
 
 Jump_001_7575:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $2c
@@ -8368,7 +8779,7 @@ Jump_001_7575:
 
 
 Jump_001_7589:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $14
@@ -8380,7 +8791,7 @@ Jump_001_7589:
 
 
 Jump_001_759d:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $1c
@@ -8390,7 +8801,7 @@ Jump_001_759d:
 
 
 Jump_001_75ad:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $3d
@@ -8400,7 +8811,7 @@ Jump_001_75ad:
 
 
 Jump_001_75bd:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $14
@@ -8416,7 +8827,7 @@ Jump_001_75bd:
 
 
 Jump_001_75df:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $3d
@@ -8426,7 +8837,7 @@ Jump_001_75df:
 
 
 Jump_001_75ef:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $0c
@@ -8436,7 +8847,7 @@ Jump_001_75ef:
 
 
 Jump_001_75ff:
-    call Call_001_6cc4
+    call $6cc4
     ld hl, $c806
     ld bc, $0004
     call Call_000_0a27
@@ -8455,7 +8866,7 @@ Jump_001_761e:
     ld [$b89d], a
 
 Jump_001_7623:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $34
@@ -8465,7 +8876,7 @@ Jump_001_7623:
 
 
 Jump_001_7633:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $3d
@@ -8475,7 +8886,7 @@ Jump_001_7633:
 
 
 Jump_001_7643:
-    call Call_001_6cc4
+    call $6cc4
     ld a, [$c80d]
     ld b, a
     add $0c
@@ -8742,7 +9153,7 @@ jr_001_77d6:
 Jump_001_77e3:
     xor a
     ld [$cb90], a
-    call Call_001_6cc4
+    call $6cc4
     ld a, $02
     ld [$c80d], a
     ld a, $1a
@@ -8765,7 +9176,7 @@ Jump_001_77e3:
 Jump_001_7812:
     xor a
     ld [$cb90], a
-    call Call_001_6cc4
+    call $6cc4
     ld a, $02
     ld [$c80d], a
     ld a, $12
@@ -8861,7 +9272,7 @@ jr_001_78a7:
     xor a
     ld [$b88c], a
     ld a, $07
-    ld [wMapOffset], a
+    ld [wMapOffset_TBD], a
     ld a, $20
     ld [$c911], a
     call Call_001_41e7
@@ -9508,59 +9919,790 @@ Jump_001_7ce1:
     ret
 
 
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $80
-    db $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80
-    db $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80
-    db $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80
-    db $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80
-    db $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80
-    db $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80, $80
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $20, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $80, $80, $80, $80, $80, $80
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    jr nz, jr_001_7da5
 
-    db $00, $00, $1c, $00, $3f, $1c, $7f, $23, $e3, $40, $47, $02, $07, $03, $0b, $07
-    db $00, $00, $00, $00, $00, $00, $c0, $00, $e0, $80, $f0, $a0, $f0, $60, $e8, $f0
+jr_001_7da5:
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
 
-    db $00, $00, $00, $00, $16, $00, $3f, $12, $1e, $0b, $1d, $0b, $0f, $05, $0f, $04
-    db $00, $00, $00, $00, $30, $00, $70, $20, $b0, $60, $50, $e0, $f0, $e0, $70, $a0
+jr_001_7dd0:
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    add b
+    add b
+    add b
+    add b
+    add b
+    add b
+    nop
+    nop
+    inc e
+    nop
+    ccf
 
-    db $06, $00, $07, $02, $06, $03, $05, $03, $0f, $03, $0e, $03, $0f, $05, $06, $03
-    db $30, $00, $70, $20, $b0, $60, $50, $e0, $f8, $e0, $b8, $e0, $78, $d0, $b0, $60
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-    db $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
+jr_001_7dec:
+    inc e
+    ld a, a
+    inc hl
+    db $e3
+    ld b, b
+    ld b, a
+    ld [bc], a
+    rlca
+    inc bc
+    dec bc
+    rlca
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    ret nz
 
-    db $1b, $0e, $1e, $09, $0d, $02, $07, $02, $07, $02, $03, $00, $00, $00, $00, $00
-    db $ec, $b8, $3c, $c8, $d8, $20, $70, $a0, $f0, $20, $60, $00, $00, $00, $00, $00
+    nop
+    ldh [$ff80], a
+    ldh a, [$ffa0]
+    ldh a, [$ff60]
+    add sp, -$10
+    nop
+    nop
+    nop
+    nop
+    ld d, $00
+    ccf
+    ld [de], a
+    ld e, $0b
+    dec e
+    dec bc
+    rrca
+    dec b
+    rrca
+    inc b
+    nop
+    nop
+    nop
+    nop
+    jr nc, jr_001_7e1d
 
-    db $07, $02, $07, $01, $05, $02, $07, $03, $05, $03, $07, $02, $0d, $06, $06, $00
-    db $f0, $40, $d0, $a0, $d0, $60, $f0, $e0, $d0, $60, $70, $20, $58, $30, $30, $00
+jr_001_7e1d:
+    ld [hl], b
+    jr nz, jr_001_7dd0
 
-    db $05, $02, $1f, $02, $7f, $19, $ff, $66, $6f, $01, $0d, $06, $0e, $04, $04, $00
-    db $d0, $a0, $f0, $a0, $d0, $60, $a8, $f0, $f8, $60, $58, $30, $38, $10, $10, $00
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
-    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff, $ff
+    ld h, b
+    ld d, b
+    ldh [$fff0], a
+    ldh [rSVBK], a
+    and b
+    ld b, $00
+    rlca
+    ld [bc], a
+    ld b, $03
+    dec b
+    inc bc
+    rrca
+    inc bc
+    ld c, $03
+    rrca
+    dec b
+    ld b, $03
+    jr nc, jr_001_7e39
+
+jr_001_7e39:
+    ld [hl], b
+    jr nz, jr_001_7dec
+
+    ld h, b
+    ld d, b
+    ldh [$fff8], a
+    ldh [hMapTilesRelatedL], a
+    ldh [$ff78], a
+    ret nc
+
+    or b
+    ld h, b
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    dec de
+    ld c, $1e
+    add hl, bc
+    dec c
+    ld [bc], a
+    rlca
+    ld [bc], a
+    rlca
+    ld [bc], a
+    inc bc
+    nop
+    nop
+    nop
+    nop
+    nop
+    db $ec
+    cp b
+    inc a
+    ret z
+
+    ret c
+
+    jr nz, jr_001_7f6e
+
+    and b
+    ldh a, [rNR41]
+    ld h, b
+    nop
+    nop
+    nop
+    nop
+    nop
+    rlca
+    ld [bc], a
+    rlca
+    ld bc, $0205
+    rlca
+    inc bc
+    dec b
+    inc bc
+    rlca
+    ld [bc], a
+    dec c
+    ld b, $06
+    nop
+    ldh a, [rLCDC]
+    ret nc
+
+    and b
+    ret nc
+
+    ld h, b
+    ldh a, [$ffe0]
+    ret nc
+
+    ld h, b
+    ld [hl], b
+    jr nz, jr_001_7f7c
+
+    jr nc, jr_001_7f56
+
+    nop
+    dec b
+    ld [bc], a
+    rra
+    ld [bc], a
+    ld a, a
+    add hl, de
+    rst RST_38
+    ld h, [hl]
+    ld l, a
+    ld bc, $060d
+    ld c, $04
+    inc b
+    nop
+    ret nc
+
+    and b
+    ldh a, [$ffa0]
+    ret nc
+
+    ld h, b
+    xor b
+    ldh a, [$fff8]
+    ld h, b
+    ld e, b
+    jr nc, jr_001_7f7c
+
+    db $10
+    stop
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+
+jr_001_7f56:
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+
+jr_001_7f6e:
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+
+jr_001_7f7c:
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38
+    rst RST_38

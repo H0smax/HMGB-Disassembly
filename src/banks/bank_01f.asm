@@ -53,12 +53,12 @@ Call_01f_4020:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     xor a
     ldh [hCameraY], a
     ldh [hCameraX], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld a, $22
     call Call_000_23cf
     ld a, $83
@@ -88,9 +88,9 @@ Call_01f_4092:
 
 
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -2563,7 +2563,7 @@ Call_01f_4cb2:
     ld a, [hl+]
     ld b, a
     push bc
-    call $0635
+    call Call_000_0635
     call Call_000_210f
     pop bc
     ldh a, [$ff97]
@@ -3044,7 +3044,7 @@ jr_01f_4ed5:
     ld h, a
 
 jr_01f_4f2b:
-    call $0635
+    call Call_000_0635
     ld b, $0f
     call Call_000_210f
     ldh a, [$ff97]
@@ -3269,7 +3269,7 @@ jr_01f_5048:
     ld h, a
 
 jr_01f_5055:
-    call $0635
+    call Call_000_0635
     ld b, $08
     call Call_000_210f
     ldh a, [$ff97]
@@ -3294,7 +3294,7 @@ jr_01f_5065:
     rla
     nop
     sbc b
-    call z, $3e04
+    call z, Call_000_3e04
     ld h, [hl]
     add a
     rla
@@ -3333,7 +3333,7 @@ jr_01f_5065:
     ld a, $00
     adc h
     ld h, a
-    call $0635
+    call Call_000_0635
     ld b, $0a
     call Call_000_210f
     ldh a, [$ff97]
@@ -3345,7 +3345,7 @@ jr_01f_5065:
 
 jr_01f_50c2:
     ld hl, $50d5
-    call $0635
+    call Call_000_0635
     ld b, $11
     call Call_000_210f
     ldh a, [$ff97]
@@ -3428,7 +3428,7 @@ jr_01f_50c2:
     ld a, $00
     adc h
     ld h, a
-    call $0635
+    call Call_000_0635
     ld b, $08
     call Call_000_210f
     ldh a, [$ff97]
@@ -3474,7 +3474,7 @@ Call_01f_5157:
     adc $af
     adc $bb
     adc $c5
-    call $0635
+    call Call_000_0635
     ld hl, $519a
     ld b, $03
     call Call_000_210f
@@ -3974,9 +3974,9 @@ jr_01f_53c0:
     ld a, $04
     ld [$c910], a
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -5522,7 +5522,7 @@ jr_01f_5b1f:
 
 
     push bc
-    call MusicRelated
+    call MusicRelated_TBD
     ld a, $46
     call SpawnDialogOrEvent
     pop hl
@@ -9118,9 +9118,9 @@ jr_01f_6d9d:
     ret z
 
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld a, $00
     ld [$c910], a
     xor a
@@ -9280,7 +9280,7 @@ jr_01f_6ed3:
     and $01
     jr z, jr_01f_6f12
 
-    call MusicRelated
+    call MusicRelated_TBD
     ld hl, $70fe
     ld a, [$cb68]
     add a
@@ -11373,7 +11373,7 @@ jr_01f_783a:
     sub b
     dec e
     ld [bc], a
-    jp z, $0020
+    jp z, RST_20
 
     inc bc
 

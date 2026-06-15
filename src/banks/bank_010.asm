@@ -63,7 +63,7 @@ jr_010_4056:
     ld [$c840], a
     ld [$c860], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     call Call_010_4472
     ld a, $01
     call Call_000_166a
@@ -80,15 +80,15 @@ jr_010_4056:
     or h
     ld b, b
     ld a, $00
-    call $1852
+    call Call_000_1852
     jr jr_010_40b9
 
     ld a, $06
-    call $1852
+    call Call_000_1852
     jr jr_010_40b9
 
     ld a, $0c
-    call $1852
+    call Call_000_1852
 
 jr_010_40b9:
     ld a, $83
@@ -114,9 +114,9 @@ jr_010_40b9:
     cp c
     call Call_000_0ae9
     call Call_000_2b71
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -138,7 +138,7 @@ jr_010_40b9:
     ld b, e
     and a
     ld b, e
-    call $0b43
+    call Call_000_0b43
     ld b, h
     add hl, sp
 
@@ -232,17 +232,17 @@ jr_010_416e:
     sbc h
     ld b, c
     ld a, $01
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $07
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0d
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -279,17 +279,17 @@ jr_010_416e:
     ld b, c
     and $41
     ld a, $05
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0b
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $11
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -327,17 +327,17 @@ jr_010_41ec:
     ld b, d
     ld sp, $3e42
     inc bc
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $09
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0f
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -427,7 +427,7 @@ jr_010_4297:
 jr_010_42ae:
     ld hl, $c60b
     inc [hl]
-    ld hl, wPlayerOrCameraYPosition
+    ld hl, wPlayerOrCameraYPosition_TBD
     inc [hl]
     ret
 
@@ -460,7 +460,7 @@ jr_010_42c2:
     ld hl, wCameraXPosition
     dec [hl]
     dec [hl]
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     and $01
     ret z
 
@@ -505,9 +505,9 @@ jr_010_42f2:
 
 jr_010_4327:
     ld a, $03
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ret
 
 
@@ -544,17 +544,17 @@ jr_010_4347:
     ld l, l
     ld b, e
     ld a, $04
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0a
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $10
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -580,17 +580,17 @@ jr_010_4347:
     and c
     ld b, e
     ld a, $00
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $06
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0c
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -648,17 +648,17 @@ jr_010_4347:
     dec b
     ld b, h
     ld a, $00
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $06
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0c
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -718,17 +718,17 @@ jr_010_4347:
     ld l, h
     ld b, h
     ld a, $02
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $08
-    call $1852
+    call Call_000_1852
     ret
 
 
     ld a, $0e
-    call $1852
+    call Call_000_1852
     ret
 
 
@@ -3052,7 +3052,7 @@ jr_010_4f2d:
     ld [$c720], a
     ld [$c740], a
     ld [$c760], a
-    ld [wGrabbingDog], a
+    ld [wGrabbingDog_TBD], a
     ld [$c800], a
     ld [$c820], a
     ld [$c800], a
@@ -3076,7 +3076,7 @@ jr_010_4f2d:
     ld [$cb5d], a
     ld [$cb5e], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     call Call_010_5590
     call Call_010_55b7
     ld a, $83
@@ -3119,9 +3119,9 @@ jr_010_4f2d:
 
 
 Call_010_4fee:
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -3145,7 +3145,7 @@ Jump_010_4ff7:
     ld d, c
     xor a
     ld d, c
-    jp nz, $1c51
+    jp nz, Jump_000_1c51
 
     ld d, d
     dec e
@@ -3248,8 +3248,8 @@ jr_010_5061:
     xor a
     ldh [$ffa4], a
     ldh [$ffa5], a
-    ldh [$ffa6], a
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
     ld a, [$b949]
     cp $ff
     jr z, jr_010_50b9
@@ -3271,7 +3271,7 @@ jr_010_50c5:
     jr z, jr_010_50d1
 
     ld a, [$b97b]
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
 
 jr_010_50d1:
     ld a, [$b98b]
@@ -3279,7 +3279,7 @@ jr_010_50d1:
     jr z, jr_010_50dd
 
     ld a, [$b991]
-    ldh [$ffa7], a
+    ldh [hCharacterAnimationIndex_2_TBD], a
 
 jr_010_50dd:
     ld c, $00
@@ -3297,26 +3297,26 @@ jr_010_50e9:
     ld b, a
 
 jr_010_50ee:
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     cp b
     jr nc, jr_010_50f5
 
     jr jr_010_50fa
 
 jr_010_50f5:
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     ld c, $02
     ld b, a
 
 jr_010_50fa:
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     cp b
     jr nc, jr_010_5101
 
     jr jr_010_5106
 
 jr_010_5101:
-    ldh a, [$ffa7]
+    ldh a, [hCharacterAnimationIndex_2_TBD]
     ld c, $03
     ld b, a
 
@@ -3478,9 +3478,9 @@ jr_010_519c:
     ret nz
 
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, $01
     ld [$c910], a
     xor a
@@ -3504,7 +3504,7 @@ Jump_010_5200:
 
 jr_010_5206:
     ld a, $02
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $01
     ld [$c910], a
     ret
@@ -3512,7 +3512,7 @@ jr_010_5206:
 
 jr_010_5211:
     ld a, $21
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $ff
     ld [$ba3a], a
     ret
@@ -3719,7 +3719,7 @@ jr_010_5315:
     ld bc, $af00
     ldh [$ffa4], a
     ldh [$ffa5], a
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
     ld b, $05
     ld hl, $cca8
 
@@ -3746,7 +3746,7 @@ jr_010_5335:
     jp z, Jump_010_5412
 
 jr_010_5357:
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     cp $05
     jp nc, Jump_010_5414
 
@@ -3761,12 +3761,12 @@ jr_010_5357:
     ld a, $01
     ld [$b90b], a
     ld [$ccb6], a
-    call $1191
+    call Call_000_1191
     jp Jump_010_5412
 
 
 jr_010_537d:
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     cp $02
     jp nc, Jump_010_5414
 
@@ -3938,9 +3938,9 @@ Call_010_5461:
 
 
 Call_010_5467:
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     inc a
-    ldh [$ffa6], a
+    ldh [hCharacterAnimationIndex_1_TBD], a
     ret
 
 
@@ -3992,7 +3992,7 @@ jr_010_549e:
 
     ld c, [hl]
     bit 0, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -4049,15 +4049,15 @@ jr_010_549e:
     ret nz
 
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     ld a, $02
     ld [$ba43], a
     ld a, $26
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $00
     ld [$c90b], a
     ld a, $01
@@ -5016,7 +5016,7 @@ jr_010_584b:
 
 
     nop
-    call $1700
+    call Call_000_1700
     nop
     ld d, b
     nop
@@ -5564,7 +5564,7 @@ jr_010_5b4b:
     call z, $cc05
     ld b, $cc
     rlca
-    call z, $0074
+    call z, Call_000_0074
     ld [hl], b
     nop
     ld [hl+], a
@@ -5631,7 +5631,7 @@ jr_010_5b97:
     ld [$09cc], sp
     call z, $cc0a
     dec bc
-    call z, $0074
+    call z, Call_000_0074
     ld [hl], b
     nop
     ld [hl+], a
@@ -5699,7 +5699,7 @@ jr_010_5be3:
     call z, $cc0d
     ld c, $cc
     rrca
-    call z, $0074
+    call z, Call_000_0074
     ld [hl], b
     nop
     ld [hl+], a
@@ -7774,7 +7774,7 @@ jr_010_6460:
     rst RST_38
     push hl
     cp $ea
-    call c, $30ec
+    call c, Call_000_30ec
     ret nc
 
     ldh [$ff1f], a
@@ -8403,7 +8403,7 @@ Call_010_67af:
     sbc [hl]
     pop hl
     cp $ff
-    jp nz, $1cfd
+    jp nz, Jump_000_1cfd
 
     db $e3
     ld hl, $c6df
@@ -8873,7 +8873,7 @@ Call_010_67af:
     dec [hl]
     ld sp, hl
     rst RST_38
-    call z, $34f4
+    call z, Call_000_34f4
     cp b
     rra
     ld a, h
@@ -8884,7 +8884,7 @@ Call_010_67af:
     ld b, a
     ld h, l
     adc a
-    jp nc, $3fef
+    jp nc, Jump_000_3fef
 
     db $ed
     rst RST_30
@@ -9425,7 +9425,7 @@ jr_010_6bf7:
     ld h, c
     ld l, d
     halt
-    jp nc, $08ee
+    jp nc, Jump_000_08ee
 
     rst RST_38
     ld c, a
@@ -10101,7 +10101,7 @@ jr_010_6ef6:
     ret nz
 
     push de
-    call nz, $04f5
+    call nz, Call_000_04f5
     ld l, $a6
     ld c, [hl]
     rst RST_38
@@ -11694,7 +11694,7 @@ jr_010_75ad:
     ld h, e
     sbc l
     ccf
-    jp $3f71
+    jp Jump_000_3f71
 
 
     ld a, [$f4ff]
@@ -11732,7 +11732,7 @@ jr_010_75f1:
     add c
     db $10
     ld h, a
-    jp c, $00ff
+    jp c, Jump_000_00ff
 
     db $eb
     and d
@@ -11771,7 +11771,7 @@ jr_010_75f1:
     dec bc
     ld d, c
     daa
-    call c, $00ff
+    call c, Call_000_00ff
     rst RST_38
     sub a
     sbc d
@@ -12185,7 +12185,7 @@ jr_010_77b5:
     ld c, $fd
     cp $02
     db $fc
-    jp $00fc
+    jp Jump_000_00fc
 
 
     ld h, e

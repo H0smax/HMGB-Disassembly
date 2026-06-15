@@ -402,7 +402,7 @@ SECTION "ROM Bank $012", ROMX[$4000], BANK[$12]
     ld l, b
     nop
     ld [bc], a
-    call $0068
+    call Call_000_0068
     ld [bc], a
     rst RST_08
     ld l, b
@@ -1191,7 +1191,7 @@ jr_012_451a:
     ld l, b
     jr nz, @-$06
 
-    ld bc, DMARelated2
+    ld bc, DMARelated2_TBD
     ldh a, [$fff9]
     ld h, [hl]
     jr nz, @-$0e
@@ -10114,15 +10114,15 @@ jr_012_6f1f:
 
 
     ld bc, $0096
-    call $11ac
+    call Call_000_11ac
     jr jr_012_6f3f
 
     ld bc, $00fa
-    call $11ac
+    call Call_000_11ac
     jr jr_012_6f3f
 
     ld bc, $015e
-    call $11ac
+    call Call_000_11ac
 
 jr_012_6f3f:
     ld a, [$b942]
@@ -10181,7 +10181,7 @@ Call_012_6f74:
 
     ld bc, $05dc
     push hl
-    call $11ac
+    call Call_000_11ac
     pop hl
     jr jr_012_6f92
 
@@ -10211,7 +10211,7 @@ Call_012_6f98:
 
     ld bc, $0064
     push hl
-    call $11ac
+    call Call_000_11ac
     pop hl
     jr jr_012_6fb6
 
@@ -10541,7 +10541,7 @@ jr_012_7130:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -10575,7 +10575,7 @@ jr_012_7130:
     ld e, a
     add hl, de
     push hl
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld l, a
     ld a, [$c609]
     ld h, a
@@ -10614,7 +10614,7 @@ jr_012_7130:
     ret
 
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $08
     ld l, a
     ld a, [$c609]
@@ -10701,7 +10701,7 @@ jr_012_7130:
     ret
 
 
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $08
     ld l, a
     ld a, [$c609]
@@ -10802,7 +10802,7 @@ jr_012_7130:
     rr l
     ld a, l
     ldh [$ffa4], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $0a
     ld l, a
     ld a, [$c609]
@@ -10838,7 +10838,7 @@ jr_012_7130:
     ld e, a
     add hl, de
     push hl
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     add $0a
     ld l, a
     ld a, [$c609]
@@ -12331,7 +12331,7 @@ jr_012_7a7a:
     cp $05
     jr nz, jr_012_7a8d
 
-    ld a, [wTimePaused]
+    ld a, [wTimePaused_TBD]
     cp $00
     ret nz
 
@@ -12502,7 +12502,7 @@ Jump_012_7b7b:
 
 
 Jump_012_7b7c:
-    ld a, [$c603]
+    ld a, [wCharacterAnimationCurrentTime_TBD]
     cp $01
     jr z, jr_012_7b8b
 

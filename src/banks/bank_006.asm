@@ -1139,7 +1139,7 @@ Jump_006_4414:
     ld [bc], a
     and d
     cp d
-    jp c, $3424
+    jp c, Jump_000_3424
 
     ld b, c
     ld [hl-], a
@@ -1812,7 +1812,7 @@ jr_006_4750:
     ld b, c
     ld hl, $1233
     add e
-    jp c, $0a0d
+    jp c, Jump_000_0a0d
 
     sbc h
     ld b, h
@@ -2621,7 +2621,7 @@ jr_006_4ae0:
     ld b, h
     dec bc
     ld [hl-], a
-    jp c, $0baf
+    jp c, Jump_000_0baf
 
     sbc h
     dec bc
@@ -2987,7 +2987,7 @@ jr_006_4c4a:
     ld [bc], a
     ld b, d
     ld hl, $ab44
-    jp c, $00ae
+    jp c, Jump_000_00ae
 
     inc d
     and b
@@ -3070,7 +3070,7 @@ jr_006_4c75:
     ld [$cb1c], a
     ld [$cb52], a
     ld a, $01
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     xor a
     ldh [hCameraY], a
     ldh [hCameraX], a
@@ -3079,7 +3079,7 @@ jr_006_4c75:
     ld a, $60
     ldh [hWindowY], a
     ld a, $1d
-    ld [wTransitionRelated], a
+    ld [wTransitionRelated_TBD], a
     ld a, $22
     call Call_000_23cf
     ld a, $e3
@@ -3099,9 +3099,9 @@ jr_006_4c75:
 
 
     call Call_000_0ae9
-    ld a, [wTransitionRelated]
+    ld a, [wTransitionRelated_TBD]
     ld b, a
-    ld a, [wTransitionRelated2]
+    ld a, [wTransitionRelated2_TBD]
     or b
     ret nz
 
@@ -3790,11 +3790,11 @@ jr_006_507d:
     dec hl
     dec hl
     ld a, $05
-    ld [wNextMapIndex], a
+    ld [wNextMapIndex_TBD], a
     ld a, $1d
-    ld [wTransitionRelated2], a
+    ld [wTransitionRelated2_TBD], a
     xor a
-    ld [wTimePaused], a
+    ld [wTimePaused_TBD], a
     ld a, $01
     ld [$c910], a
     ret
@@ -6747,7 +6747,7 @@ jr_006_5b6c:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -6945,7 +6945,7 @@ jr_006_5b6c:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7003,7 +7003,7 @@ jr_006_5b6c:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7035,7 +7035,7 @@ jr_006_5b6c:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7065,7 +7065,7 @@ jr_006_5b6c:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7095,7 +7095,7 @@ jr_006_5b6c:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7393,7 +7393,7 @@ jr_006_6385:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7490,7 +7490,7 @@ jr_006_643a:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7587,7 +7587,7 @@ jr_006_64ef:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7684,7 +7684,7 @@ jr_006_65a4:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7781,7 +7781,7 @@ jr_006_6659:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7878,7 +7878,7 @@ jr_006_670e:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -7968,7 +7968,7 @@ jr_006_67c7:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -8039,7 +8039,7 @@ jr_006_684b:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -8458,7 +8458,7 @@ jr_006_6b52:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -8529,7 +8529,7 @@ jr_006_6bd6:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -8647,7 +8647,7 @@ jr_006_6c94:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -8744,7 +8744,7 @@ jr_006_6d4d:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -8774,7 +8774,7 @@ jr_006_6d4d:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -8804,7 +8804,7 @@ jr_006_6d4d:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -8980,7 +8980,7 @@ jr_006_6e6d:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -9302,7 +9302,7 @@ jr_006_70c6:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -9539,7 +9539,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -9566,7 +9566,7 @@ jr_006_7322:
     ret
 
 
-    ld a, [wMapIndex]
+    ld a, [wMapIndex_TBD]
     cp $01
     ret nz
 
@@ -10189,7 +10189,7 @@ jr_006_76cd:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10219,7 +10219,7 @@ jr_006_76cd:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10249,7 +10249,7 @@ jr_006_76cd:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10279,7 +10279,7 @@ jr_006_76cd:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10577,7 +10577,7 @@ jr_006_7aa9:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10674,7 +10674,7 @@ jr_006_7b5e:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10704,7 +10704,7 @@ jr_006_7b5e:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a
@@ -10734,7 +10734,7 @@ jr_006_7b5e:
     ld [hl+], a
     ld a, [$c607]
     ld [hl+], a
-    ld a, [wPlayerOrCameraYPosition]
+    ld a, [wPlayerOrCameraYPosition_TBD]
     ld [hl+], a
     ld a, [$c609]
     ld [hl+], a

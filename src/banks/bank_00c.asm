@@ -266,7 +266,7 @@ Jump_00c_4100:
     ld b, h
     nop
     db $fd
-    jp $0044
+    jp Jump_000_0044
 
 
     db $fd
@@ -2372,7 +2372,7 @@ jr_00c_4aec:
     add b
     call nc, $1400
     nop
-    call nc, $06f8
+    call nc, Call_000_06f8
     nop
     db $ec
     ld hl, sp-$5c
@@ -2397,7 +2397,7 @@ jr_00c_4aec:
     add b
     call c, $1400
     nop
-    call c, $06f8
+    call c, Call_000_06f8
     nop
     db $f4
     ld hl, sp-$5c
@@ -4033,7 +4033,7 @@ jr_00c_52bd:
     and a
     jr nz, jr_00c_52b9
 
-    ldh a, [$ffa6]
+    ldh a, [hCharacterAnimationIndex_1_TBD]
     jr nz, jr_00c_52bd
 
     ld hl, sp-$5b
@@ -9801,7 +9801,7 @@ jr_00c_6de9:
     nop
     ld d, b
     nop
-    call $1700
+    call Call_000_1700
     nop
     and b
     nop
@@ -9934,7 +9934,7 @@ jr_00c_6eab:
 
 
     nop
-    call $1700
+    call Call_000_1700
     nop
     jr nc, jr_00c_6ed1
 
@@ -10775,7 +10775,7 @@ Call_00c_7200:
     nop
     rra
     nop
-    call $3500
+    call Call_000_3500
     nop
     sbc c
     nop
@@ -10950,7 +10950,7 @@ jr_00c_72b7:
     and c
     call z, $cca2
     and e
-    call z, $0074
+    call z, Call_000_0074
     ld [hl], b
     nop
     add h
@@ -11455,7 +11455,7 @@ jr_00c_7473:
     xor a
     nop
     xor l
-    call z, $00fd
+    call z, Call_000_00fd
     cp $fe
     nop
     nop
@@ -11463,7 +11463,7 @@ jr_00c_7473:
     nop
     nop
     nop
-    jp z, $007c
+    jp z, Jump_000_007c
 
     nop
     jr nc, jr_00c_7551
@@ -11582,7 +11582,7 @@ jr_00c_756b:
     xor a
     call z, $ccb0
     or c
-    call z, $00de
+    call z, Call_000_00de
     cp $fe
     nop
     nop
@@ -11640,7 +11640,7 @@ jr_00c_75eb:
     or e
     call z, $ccb4
     or l
-    call z, $008f
+    call z, Call_000_008f
     ld b, h
     nop
     ld bc, $0300

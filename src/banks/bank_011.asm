@@ -1510,7 +1510,7 @@ jr_011_465b:
     jr jr_011_466b
 
 jr_011_466b:
-    call nz, $3000
+    call nz, Call_000_3000
     nop
     ld c, $00
     nop
@@ -12034,7 +12034,7 @@ jr_011_7888:
     nop
     ld a, a
     add b
-    call nc, $3fff
+    call nc, Call_000_3fff
     sbc d
     ld a, e
     cp c
@@ -12325,7 +12325,7 @@ jr_011_7a0d:
     rst RST_38
     add hl, sp
     db $eb
-    call c, $1c2a
+    call c, Call_000_1c2a
     jp c, Jump_000_273c
 
     rst RST_30

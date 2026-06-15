@@ -1,3 +1,5 @@
+; ROM
+; BANK 0
 00:0100 Logo
 00:0150 Start
 00:0151 Start_
@@ -11,68 +13,59 @@
 00:037E JumpTable_2
 00:037E .data:2
 00:03F9 CheckTime
-
 ;00:0403 NextTimerSecond
 00:0414 NextTimerMinute
 00:0432 NextHour
 00:0448 NextDay
-
 00:0461 NextSeason
 00:047A NextYear
-
-; To be confirmed
-00:0732 SetCameraAndWindow
-00:075A SetCurrentPalettes
-
+00:0732 SetCameraAndWindow_TBD
+00:075A SetCurrentPalettes_TBD
 00:0CC0 SetNextMapIndex
-
-; To be confirmed
-00:0D6A NewGame
-
+00:0D6A NewGame_TBD
 00:10A0 CheckCurrentMoney
 00:10C6 LimitMoney
 00:10D7 ResetMoney
 00:10E1 LoadMoney
-
-; To be confirmed
-00:2059 DMARelated
-00:2067 DMARelated2
-
+00:2059 DMARelated_TBD
+00:2067 DMARelated2_TBD
 00:2099 ClearMem
-
-; To be confirmed
-00:2331 MusicRelated
-
+00:2331 MusicRelated_TBD
 00:23D5 SpawnDialogOrEvent
-
-; To be confirmed
-00:2FBE TileLoadRelated
-
+00:2FBE TileLoadRelated_TBD
 00:3222 LCDCInterruptHandler
 00:330A TimerOverflowInterruptHandler
 00:3319 SerialTransferCompleteInterruptHandler
-
 ;00:41F7 MoveToHouse
 ;00:44b7 MoveToToolRoom
 
-; To be confirmed
-01:427B MoveToAnimalShop
-01:425E GoToInterior
+; BANK 1
+01:427B MoveToAnimalShop_TBD
+01:425E GoToInterior_TBD
+01:4298 MoveToHouse2_TBD
 
-; To be confirmed, probably event related
-01:4298 MoveToHouse2
-
+; BANK 2
 02:56FA GoToFarmFromHouse
+
+; BANK 3
 03:562E GoToFarmFromCows
+
+; BANK 4
 04:46A4 GoToFarmFromChickens
+
+; BANK 5
 05:43BD GoToFarmFromToolRoom
+
+; BANK 9
 09:428A GoToShop
 09:42F6 GoToFarmFromOutside
 09:4C56 GoToTown
 
+; BANK 11
 ;11:4000 DialogueCharacters
 ;11:4000 .image:1000:w128,pe4
 
+; BANK 1B
 1B:438B TryToBuyFixedItem
 1B:43A1 BuyFixedItem
 1B:43AD TryToBuyVariableItem
@@ -80,99 +73,13 @@
 1B:46A8 CompareMoney
 1B:46B5 DiscountMoney
 
+; BANK 1D
+1D:5401 MoveToFarm_TBD
+1D:542B MoveToCowHouse_TBD
 
-; To be confirmed
-1D:5401 MoveToFarm
-; To be confirmed
-1D:542B MoveToCowHouse
-
-; To be confirmed
-1E:4001 EventOrDialogData
+; BANK 1E
+1E:4001 EventOrDialogData_TBD
 ;1E:4109 AcceptItem
-
-00:B880 sTimerSeconds
-00:B881 sTimerMinutes
-00:B882 sCurrentHour
-00:B883 sCurrentDay
-00:B884 sCurrentSeason
-00:B885 sCurrentYear
-
-; To be confirmed
-00:B88B sDayRelated
-
-00:B8A0 sCurrentWeather
-
-00:B8EF sCurrentMoneyL
-00:B8F0 sCurrentMoneyM
-00:B8F1 sCurrentMoneyH
-
-00:B93C sCurrentTool2
-
-; To be confirmed, data block?
-00:C0A3 wPaletteRelated
-; To be confirmed, suspicious transition related to maps
-00:C0A6 wActivateTransitionBetweenMaps
-
-; To be confirmed
-00:C0A7 wMapIndex
-
-
-00:C60A wPlayerXPosition
-00:C606 wCameraXPosition
-
-; To be confirmed
-00:C608 wPlayerOrCameraYPosition
-
-; To be confirmed
-00:C622 wCurrentTool
-
-; To be confirmed, pet related (dog)
-00:C7A0 wGrabbingDog
-
-; To be confirmed
-00:C90F wMapOffset
-
-00:CBDD wCurrentYear
-00:CBDE wCurrentSeason
-00:CBDF wCurrentDay
-00:CBE0 wCurrentHour
-00:CBE1 wCurrentMinutes
-
-; To be confirmed
-00:CB4E wTransitionRelated
-00:CB4F wTransitionRelated2
-
-; To be confirmed
-00:CB50 wNextMapIndex
-00:CB56 wTimePaused
-00:CB60 wGrabbingDog2
-
-; Inside house or at shops
-00:CB81 wOutsideFarm
-
-00:CB8B wGrabbingDog3
-
-00:CCCA wCurrentMoneyL
-00:CCCB wCurrentMoneyM
-00:CCCC wCurrentMoneyH
-
-00:CD95 wBuyPriceL
-00:CD96 wBuyPriceH
-
-00:FF91 hCameraY
-00:FF93 hCameraX
-00:FF95 hWindowY
-00:FF96 hWindowX
-
-; To be confirmed
-00:FFB8 hMapTilesRelatedL
-00:FFB9 hMapTilesRelatedH
-00:FFBA hMapSizeL
-00:FFBB hMapSizeH
-00:FFBC hMapLimitL
-00:FFBD hMapLimitH
-
-
 
 ; some jumtables (ignoring at the moment)
 00:025D JumpTable_3
@@ -210,251 +117,63 @@
 00:027D .data:1
 00:027E .data:2
 
-; TRYING TO FIT ALL IN BANKS:
+; RAM values
+; SRAM
+00:B880 sTimerSeconds
+00:B881 sTimerMinutes
+00:B882 sCurrentHour
+00:B883 sCurrentDay
+00:B884 sCurrentSeason
+00:B885 sCurrentYear
+00:B93C sCurrentTool2
+00:B88B sDayRelated_TBD
+00:B8A0 sCurrentWeather
+00:B8EF sCurrentMoneyL
+00:B8F0 sCurrentMoneyM
+00:B8F1 sCurrentMoneyH
 
-00:0003 .data:1
-00:0004 .data:3
-00:000B .data:1
-00:000C .data:4
-00:0011 .data:3
-00:0014 .data:3
-00:0019 .data:7
-00:0020 .data:20
-00:0044 .data:4
-00:004B .data:5
-00:0053 .data:5
-00:005B .data:5
-00:0066 .data:7E
-00:00E4 .data:1C
-00:0380 .data:79
-00:04EA .data:60
-00:05A6 .data:3C
-00:05F6 .data:15
-00:0620 .data:9
-00:0635 .data:B
-00:059F .data:7
-00:0671 .data:28
-00:06E1 .data:3D
-00:077D .data:6F
-00:083A .data:2D
-00:089F .data:175
-00:0A2E .data:4D
-00:0ACB .data:1E
-00:0B40 .data:1E
-00:0B5E .data:1E
-00:0B7C .data:1E
-00:0B9A .data:1E
-00:0C2E .data:1E
-00:0C4C .data:1E
-00:0C6A .data:1E
-00:0C88 .data:1E
-;00:0D6A .data:F0
-00:1029 .data:23
-00:1191 .data:7B
-00:166B .data:28C
-00:18C3 .data:2
-00:18C5 .data:4
-00:18C9 .data:2
-00:18CB .data:7
-00:18D3 .data:2
-00:18D5 .data:1
-00:18D6 .data:2
-00:18D8 .data:7
-00:18DF .data:2
-00:18E1 .data:7
-00:18E9 .data:2
-00:18EB .data:4
-00:18EF .data:2
-00:18F1 .data:1
-00:18F2 .data:2
-00:18F4 .data:4
-00:1A1A .data:1
-00:1ABC .data:2C
-00:1B22 .data:1F
-00:1B41 .data:2D
-00:1B6E .data:113
-00:1CD0 .data:1F2
-00:1EEF .data:6
-00:1F72 .data:5
-00:2090 .data:9
-00:20B5 .data:F
-00:2134 .data:41
-00:229B .data:10
-00:22AB .data:49
-00:2229 .data:5
-00:2330 .data:1
-00:235E .data:15
-00:2729 .data:10
-00:299F .data:30
-00:29CF .data:100
-00:2ACF .data:80
-00:2BAD .data:1
-00:2BB1 .data:8
-00:2BBA .data:42
-00:2D5E .data:2
-00:2D60 .data:2
-00:2D62 .data:47
-00:2EF6 .data:2
-00:2EF8 .data:2
-00:2EFA .data:47
-00:2FDE .data:C0
-00:309E .data:B0
-00:315A .data:13
-00:3256 .data:7E
-00:333A .data:2
-00:333C .data:2F0
-00:398C .data:8
-00:3A13 .data:9A
-00:3DEA .data:40
-00:3F04 .data:4
-00:3F14 .data:EC
+; WRAM
+00:C0A3 wPaletteRelated
+00:C0A6 wActivateTransitionBetweenMaps_TBD
+00:C0A7 wMapIndex_TBD
+00:C010 wCharacterAnimation_TBD
+00:C603 wCharacterAnimationCurrentTime_TBD
+00:C604 wCharacterAnimationCurrentTime2_TBD
+00:C606 wCameraXPosition
+00:C608 wPlayerOrCameraYPosition_TBD
+00:C60A wPlayerXPosition
+00:C622 wCurrentTool
+00:C7A0 wGrabbingDog_TBD
+00:C90F wMapOffset_TBD
+00:CB4E wTransitionRelated_TBD
+00:CB4F wTransitionRelated2_TBD
+00:CB50 wNextMapIndex_TBD
+00:CB56 wTimePaused_TBD
+00:CB60 wGrabbingDog2_TBD
+00:CB81 wOutsideFarm
+00:CB8B wGrabbingDog3
+00:CBDD wCurrentYear
+00:CBDE wCurrentSeason
+00:CBDF wCurrentDay
+00:CBE0 wCurrentHour
+00:CBE1 wCurrentMinutes
+00:CCCA wCurrentMoneyL
+00:CCCB wCurrentMoneyM
+00:CCCC wCurrentMoneyH
+00:CD95 wBuyPriceL
+00:CD96 wBuyPriceH
 
-01:4000 .data:1
-01:4A19 .data:24
-01:5456 .data:8
-01:545E .data:2
-01:5460 .data:1E
-01:55A9 .data:30
-01:5979 .data:96
-01:5AC4 .data:1
-01:61FB .data:10
-01:63EB .data:1D5
-01:648C .data:1
-01:64AD .data:1
-01:64D1 .data:1
-01:64EF .data:1
-01:65B1 .data:1
-01:661B .data:1
-01:6677 .data:1
-01:66E9 .data:1
-01:6768 .data:1
-01:6BF5 .data:60
-01:6C55 .data:10
-01:6C65 .data:10
-01:6CB4 .data:10
-01:6DCD .data:2
-01:7CE7 .data:100
-01:7DE7 .data:20
-01:7E07 .data:20
-01:7E27 .data:C0
-01:7EE7 .data:20
-01:7F07 .data:20
-01:7F27 .data:D9
-
-02:4000 .data:F82
-02:514D .data:18
-02:5165 .data:10
-02:55A3 .data:1
-02:55F7 .data:1
-02:5635 .data:1
-02:5663 .data:1
-02:569A .data:1
-02:56C1 .data:1
-02:57AA .data:B
-02:58AE .data:20
-02:58CE .data:20
-02:58EE .data:20
-02:590E .data:20
-02:5A6A .data:1
-02:5A9E .data:50
-02:5AEE .data:130
-02:5C1E .data:60
-02:5DDB .data:13
-02:611E .data:10
-02:612E .data:10
-02:613E .data:20
-02:615E .data:10
-02:616E .data:10
-02:617E .data:10
-02:618E .data:20
-02:61AE .data:10
-02:61BE .data:10
-02:61CE .data:10
-02:61DE .data:20
-02:61FE .data:10
-02:620E .data:20
-02:622E .data:20
-02:628F .data:10
-02:629F .data:10
-02:62AF .data:10
-02:6344 .data:10
-02:6354 .data:10
-02:6364 .data:10
-02:656A .data:64
-02:6874 .data:80
-02:6D66 .data:50
-02:6E5C .data:6
-02:6EBE .data:60E
-02:74CC .data:10
-02:74DC .data:F0
-02:75CC .data:10
-02:75DC .data:A24
-
-03:4000 .data:1
-03:4118 .data:201
-03:4369 .data:E21
-03:5184 .data:6
-03:518A .data:1002
-03:519A .data:FF2
-03:619A .data:64
-03:620A .data:103
-03:634A .data:29
-03:66B0 .data:981
-03:703C .data:A
-03:70BF .data:8
-03:717A .data:D4
-03:724E .data:3
-03:73AC .data:8
-03:73D8 .data:8
-03:74D2 .data:CF
-03:75D5 .data:5A
-03:765A .data:A
-03:7699 .data:A
-03:76D8 .data:A
-03:7717 .data:A
-03:780B .data:7F5
-
-04:4000 .data:1
-04:4114 .data:12C
-04:4290 .data:427
-04:46C5 .data:64
-04:4735 .data:1452
-04:5BFB .data:2
-04:5BFD .data:2
-04:5BFF .data:2
-04:5C01 .data:2
-04:5C03 .data:2
-04:5C99 .data:E63
-04:6B30 .data:8
-04:6B76 .data:8
-04:6BBC .data:8
-04:6C02 .data:8
-04:6E1D .data:8
-04:6E84 .data:12
-04:6E96 .data:2C
-04:6EC2 .data:13C
-04:6FFE .data:69A
-04:7698 .data:4C1
-04:7B59 .data:4A7
-
-05:4000 .data:1
-;05:40B8 .data:3FB
-05:44C1 .data:64
-05:4567 .data:20
-05:4587 .data:20
-05:45A7 .data:20
-05:462B .data:ABF
-05:50EA .data:20
-05:510A .data:20
-05:53BF .data:1
-05:5C2C .data:8
-05:5C34 .data:1
-05:5E95 .data:8
-05:5E9D .data:1
-05:6000 .data:AB6
-05:6AB6 .data:DF
-05:6B95 .data:784
-05:7319 .data:4EE
-05:7807 .data:2AA
-05:7AB1 .data:8A
-05:7B3B .data:4C5
+; HRAM
+00:FF91 hCameraY
+00:FF93 hCameraX
+00:FF95 hWindowY
+00:FF96 hWindowX
+00:FFA6 hCharacterAnimationIndex_1_TBD
+00:FFA7 hCharacterAnimationIndex_2_TBD
+00:FFA8 hCharacterAnimationCountdown_TBD
+00:FFB8 hMapTilesRelatedL
+00:FFB9 hMapTilesRelatedH
+00:FFBA hMapSizeL
+00:FFBB hMapSizeH
+00:FFBC hMapLimitL
+00:FFBD hMapLimitH
