@@ -3893,7 +3893,7 @@ Call_01f_5355:
     ld a, [hl]
     ld [$cd91], a
     xor a
-    ld [$cd92], a
+    ld [wBuyAmount], a
     ld h, b
     ld l, c
     ret

@@ -1568,7 +1568,7 @@ Call_009_47c4:
     ret z
 
     ld hl, $47e5
-    ld a, [$cd32]
+    ld a, [wItemToBuySpriteIndex]
     add a
     add l
     ld l, a
@@ -2238,7 +2238,7 @@ Call_009_4984:
     ret
 
 
-    ld a, [$cd30]
+    ld a, [wItemToBuyIndex]
     ld e, a
     add a
     add a
@@ -2267,13 +2267,13 @@ Call_009_4984:
     jr z, jr_009_4b4e
 
     ld b, a
-    ld a, [$cd30]
+    ld a, [wItemToBuyIndex]
     cp b
     ret c
 
     ld a, b
     dec a
-    ld [$cd30], a
+    ld [wItemToBuyIndex], a
     cp $05
     jr c, jr_009_4b4e
 
@@ -2281,12 +2281,12 @@ Call_009_4984:
     sub $04
     ld [$cd31], a
     ld a, $04
-    ld [$cd32], a
+    ld [wItemToBuySpriteIndex], a
     ret
 
 
 jr_009_4b4e:
-    ld [$cd32], a
+    ld [wItemToBuySpriteIndex], a
     xor a
     ld [$cd31], a
     ret
@@ -2345,7 +2345,7 @@ jr_009_4b83:
     inc hl
     push de
     ld hl, $cd34
-    ld a, [$cd30]
+    ld a, [wItemToBuyIndex]
     ld e, a
     add a
     add a
@@ -2385,13 +2385,13 @@ jr_009_4bb5:
 
 
 jr_009_4bc6:
-    ld a, [$cd30]
+    ld a, [wItemToBuyIndex]
     cp c
     jr nc, jr_009_4bfc
 
     inc a
     push af
-    ld a, [$cd32]
+    ld a, [wItemToBuySpriteIndex]
     cp $04
     jr c, jr_009_4be9
 
@@ -2399,7 +2399,7 @@ jr_009_4bc6:
     inc a
     ld [$cd31], a
     pop af
-    ld [$cd30], a
+    ld [wItemToBuyIndex], a
     ld a, $48
     call Call_000_23d8
     ld a, [hl+]
@@ -2410,9 +2410,9 @@ jr_009_4bc6:
 
 jr_009_4be9:
     inc a
-    ld [$cd32], a
+    ld [wItemToBuySpriteIndex], a
     pop af
-    ld [$cd30], a
+    ld [wItemToBuyIndex], a
     ld a, $48
     call Call_000_23d8
     inc hl
@@ -2430,13 +2430,13 @@ jr_009_4bfc:
 
 
 jr_009_4bff:
-    ld a, [$cd30]
+    ld a, [wItemToBuyIndex]
     or a
     jr z, jr_009_4c34
 
     dec a
     push af
-    ld a, [$cd32]
+    ld a, [wItemToBuySpriteIndex]
     or a
     jr nz, jr_009_4c21
 
@@ -2444,7 +2444,7 @@ jr_009_4bff:
     dec a
     ld [$cd31], a
     pop af
-    ld [$cd30], a
+    ld [wItemToBuyIndex], a
     ld a, $48
     call Call_000_23d8
     ld a, [hl+]
@@ -2455,9 +2455,9 @@ jr_009_4bff:
 
 jr_009_4c21:
     dec a
-    ld [$cd32], a
+    ld [wItemToBuySpriteIndex], a
     pop af
-    ld [$cd30], a
+    ld [wItemToBuyIndex], a
     ld a, $48
     call Call_000_23d8
     inc hl
@@ -4135,9 +4135,9 @@ Call_009_53c2:
     ld a, h
     ld [$cd29], a
     xor a
-    ld [$cd30], a
+    ld [wItemToBuyIndex], a
     ld [$cd31], a
-    ld [$cd32], a
+    ld [wItemToBuySpriteIndex], a
     ld [$cd33], a
     ld [$cb5c], a
     ld a, $4c

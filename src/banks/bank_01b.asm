@@ -422,7 +422,7 @@ jr_01b_41f4:
     ld a, [hl+]
     ld [$cd94], a
     xor a
-    ld [$cd92], a
+    ld [wBuyAmount], a
     ld [wBuyPriceL], a
     ld [wBuyPriceH], a
     ret
@@ -453,7 +453,7 @@ jr_01b_41f4:
 
 
 jr_01b_423b:
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     or a
     jr z, jr_01b_424a
 
@@ -479,12 +479,12 @@ jr_01b_424a:
 jr_01b_4255:
     ld a, [$cd91]
     ld b, a
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     cp b
     jr nc, jr_01b_4281
 
     inc a
-    ld [$cd92], a
+    ld [wBuyAmount], a
     push hl
     ld a, [$cd93]
     ld e, a
@@ -510,12 +510,12 @@ jr_01b_4281:
 
 
 jr_01b_4284:
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     or a
     jr z, jr_01b_42b1
 
     dec a
-    ld [$cd92], a
+    ld [wBuyAmount], a
     push hl
     ld a, [$cd93]
     ld e, a
@@ -546,7 +546,7 @@ jr_01b_42b1:
 
 
 Call_01b_42b4:
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     or a
     jr z, jr_01b_42c3
 
@@ -557,7 +557,7 @@ Call_01b_42b4:
 jr_01b_42c3:
     ld a, [$cd91]
     ld b, a
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     cp b
     ret nc
 
@@ -579,7 +579,7 @@ jr_01b_42c3:
     add b
 
 Call_01b_42e0:
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     call Call_000_3215
     ld a, [$ccd0]
     ld bc, $7068
@@ -759,7 +759,7 @@ BuyVariableItem::
     ld e, a
     ld a, [hl+]
     ld d, a
-    ld a, [$cd92]
+    ld a, [wBuyAmount]
     ld b, a
     ld a, [de]
     add b

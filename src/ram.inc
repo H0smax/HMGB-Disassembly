@@ -43,6 +43,9 @@ DEF wCurrentMinutes EQU $cbe1
 DEF wCurrentMoneyL EQU $ccca
 DEF wCurrentMoneyM EQU $cccb
 DEF wCurrentMoneyH EQU $cccc
+DEF wItemToBuyIndex EQU $cd30
+DEF wItemToBuySpriteIndex EQU $cd32
+DEF wBuyAmount EQU $cd92
 DEF wBuyPriceL EQU $cd95
 DEF wBuyPriceH EQU $cd96
 DEF hCameraY EQU $ff91

@@ -163,6 +163,10 @@
 00:CCCA wCurrentMoneyL
 00:CCCB wCurrentMoneyM
 00:CCCC wCurrentMoneyH
+00:CD2A wTownLocationIndex
+00:CD30 wItemToBuyIndex
+00:CD32 wItemToBuySpriteIndex
+00:CD92 wBuyAmount
 00:CD95 wBuyPriceL
 00:CD96 wBuyPriceH
 
