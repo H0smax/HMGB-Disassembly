@@ -4282,7 +4282,7 @@ jr_01d_54c5:
     ld a, $01
     ld [$cd2b], a
     ld a, $07
-    ld [$cd2a], a
+    ld [wTownLocationIndex], a
     ld a, $19
     ld [wNextMapIndex_TBD], a
     ld a, $1d

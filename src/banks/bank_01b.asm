@@ -9442,7 +9442,7 @@ Call_01b_699d:
     ld a, $03
     ld [$cd2b], a
     ld a, $07
-    ld [$cd2a], a
+    ld [wTownLocationIndex], a
     ld a, $19
     ld [wNextMapIndex_TBD], a
     ld a, $1d
@@ -9453,7 +9453,7 @@ Call_01b_699d:
     ld a, $02
     ld [$cd2b], a
     ld a, $07
-    ld [$cd2a], a
+    ld [wTownLocationIndex], a
     ld a, $19
     ld [wNextMapIndex_TBD], a
     ld a, $1d

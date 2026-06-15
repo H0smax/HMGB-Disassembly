@@ -6603,7 +6603,7 @@ Call_001_6920:
     ld [$c911], a
     xor a
     ld [$c910], a
-    ld [$cd2a], a
+    ld [wTownLocationIndex], a
     ret
 
 

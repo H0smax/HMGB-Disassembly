@@ -46,12 +46,12 @@ SECTION "ROM Bank $009", ROMX[$4000], BANK[$9]
     ld [$cb52], a
     ld a, $01
     ld [wTimePaused_TBD], a
-    ld a, [$cd2a]
+    ld a, [wTownLocationIndex]
     cp $08
     jr c, jr_009_4066
 
     xor a
-    ld [$cd2a], a
+    ld [wTownLocationIndex], a
 
 jr_009_4066:
     add a
@@ -248,7 +248,7 @@ Call_009_415d:
     ld b, $04
     inc hl
     call z, Call_009_43a7
-    ld a, [$cd2a]
+    ld a, [wTownLocationIndex]
     ld hl, $41b0
     add a
     add l
@@ -278,7 +278,7 @@ jr_009_4187:
     ld h, [hl]
     ld l, a
     call Call_000_1ef5
-    ld a, [$cd2a]
+    ld a, [wTownLocationIndex]
     ld hl, $41d0
     add a
     add a
@@ -362,7 +362,7 @@ jr_009_41d7:
     ld h, b
     ld l, c
     ld a, [hl+]
-    ld [$cd2a], a
+    ld [wTownLocationIndex], a
     ret
 
 
@@ -435,7 +435,7 @@ jr_009_4239:
 
 jr_009_4242:
     push hl
-    ld a, [$cd2a]
+    ld a, [wTownLocationIndex]
     or a
     jr z, jr_009_4267
 
