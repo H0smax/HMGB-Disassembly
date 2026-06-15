@@ -14,6 +14,8 @@ ASM  := $(RGBDS)rgbasm
 LD   := $(RGBDS)rgblink
 FX   := $(RGBDS)rgbfix
 
+MGBDIS := python3 tools/external/mgbdis/mgbdis.py
+
 # ---------------------------------------------------------------------------
 # Source files
 # ---------------------------------------------------------------------------
@@ -25,6 +27,7 @@ ASM_FILES := $(call rwildcard,src,*.asm)
 ENTRY     := src/game.asm
 
 ROM := build/HMGB.gb
+ROM_ORIGINAL := HMGB.gb
 
 # ---------------------------------------------------------------------------
 # Assembler / linker / fixer flags
@@ -40,19 +43,17 @@ LDFLAGS := \
 	-Weverything
 
 # Flags derived from the Harvest Moon GB header:
-#   Cartridge type  $1B  → MBC5 + RAM + BATTERY
-#   ROM size        $06  → 4 MB  (256 banks)  — but the actual ROM is smaller;
-#                          rgbfix validates against the file size, so leave it.
-#   RAM size        $03  → 32 KB
-#   Destination     $01  → Non-Japanese
+#   Cartridge type  $10  → MBC3 + RTC + SRAM + BATTERY
+#   ROM size        $04  → 512 KB
+#   RAM size        $02  → 64 KB
+#   Destination     $00  → Japanese
 #   Old licensee    $33  → Use new licensee code
-#   New licensee    "VK" → Natsume (verify from your ROM header if different)
+#   New licensee    "99" → Pack in soft
 FXFLAGS := \
-	--mbc-type 0x1B \
-	--ram-size 0x03 \
-	--non-japanese \
+	--mbc-type 0x10 \
+	--ram-size 0x02 \
 	--old-licensee 0x33 \
-	--new-licensee "VK" \
+	--new-licensee "99" \
 	--pad-value 0xFF \
 	--validate
 
@@ -85,9 +86,16 @@ build: $(ROM)
 #   md5 -r HMGB.gb > HMGB.md5         (macOS with BSD md5)
 test: build
 	@echo "Verifying ROM checksum..."
-	@md5sum -c HMGB.md5
+	@cd build && md5sum -c ../HMGB.md5
 	@echo "OK — ROM matches the original."
 
 clean:
 	rm -f $(ROM) $(ROM:.gb=.sym) $(ROM:.gb=.map)
 	rm -rf build/
+
+disassemble:
+	$(MGBDIS) --overwrite --output-dir src/ $(ROM_ORIGINAL)
+	mv src/bank_*.asm src/banks/
+	sed -i 's/INCLUDE "bank_/INCLUDE "banks\/bank_/g' src/game.asm
+	rm src/Makefile 
+	$(MAKE) test
