@@ -112,7 +112,7 @@ Call_005_40d2:
     call Call_005_43a4
     call Call_000_0ec6
     call Call_005_412b
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $02
     jr z, jr_005_40fa
 
@@ -130,19 +130,19 @@ jr_005_40fa:
 
 
 jr_005_4104:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jp nz, Jump_005_4377
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jp nz, Jump_005_4380
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jp nz, Jump_005_4389
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jp nz, Jump_005_4392
 

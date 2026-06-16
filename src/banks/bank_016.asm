@@ -10819,7 +10819,7 @@ jr_016_6e9a:
     ret nc
 
     inc l
-    ldh a, [$ff8c]
+    ldh a, [hPressedButtons_2_TBD]
     add sp, $54
     ld l, h
     sub b

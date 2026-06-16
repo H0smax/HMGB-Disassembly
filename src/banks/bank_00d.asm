@@ -9656,7 +9656,7 @@ jr_00d_6c50:
     ldh [$ff50], a
     ldh [rOBP0], a
     ldh a, [$ffac]
-    ldh a, [$ff8c]
+    ldh a, [hPressedButtons_2_TBD]
     ldh a, [$ff0a]
     db $f4
     jr z, jr_00d_6cda

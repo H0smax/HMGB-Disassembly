@@ -591,7 +591,7 @@ jr_01a_4270:
     nop
     nop
     call c, $c8e0
-    ldh a, [$ff8c]
+    ldh a, [hPressedButtons_2_TBD]
     ldh a, [$ff92]
     ld l, h
     ld a, [hl]

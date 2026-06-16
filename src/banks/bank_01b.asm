@@ -9399,7 +9399,7 @@ Call_01b_6980:
 Call_01b_698a:
     push hl
     ld hl, $cd9b
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add l
     ld l, a
     ld a, $00
@@ -9511,7 +9511,7 @@ jr_01b_6a19:
 
 
     push bc
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add a
     add a
     ld hl, $6a61

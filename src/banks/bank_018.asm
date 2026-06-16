@@ -3124,7 +3124,7 @@ jr_018_4d99:
 
     ld [$08f0], sp
     ldh a, [$ff08]
-    ldh a, [$ff8c]
+    ldh a, [hPressedButtons_2_TBD]
     ldh a, [$fffe]
     inc b
     dec sp

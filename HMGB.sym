@@ -19,6 +19,7 @@
 00:0448 NextDay
 00:0461 NextSeason
 00:047A NextYear
+00:0491 UpdateHourText_TBD
 00:0732 SetCameraAndWindow_TBD
 00:075A SetCurrentPalettes_TBD
 00:0CC0 SetNextMapIndex
@@ -38,6 +39,8 @@
 00:3319 SerialTransferCompleteInterruptHandler
 00:39f4 ShowInfoBox_TBD
 00:3A03 HideInfoBox_TBD
+00:3E2A CloseDialogBox_TBD
+00:3E39 OpenDialogBox_TBD
 ;00:41F7 MoveToHouse
 ;00:44b7 MoveToToolRoom
 
@@ -148,11 +151,14 @@
 00:C622 wCurrentTool
 00:C7A0 wGrabbingDog_TBD
 00:C90F wMapOffset_TBD
+00:CB4C wTVRelated_TBD
 00:CB4E wTransitionRelated_TBD
 00:CB4F wTransitionRelated2_TBD
 00:CB50 wNextMapIndex_TBD
 00:CB56 wTimePaused_TBD
+00:CB5F wTVRelated_2_TBD
 00:CB60 wGrabbingDog2_TBD
+00:CB78 wTVRelated_3_TBD
 00:CB81 wOutsideFarm
 00:CB8B wGrabbingDog3
 00:CBDD wCurrentYear
@@ -160,17 +166,22 @@
 00:CBDF wCurrentDay
 00:CBE0 wCurrentHour
 00:CBE1 wCurrentMinutes
+00:CC1B wTVRelated_4_TBD
 00:CCCA wCurrentMoneyL
 00:CCCB wCurrentMoneyM
 00:CCCC wCurrentMoneyH
 00:CD2A wTownLocationIndex
 00:CD30 wItemToBuyIndex
 00:CD32 wItemToBuySpriteIndex
+00:CD64 wKeepGameSave_TBD
+00:CD66 wContinueGame_TBD
 00:CD92 wBuyAmount
 00:CD95 wBuyPriceL
 00:CD96 wBuyPriceH
 
 ; HRAM
+00:FF8A hPressedButtons_TBD
+00:FF8C hPressedButtons_2_TBD
 00:FF91 hCameraY
 00:FF93 hCameraX
 00:FF95 hWindowY

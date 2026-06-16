@@ -10359,8 +10359,8 @@ jr_007_6b87:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb57], a
@@ -10382,8 +10382,8 @@ jr_007_6b87:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb57], a
@@ -10424,8 +10424,8 @@ jr_007_6c20:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb57], a
@@ -10458,8 +10458,8 @@ jr_007_6c55:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb57], a
@@ -10507,8 +10507,8 @@ jr_007_6c9f:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb57], a
@@ -10964,8 +10964,8 @@ jr_007_6f84:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb57], a
@@ -11026,7 +11026,7 @@ jr_007_7024:
 
 
     xor a
-    ld [$cb5f], a
+    ld [wTVRelated_2_TBD], a
     ld a, [$cb72]
     or a
     jp nz, Jump_007_705b
@@ -11058,7 +11058,7 @@ Jump_007_705b:
     ld a, $01
     ld [$cb52], a
     ld [$cb57], a
-    call Call_000_3e39
+    call OpenDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb53], a
@@ -11096,7 +11096,7 @@ jr_007_7098:
     ld a, $01
     ld [$cb52], a
     ld [$cb57], a
-    call Call_000_3e39
+    call OpenDialogBox_TBD
     xor a
     ld [$cb58], a
     ld [$cb53], a

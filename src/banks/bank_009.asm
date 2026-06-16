@@ -606,7 +606,7 @@ jr_009_4332:
     ld [sCurrentHour], a
     ld a, $0d
     ld [sTimerMinutes], a
-    call Call_000_0491
+    call UpdateHourText_TBD
     pop hl
     xor a
     ld [wTimePaused_TBD], a
@@ -626,14 +626,14 @@ Call_009_435d:
     cp $18
     jr nc, jr_009_436c
 
-    call Call_000_0491
+    call UpdateHourText_TBD
     ret
 
 
 jr_009_436c:
     xor a
     ld [sCurrentHour], a
-    call Call_000_0491
+    call UpdateHourText_TBD
     ld a, [sCurrentDay]
     inc a
     ld [sCurrentDay], a
@@ -4346,9 +4346,9 @@ Call_009_5599:
     ld [$cd29], a
     xor a
     ld [$cd63], a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ld [$cd65], a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ld [$cd67], a
     xor a
     ld hl, $cb14
@@ -4421,7 +4421,7 @@ Call_009_567e:
     ret nz
 
     ld hl, $56a4
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add a
     add l
     ld l, a
@@ -4470,7 +4470,7 @@ Call_009_56ac:
     ld hl, $5706
 
 jr_009_56ce:
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     add a
     push af
     add l
@@ -5207,7 +5207,7 @@ jr_009_5ab0:
     bit 1, a
     jp nz, Jump_009_5b65
 
-    ld bc, $cd64
+    ld bc, wKeepGameSave_TBD
     bit 4, a
     jr nz, jr_009_5b31
 
@@ -5300,7 +5300,7 @@ jr_009_5b42:
 jr_009_5b45:
     ld a, [$cd63]
     ld b, a
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     inc a
     cp b
     jr z, jr_009_5b57
@@ -5311,7 +5311,7 @@ jr_009_5b45:
     ld a, e
 
 jr_009_5b57:
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add a
     add l
     ld l, a
@@ -6349,7 +6349,7 @@ jr_009_5fc5:
     ld a, $ad
     ld [$cd99], a
     xor a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ld [$cd65], a
     ld [$cd67], a
     ld bc, $6073
@@ -6462,7 +6462,7 @@ Call_009_60cc:
     ret nz
 
 jr_009_60de:
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add a
     add l
     ld l, a
@@ -6554,7 +6554,7 @@ jr_009_613d:
 
 
     xor a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ld h, b
     ld l, c
     ret
@@ -6629,12 +6629,12 @@ jr_009_617e:
 
 
 jr_009_618d:
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     or a
     jr z, jr_009_61c4
 
     dec a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     xor a
     ld [$cd67], a
     ld a, $48
@@ -6651,12 +6651,12 @@ jr_009_61a6:
     ld a, [$cd9f]
     dec a
     ld b, a
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     cp b
     jr nc, jr_009_61c4
 
     inc a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     xor a
     ld [$cd67], a
     ld a, $48
@@ -6695,7 +6695,7 @@ jr_009_61c4:
 Call_009_61de:
     push hl
     ld hl, $cd9b
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add l
     ld l, a
     ld a, $00
@@ -6752,7 +6752,7 @@ Call_009_61f1:
     ld a, $ad
     ld [$cd99], a
     xor a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ld [$cd65], a
     ld [$cd67], a
     ld bc, $6252

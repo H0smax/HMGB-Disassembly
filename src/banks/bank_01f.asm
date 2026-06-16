@@ -8842,7 +8842,7 @@ jr_01f_6959:
     ld hl, sp-$73
     nop
     db $f4
-    ldh a, [$ff8c]
+    ldh a, [hPressedButtons_2_TBD]
     nop
 
 Call_01f_6b14:
@@ -9104,11 +9104,11 @@ jr_01f_6d54:
     cp $07
     jr nz, jr_01f_6d9d
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     cp $40
     jp z, Jump_01f_6e7f
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     cp $80
     jp z, Jump_01f_6e90
 

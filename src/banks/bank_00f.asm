@@ -6097,8 +6097,8 @@ Call_00f_62dd:
     xor a
     ld [$b88c], a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     call Call_000_3d18
     xor a
     ld [$c912], a
@@ -6159,7 +6159,7 @@ Call_00f_64a1:
     and $01
     jr nz, jr_00f_650a
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $02
     jr z, jr_00f_64e3
 
@@ -6178,19 +6178,19 @@ Call_00f_64a1:
 
 
 jr_00f_64e3:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jp nz, Jump_00f_6648
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jp nz, Jump_00f_6684
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jp nz, Jump_00f_66c0
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jp nz, Jump_00f_66fc
 
@@ -6225,19 +6225,19 @@ jr_00f_650a:
 
 
 Call_00f_6532:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jr nz, jr_00f_654c
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jr nz, jr_00f_6550
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jr nz, jr_00f_6554
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jr nz, jr_00f_6558
 

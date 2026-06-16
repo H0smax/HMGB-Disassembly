@@ -10087,7 +10087,7 @@ jr_017_6a64:
     or a
     nop
     nop
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
 
 jr_017_6a6d:
     ld b, e

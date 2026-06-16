@@ -688,7 +688,7 @@ Call_01d_433e:
     ld a, h
     ld [$cd29], a
     xor a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ld [$cd65], a
     xor a
     ld [$cd67], a
@@ -698,7 +698,7 @@ Call_01d_433e:
     jr z, jr_01d_43c4
 
     ld a, $01
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
 
 jr_01d_43c4:
     ld hl, $c000
@@ -962,11 +962,11 @@ jr_01d_44c5:
     pop hl
 
 jr_01d_44e3:
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     jr nz, jr_01d_44ec
 
     inc a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
 
 jr_01d_44ec:
     ld a, [$cd65]
@@ -1105,11 +1105,11 @@ Call_01d_45ac:
     ld hl, $cd63
     ld b, $04
     call Call_01d_433e
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     ret nz
 
     inc a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ret
 
 
@@ -1138,7 +1138,7 @@ jr_01d_45d3:
     or a
     jr z, jr_01d_45f0
 
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     dec a
     jr z, jr_01d_45f0
 
@@ -1148,7 +1148,7 @@ jr_01d_45d3:
     ld a, $48
     call Call_000_23d8
     ld a, $01
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
 
 jr_01d_45f0:
     dec hl
@@ -1161,7 +1161,7 @@ jr_01d_45f3:
     or a
     jr z, jr_01d_460f
 
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     or a
     jr z, jr_01d_460f
 
@@ -1171,7 +1171,7 @@ jr_01d_45f3:
     ld a, $48
     call Call_000_23d8
     xor a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
 
 jr_01d_460f:
     dec hl
@@ -1182,7 +1182,7 @@ jr_01d_460f:
 jr_01d_4612:
     ld a, $42
     call Call_000_23d8
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     add a
     add l
     ld l, a
@@ -1209,7 +1209,7 @@ Call_01d_4625:
 
 jr_01d_463d:
     ld b, $5c
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     or a
     jr z, jr_01d_4647
 
@@ -1236,7 +1236,7 @@ jr_01d_465a:
     and $03
     jr nz, jr_01d_465a
 
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     ldh [rSCX], a
     ld a, $75
     ldh [rLYC], a
@@ -1311,7 +1311,7 @@ Call_01d_4681:
     xor a
     ldh [hCameraY], a
     ld [$cd69], a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     jr jr_01d_4719
 
 jr_01d_46fd:
@@ -1326,12 +1326,12 @@ jr_01d_46fd:
     ld a, $05
     ld [$cd69], a
     ld a, $01
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
 
 jr_01d_4719:
     xor a
     ld [$cd65], a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ld [$cd67], a
     ld [$cd6a], a
     ld hl, $5682
@@ -2132,7 +2132,7 @@ Call_01d_4a98:
     ld a, [hl+]
     ld [$cd65], a
     ld a, [hl+]
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ret
 
 
@@ -2362,14 +2362,14 @@ Jump_01d_4bc4:
 jr_01d_4bc4:
     ld a, $48
     call Call_000_23d8
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     sub $01
     jr nc, jr_01d_4bd2
 
     ld a, $05
 
 jr_01d_4bd2:
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     pop hl
     dec hl
     dec hl
@@ -2380,7 +2380,7 @@ Jump_01d_4bd9:
 jr_01d_4bd9:
     ld a, $48
     call Call_000_23d8
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     inc a
     cp $06
     jr c, jr_01d_4be7
@@ -2388,7 +2388,7 @@ jr_01d_4bd9:
     xor a
 
 jr_01d_4be7:
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     pop hl
     dec hl
     dec hl
@@ -2712,12 +2712,12 @@ Call_01d_4d1f:
 
 
     ld a, $04
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ret
 
 
     xor a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ret
 
 
@@ -2746,15 +2746,15 @@ Call_01d_4d1f:
     ret
 
 
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     dec a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ret
 
 
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     inc a
-    ld [$cd66], a
+    ld [wContinueGame_TBD], a
     ret
 
 
@@ -3173,7 +3173,7 @@ Call_01d_4f68:
     ld hl, $4e74
 
 jr_01d_4f75:
-    ld a, [$cd66]
+    ld a, [wContinueGame_TBD]
     add a
     ld b, a
     add a
@@ -3300,7 +3300,7 @@ Call_01d_5003:
 
 
     xor a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ld h, b
     ld l, c
     ret
@@ -3316,7 +3316,7 @@ Call_01d_5003:
     ld h, b
     ld l, c
     push hl
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     ld b, a
     or a
     jr z, jr_01d_5020
@@ -3373,7 +3373,7 @@ jr_01d_5036:
 
 
 Jump_01d_5055:
-    ld hl, $cd64
+    ld hl, wKeepGameSave_TBD
     ld a, [hl]
     or a
     jr z, jr_01d_5063
@@ -3391,7 +3391,7 @@ jr_01d_5063:
 
 
 Jump_01d_5067:
-    ld hl, $cd64
+    ld hl, wKeepGameSave_TBD
     ld a, [hl]
     or a
     jr nz, jr_01d_5076
@@ -3445,7 +3445,7 @@ jr_01d_5092:
     ret
 
 
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     ld [$cd79], a
     ld h, b
     ld l, c
@@ -3454,7 +3454,7 @@ jr_01d_5092:
 
     ld h, b
     ld l, c
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     or a
     jr z, jr_01d_50b3
 
@@ -3521,7 +3521,7 @@ jr_01d_50df:
 
 Call_01d_50ed:
     ld bc, $482a
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     or a
     jr z, jr_01d_50f8
 
@@ -3573,7 +3573,7 @@ Call_01d_5104:
     ret
 
 
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     xor $01
     ld [$cd7a], a
     ld h, b
@@ -3583,7 +3583,7 @@ Call_01d_5104:
 
 Call_01d_5142:
     ld bc, $402e
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     or a
     jr z, jr_01d_514d
 
@@ -3643,7 +3643,7 @@ Call_01d_5159:
 
 
 jr_01d_5194:
-    ld hl, $cd64
+    ld hl, wKeepGameSave_TBD
     ld a, [hl]
     or a
     jr z, jr_01d_51a2
@@ -3661,7 +3661,7 @@ jr_01d_51a2:
 
 
 jr_01d_51a6:
-    ld hl, $cd64
+    ld hl, wKeepGameSave_TBD
     ld a, [hl]
     or a
     jr nz, jr_01d_51b5
@@ -3682,7 +3682,7 @@ Jump_01d_51b9:
     pop hl
     ld a, $42
     call SpawnDialogOrEvent
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     add a
     add l
     ld l, a
@@ -3711,7 +3711,7 @@ jr_01d_51cd:
 
 Call_01d_51db:
     ld bc, $681c
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     or a
     jr z, jr_01d_51e6
 
@@ -3940,7 +3940,7 @@ jr_01d_52c0:
     xor a
     ldh [hCameraY], a
     ld [$cd69], a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
     ld hl, $5359
     ld a, l
     ld [$cd28], a
@@ -4986,11 +4986,11 @@ jr_01d_57d8:
     ld b, $04
     call Call_01d_433e
     pop hl
-    ld a, [$cd64]
+    ld a, [wKeepGameSave_TBD]
     jr nz, jr_01d_58d1
 
     inc a
-    ld [$cd64], a
+    ld [wKeepGameSave_TBD], a
 
 jr_01d_58d1:
     ld a, [$cd65]
@@ -12413,7 +12413,7 @@ jr_01d_7bb6:
     ret nz
 
     ld [hl], h
-    ldh a, [$ff8c]
+    ldh a, [hPressedButtons_2_TBD]
     cp b
     inc b
     jr c, @+$06

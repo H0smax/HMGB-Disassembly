@@ -337,7 +337,7 @@ Call_004_4290:
 
 
 jr_004_42b8:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $02
     jr z, jr_004_42d5
 
@@ -367,19 +367,19 @@ jr_004_42d5:
 
 
 jr_004_42df:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jp nz, Jump_004_4306
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jp nz, Jump_004_433e
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jp nz, Jump_004_4376
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jp nz, Jump_004_43ae
 
@@ -537,19 +537,19 @@ jr_004_43e2:
 
 
 Call_004_43e6:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jr nz, jr_004_4400
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jr nz, jr_004_4404
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jr nz, jr_004_4408
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jr nz, jr_004_440c
 
@@ -2089,7 +2089,7 @@ jr_004_4cec:
 
 
 jr_004_4d2c:
-    ld a, [$cc1b]
+    ld a, [wTVRelated_4_TBD]
     cp $00
     jr z, jr_004_4d34
 

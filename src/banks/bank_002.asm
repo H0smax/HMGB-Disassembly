@@ -161,7 +161,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld [$c910], a
     xor a
     ld [$c911], a
-    call Call_000_0491
+    call UpdateHourText_TBD
     call Call_000_054a
     call Call_000_05e2
     ld a, [$ccc2]
@@ -3004,7 +3004,7 @@ jr_002_4f7c:
     ld [wTimePaused_TBD], a
     ld [$cb52], a
     ld [$cb76], a
-    ld [$cb78], a
+    ld [wTVRelated_3_TBD], a
     ld [$cb7a], a
     ld [$cb7b], a
     ld [$cb7c], a
@@ -3072,7 +3072,7 @@ jr_002_5064:
     call Call_002_655c
     call Call_002_63e3
     call $62bf
-    call Call_000_0491
+    call UpdateHourText_TBD
     ld a, $83
     ld [$c0a2], a
     ld a, $ff
@@ -3083,8 +3083,8 @@ jr_002_5064:
     ld [$cb55], a
     xor a
     ld [wTimePaused_TBD], a
-    ld [$cb5f], a
-    call Call_000_3e2a
+    ld [wTVRelated_2_TBD], a
+    call CloseDialogBox_TBD
     call Call_000_3d18
     ld a, $40
     ldh [rSTAT], a
@@ -3385,7 +3385,7 @@ Call_002_5250:
 
 
 jr_002_527f:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $02
     jr z, jr_002_5289
 
@@ -3403,19 +3403,19 @@ jr_002_5289:
 
 
 jr_002_5293:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jp nz, Jump_002_52ba
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jp nz, Jump_002_5300
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jp nz, Jump_002_5346
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jp nz, Jump_002_538c
 
@@ -3605,19 +3605,19 @@ Call_002_53d2:
     call Call_000_23d8
 
 jr_002_53e5:
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $80
     jr nz, jr_002_53ff
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $20
     jr nz, jr_002_5403
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $10
     jr nz, jr_002_5407
 
-    ldh a, [$ff8a]
+    ldh a, [hPressedButtons_TBD]
     and $40
     jr nz, jr_002_540b
 
@@ -4372,14 +4372,14 @@ jr_002_5822:
 Jump_002_582b:
     ld a, $00
     call Call_000_166a
-    ld a, [$cb78]
+    ld a, [wTVRelated_3_TBD]
     or a
     ret nz
 
     ld a, $80
     ld [$cb76], a
     ld a, $01
-    ld [$cb78], a
+    ld [wTVRelated_3_TBD], a
     ld a, $10
     ld [$c912], a
     ret
@@ -5258,7 +5258,7 @@ Call_002_5c7e:
     or a
     ret z
 
-    ld a, [$cb78]
+    ld a, [wTVRelated_3_TBD]
     or a
     jr nz, jr_002_5c96
 
@@ -5373,7 +5373,7 @@ jr_002_5d13:
 
 Jump_002_5d1e:
     xor a
-    ld [$cb78], a
+    ld [wTVRelated_3_TBD], a
     ld hl, $5aee
     jr jr_002_5d27
 
@@ -7159,7 +7159,7 @@ jr_002_6736:
     ld [sTimerMinutes], a
     ld a, $06
     ld [sCurrentHour], a
-    call Call_000_0491
+    call UpdateHourText_TBD
     ld a, [sCurrentDay]
     inc a
     ld [sCurrentDay], a
@@ -7201,7 +7201,7 @@ jr_002_6794:
     ld [sTimerMinutes], a
     ld a, $06
     ld [sCurrentHour], a
-    call Call_000_0491
+    call UpdateHourText_TBD
     xor a
     ld [$ba40], a
     ret
