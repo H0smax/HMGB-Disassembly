@@ -88,6 +88,7 @@ test: build
 	@echo "Verifying ROM checksum..."
 	@cd build && md5sum -c ../HMGB.md5
 	@echo "OK — ROM matches the original."
+	python3 ./tools/progress.py
 
 clean:
 	rm -f $(ROM) $(ROM:.gb=.sym) $(ROM:.gb=.map)
