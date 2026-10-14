@@ -12448,7 +12448,7 @@ jr_007_7825:
     call ClearMem
     call Call_000_208a
     call Call_000_222e
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     ld hl, $791c
     call Call_000_21f3
     call Call_000_222e
@@ -12481,7 +12481,7 @@ jr_007_7825:
     call Call_000_22f4
 
 jr_007_78b8:
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     ld hl, $9000
     ld bc, $0010
     call ClearMem
@@ -12494,7 +12494,7 @@ jr_007_78b8:
     ldh [rOBP1], a
     call Call_000_208a
     call Call_000_222e
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     ld hl, $793c
     call Call_000_21f3
     call Call_000_222e

@@ -434,7 +434,7 @@ Start_::
     call MusicRelated_TBD
     ld a, $02
     ldh [$ff8d], a
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     xor a
     ldh [rSCY], a
     ldh [rSCX], a
@@ -459,7 +459,7 @@ Start_::
 jr_000_01ac:
     di
 
-Jump_000_01ad:
+SoftReset_TBD::
     di
     xor a
 
@@ -473,7 +473,7 @@ Jump_000_01af:
     ldh [$ff8d], a
 
 Call_000_01c1:
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     xor a
     ldh [rSCY], a
     ldh [rSCX], a
@@ -490,7 +490,7 @@ Call_000_01d5:
     ld [$4000], a
     ld a, $20
     ld [wMapIndex_TBD], a
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     push hl
     push af
     ld l, $31
@@ -502,7 +502,7 @@ Call_000_01d5:
 
 Jump_000_01f7:
     di
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     push hl
     push af
 
@@ -565,13 +565,13 @@ Jump_000_0245:
     call Call_000_208a
     ei
 
-Jump_000_024d:
+IdleLoop_TBD::
     ld a, [wActivateTransitionBetweenMaps_TBD]
 
 Call_000_0250:
     or a
     or a
-    jp z, Jump_000_024d
+    jp z, IdleLoop_TBD
 
     jp Jump_000_01f7
 
@@ -720,7 +720,7 @@ jr_000_0346:
     ldh a, [hPressedButtons_TBD]
     and $0f
     cp $0f
-    jp z, Jump_000_01ad
+    jp z, SoftReset_TBD
 
     xor a
     ldh [$ff8d], a
@@ -6727,7 +6727,7 @@ jr_000_206d:
     ret
 
 
-Call_000_2071:
+CheckIfScreenOffAndDisableVBlankInterrupt_TBD::
     ld hl, $ff40
     bit 7, [hl]
     ret z
@@ -6737,10 +6737,10 @@ Call_000_2071:
     res 0, a
     ldh [rIE], a
 
-jr_000_207e:
+TurnOffScreen_TBD::
     ldh a, [rLY]
     cp $91
-    jr nz, jr_000_207e
+    jr nz, TurnOffScreen_TBD
 
     res 7, [hl]
     pop af
@@ -7274,7 +7274,7 @@ jr_000_2290:
     nop
     push de
     push hl
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     pop hl
     ld a, $e4
 
@@ -7319,7 +7319,7 @@ Call_000_22f4:
     push de
     push af
     push hl
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     pop hl
     ld a, $e4
     ldh [rBGP], a
@@ -10106,7 +10106,7 @@ jr_000_2fd8:
     call $ffee
     rst RST_38
     cp $ed
-    jp z, Jump_000_3285
+    jp z, $3285
 
     ld de, $0100
     inc hl
@@ -10647,7 +10647,7 @@ LCDCInterruptHandler::
     add e
     ld e, a
     ld d, $00
-    ld hl, $3256
+    ld hl, UnknownTable_TBD_C
     add hl, de
     ld a, [hl+]
     ld e, a
@@ -10681,87 +10681,15 @@ Call_000_3255:
     jp hl
 
 
-    call nc, Call_000_0032
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    rrca
-    ld e, d
-    ld b, $d4
-    ld [hl-], a
-    nop
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    add d
-    ld [hl], d
-    rra
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    add d
-    ld [hl], d
-
-Jump_000_3285:
-    rra
-    ld c, a
-    ld b, e
-    dec e
-    ld d, b
-    ld b, [hl]
-    dec e
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    and a
-    ld l, b
-    add hl, bc
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    call nc, Call_000_0032
-    add d
-    ld [hl], d
-    rra
-    call nc, Call_000_0032
-    add d
-    ld [hl], d
-    rra
-    ret
-
+UnknownTable_TBD_C::
+    db $d4, $32, $00, $82, $72, $1f, $82, $72, $1f, $82, $72, $1f, $82, $72, $1f, $82
+    db $72, $1f, $0f, $5a, $06, $d4, $32, $00, $82, $72, $1f, $82, $72, $1f, $82, $72
+    db $1f, $82, $72, $1f, $82, $72, $1f, $d4, $32, $00, $d4, $32, $00, $82, $72, $1f
+    db $4f, $43, $1d, $50, $46, $1d, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4
+    db $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32
+    db $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00
+    db $d4, $32, $00, $a7, $68, $09, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4
+    db $32, $00, $d4, $32, $00, $82, $72, $1f, $d4, $32, $00, $82, $72, $1f, $c9
 
 Call_000_32d5:
     ldh a, [hPressedButtons_TBD]

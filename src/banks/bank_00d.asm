@@ -5331,7 +5331,7 @@ jr_00d_58e9:
     nop
     jr nz, jr_00d_58e9
 
-    ld a, [$2071]
+    ld a, [CheckIfScreenOffAndDisableVBlankInterrupt_TBD]
     ld a, [$7002]
     jr nz, jr_00d_58e9
 

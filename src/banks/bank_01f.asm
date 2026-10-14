@@ -2144,7 +2144,7 @@ Call_01f_4a88:
 
 
     push bc
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     ld b, $0b
     ld hl, $9822
 

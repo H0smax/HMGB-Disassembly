@@ -3603,7 +3603,7 @@ Call_006_4f86:
     ld l, a
     ld h, d
     push hl
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     pop hl
     ld de, $9822
     call Call_006_54b8

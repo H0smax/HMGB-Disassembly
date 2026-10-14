@@ -2157,7 +2157,7 @@ Call_01d_4a98:
     call Call_000_21f3
 
 jr_01d_4acd:
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     pop hl
     ld a, [hl+]
     ldh [hCameraX], a

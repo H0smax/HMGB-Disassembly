@@ -5137,7 +5137,7 @@ Call_009_5a71:
     call Call_000_21f3
 
 jr_009_5a86:
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     pop hl
     ld de, $9822
     ld b, $0b
@@ -6354,7 +6354,7 @@ jr_009_5fc5:
     ld [$cd67], a
     ld bc, $6073
     call Call_009_5a71
-    call Call_000_2071
+    call CheckIfScreenOffAndDisableVBlankInterrupt_TBD
     ld a, $af
     ld hl, $9922
     ld b, $10
