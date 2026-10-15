@@ -9,7 +9,9 @@
 [contributors]: https://github.com/H0smax/HMGB-Disassembly/graphs/contributors
 [contributors-badge]: https://img.shields.io/github/contributors/H0smax/HMGB-Disassembly
 
-This is a work in progress implementation of Harvest Moon GB disassembly. The goal is to learn more about reverse engineering and how to disassemble games.
+This is a work in progress implementation of Harvest Moon GB disassembly. The goal of this project is to learn more about reverse engineering and how to disassemble games. I'm currently working on the japanese version of this game.
+
+For reference, the compiled game should have the same md5 as the following one: `6633ea57f86c4a117f0b027da68bda92`
 
 ## Detailed progress
 <!-- progress:readme_progress_start -->
