@@ -13,11 +13,11 @@ This is a work in progress implementation of Harvest Moon GB disassembly. The go
 
 ## Detailed progress
 <!-- progress:readme_progress_start -->
-**Labels with a real name: 0.75%** (95 of 12635)
+**Labels with a real name: 0.77%** (97 of 12635)
 
 | Bank | Named | Total | % |
 | ---- | ----: | ----: | -: |
-| 00 | 77 | 1064 | 7.24% |
+| 00 | 79 | 1064 | 7.42% |
 | 01 | 3 | 519 | 0.58% |
 | 02 | 1 | 583 | 0.17% |
 | 03 | 1 | 510 | 0.20% |

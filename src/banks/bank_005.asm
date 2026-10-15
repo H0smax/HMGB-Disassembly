@@ -5816,7 +5816,7 @@ jr_005_607d:
     ld b, $ff
 
 jr_005_607f:
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
 
 Jump_005_6082:
     ld a, [$c766]
@@ -5970,7 +5970,7 @@ jr_005_6149:
 
     ld hl, $c766
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     jp Jump_005_6082
 
 
@@ -5986,7 +5986,7 @@ jr_005_615e:
 
     ld hl, $c766
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     jp Jump_005_6082
 
 
@@ -6002,7 +6002,7 @@ jr_005_6178:
 
     ld hl, $c766
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     jp Jump_005_6082
 
 
@@ -6014,10 +6014,10 @@ jr_005_6192:
     call Call_000_15f6
     ld hl, $c766
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, $c768
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     jp Jump_005_6082
 
 
@@ -6031,10 +6031,10 @@ Jump_005_61ad:
 
     ld hl, $c766
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, $c768
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
 
 jr_005_61c6:
     call Call_005_61e0
@@ -6761,28 +6761,28 @@ jr_005_65f3:
 Call_005_6608:
     ld hl, $c808
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
 Call_005_6612:
     ld hl, $c806
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
 Call_005_661c:
     ld hl, $c806
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
 Call_005_6626:
     ld hl, $c808
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -6978,7 +6978,7 @@ jr_005_6766:
 
     ld hl, $c806
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -7036,7 +7036,7 @@ jr_005_67bc:
 
     ld hl, $c806
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -7085,28 +7085,28 @@ Call_005_67fb:
 
     ld hl, $c808
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
 jr_005_6819:
     ld hl, $c808
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
 jr_005_6823:
     ld hl, $c806
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
 jr_005_682d:
     ld hl, $c806
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 

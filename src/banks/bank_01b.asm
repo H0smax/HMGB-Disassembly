@@ -1143,9 +1143,9 @@ jr_01b_453f:
     ld [bc], a
     inc b
     push bc
-    ld a, [$b8ee]
+    ld a, [sMaxEnergy_TBD]
     ld d, a
-    ld a, [$b8ed]
+    ld a, [sCurrentEnergy]
     add $0a
     cp d
     jr c, jr_01b_4582
@@ -1153,7 +1153,7 @@ jr_01b_453f:
     ld a, d
 
 jr_01b_4582:
-    ld [$b8ed], a
+    ld [sCurrentEnergy], a
     ld a, [$b8f2]
     add $0a
     jr nc, jr_01b_458e
@@ -1172,14 +1172,14 @@ jr_01b_458e:
 
 
     push bc
-    ld a, [$b8ed]
+    ld a, [sCurrentEnergy]
     sub $0a
     jr nc, jr_01b_459f
 
     xor a
 
 jr_01b_459f:
-    ld [$b8ed], a
+    ld [sCurrentEnergy], a
     ld a, [$b8f2]
     sub $0a
     jr nc, jr_01b_45aa
@@ -1233,7 +1233,7 @@ jr_01b_45d5:
 
     ld h, b
     ld l, c
-    ld a, [$b8ee]
+    ld a, [sMaxEnergy_TBD]
     ld e, a
     ld d, a
     ld a, [hl+]
@@ -1246,7 +1246,7 @@ jr_01b_45e5:
     jr nz, jr_01b_45e5
 
 jr_01b_45ea:
-    ld a, [$b8ed]
+    ld a, [sCurrentEnergy]
     add e
     cp d
     jr c, jr_01b_45f2
@@ -1254,7 +1254,7 @@ jr_01b_45ea:
     ld a, d
 
 jr_01b_45f2:
-    ld [$b8ed], a
+    ld [sCurrentEnergy], a
     ret
 
 

@@ -925,14 +925,14 @@ jr_00e_45a7:
     cp $ff
     jr z, jr_00e_460e
 
-    ld a, [$b8ed]
+    ld a, [sCurrentEnergy]
     or a
     jr nz, jr_00e_45c8
 
     ld a, $01
     ld [$c912], a
     ld b, $00
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
 
 jr_00e_45c8:
     ld a, [wTVRelated_4_TBD]
@@ -5330,7 +5330,7 @@ Jump_00e_5f4a:
     or a
     jr nz, jr_00e_5fed
 
-    ld a, [$b8ed]
+    ld a, [sCurrentEnergy]
     or a
     jr z, jr_00e_5fa7
 
@@ -5343,9 +5343,9 @@ Jump_00e_5f4a:
     ld a, $01
     ld [$cc72], a
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ret
 
 
@@ -5353,7 +5353,7 @@ jr_00e_5fa7:
     ld a, $01
     ld [$c912], a
     ld b, $00
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ret
 
 

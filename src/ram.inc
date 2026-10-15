@@ -11,6 +11,8 @@ DEF sCurrentSeason EQU $b884
 DEF sCurrentYear EQU $b885
 DEF sDayRelated_TBD EQU $b88b
 DEF sCurrentWeather EQU $b8a0
+DEF sCurrentEnergy EQU $b8ed
+DEF sMaxEnergy_TBD EQU $b8ee
 DEF sCurrentMoneyL EQU $b8ef
 DEF sCurrentMoneyM EQU $b8f0
 DEF sCurrentMoneyH EQU $b8f1

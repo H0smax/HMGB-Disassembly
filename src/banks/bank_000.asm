@@ -2283,7 +2283,7 @@ jr_000_0a22:
     ret
 
 
-Call_000_0a27:
+CopyBCtoHLAddress_TBD::
     ld a, [hl]
     add c
     ld [hl+], a
@@ -2984,8 +2984,8 @@ NewGame::
     ld a, $80
     ld [$b8eb], a
     ld a, $64
-    ld [$b8ed], a
-    ld [$b8ee], a
+    ld [sCurrentEnergy], a
+    ld [sMaxEnergy_TBD], a
     ld a, $01
     ld [sHideInfoBox_TBD], a
     xor a
@@ -3638,7 +3638,7 @@ jr_000_11c1:
 jr_000_11c6:
     ld hl, $cbe2
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$ccc4]
     cp $02
     jr nc, jr_000_11ee
@@ -5233,22 +5233,22 @@ jr_000_19f4:
     ret
 
 
-Call_000_19f9:
-    ld a, [$b8ed]
+TryConsumeEnergy_Tool_TBD::
+    ld a, [sCurrentEnergy]
     or a
     jp z, Jump_000_1ab0
 
     sub b
-    ld [$b8ed], a
+    ld [sCurrentEnergy], a
 
-Jump_000_1a04:
+LimitEnergySubstractionToZero_TBD::
     jr nc, jr_000_1a0a
 
     xor a
-    ld [$b8ed], a
+    ld [sCurrentEnergy], a
 
 jr_000_1a0a:
-    ld a, [$b8ed]
+    ld a, [sCurrentEnergy]
     ld c, a
     ld a, b
     cp $01
@@ -5467,9 +5467,9 @@ jr_000_1ae4:
     add b
     jr c, jr_000_1af9
 
-    ld [$b8ed], a
+    ld [sCurrentEnergy], a
     ld b, a
-    ld a, [$b8ee]
+    ld a, [sMaxEnergy_TBD]
     cp b
     jr c, jr_000_1af9
 
@@ -5477,8 +5477,8 @@ jr_000_1ae4:
 
 
 jr_000_1af9:
-    ld a, [$b8ee]
-    ld [$b8ed], a
+    ld a, [sMaxEnergy_TBD]
+    ld [sCurrentEnergy], a
     ret
 
 
@@ -10106,7 +10106,7 @@ jr_000_2fd8:
     call $ffee
     rst RST_38
     cp $ed
-    jp z, $3285
+    jp z, Jump_000_3285
 
     ld de, $0100
     inc hl
@@ -10647,7 +10647,7 @@ LCDCInterruptHandler::
     add e
     ld e, a
     ld d, $00
-    ld hl, UnknownTable_TBD_C
+    ld hl, $3256
     add hl, de
     ld a, [hl+]
     ld e, a
@@ -10681,15 +10681,87 @@ Call_000_3255:
     jp hl
 
 
-UnknownTable_TBD_C::
-    db $d4, $32, $00, $82, $72, $1f, $82, $72, $1f, $82, $72, $1f, $82, $72, $1f, $82
-    db $72, $1f, $0f, $5a, $06, $d4, $32, $00, $82, $72, $1f, $82, $72, $1f, $82, $72
-    db $1f, $82, $72, $1f, $82, $72, $1f, $d4, $32, $00, $d4, $32, $00, $82, $72, $1f
-    db $4f, $43, $1d, $50, $46, $1d, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4
-    db $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32
-    db $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00
-    db $d4, $32, $00, $a7, $68, $09, $d4, $32, $00, $d4, $32, $00, $d4, $32, $00, $d4
-    db $32, $00, $d4, $32, $00, $82, $72, $1f, $d4, $32, $00, $82, $72, $1f, $c9
+    call nc, Call_000_0032
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    rrca
+    ld e, d
+    ld b, $d4
+    ld [hl-], a
+    nop
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    add d
+    ld [hl], d
+    rra
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    add d
+    ld [hl], d
+
+Jump_000_3285:
+    rra
+    ld c, a
+    ld b, e
+    dec e
+    ld d, b
+    ld b, [hl]
+    dec e
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    and a
+    ld l, b
+    add hl, bc
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    call nc, Call_000_0032
+    add d
+    ld [hl], d
+    rra
+    call nc, Call_000_0032
+    add d
+    ld [hl], d
+    rra
+    ret
+
 
 Call_000_32d5:
     ldh a, [hPressedButtons_TBD]
@@ -11869,7 +11941,7 @@ Call_000_36cd:
 jr_000_36e9:
     ld hl, $cb53
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, $cb55
     inc [hl]
     ldh a, [$ffa4]
@@ -11923,7 +11995,7 @@ jr_000_3738:
     call Call_000_393d
     ld hl, $cb53
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     xor a
     ld [$cb55], a
     ld a, [$cb6e]

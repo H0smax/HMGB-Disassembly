@@ -8248,7 +8248,7 @@ jr_01f_6508:
     db $f4
     dec de
     nop
-    ld a, [$1a04]
+    ld a, [LimitEnergySubstractionToZero_TBD]
     nop
     ld a, [$19fc]
     nop

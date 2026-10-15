@@ -12505,7 +12505,7 @@ jr_01e_7729:
     ld c, e
 
 jr_01e_7764:
-    jp Jump_000_1a04
+    jp LimitEnergySubstractionToZero_TBD
 
 
     stop

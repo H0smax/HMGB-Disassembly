@@ -96,7 +96,7 @@ SECTION "ROM Bank $002", ROMX[$4000], BANK[$2]
     ld b, h
     ld c, l
     ld hl, $ba10
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     pop hl
     push hl
     call Call_000_316d
@@ -1404,8 +1404,8 @@ Call_002_4885:
 
 
 jr_002_488f:
-    ld a, [$b8ee]
-    ld [$b8ed], a
+    ld a, [sMaxEnergy_TBD]
+    ld [sCurrentEnergy], a
     ret
 
 
@@ -1831,7 +1831,7 @@ jr_002_4a8b:
     ld [hl], a
     ld hl, $b93a
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     pop hl
     jr jr_002_4a87
 
@@ -3285,7 +3285,7 @@ jr_002_51b7:
     ld c, a
     ld b, $ff
     ld hl, wCameraXPosition
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -3300,10 +3300,10 @@ jr_002_51dc:
     ld [$c60b], a
     ld hl, wCameraXPosition
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff3
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -3329,7 +3329,7 @@ jr_002_5204:
     ld c, a
     ld b, $ff
     ld hl, wCameraXPosition
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -6771,14 +6771,14 @@ jr_002_64f8:
     ldh [hCameraX], a
     ld hl, wCameraXPosition
     ld bc, $0002
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [wPlayerXPosition]
     inc a
     inc a
     ld [wPlayerXPosition], a
     ld hl, $c7a6
     ld bc, $0002
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, $cb8e
     dec [hl]
     ld a, $01
@@ -6802,10 +6802,10 @@ jr_002_6537:
     ld [wPlayerXPosition], a
     ld hl, wCameraXPosition
     ld bc, $fffe
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, $c7a6
     ld bc, $fffe
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, $cb8e
     dec [hl]
     ret
@@ -8035,14 +8035,14 @@ Call_002_6b19:
     or a
     jp nz, Jump_002_6b8d
 
-    ld a, [$b8ee]
+    ld a, [sMaxEnergy_TBD]
     ld l, a
     ld h, $00
     ld a, $05
     call Call_000_06ce
     ld b, l
     call $1ae8
-    ld a, [$b8ee]
+    ld a, [sMaxEnergy_TBD]
     ld l, a
     ld h, $00
     ld a, $0a

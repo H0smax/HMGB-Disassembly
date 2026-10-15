@@ -10538,7 +10538,7 @@ jr_007_6c9f:
     call Call_000_3e54
     ld a, $01
     ld [$cbf6], a
-    ld a, [$b8ee]
+    ld a, [sMaxEnergy_TBD]
     srl a
     srl a
     ld b, a
@@ -10780,7 +10780,7 @@ jr_007_6e81:
     call Call_000_393d
     ld hl, $cb53
     ld bc, $0026
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     xor a
     ld [$cb55], a
     ld [$b8fe], a
@@ -10796,7 +10796,7 @@ jr_007_6e95:
 
     ld hl, $b938
     ld bc, $fed4
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, sCurrentMoneyL
     ld bc, $ec78
     call Call_000_0a14
@@ -10808,7 +10808,7 @@ jr_007_6e95:
 jr_007_6eba:
     ld hl, $b938
     ld bc, $ff9c
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld hl, sCurrentMoneyL
     ld bc, $f63c
     call Call_000_0a14
@@ -11038,7 +11038,7 @@ jr_007_7024:
     call Call_000_393d
     ld hl, $cb53
     ld bc, $0026
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     xor a
     ld [$cb55], a
     jr jr_007_7098
@@ -11313,7 +11313,7 @@ Jump_007_7200:
     ld [$c611], a
     ld hl, wPlayerXPosition
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -11326,7 +11326,7 @@ Jump_007_7216:
     ld [$c611], a
     ld hl, wPlayerXPosition
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$c90d]
     or a
     ret z
@@ -11345,7 +11345,7 @@ Jump_007_7235:
     ld [$c611], a
     ld hl, wPlayerXPosition
     ld bc, $ffff
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 
@@ -11368,7 +11368,7 @@ Jump_007_7258:
     ld [$c611], a
     ld hl, $c60b
     ld bc, $0001
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ret
 
 

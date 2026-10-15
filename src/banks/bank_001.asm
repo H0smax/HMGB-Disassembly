@@ -1667,11 +1667,11 @@ Call_001_4a65:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0015
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6815
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffeb
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jp nz, Jump_001_4b9c
@@ -1682,11 +1682,11 @@ Call_001_4a65:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6815
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jp nz, Jump_001_4b9c
@@ -1701,11 +1701,11 @@ Call_001_4a65:
 jr_001_4ac1:
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffec
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_681e
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0014
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jp nz, Jump_001_4b9c
@@ -1716,11 +1716,11 @@ jr_001_4ac1:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_681e
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jp nz, Jump_001_4b9c
@@ -1735,11 +1735,11 @@ jr_001_4ac1:
 Jump_001_4b0c:
     ld hl, wCameraXPosition
     ld bc, $0014
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6827
     ld hl, wCameraXPosition
     ld bc, $ffec
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jr nz, jr_001_4b9c
@@ -1750,11 +1750,11 @@ Jump_001_4b0c:
 
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6827
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jr nz, jr_001_4b9c
@@ -1769,11 +1769,11 @@ Jump_001_4b0c:
 Jump_001_4b55:
     ld hl, wCameraXPosition
     ld bc, $ffec
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6830
     ld hl, wCameraXPosition
     ld bc, $0014
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jr nz, jr_001_4b9c
@@ -1784,11 +1784,11 @@ Jump_001_4b55:
 
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6830
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb38]
     and $01
     jr nz, jr_001_4b9c
@@ -1838,11 +1838,11 @@ jr_001_4bb5:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_150b
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1852,11 +1852,11 @@ jr_001_4bb5:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0010
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_150b
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff0
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1866,11 +1866,11 @@ jr_001_4bb5:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_150b
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1901,11 +1901,11 @@ jr_001_4c41:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1514
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1915,11 +1915,11 @@ jr_001_4c41:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff0
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1514
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0010
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1929,11 +1929,11 @@ jr_001_4c41:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1514
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1964,11 +1964,11 @@ Jump_001_4cc8:
 
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1978,11 +1978,11 @@ Jump_001_4cc8:
 
     ld hl, wCameraXPosition
     ld bc, $0010
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $fff0
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -1992,11 +1992,11 @@ Jump_001_4cc8:
 
     ld hl, wCameraXPosition
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2026,11 +2026,11 @@ jr_001_4d51:
 
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2040,11 +2040,11 @@ jr_001_4d51:
 
     ld hl, wCameraXPosition
     ld bc, $fff0
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0010
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2054,11 +2054,11 @@ jr_001_4d51:
 
     ld hl, wCameraXPosition
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2088,11 +2088,11 @@ Jump_001_4dd6:
 
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2102,11 +2102,11 @@ Jump_001_4dd6:
 
     ld hl, wCameraXPosition
     ld bc, $fff0
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0010
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2116,11 +2116,11 @@ Jump_001_4dd6:
 
     ld hl, wCameraXPosition
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2150,11 +2150,11 @@ jr_001_4e5f:
 
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2164,11 +2164,11 @@ jr_001_4e5f:
 
     ld hl, wCameraXPosition
     ld bc, $0010
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $fff0
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2178,11 +2178,11 @@ jr_001_4e5f:
 
     ld hl, wCameraXPosition
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2254,11 +2254,11 @@ Jump_001_4f31:
 jr_001_4f48:
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2268,11 +2268,11 @@ jr_001_4f48:
 
     ld hl, wCameraXPosition
     ld bc, $fff2
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_151d
     ld hl, wCameraXPosition
     ld bc, $000e
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2325,11 +2325,11 @@ Jump_001_4fd6:
 Jump_001_4fe0:
     ld hl, wCameraXPosition
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2339,11 +2339,11 @@ Jump_001_4fe0:
 
     ld hl, wCameraXPosition
     ld bc, $000e
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1526
     ld hl, wCameraXPosition
     ld bc, $fff2
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2388,11 +2388,11 @@ Jump_001_4fe0:
 Jump_001_506e:
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1514
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2409,11 +2409,11 @@ Jump_001_506e:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff2
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1514
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $000e
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2430,11 +2430,11 @@ Jump_001_506e:
 
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $ffe8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_1514
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0018
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2486,11 +2486,11 @@ Jump_001_506e:
 Jump_001_513d:
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0004
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_150b
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fffc
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2512,11 +2512,11 @@ Jump_001_513d:
 jr_001_516c:
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $0008
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_150b
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff8
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2538,11 +2538,11 @@ jr_001_516c:
 jr_001_519b:
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $000e
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_150b
     ld hl, wPlayerOrCameraYPosition_TBD
     ld bc, $fff2
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$cb30]
     ld b, a
     ld a, [$cb32]
@@ -2941,7 +2941,7 @@ Jump_001_5423:
     ld [$c912], a
     ld hl, $b938
     ld bc, $fffe
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_0fe5
     ld a, $35
     call Call_000_23d8
@@ -3532,7 +3532,7 @@ Jump_001_5753:
     call Call_000_166a
     ld hl, $b938
     ld bc, $0002
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_000_0fe5
     ld a, $36
     call Call_000_23d8
@@ -4060,22 +4060,22 @@ jr_001_5a68:
 jr_001_5a8e:
     ld hl, wCameraXPosition
     ld bc, $000a
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6839
     ld hl, wCameraXPosition
     ld bc, $fff6
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [de]
     cp $0e
     jr z, jr_001_5ac5
 
     ld hl, wCameraXPosition
     ld bc, $fff6
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     call Call_001_6839
     ld hl, wCameraXPosition
     ld bc, $000a
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [de]
     cp $0e
     jr z, jr_001_5acf
@@ -4687,7 +4687,7 @@ Jump_001_5ddd:
 
 Jump_001_5e7c:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     xor a
     ld [$cb45], a
     ld a, $06
@@ -4843,7 +4843,7 @@ jr_001_5f32:
 
 Jump_001_5f3c:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $07
     call Call_000_166a
     ld a, $34
@@ -4855,7 +4855,7 @@ Jump_001_5f3c:
 
 Jump_001_5f52:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     xor a
     ld [$cb45], a
     ld a, $08
@@ -4920,7 +4920,7 @@ jr_001_5fa3:
 
 Jump_001_5fa9:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     xor a
     ld [$cb45], a
     ld a, $09
@@ -4975,7 +4975,7 @@ jr_001_5fed:
 
 Jump_001_5ff3:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     xor a
     ld [$cb45], a
     ld a, $84
@@ -4989,7 +4989,7 @@ Jump_001_5ff3:
 
 Jump_001_600d:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $0d
     call Call_000_166a
     ld a, $44
@@ -5001,7 +5001,7 @@ Jump_001_600d:
 
 Jump_001_6023:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $85
     call Call_000_152f
     ld a, $56
@@ -5013,7 +5013,7 @@ Jump_001_6023:
 
 Jump_001_6039:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     xor a
     ld [$cb45], a
     ld a, $0f
@@ -5078,7 +5078,7 @@ jr_001_608a:
 
 Jump_001_6090:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     xor a
     ld [$cb45], a
     ld a, $0e
@@ -5133,7 +5133,7 @@ jr_001_60d4:
 
 Jump_001_60da:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $0b
     call Call_000_166a
     ld a, $64
@@ -5143,7 +5143,7 @@ Jump_001_60da:
 
 Jump_001_60ea:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $0c
     call Call_000_166a
     ld a, [$b908]
@@ -5225,7 +5225,7 @@ jr_001_6156:
 
 Jump_001_6167:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $14
     call Call_000_166a
     ld a, $32
@@ -5276,7 +5276,7 @@ jr_001_61ab:
 
 Jump_001_61b3:
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $0a
     call Call_000_166a
     ld a, $4c
@@ -5286,7 +5286,7 @@ Jump_001_61b3:
 
 Jump_001_61c3:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $16
     call Call_000_166a
     ld a, $35
@@ -5296,7 +5296,7 @@ Jump_001_61c3:
 
 Jump_001_61d3:
     ld b, $03
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $63
     call Call_000_152f
     ld a, $69
@@ -5321,7 +5321,7 @@ jr_001_61f5:
 
 
     ld b, $02
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $63
     call Call_000_152f
     ld a, $60
@@ -5372,7 +5372,7 @@ jr_001_623b:
 
 Jump_001_624b:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5394,7 +5394,7 @@ Jump_001_624b:
 
 Jump_001_6274:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5416,7 +5416,7 @@ Jump_001_6274:
 
 Jump_001_629e:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5438,7 +5438,7 @@ Jump_001_629e:
 
 Jump_001_62c8:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5466,7 +5466,7 @@ Call_001_62f2:
 
 Jump_001_62f8:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5488,7 +5488,7 @@ Jump_001_62f8:
 
 Jump_001_6322:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5510,7 +5510,7 @@ Jump_001_6322:
 
 Jump_001_634c:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5532,7 +5532,7 @@ Jump_001_634c:
 
 Jump_001_6376:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -5554,7 +5554,7 @@ Jump_001_6376:
 
 Jump_001_63a0:
     ld b, $01
-    call Call_000_19f9
+    call TryConsumeEnergy_Tool_TBD
     ld a, $3e
     call Call_000_152f
     ld a, $55
@@ -8850,7 +8850,7 @@ Jump_001_75ff:
     call $6cc4
     ld hl, $c806
     ld bc, $0004
-    call Call_000_0a27
+    call CopyBCtoHLAddress_TBD
     ld a, [$c80d]
     ld b, a
     add $0c

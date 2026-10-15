@@ -24,12 +24,15 @@
 00:0491 UpdateHourText_TBD
 00:0732 SetCameraAndWindow_TBD
 00:075A SetCurrentPalettes_TBD
+00:0A27 CopyBCtoHLAddress_TBD
 00:0CC0 SetNextMapIndex
 00:0D6A NewGame
 00:10A0 CheckCurrentMoney
 00:10C6 LimitMoney
 00:10D7 ResetMoney
 00:10E1 LoadMoney
+00:19f9 TryConsumeEnergy_Tool_TBD
+00:1A04 LimitEnergySubstractionToZero_TBD
 00:2059 DMARelated_TBD
 00:2067 DMARelated2_TBD
 00:2071 CheckIfScreenOffAndDisableVBlankInterrupt_TBD
@@ -137,6 +140,8 @@
 00:B93C sCurrentTool2
 00:B88B sDayRelated_TBD
 00:B8A0 sCurrentWeather
+00:B8ED sCurrentEnergy
+00:B8EE sMaxEnergy_TBD
 00:B8EF sCurrentMoneyL
 00:B8F0 sCurrentMoneyM
 00:B8F1 sCurrentMoneyH
