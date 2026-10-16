@@ -7663,7 +7663,7 @@ jr_005_6af3:
     ld [$0809], sp
     ld d, $17
     add l
-    ld [$1a0a], sp
+    ld [EnergySubstractionNonNegative_TBD], sp
     dec de
     ld bc, $1413
     nop

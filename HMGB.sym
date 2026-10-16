@@ -33,6 +33,8 @@
 00:10E1 LoadMoney
 00:19f9 TryConsumeEnergy_Tool_TBD
 00:1A04 LimitEnergySubstractionToZero_TBD
+00:1A0A EnergySubstractionNonNegative_TBD
+00:1AF9 RestoreEnergy
 00:2059 DMARelated_TBD
 00:2067 DMARelated2_TBD
 00:2071 CheckIfScreenOffAndDisableVBlankInterrupt_TBD
@@ -146,6 +148,10 @@
 00:B8F0 sCurrentMoneyM
 00:B8F1 sCurrentMoneyH
 00:B906 sHideInfoBox_TBD
+00:B912 sPointerCurrentSeasonRelated_L
+00:B913 sPointerCurrentSeasonRelated_H
+00:B914 sPointerCurrentDayRelated_L
+00:B915 sPointerCurrentDayRelated_H
 
 ; WRAM
 00:C0A3 wPaletteRelated

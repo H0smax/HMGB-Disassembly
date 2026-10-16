@@ -15,11 +15,11 @@ For reference, the compiled game should have the same md5 as the following one: 
 
 ## Detailed progress
 <!-- progress:readme_progress_start -->
-**Labels with a real name: 0.77%** (97 of 12635)
+**Labels with a real name: 0.78%** (99 of 12635)
 
 | Bank | Named | Total | % |
 | ---- | ----: | ----: | -: |
-| 00 | 79 | 1064 | 7.42% |
+| 00 | 81 | 1064 | 7.61% |
 | 01 | 3 | 519 | 0.58% |
 | 02 | 1 | 583 | 0.17% |
 | 03 | 1 | 510 | 0.20% |

@@ -1119,9 +1119,9 @@ Call_000_054a:
     ld de, $05a6
     add hl, de
     ld a, [hl+]
-    ld [$b914], a
+    ld [sPointerCurrentDayRelated_L], a
     ld a, [hl+]
-    ld [$b915], a
+    ld [sPointerCurrentDayRelated_H], a
     ld a, [sCurrentSeason]
     ld c, $1e
     call Call_000_071e
@@ -1238,9 +1238,9 @@ Call_000_05e2:
     ld de, $05f6
     add hl, de
     ld a, [hl+]
-    ld [$b912], a
+    ld [sPointerCurrentSeasonRelated_L], a
     ld a, [hl+]
-    ld [$b913], a
+    ld [sPointerCurrentSeasonRelated_H], a
     ret
 
 
@@ -5242,12 +5242,12 @@ TryConsumeEnergy_Tool_TBD::
     ld [sCurrentEnergy], a
 
 LimitEnergySubstractionToZero_TBD::
-    jr nc, jr_000_1a0a
+    jr nc, EnergySubstractionNonNegative_TBD
 
     xor a
     ld [sCurrentEnergy], a
 
-jr_000_1a0a:
+EnergySubstractionNonNegative_TBD::
     ld a, [sCurrentEnergy]
     ld c, a
     ld a, b
@@ -5465,18 +5465,18 @@ jr_000_1ae4:
     db $ed
     cp b
     add b
-    jr c, jr_000_1af9
+    jr c, RestoreEnergy
 
     ld [sCurrentEnergy], a
     ld b, a
     ld a, [sMaxEnergy_TBD]
     cp b
-    jr c, jr_000_1af9
+    jr c, RestoreEnergy
 
     ret
 
 
-jr_000_1af9:
+RestoreEnergy::
     ld a, [sMaxEnergy_TBD]
     ld [sCurrentEnergy], a
     ret
